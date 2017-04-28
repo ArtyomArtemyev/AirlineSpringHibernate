@@ -2,32 +2,22 @@ package by.netcracker.artemyev.entity;
 
 import javax.persistence.*;
 
+/**
+ * Class describes user
+ * @autor Artemyev Artoym
+ */
 @Entity
 @Table(name = "user")
 public class User {
-
-    @Id
-    @Column(name = "user_id", updatable = false, nullable = false)
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-
-    @Column(name = "login", updatable = false, nullable = false)
     private String login;
-
-    @Column(name = "password", updatable = false, nullable = false)
     private String password;
-
-    @Column(name = "mail", updatable = false, nullable = false)
     private String mail;
-
-    @ManyToOne
-    @JoinColumn(name = "user_role_id", nullable = false)
     private Role role;
 
-    public User() {
-        super();
-    }
-
+    @Id
+    @Column(name = "user_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public long getId() {
         return id;
     }
@@ -36,6 +26,7 @@ public class User {
         this.id = id;
     }
 
+    @Column(name = "login", nullable = false)
     public String getLogin() {
         return login;
     }
@@ -44,6 +35,7 @@ public class User {
         this.login = login;
     }
 
+    @Column(name = "password", nullable = false)
     public String getPassword() {
         return password;
     }
@@ -52,6 +44,7 @@ public class User {
         this.password = password;
     }
 
+    @Column(name = "mail", nullable = false)
     public String getMail() {
         return mail;
     }
@@ -60,11 +53,25 @@ public class User {
         this.mail = mail;
     }
 
+    @ManyToOne
+    @JoinColumn(name = "user_role_id", nullable = false)
     public Role getRole() {
         return role;
     }
 
     public void setRole(Role role) {
+        this.role = role;
+    }
+
+    public User() {
+        super();
+    }
+
+    public User(long id, String login, String password, String mail, Role role) {
+        this.id = id;
+        this.login = login;
+        this.password = password;
+        this.mail = mail;
         this.role = role;
     }
 
@@ -102,18 +109,20 @@ public class User {
     public int hashCode() {
         int result = 0;
         result = (int) this.getId() + 2;
+        result += this.getLogin().hashCode();
+        result += this.getPassword().hashCode();
+        result += this.getMail().hashCode();
+        result += this.getRole().hashCode();
         return result;
     }
 
     @Override
     public String toString() {
-        final StringBuilder stringBuilder = new StringBuilder("User{");
-        stringBuilder.append("id=").append(id);
-        stringBuilder.append(", login='").append(login).append('\'');
-        stringBuilder.append(", password='").append(password).append('\'');
-        stringBuilder.append(", mail='").append(mail).append('\'');
-        stringBuilder.append(", role=").append(role);
-        stringBuilder.append('}');
-        return stringBuilder.toString();
+        return "User{" + "id=" + id +
+                ", login='" + login + '\'' +
+                ", password='" + password + '\'' +
+                ", mail='" + mail + '\'' +
+                ", role=" + role +
+                '}';
     }
 }
