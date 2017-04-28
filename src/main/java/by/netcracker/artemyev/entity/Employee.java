@@ -122,7 +122,7 @@ public class Employee {
         return "Employee{" + "id=" + id +
                 ", name='" + name + '\'' +
                 ", surname='" + surname + '\'' +
-                ", gender=" + gender +
+                ", gender=" + gender +  + '\'' +
                 ", appointment=" + appointment +
                 '}';
     }
