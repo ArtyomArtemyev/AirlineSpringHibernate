@@ -3,28 +3,23 @@ package by.netcracker.artemyev.entity;
 import by.netcracker.artemyev.enumeration.EnumAppointment;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.List;
 
+/**
+ * Class describes appointment of employee
+ * @autor Artemyev Artoym
+ */
 @Entity
 @Table(name = "appointment")
-public class Appointment {
-
-    @Id
-    @Column(name = "appointment_id", updatable = false, nullable = false)
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class Appointment implements Serializable {
     private long id;
-
-    @Column(name = "name", updatable = false, nullable = false)
-    @Enumerated(EnumType.STRING)
     private EnumAppointment appointment;
-
-    @OneToMany(mappedBy = "appointment")
     private List<Employee> employeeList;
 
-    public Appointment() {
-        super();
-    }
-
+    @Id
+    @Column(name = "appointment_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public long getId() {
         return id;
     }
@@ -33,11 +28,30 @@ public class Appointment {
         this.id = id;
     }
 
+    @Column(name = "name", nullable = false)
+    @Enumerated(EnumType.STRING)
     public EnumAppointment getAppointment() {
         return appointment;
     }
 
     public void setAppointment(EnumAppointment appointment) {
+        this.appointment = appointment;
+    }
+
+    @OneToMany(mappedBy = "appointment")
+    public List<Employee> getEmployeeList() {
+        return employeeList;
+    }
+
+    public void setEmployeeList(List<Employee> employeeList) {
+        this.employeeList = employeeList;
+    }
+
+    public Appointment() {
+        super();
+    }
+
+    public Appointment(EnumAppointment appointment) {
         this.appointment = appointment;
     }
 
@@ -66,17 +80,15 @@ public class Appointment {
     public int hashCode() {
         int result = 0;
         result = (int) this.getId() + 2;
+        result += this.getAppointment().hashCode();
         return result;
     }
 
     @Override
     public String toString() {
-        final StringBuilder stringBuilder = new StringBuilder("Appointment{");
-        stringBuilder.append("id=").append(id);
-        stringBuilder.append(", appointment=").append(appointment);
-        stringBuilder.append(", employeeList=").append(employeeList);
-        stringBuilder.append('}');
-        return stringBuilder.toString();
+        return "Appointment{" + "id=" + id +
+                ", appointment=" + appointment +
+                '}';
     }
 
 }
