@@ -2,33 +2,22 @@ package by.netcracker.artemyev.entity;
 
 import javax.persistence.*;
 
+/**
+ * Class describes employee
+ * @autor Artemyev Artoym
+ */
 @Entity
 @Table(name = "employee")
 public class Employee {
-
-    @Id
-    @Column(name = "employee_id", updatable = false, nullable = false)
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-
-    @Column(name = "name", updatable = false, nullable = false)
     private String name;
-
-    @Column(name = "surname", updatable = false, nullable = false)
     private String surname;
-
-    @ManyToOne
-    @JoinColumn(name = "gender_id", nullable = false)
     private Gender gender;
-
-    @ManyToOne
-    @JoinColumn(name = "appointment_id", nullable = false)
     private Appointment appointment;
 
-    public Employee() {
-        super();
-    }
-
+    @Id
+    @Column(name = "employee_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public long getId() {
         return id;
     }
@@ -37,6 +26,7 @@ public class Employee {
         this.id = id;
     }
 
+    @Column(name = "name", nullable = false)
     public String getName() {
         return name;
     }
@@ -45,6 +35,7 @@ public class Employee {
         this.name = name;
     }
 
+    @Column(name = "surname", nullable = false)
     public String getSurname() {
         return surname;
     }
@@ -53,6 +44,8 @@ public class Employee {
         this.surname = surname;
     }
 
+    @ManyToOne
+    @JoinColumn(name = "gender_id", nullable = false)
     public Gender getGender() {
         return gender;
     }
@@ -61,11 +54,25 @@ public class Employee {
         this.gender = gender;
     }
 
+    @ManyToOne
+    @JoinColumn(name = "appointment_id", nullable = false)
     public Appointment getAppointment() {
         return appointment;
     }
 
     public void setAppointment(Appointment appointment) {
+        this.appointment = appointment;
+    }
+
+    public Employee() {
+        super();
+    }
+
+    public Employee(long id, String name, String surname, Gender gender, Appointment appointment) {
+        this.id = id;
+        this.name = name;
+        this.surname = surname;
+        this.gender = gender;
         this.appointment = appointment;
     }
 
@@ -103,19 +110,21 @@ public class Employee {
     public int hashCode() {
         int result = 0;
         result = (int) this.getId() + 2;
+        result += this.getName().hashCode();
+        result += this.getSurname().hashCode();
+        result += this.getAppointment().hashCode();
+        result += this.getGender().hashCode();
         return result;
     }
 
     @Override
     public String toString() {
-        final StringBuilder stringBuilder = new StringBuilder("Employee{");
-        stringBuilder.append("id=").append(id);
-        stringBuilder.append(", name='").append(name).append('\'');
-        stringBuilder.append(", surname='").append(surname).append('\'');
-        stringBuilder.append(", gender=").append(gender);
-        stringBuilder.append(", appointment=").append(appointment);
-        stringBuilder.append('}');
-        return stringBuilder.toString();
+        return "Employee{" + "id=" + id +
+                ", name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                ", gender=" + gender +
+                ", appointment=" + appointment +
+                '}';
     }
 
 }

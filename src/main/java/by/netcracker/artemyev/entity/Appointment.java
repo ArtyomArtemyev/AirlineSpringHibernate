@@ -51,7 +51,8 @@ public class Appointment implements Serializable {
         super();
     }
 
-    public Appointment(EnumAppointment appointment) {
+    public Appointment(long id, EnumAppointment appointment) {
+        this.id = id;
         this.appointment = appointment;
     }
 
