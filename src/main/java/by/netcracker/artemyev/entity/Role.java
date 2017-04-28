@@ -5,26 +5,20 @@ import by.netcracker.artemyev.enumeration.EnumRole;
 import javax.persistence.*;
 import java.util.List;
 
+/**
+ * Class describes role of users
+ * @autor Artemyev Artoym
+ */
 @Entity
 @Table(name = "user_role")
 public class Role {
-
-    @Id
-    @Column(name = "user_id", updatable = false, nullable = false)
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-
-    @Column(name = "name", updatable = false, nullable = false)
-    @Enumerated(EnumType.STRING)
     private EnumRole enumRole;
-
-    @OneToMany(mappedBy = "role")
     private List<User> userList;
 
-    public Role() {
-        super();
-    }
-
+    @Id
+    @Column(name = "user_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public long getId() {
         return id;
     }
@@ -33,11 +27,31 @@ public class Role {
         this.id = id;
     }
 
+    @Column(name = "name", updatable = false, nullable = false)
+    @Enumerated(EnumType.STRING)
     public EnumRole getEnumRole() {
         return enumRole;
     }
 
     public void setEnumRole(EnumRole enumRole) {
+        this.enumRole = enumRole;
+    }
+
+    @OneToMany(mappedBy = "role")
+    public List<User> getUserList() {
+        return userList;
+    }
+
+    public void setUserList(List<User> userList) {
+        this.userList = userList;
+    }
+
+    public Role() {
+        super();
+    }
+
+    public Role(long id, EnumRole enumRole) {
+        this.id = id;
         this.enumRole = enumRole;
     }
 
@@ -66,16 +80,15 @@ public class Role {
     public int hashCode() {
         int result = 0;
         result = (int) this.getId() + 2;
+        result += this.getEnumRole().hashCode();
         return result;
     }
 
     @Override
     public String toString() {
-        final StringBuilder stringBuilder = new StringBuilder("Role{");
-        stringBuilder.append("id=").append(id);
-        stringBuilder.append(", enumRole=").append(enumRole);
-        stringBuilder.append(", userList=").append(userList);
-        stringBuilder.append('}');
-        return stringBuilder.toString();
+        return "Role{" + "id=" + id +
+                ", enumRole=" + enumRole +
+                '}';
     }
+
 }
