@@ -7,4 +7,5 @@ public final class Statement {
     public static final String GET_ALL_EMPLOYEES = "from Employee";
     public static final String GET_ALL_GENDERS = "from Gender";
     public static final String GET_ALL_TEAMS = "from Team";
+    public static final String GET_ALL_FLIGHTS = "from Flight";
 }
