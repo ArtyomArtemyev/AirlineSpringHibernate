@@ -12,7 +12,9 @@
        http://www.springframework.org/schema/util
 	   http://www.springframework.org/schema/util/spring-util.xsd">
 
-    <mvc:resources mapping="/resources/**" location="/resources/" />
+    <mvc:resources mapping="/resources/**" location="/resources/"/>
+
+    <context:annotation-config/>
 
     <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource" >
         <property name="driverClassName" value="com.mysql.jdbc.Driver" />
@@ -21,8 +23,9 @@
         <property name="password" value="root" />
     </bean>
 
-    <bean id="emf" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+    <bean id="entityManager" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
         <property name="dataSource" ref="dataSource" />
+        <property name="packagesToScan" value="by.netcracker.artemyev" />
         <property name="jpaVendorAdapter">
             <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
                 <property name="showSql" value="true" />
@@ -33,5 +36,6 @@
     </bean>
 
     <bean class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor" />
+    <bean id="appointmentDao" class="by.netcracker.artemyev.dao.AppointmentDao" />
 
 </beans>

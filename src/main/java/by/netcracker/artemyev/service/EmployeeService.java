@@ -8,7 +8,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
-@Service("EmployeeService")
+@Transactional(readOnly = true)
+@Service("employeeService")
 public class EmployeeService implements GeneralService<Employee> {
 
     @Autowired
@@ -32,13 +33,11 @@ public class EmployeeService implements GeneralService<Employee> {
         employeeDao.remove(object);
     }
 
-    @Transactional
     @Override
     public Employee getById(int id) {
         return employeeDao.getById(id);
     }
 
-    @Transactional
     @Override
     public List<Employee> getAll() {
         return employeeDao.getAll();
