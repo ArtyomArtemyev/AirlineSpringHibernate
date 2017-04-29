@@ -1,6 +1,7 @@
 package by.netcracker.artemyev.entity;
 
 import javax.persistence.*;
+import java.util.List;
 
 /**
  * Class describes employee team for flight
@@ -11,6 +12,7 @@ import javax.persistence.*;
 public class Team {
     private long id;
     private String idMembers;
+    private List<Flight> flightList;
 
     @Id
     @Column(name = "team_id")
@@ -30,6 +32,15 @@ public class Team {
 
     public void setIdMembers(String idMembers) {
         this.idMembers = idMembers;
+    }
+
+    @OneToMany(mappedBy = "team")
+    public List<Flight> getFlightList() {
+        return flightList;
+    }
+
+    public void setFlightList(List<Flight> flightList) {
+        this.flightList = flightList;
     }
 
     public Team() {
@@ -76,4 +87,5 @@ public class Team {
                 ", idMembers='" + idMembers +
                 '}';
     }
+
 }
