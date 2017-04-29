@@ -34,7 +34,7 @@ public class Flight {
     }
 
     @ManyToOne
-    @JoinColumn(name = "team_id", nullable = false)
+    @JoinColumn(name = "team_id")
     public Team getTeam() {
         return team;
     }
@@ -85,4 +85,5 @@ public class Flight {
         result += this.getTeam().hashCode();
         return result;
     }
+
 }
