@@ -10,16 +10,19 @@
 	   http://www.springframework.org/schema/context
 	   http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <!-- context:component-scan This tag will scan @Component, @Repository, @Service, @Controller
-         and also resolves @Autowired and @Qualifier -->
+    <!-- Включаем опцию использования конфигурационных аннотаций (@Annotation-based configuration) -->
+    <context:annotation-config />
+
+    <!-- Определяем папки, в которых будем автоматически искать бины-компоненты -->
     <context:component-scan base-package="by.netcracker.artemyev" />
 
     <!-- ViewResolver bean config for mapping strings to jsp views -->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-        <!-- Example: a logical view name of 'showMessage' is mapped to '/WEB-INF/jsp/showMessage.jsp' -->
         <property name="order" value="1" />
         <property name="prefix" value="/WEB-INF/view" />
         <property name="suffix" value=".jsp" />
     </bean>
+
+    <import resource="root-context.xml" />
 
 </beans>

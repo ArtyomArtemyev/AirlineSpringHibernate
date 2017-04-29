@@ -60,3 +60,24 @@ CREATE TABLE `airline`.`employee` (
     ON UPDATE NO ACTION)
   ENGINE = InnoDB
   DEFAULT CHARACTER SET = utf8;
+
+CREATE TABLE `airline`.`team` (
+  `team_id` INT NOT NULL AUTO_INCREMENT,
+  `id_members` JSON NOT NULL,
+  PRIMARY KEY (`team_id`))
+  ENGINE = InnoDB
+  DEFAULT CHARACTER SET = utf8;
+
+CREATE TABLE `airline`.`flight` (
+  `flight_id` INT NOT NULL AUTO_INCREMENT,
+  `navigation` VARCHAR(100) NOT NULL,
+  `team_id` INT NOT NULL,
+  PRIMARY KEY (`flight_id`),
+  INDEX `team_id_idx` (`team_id` ASC),
+  CONSTRAINT `team_id`
+  FOREIGN KEY (`team_id`)
+  REFERENCES `airline`.`team` (`team_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+  ENGINE = InnoDB
+  DEFAULT CHARACTER SET = utf8;
