@@ -71,7 +71,7 @@ CREATE TABLE `airline`.`team` (
 CREATE TABLE `airline`.`flight` (
   `flight_id` INT NOT NULL AUTO_INCREMENT,
   `navigation` VARCHAR(100) NOT NULL,
-  `team_id` INT NOT NULL,
+  `team_id` INT,
   PRIMARY KEY (`flight_id`),
   INDEX `team_id_idx` (`team_id` ASC),
   CONSTRAINT `team_id`

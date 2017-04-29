@@ -15,5 +15,7 @@
         <mapping class="by.netcracker.artemyev.entity.Role"/>
         <mapping class="by.netcracker.artemyev.entity.Gender"/>
         <mapping class="by.netcracker.artemyev.entity.Appointment"/>
+        <mapping class="by.netcracker.artemyev.entity.Team"/>
+        <mapping class="by.netcracker.artemyev.entity.Flight"/>
     </session-factory>
 </hibernate-configuration>
