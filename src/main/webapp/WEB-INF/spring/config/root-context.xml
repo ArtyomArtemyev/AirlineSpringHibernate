@@ -18,12 +18,14 @@
     <!-- Определяем папки, в которых будем автоматически искать бины-компоненты -->
     <context:component-scan base-package="by.netcracker.artemyev" />
 
-    <!-- Бин, ответственный за подключение к БД, с указанием необходимых параметро подключения -->
-    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource" >
-        <property name="driverClassName" value="com.mysql.jdbc.Driver" />
+    <!-- Бин, ответственный за подключение к БД, с указанием необходимых параметров подключения -->
+    <bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource">
         <property name="url" value="jdbc:mysql://localhost:3306/airline?useSSL=false" />
-        <property name="username" value="root" />
-        <property name="password" value="root" />
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+        <property name="username" value="root"/>
+        <property name="password" value="root"/>
+        <property name="initialSize" value="5"/>
+        <property name="maxTotal" value="10"/>
     </bean>
 
     <!-- Определение менеджера сущностей, c указанием бина поставщика данных, необходимых настроек -->
@@ -39,7 +41,7 @@
         </property>
     </bean>
 
-    <!-- процессор для инъекции entityManager -->
+    <!-- Процессор для инъекции entityManager -->
     <bean class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor" />
 
 </beans>
