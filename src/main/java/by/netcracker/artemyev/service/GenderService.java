@@ -8,7 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
-@Service("GenderService")
+@Service("genderService")
 public class GenderService implements GeneralService<Gender> {
 
     @Autowired
@@ -32,13 +32,13 @@ public class GenderService implements GeneralService<Gender> {
         genderDao.remove(object);
     }
 
-    @Transactional
+    @Transactional(readOnly = true)
     @Override
     public Gender getById(int id) {
        return genderDao.getById(id);
     }
 
-    @Transactional
+    @Transactional(readOnly = true)
     @Override
     public List<Gender> getAll() {
         return genderDao.getAll();

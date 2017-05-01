@@ -8,7 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
-@Service("UserService")
+@Service("userService")
 public class UserService implements GeneralService<User> {
 
     @Autowired
@@ -32,13 +32,13 @@ public class UserService implements GeneralService<User> {
         userDao.update(object);
     }
 
-    @Transactional
+    @Transactional(readOnly = true)
     @Override
     public User getById(int id) {
        return userDao.getById(id);
     }
 
-    @Transactional
+    @Transactional(readOnly = true)
     @Override
     public List<User> getAll() {
        return userDao.getAll();

@@ -8,7 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
-@Service("RoleService")
+@Service("roleService")
 public class RoleService implements GeneralService<Role>{
 
     @Autowired
@@ -32,13 +32,13 @@ public class RoleService implements GeneralService<Role>{
         roleDao.remove(object);
     }
 
-    @Transactional
+    @Transactional(readOnly = true)
     @Override
     public Role getById(int id) {
         return roleDao.getById(id);
     }
 
-    @Transactional
+    @Transactional(readOnly = true)
     @Override
     public List<Role> getAll() {
         return roleDao.getAll();
