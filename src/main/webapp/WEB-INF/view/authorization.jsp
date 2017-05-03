@@ -2,7 +2,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Main page</title>
+    <title>Authorization page</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -19,7 +19,7 @@
 
     <!-- Theme CSS -->
     <link href="${pageContext.request.contextPath}/resources/css/grayscale.css" rel="stylesheet">
-
+    <link href="${pageContext.request.contextPath}/resources/css/style.css" rel="stylesheet" type="text/css">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -46,10 +46,7 @@
                     <a href="#page-top"></a>
                 </li>
                 <li>
-                    <a class="page-scroll" href="<c:url value="/authorization" />">Sign in</a>
-                </li>
-                <li>
-                    <a class="page-scroll" href="<c:url value="/registration" />">Sign up</a>
+                    <a class="page-scroll" href="<c:url value="/index" />">To main page</a>
                 </li>
             </ul>
         </div>
@@ -64,26 +61,17 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8 col-md-offset-2">
-                    <h1 class="brand-heading">ArtAirline</h1>
-                    <p class="intro-text">We care about you<br></p>
-                    <a href="#about" class="btn btn-circle page-scroll">
-                        <i class="fa fa-angle-double-down animated"></i>
-                    </a>
+                    AUTHORIZATION USER
+                    <form name="loginForm" method="POST" action="/airline/controller">
+                        <p><input class="inputEnter" type="text" name="login" value="" placeholder="Login"/></p>
+                        <p class="field"><input class="inputEnter" type="password" name="password" value="" placeholder="Password"/></p>
+                        <p class="field"><input type="submit" class="submitButton" value="Log in"/></p>
+                    </form></hr>
                 </div>
             </div>
         </div>
     </div>
 </header>
-
-<!-- About Section -->
-<section id="about" class="container content-section text-center">
-    <div class="row">
-        <div class="col-lg-8 col-lg-offset-2">
-            <h2>About ArtAirline</h2>
-            <p>ArtAirline is one of the trustworthy airline company in the world. You can trust us</p>
-        </div>
-    </div>
-</section>
 
 <!-- Footer -->
 <footer>
@@ -99,7 +87,7 @@
 <script src="${pageContext.request.contextPath}/resources/vendor/bootstrap/js/bootstrap.js"></script>
 
 <!-- Plugin JavaScript -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.js"></script>
 
 <!-- Google Maps API Key - Use your own API key to enable the map feature. More information on the Google Maps API can be found at https://developers.google.com/maps/ -->
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRngKslUGJTlibkQ3FkfTxj3Xss1UlZDA&sensor=false"></script>
