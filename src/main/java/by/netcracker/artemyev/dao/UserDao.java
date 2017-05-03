@@ -4,39 +4,19 @@ import by.netcracker.artemyev.dao.constant.Statement;
 import by.netcracker.artemyev.entity.User;
 import org.springframework.stereotype.Repository;
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 import java.util.List;
 
 @Repository
-public class UserDao implements GeneralDao<User> {
-
-    @PersistenceContext
-    private EntityManager entityManager;
-
-    @Override
-    public void add(User object) {
-        entityManager.persist(object);
-    }
-
-    @Override
-    public void update(User object) {
-        entityManager.merge(object);
-    }
-
-    @Override
-    public void remove(User object) {
-        entityManager.remove(object);
-    }
+public class UserDao extends GenericDao<User> {
 
     @Override
     public User getById(int id) {
-        return entityManager.find(User.class, id);
+        return getEntityManager().find(User.class, id);
     }
 
     @Override
     public List<User> getAll() {
-        List<User> userList = entityManager.createQuery(Statement.GET_ALL_USERS).getResultList();
+        List<User> userList = getEntityManager().createQuery(Statement.GET_ALL_USERS).getResultList();
         return userList;
     }
 
