@@ -1,9 +1,10 @@
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
-  <head>
+<head>
     <title>Index page</title>
-  </head>
-  <body>
-  Hello
-  </body>
+</head>
+<body>
+    Hello
+</body>
 </html>

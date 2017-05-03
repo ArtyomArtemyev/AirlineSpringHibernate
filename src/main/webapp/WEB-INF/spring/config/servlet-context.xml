@@ -20,7 +20,7 @@
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="order" value="1" />
         <property name="prefix" value="/WEB-INF/view" />
-        <property name="suffix" value=".jsp" />
+        <property name="suffix" value=".jsp"/>
     </bean>
 
     <!-- Определяем папки, в которых будем автоматически искать бины-компоненты -->
