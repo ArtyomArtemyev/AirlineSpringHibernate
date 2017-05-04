@@ -2,6 +2,8 @@ package by.netcracker.artemyev.service;
 
 import by.netcracker.artemyev.dao.GenderDao;
 import by.netcracker.artemyev.entity.Gender;
+import by.netcracker.artemyev.exception.DaoException;
+import by.netcracker.artemyev.exception.ServiceException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -16,32 +18,52 @@ public class GenderService implements GeneralService<Gender> {
 
     @Transactional
     @Override
-    public void add(Gender object) {
-        genderDao.add(object);
+    public void add(Gender object) throws ServiceException {
+        try {
+            genderDao.add(object);
+        } catch (DaoException e) {
+            throw new ServiceException(e.getMessage());
+        }
     }
 
     @Transactional
     @Override
-    public void update(Gender object) {
-        genderDao.update(object);
+    public void update(Gender object) throws ServiceException {
+        try {
+            genderDao.update(object);
+        } catch (DaoException e) {
+            throw new ServiceException(e.getMessage());
+        }
     }
 
     @Transactional
     @Override
-    public void remove(Gender object) {
-        genderDao.remove(object);
+    public void remove(Gender object) throws ServiceException {
+        try {
+            genderDao.remove(object);
+        } catch (DaoException e) {
+            throw new ServiceException(e.getMessage());
+        }
     }
 
     @Transactional(readOnly = true)
     @Override
-    public Gender getById(int id) {
-       return genderDao.getById(id);
+    public Gender getById(int id) throws ServiceException {
+        try {
+            return genderDao.getById(id);
+        } catch (DaoException e) {
+            throw new ServiceException(e.getMessage());
+        }
     }
 
     @Transactional(readOnly = true)
     @Override
-    public List<Gender> getAll() {
-        return genderDao.getAll();
+    public List<Gender> getAll() throws ServiceException {
+        try {
+            return genderDao.getAll();
+        } catch (DaoException e) {
+            throw new ServiceException(e.getMessage());
+        }
     }
 
 }
