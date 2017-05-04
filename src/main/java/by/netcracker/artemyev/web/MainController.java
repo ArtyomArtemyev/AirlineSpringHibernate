@@ -8,8 +8,22 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class MainController {
 
-    @RequestMapping(value = "/", method = RequestMethod.GET)
-    public ModelAndView home() {
+    @RequestMapping(value = "/authorization", method = RequestMethod.GET)
+    public ModelAndView getAuthorization() {
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("authorization");
+        return modelAndView;
+    }
+
+    @RequestMapping(value = "/registration", method = RequestMethod.GET)
+    public ModelAndView getRegistration() {
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("registration");
+        return modelAndView;
+    }
+
+    @RequestMapping(value = "/index", method = RequestMethod.GET)
+    public ModelAndView getIndex() {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("index");
         return modelAndView;
