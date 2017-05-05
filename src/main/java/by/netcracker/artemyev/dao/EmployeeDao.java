@@ -5,6 +5,7 @@ import by.netcracker.artemyev.dao.constant.Statement;
 import by.netcracker.artemyev.entity.Employee;
 import by.netcracker.artemyev.exception.DaoException;
 import org.hibernate.HibernateException;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -12,13 +13,9 @@ import java.util.List;
 @Repository
 public class EmployeeDao extends GenericDao<Employee> {
 
-    @Override
-    public Employee getById(int id) {
-        try {
-            return getEntityManager().find(Employee.class, id);
-        } catch (HibernateException e) {
-            throw new DaoException(ErrorMessage.MESSAGE_GET_BY_ID_ENTITY_FAIL, e);
-        }
+    @Autowired
+    private EmployeeDao() {
+        super(Employee.class);
     }
 
     @Override
