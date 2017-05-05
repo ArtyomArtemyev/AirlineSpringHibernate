@@ -12,13 +12,8 @@ import java.util.List;
 @Repository
 public class RoleDao extends GenericDao<Role> {
 
-    @Override
-    public Role getById(int id) {
-        try {
-            return getEntityManager().find(Role.class, id);
-        } catch (HibernateException e) {
-            throw new DaoException(ErrorMessage.MESSAGE_GET_BY_ID_ENTITY_FAIL, e);
-        }
+    protected RoleDao(Class<Role> className) {
+        super(Role.class);
     }
 
     @Override

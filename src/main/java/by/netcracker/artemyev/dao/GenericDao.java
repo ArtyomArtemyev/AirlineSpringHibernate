@@ -2,8 +2,8 @@ package by.netcracker.artemyev.dao;
 
 import by.netcracker.artemyev.dao.constant.ErrorMessage;
 import by.netcracker.artemyev.exception.DaoException;
-import com.sun.xml.internal.ws.api.message.ExceptionHasMessage;
 import org.hibernate.HibernateException;
+import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -13,7 +13,14 @@ import java.util.List;
  * Interface describes generic dao
  * @autor Artemyev Artoym
  */
+@Repository
 public abstract class GenericDao<T> implements GeneralDao<T> {
+
+    private Class<T> className;
+
+    protected GenericDao(Class<T> className) {
+        this.className = className;
+    }
 
     @PersistenceContext
     private EntityManager entityManager;
@@ -49,7 +56,14 @@ public abstract class GenericDao<T> implements GeneralDao<T> {
         }
     }
 
-    public abstract T getById(int id) throws DaoException;
+    @Override
+    public T getById(int id) {
+        try {
+            return getEntityManager().find(this.className, id);
+        } catch (HibernateException e) {
+            throw new DaoException(ErrorMessage.MESSAGE_GET_BY_ID_ENTITY_FAIL, e);
+        }
+    }
 
     public abstract List<T> getAll() throws DaoException;
 
