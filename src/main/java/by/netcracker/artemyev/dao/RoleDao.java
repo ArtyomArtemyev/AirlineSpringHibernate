@@ -10,6 +10,10 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+/**
+ * Class describes dao for Role
+ * @autor Artemyev Artoym
+ */
 @Repository
 public class RoleDao extends GenericDao<Role> {
 

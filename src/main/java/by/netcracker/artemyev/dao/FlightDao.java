@@ -10,6 +10,10 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+/**
+ * Class describes dao for Flight
+ * @autor Artemyev Artoym
+ */
 @Repository
 public class FlightDao extends GenericDao<Flight> {
 

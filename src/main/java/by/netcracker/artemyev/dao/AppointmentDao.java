@@ -10,6 +10,10 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+/**
+ * Class describes dao for Appointment
+ * @autor Artemyev Artoym
+ */
 @Repository
 public class AppointmentDao extends GenericDao<Appointment> {
 

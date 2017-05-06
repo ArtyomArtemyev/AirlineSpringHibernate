@@ -10,6 +10,10 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+/**
+ * Class describes dao for Team
+ * @autor Artemyev Artoym
+ */
 @Repository
 public class TeamDao extends GenericDao<Team>{
 

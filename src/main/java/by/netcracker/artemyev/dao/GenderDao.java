@@ -10,6 +10,10 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+/**
+ * Class describes dao for Gender
+ * @autor Artemyev Artoym
+ */
 @Repository
 public class GenderDao extends GenericDao<Gender> {
 

@@ -10,7 +10,7 @@ import javax.persistence.PersistenceContext;
 import java.util.List;
 
 /**
- * Interface describes generic dao
+ * Class describes common dao
  * @autor Artemyev Artoym
  */
 @Repository

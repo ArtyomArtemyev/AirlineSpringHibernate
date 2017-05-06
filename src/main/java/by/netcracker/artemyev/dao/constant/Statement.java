@@ -1,5 +1,9 @@
 package by.netcracker.artemyev.dao.constant;
 
+/**
+ * Class contains statement for dao
+ * @autor Artemyev Artoym
+ */
 public final class Statement {
     public static final String GET_ALL_USERS = "from User";
     public static final String GET_ALL_ROLES = "from Role";

@@ -3,7 +3,7 @@ package by.netcracker.artemyev.dao;
 import by.netcracker.artemyev.exception.DaoException;
 
 /**
- * Interface describes common dao
+ * Interface describes common functions for all dao
  * @autor Artemyev Artoym
  */
 public interface GeneralDao<T> {
