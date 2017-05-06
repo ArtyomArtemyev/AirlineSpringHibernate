@@ -9,8 +9,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
-@Service
-public class GenericService<T> implements GeneralService<T> {
+@Service("genericService")
+public abstract class GenericService<T> implements GeneralService<T> {
 
     @Autowired
     private GenericDao<T> genericDao;
