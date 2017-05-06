@@ -1,8 +1,9 @@
 package by.netcracker.artemyev.entity;
 
-import by.netcracker.artemyev.enumeration.EnumRole;
+import by.netcracker.artemyev.enumeration.RoleType;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -11,9 +12,9 @@ import java.util.List;
  */
 @Entity
 @Table(name = "user_role")
-public class Role {
+public class Role implements Serializable {
     private long id;
-    private EnumRole enumRole;
+    private RoleType roleType;
     private List<User> userList;
 
     @Id
@@ -29,12 +30,12 @@ public class Role {
 
     @Column(name = "name", updatable = false, nullable = false)
     @Enumerated(EnumType.STRING)
-    public EnumRole getEnumRole() {
-        return enumRole;
+    public RoleType getRoleType() {
+        return roleType;
     }
 
-    public void setEnumRole(EnumRole enumRole) {
-        this.enumRole = enumRole;
+    public void setRoleType(RoleType roleType) {
+        this.roleType = roleType;
     }
 
     @OneToMany(mappedBy = "role")
@@ -50,9 +51,9 @@ public class Role {
         super();
     }
 
-    public Role(long id, EnumRole enumRole) {
+    public Role(long id, RoleType roleType) {
         this.id = id;
-        this.enumRole = enumRole;
+        this.roleType = roleType;
     }
 
     @Override
@@ -70,7 +71,7 @@ public class Role {
         if(this.getId() != role.getId()) {
             return false;
         }
-        if(this.getEnumRole() != role.getEnumRole()) {
+        if(this.getRoleType() != role.getRoleType()) {
             return false;
         }
         return true;
@@ -80,14 +81,14 @@ public class Role {
     public int hashCode() {
         int result = 0;
         result = (int) this.getId() + 2;
-        result += this.getEnumRole().hashCode();
+        result += this.getRoleType().hashCode();
         return result;
     }
 
     @Override
     public String toString() {
         return "Role{" + "id=" + id +
-                ", enumRole=" + enumRole +
+                ", roleType=" + roleType +
                 '}';
     }
 

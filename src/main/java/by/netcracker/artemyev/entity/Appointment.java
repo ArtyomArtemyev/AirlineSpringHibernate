@@ -1,6 +1,6 @@
 package by.netcracker.artemyev.entity;
 
-import by.netcracker.artemyev.enumeration.EnumAppointment;
+import by.netcracker.artemyev.enumeration.AppointmentType;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -14,7 +14,7 @@ import java.util.List;
 @Table(name = "appointment")
 public class Appointment implements Serializable {
     private long id;
-    private EnumAppointment appointment;
+    private AppointmentType appointment;
     private List<Employee> employeeList;
 
     @Id
@@ -30,11 +30,11 @@ public class Appointment implements Serializable {
 
     @Column(name = "name", nullable = false)
     @Enumerated(EnumType.STRING)
-    public EnumAppointment getAppointment() {
+    public AppointmentType getAppointment() {
         return appointment;
     }
 
-    public void setAppointment(EnumAppointment appointment) {
+    public void setAppointment(AppointmentType appointment) {
         this.appointment = appointment;
     }
 
@@ -51,7 +51,7 @@ public class Appointment implements Serializable {
         super();
     }
 
-    public Appointment(long id, EnumAppointment appointment) {
+    public Appointment(long id, AppointmentType appointment) {
         this.id = id;
         this.appointment = appointment;
     }

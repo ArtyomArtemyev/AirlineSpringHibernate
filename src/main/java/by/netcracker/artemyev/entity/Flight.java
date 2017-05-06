@@ -1,6 +1,7 @@
 package by.netcracker.artemyev.entity;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 /**
  * Class describes flight
@@ -8,7 +9,7 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name = "flight")
-public class Flight {
+public class Flight implements Serializable {
     private long id;
     private String navigation;
     private Team team;

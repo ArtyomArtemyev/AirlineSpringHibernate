@@ -1,8 +1,9 @@
 package by.netcracker.artemyev.entity;
 
-import by.netcracker.artemyev.enumeration.EnumGender;
+import by.netcracker.artemyev.enumeration.GenderType;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -11,9 +12,9 @@ import java.util.List;
  */
 @Entity
 @Table(name = "gender")
-public class Gender {
+public class Gender implements Serializable {
     private long id;
-    private EnumGender gender;
+    private GenderType gender;
     private List<Employee> employeeList;
 
     @Id
@@ -29,11 +30,11 @@ public class Gender {
 
     @Column(name = "name", nullable = false)
     @Enumerated(EnumType.STRING)
-    public EnumGender getGender() {
+    public GenderType getGender() {
         return gender;
     }
 
-    public void setGender(EnumGender gender) {
+    public void setGender(GenderType gender) {
         this.gender = gender;
     }
 
@@ -50,9 +51,9 @@ public class Gender {
         super();
     }
 
-    public Gender(long id, EnumGender enumGender) {
+    public Gender(long id, GenderType genderType) {
         this.id = id;
-        this.gender = enumGender;
+        this.gender = genderType;
     }
 
     @Override

@@ -1,6 +1,7 @@
 package by.netcracker.artemyev.entity;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -9,7 +10,7 @@ import java.util.List;
  */
 @Entity
 @Table(name = "team")
-public class Team {
+public class Team implements Serializable {
     private long id;
     private String idMembers;
     private List<Flight> flightList;

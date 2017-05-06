@@ -1,6 +1,7 @@
 package by.netcracker.artemyev.entity;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 /**
  * Class describes user
@@ -8,7 +9,7 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name = "user")
-public class User {
+public class User implements Serializable {
     private long id;
     private String login;
     private String password;
