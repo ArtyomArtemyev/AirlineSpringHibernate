@@ -1,6 +1,10 @@
 package by.netcracker.artemyev.enumeration;
 
-public enum EnumRole {
+/**
+ * Enum describes roles of users
+ * @autor Artemyev Artoym
+ */
+public enum RoleType {
     ADMINISTRATOR,
     USER,
     DISPATCHER
