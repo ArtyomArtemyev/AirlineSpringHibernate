@@ -1,4 +1,4 @@
-package by.netcracker.artemyev.dao.constant;
+package by.netcracker.artemyev.constant;
 
 /**
  * Class contains statement for dao
