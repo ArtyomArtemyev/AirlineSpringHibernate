@@ -22,23 +22,6 @@
             else {
                 resetHighlightning();
 
-                /*
-                 *For testing begin
-                 */
-                var userData = {
-                    login: formElements.login.value,
-                    password: formElements.password.value,
-                    mail: formElements.mail.value
-                };
-                var results = localStorage.getItem('results') || "[]";
-                results = JSON.parse(results);
-                results.push(userData);
-                localStorage.setItem('results', JSON.stringify(results));
-                alert('Thank you for registration');
-                /*
-                 *For testing end
-                 */
-
                 var registrationForm = document.getElementById('registrationForm');
                 registrationForm.submit();
             }

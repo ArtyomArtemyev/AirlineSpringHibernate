@@ -65,7 +65,7 @@
                     <form name="loginForm" id="loginForm" method="POST" action="/check_user">
                         <p><input class="inputEnter" id="inputLogin" type="text" name="login" value="" placeholder="Login"/></p>
                         <p class="field"><input class="inputEnter" id="inputPassword" type="password" name="password" value="" placeholder="Password"/></p>
-                        <p class="field"><input type="submit" id="submitButton" class="submitButton" value="Enter"/></p>
+                        <p class="field"><input type="submit" id="sendButton" class="submitButton" value="Enter"/></p>
                     </form></hr>
                 </div>
             </div>
@@ -79,6 +79,8 @@
         <p>Copyright &copy; Artyom Artemyev</p>
     </div>
 </footer>
+
+<script src="${pageContext.request.contextPath}/resources/js/authorization.controller.js" type="text/javascript"></script>
 
 <!-- jQuery -->
 <script src="${pageContext.request.contextPath}/resources/vendor/jquery/jquery.js"  type="text/javascript"></script>
@@ -94,8 +96,6 @@
 
 <!-- Theme JavaScript -->
 <script src="${pageContext.request.contextPath}/resources/js/grayscale.js"  type="text/javascript"></script>
-
-<script src="${pageContext.request.contextPath}/resources/js/authorization.controller.js" type="text/javascript"></script>
 
 </body>
 </html>

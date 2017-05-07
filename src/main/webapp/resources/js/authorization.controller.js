@@ -1,7 +1,7 @@
 (function () {
 
-    var submitButton = document.getElementById('submitButton');
-    submitButton.addEventListener('click', submitButtonClickHandler);
+    var sendButton = document.getElementById('sendButton');
+    sendButton.addEventListener('click', submitButtonClickHandler);
 
     function submitButtonClickHandler (event) {
         event.preventDefault();
