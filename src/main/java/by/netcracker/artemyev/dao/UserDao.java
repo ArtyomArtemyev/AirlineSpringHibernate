@@ -1,7 +1,7 @@
 package by.netcracker.artemyev.dao;
 
-import by.netcracker.artemyev.dao.constant.ErrorMessage;
-import by.netcracker.artemyev.dao.constant.Statement;
+import by.netcracker.artemyev.constant.ErrorMessage;
+import by.netcracker.artemyev.constant.Statement;
 import by.netcracker.artemyev.entity.User;
 import by.netcracker.artemyev.exception.DaoException;
 import org.hibernate.HibernateException;

@@ -1,6 +1,6 @@
 package by.netcracker.artemyev.dao;
 
-import by.netcracker.artemyev.dao.constant.ErrorMessage;
+import by.netcracker.artemyev.constant.ErrorMessage;
 import by.netcracker.artemyev.exception.DaoException;
 import org.hibernate.HibernateException;
 import org.springframework.stereotype.Repository;
