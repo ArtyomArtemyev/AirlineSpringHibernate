@@ -3,24 +3,28 @@ package by.netcracker.artemyev.service;
 import by.netcracker.artemyev.dao.GenericDao;
 import by.netcracker.artemyev.exception.DaoException;
 import by.netcracker.artemyev.exception.ServiceException;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
-@Service("genericService")
+@Service
 public abstract class GenericService<T> implements GeneralService<T> {
 
+    private static Logger logger = Logger.getLogger(GenericService.class);
+
     @Autowired
-    private GenericDao<T> genericDao;
+    GenericDao<T> dao;
 
     @Transactional
     @Override
     public void add(T object) throws ServiceException {
         try {
-            genericDao.add(object);
+           dao.add(object);
         } catch (DaoException e) {
+            logger.debug(e);
             throw new ServiceException(e.getMessage());
         }
     }
@@ -29,8 +33,9 @@ public abstract class GenericService<T> implements GeneralService<T> {
     @Override
     public void update(T object) throws ServiceException {
         try {
-            genericDao.update(object);
+            dao.update(object);
         } catch (DaoException e) {
+            logger.debug(e);
             throw new ServiceException(e.getMessage());
         }
     }
@@ -39,8 +44,9 @@ public abstract class GenericService<T> implements GeneralService<T> {
     @Override
     public void remove(T object) throws ServiceException {
         try {
-            genericDao.remove(object);
+            dao.remove(object);
         } catch (DaoException e) {
+            logger.debug(e);
             throw new ServiceException(e.getMessage());
         }
     }
@@ -49,8 +55,9 @@ public abstract class GenericService<T> implements GeneralService<T> {
     @Override
     public T getById(int id) throws ServiceException {
         try {
-            return genericDao.getById(id);
+            return dao.getById(id);
         } catch (DaoException e) {
+            logger.debug(e);
             throw new ServiceException(e.getMessage());
         }
     }
@@ -59,8 +66,9 @@ public abstract class GenericService<T> implements GeneralService<T> {
     @Override
     public List<T> getAll() throws ServiceException {
         try {
-            return genericDao.getAll();
+            return dao.getAll();
         } catch (DaoException e) {
+            logger.debug(e);
             throw new ServiceException(e.getMessage());
         }
     }
