@@ -5,9 +5,7 @@ import by.netcracker.artemyev.constant.Statement;
 import by.netcracker.artemyev.entity.User;
 import by.netcracker.artemyev.exception.DaoException;
 import org.hibernate.HibernateException;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
@@ -23,7 +21,6 @@ public class UserDao extends GenericDao<User> {
     private final static String USER_LOGIN = "login";
     private final static String USER_PASSWORD = "password";
 
-    @Autowired
     private UserDao() {
         super(User.class);
     }
@@ -39,7 +36,6 @@ public class UserDao extends GenericDao<User> {
         return userList;
     }
 
-    @Transactional
     public List<User> getByLoginAndPassword(String userLogin, String userPassword) {
         CriteriaQuery<User> criteriaQuery;
         try {
