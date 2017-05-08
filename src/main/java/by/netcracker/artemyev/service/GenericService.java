@@ -16,7 +16,7 @@ public abstract class GenericService<T> implements GeneralService<T> {
     private static Logger logger = Logger.getLogger(GenericService.class);
 
     @Autowired
-    GenericDao<T> dao;
+    private GenericDao<T> dao;
 
     @Transactional
     @Override

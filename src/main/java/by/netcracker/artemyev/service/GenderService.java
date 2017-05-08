@@ -5,7 +5,7 @@ import by.netcracker.artemyev.entity.Gender;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-@Service("genderService")
+@Service
 public class GenderService extends GenericService<Gender> {
 
     @Autowired

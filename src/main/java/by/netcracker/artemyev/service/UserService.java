@@ -14,7 +14,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
-@Service("userService")
+@Service
 @Transactional
 public class UserService extends GenericService<User> {
 

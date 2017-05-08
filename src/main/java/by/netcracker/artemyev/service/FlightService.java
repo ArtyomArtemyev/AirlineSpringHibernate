@@ -5,7 +5,7 @@ import by.netcracker.artemyev.entity.Flight;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-@Service("flightService")
+@Service
 public class FlightService extends GenericService<Flight> {
 
     @Autowired

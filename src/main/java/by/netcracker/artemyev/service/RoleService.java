@@ -5,7 +5,7 @@ import by.netcracker.artemyev.entity.Role;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-@Service("roleService")
+@Service
 public class RoleService extends GenericService<Role> {
 
     @Autowired
