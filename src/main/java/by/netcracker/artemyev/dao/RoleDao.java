@@ -5,7 +5,6 @@ import by.netcracker.artemyev.constant.Statement;
 import by.netcracker.artemyev.entity.Role;
 import by.netcracker.artemyev.exception.DaoException;
 import org.hibernate.HibernateException;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -17,7 +16,6 @@ import java.util.List;
 @Repository
 public class RoleDao extends GenericDao<Role> {
 
-    @Autowired
     private RoleDao() {
         super(Role.class);
     }
