@@ -1,34 +1,12 @@
 package by.netcracker.artemyev.dao;
 
-import by.netcracker.artemyev.constant.ErrorMessage;
-import by.netcracker.artemyev.constant.Statement;
+
 import by.netcracker.artemyev.entity.Team;
 import by.netcracker.artemyev.exception.DaoException;
-import org.hibernate.HibernateException;
-import org.springframework.stereotype.Repository;
 
-import java.util.List;
-
-/**
- * Class describes dao for Team
- * @autor Artemyev Artoym
- */
-@Repository
-public class TeamDao extends GenericDao<Team>{
-
-    private TeamDao() {
-        super(Team.class);
-    }
-
-    @Override
-    public List<Team> getAll() {
-        List<Team> teamList;
-        try {
-            teamList = getEntityManager().createQuery(Statement.GET_ALL_TEAMS).getResultList();
-        } catch (HibernateException e) {
-            throw new DaoException(ErrorMessage.MESSAGE_GET_ALL_ENTITY_FAIL, e);
-        }
-        return teamList;
-    }
-
+public interface TeamDao extends GeneralDao<Team> {
+    void add(Team object) throws DaoException;
+    void update(Team object) throws DaoException;
+    void remove(Team object) throws DaoException;
+    Team getById(int id) throws DaoException;
 }

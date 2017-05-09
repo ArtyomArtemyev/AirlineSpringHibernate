@@ -1,0 +1,36 @@
+package by.netcracker.artemyev.dao.impl;
+
+import by.netcracker.artemyev.constant.ErrorMessage;
+import by.netcracker.artemyev.constant.Statement;
+import by.netcracker.artemyev.dao.GenericDao;
+import by.netcracker.artemyev.dao.RoleDao;
+import by.netcracker.artemyev.entity.Role;
+import by.netcracker.artemyev.exception.DaoException;
+import org.hibernate.HibernateException;
+import org.springframework.stereotype.Repository;
+
+import java.util.List;
+
+/**
+ * Class describes dao for Role
+ * @autor Artemyev Artoym
+ */
+@Repository
+public class RoleDaoImpl extends GenericDao<Role> implements RoleDao {
+
+    private RoleDaoImpl() {
+        super(Role.class);
+    }
+
+    @Override
+    public List<Role> getAll() {
+        List<Role> roleList;
+        try {
+            roleList = getEntityManager().createQuery(Statement.GET_ALL_ROLES).getResultList();
+        } catch (HibernateException e) {
+            throw new DaoException(ErrorMessage.GET_ALL_ENTITY_FAIL, e);
+        }
+        return roleList;
+    }
+
+}

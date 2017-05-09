@@ -1,34 +1,11 @@
 package by.netcracker.artemyev.dao;
 
-import by.netcracker.artemyev.constant.ErrorMessage;
-import by.netcracker.artemyev.constant.Statement;
 import by.netcracker.artemyev.entity.Employee;
 import by.netcracker.artemyev.exception.DaoException;
-import org.hibernate.HibernateException;
-import org.springframework.stereotype.Repository;
 
-import java.util.List;
-
-/**
- * Class describes dao for Employee
- * @autor Artemyev Artoym
- */
-@Repository
-public class EmployeeDao extends GenericDao<Employee> {
-
-    private EmployeeDao() {
-        super(Employee.class);
-    }
-
-    @Override
-    public List<Employee> getAll() {
-        List<Employee> employeeList;
-        try {
-            employeeList = getEntityManager().createQuery(Statement.GET_ALL_EMPLOYEES).getResultList();
-        } catch (HibernateException e) {
-            throw new DaoException(ErrorMessage.MESSAGE_GET_ALL_ENTITY_FAIL, e);
-        }
-        return employeeList;
-    }
-
+public interface EmployeeDao extends GeneralDao<Employee> {
+    void add(Employee object) throws DaoException;
+    void update(Employee object) throws DaoException;
+    void remove(Employee object) throws DaoException;
+    Employee getById(int id) throws DaoException;
 }

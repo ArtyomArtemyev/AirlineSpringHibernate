@@ -18,7 +18,7 @@ public abstract class GenericDao<T> implements GeneralDao<T> {
 
     private Class<T> className;
 
-    protected GenericDao(Class<T> className) {
+    public GenericDao(Class<T> className) {
         this.className = className;
     }
 
@@ -34,7 +34,7 @@ public abstract class GenericDao<T> implements GeneralDao<T> {
         try {
             getEntityManager().persist(object);
         } catch (HibernateException e) {
-            throw new DaoException(ErrorMessage.MESSAGE_ADD_ENTITY_FAIL, e);
+            throw new DaoException(ErrorMessage.ADD_ENTITY_FAIL, e);
         }
     }
 
@@ -43,7 +43,7 @@ public abstract class GenericDao<T> implements GeneralDao<T> {
         try {
             getEntityManager().merge(object);
         } catch (HibernateException e) {
-            throw new DaoException(ErrorMessage.MESSAGE_UPDATE_ENTITY_FAIL, e);
+            throw new DaoException(ErrorMessage.UPDATE_ENTITY_FAIL, e);
         }
     }
 
@@ -52,7 +52,7 @@ public abstract class GenericDao<T> implements GeneralDao<T> {
         try {
             getEntityManager().remove(object);
         } catch (HibernateException e) {
-            throw new DaoException(ErrorMessage.MESSAGE_REMOVE_ENTITY_FAIL, e);
+            throw new DaoException(ErrorMessage.REMOVE_ENTITY_FAIL, e);
         }
     }
 
@@ -61,7 +61,7 @@ public abstract class GenericDao<T> implements GeneralDao<T> {
         try {
             return getEntityManager().find(this.className, id);
         } catch (HibernateException e) {
-            throw new DaoException(ErrorMessage.MESSAGE_GET_BY_ID_ENTITY_FAIL, e);
+            throw new DaoException(ErrorMessage.GET_BY_ID_ENTITY_FAIL, e);
         }
     }
 
