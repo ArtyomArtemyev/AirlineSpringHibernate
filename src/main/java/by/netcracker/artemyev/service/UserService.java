@@ -15,14 +15,13 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 @Service
-@Transactional
 public class UserService extends GenericService<User> {
-
     private static Logger logger = Logger.getLogger(UserService.class);
 
     @Autowired
     private UserDao userDao;
 
+    @Transactional
     public String checkUser(String userLogin, String userPassword) throws ServiceException {
         String namePage = "errorAuthorization";
         List<User> userList;
@@ -37,6 +36,7 @@ public class UserService extends GenericService<User> {
         }
         return namePage;
     }
+
 
     public void addUser(String userLogin, String userPassword, String userMail) throws ServiceException{
         Role role = new Role(0, RoleType.USER);
