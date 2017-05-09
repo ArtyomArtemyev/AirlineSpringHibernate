@@ -12,7 +12,6 @@ import java.util.List;
 
 @Service
 public abstract class GenericService<T> implements GeneralService<T> {
-
     private static Logger logger = Logger.getLogger(GenericService.class);
 
     @Autowired

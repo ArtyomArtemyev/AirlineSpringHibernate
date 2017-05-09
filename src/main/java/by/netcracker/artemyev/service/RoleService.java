@@ -1,14 +1,14 @@
 package by.netcracker.artemyev.service;
 
-import by.netcracker.artemyev.dao.RoleDao;
 import by.netcracker.artemyev.entity.Role;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import by.netcracker.artemyev.exception.ServiceException;
 
-@Service
-public class RoleService extends GenericService<Role> {
+import java.util.List;
 
-    @Autowired
-    private RoleDao roleDao;
-
+public interface RoleService extends GeneralService<Role> {
+    void add(Role object) throws ServiceException;
+    void update(Role object) throws ServiceException;
+    void remove(Role object) throws ServiceException;
+    Role getById(int id) throws ServiceException;
+    List<Role> getAll() throws ServiceException;
 }

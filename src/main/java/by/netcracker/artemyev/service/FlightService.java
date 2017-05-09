@@ -1,14 +1,14 @@
 package by.netcracker.artemyev.service;
 
-import by.netcracker.artemyev.dao.FlightDao;
 import by.netcracker.artemyev.entity.Flight;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import by.netcracker.artemyev.exception.ServiceException;
 
-@Service
-public class FlightService extends GenericService<Flight> {
+import java.util.List;
 
-    @Autowired
-    private FlightDao flightDao;
-
+public interface FlightService extends GeneralService<Flight> {
+    void add(Flight object) throws ServiceException;
+    void update(Flight object) throws ServiceException;
+    void remove(Flight object) throws ServiceException;
+    Flight getById(int id) throws ServiceException;
+    List<Flight> getAll() throws ServiceException;
 }

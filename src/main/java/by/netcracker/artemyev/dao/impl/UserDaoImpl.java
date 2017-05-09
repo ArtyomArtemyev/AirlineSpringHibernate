@@ -38,7 +38,7 @@ public class UserDaoImpl extends GenericDao<User> implements UserDao {
         return userList;
     }
 
-    public List<User> getByLoginAndPassword(String userLogin, String userPassword) {
+    public List<User> getByLoginAndPassword(String userLogin, String userPassword) throws DaoException {
         CriteriaQuery<User> criteriaQuery;
         try {
             CriteriaBuilder criteriaBuilder = getEntityManager().getCriteriaBuilder();

@@ -1,14 +1,14 @@
 package by.netcracker.artemyev.service;
 
-import by.netcracker.artemyev.dao.EmployeeDao;
 import by.netcracker.artemyev.entity.Employee;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import by.netcracker.artemyev.exception.ServiceException;
 
-@Service
-public class EmployeeService extends GenericService<Employee> {
+import java.util.List;
 
-    @Autowired
-    private EmployeeDao employeeDao;
-
+public interface EmployeeService extends GeneralService<Employee> {
+    void add(Employee object) throws ServiceException;
+    void update(Employee object) throws ServiceException;
+    void remove(Employee object) throws ServiceException;
+    Employee getById(int id) throws ServiceException;
+    List<Employee> getAll() throws ServiceException;
 }

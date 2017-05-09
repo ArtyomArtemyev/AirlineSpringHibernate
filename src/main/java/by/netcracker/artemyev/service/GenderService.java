@@ -1,14 +1,14 @@
 package by.netcracker.artemyev.service;
 
-import by.netcracker.artemyev.dao.GenderDao;
 import by.netcracker.artemyev.entity.Gender;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import by.netcracker.artemyev.exception.ServiceException;
 
-@Service
-public class GenderService extends GenericService<Gender> {
+import java.util.List;
 
-    @Autowired
-    private GenderDao genderDao;
-
+public interface GenderService extends GeneralService<Gender> {
+    void add(Gender object) throws ServiceException;
+    void update(Gender object) throws ServiceException;
+    void remove(Gender object) throws ServiceException;
+    Gender getById(int id) throws ServiceException;
+    List<Gender> getAll() throws ServiceException;
 }

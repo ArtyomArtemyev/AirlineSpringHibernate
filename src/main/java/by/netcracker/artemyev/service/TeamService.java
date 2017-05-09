@@ -1,14 +1,14 @@
 package by.netcracker.artemyev.service;
 
-import by.netcracker.artemyev.dao.TeamDao;
 import by.netcracker.artemyev.entity.Team;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import by.netcracker.artemyev.exception.ServiceException;
 
-@Service
-public class TeamService extends GenericService<Team> {
+import java.util.List;
 
-    @Autowired
-    private TeamDao teamDao;
-
+public interface TeamService extends GeneralService<Team> {
+    void add(Team object) throws ServiceException;
+    void update(Team object) throws ServiceException;
+    void remove(Team object) throws ServiceException;
+    Team getById(int id) throws ServiceException;
+    List<Team> getAll() throws ServiceException;
 }
