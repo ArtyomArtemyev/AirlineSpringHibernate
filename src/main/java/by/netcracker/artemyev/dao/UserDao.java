@@ -1,6 +1,6 @@
 package by.netcracker.artemyev.dao;
 
-import by.netcracker.artemyev.entity.User;
+import by.netcracker.artemyev.entity.impl.User;
 import by.netcracker.artemyev.exception.DaoException;
 
 import java.util.List;

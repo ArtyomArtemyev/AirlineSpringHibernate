@@ -1,7 +1,7 @@
 package by.netcracker.artemyev.dao;
 
 
-import by.netcracker.artemyev.entity.Appointment;
+import by.netcracker.artemyev.entity.impl.Appointment;
 import by.netcracker.artemyev.exception.DaoException;
 
 public interface AppointmentDao extends GeneralDao<Appointment> {

@@ -1,8 +1,8 @@
 package by.netcracker.artemyev.service.impl;
 
 import by.netcracker.artemyev.dao.UserDao;
-import by.netcracker.artemyev.entity.Role;
-import by.netcracker.artemyev.entity.User;
+import by.netcracker.artemyev.entity.impl.Role;
+import by.netcracker.artemyev.entity.impl.User;
 import by.netcracker.artemyev.enumeration.RoleType;
 import by.netcracker.artemyev.exception.DaoException;
 import by.netcracker.artemyev.exception.ServiceException;

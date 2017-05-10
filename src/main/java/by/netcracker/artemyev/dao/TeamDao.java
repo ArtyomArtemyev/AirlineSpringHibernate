@@ -1,7 +1,7 @@
 package by.netcracker.artemyev.dao;
 
 
-import by.netcracker.artemyev.entity.Team;
+import by.netcracker.artemyev.entity.impl.Team;
 import by.netcracker.artemyev.exception.DaoException;
 
 public interface TeamDao extends GeneralDao<Team> {

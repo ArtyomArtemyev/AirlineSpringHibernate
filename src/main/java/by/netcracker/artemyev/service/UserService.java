@@ -1,6 +1,6 @@
 package by.netcracker.artemyev.service;
 
-import by.netcracker.artemyev.entity.User;
+import by.netcracker.artemyev.entity.impl.User;
 import by.netcracker.artemyev.exception.ServiceException;
 
 import java.util.List;

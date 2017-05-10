@@ -1,6 +1,6 @@
 package by.netcracker.artemyev.service;
 
-import by.netcracker.artemyev.entity.Gender;
+import by.netcracker.artemyev.entity.impl.Gender;
 import by.netcracker.artemyev.exception.ServiceException;
 
 import java.util.List;

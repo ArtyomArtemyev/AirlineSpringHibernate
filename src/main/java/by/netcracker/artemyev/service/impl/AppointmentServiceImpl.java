@@ -1,7 +1,7 @@
 package by.netcracker.artemyev.service.impl;
 
 import by.netcracker.artemyev.dao.AppointmentDao;
-import by.netcracker.artemyev.entity.Appointment;
+import by.netcracker.artemyev.entity.impl.Appointment;
 import by.netcracker.artemyev.service.AppointmentService;
 import by.netcracker.artemyev.service.GenericService;
 import org.springframework.beans.factory.annotation.Autowired;

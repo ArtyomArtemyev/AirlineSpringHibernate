@@ -1,7 +1,7 @@
 package by.netcracker.artemyev.service.impl;
 
 import by.netcracker.artemyev.dao.FlightDao;
-import by.netcracker.artemyev.entity.Flight;
+import by.netcracker.artemyev.entity.impl.Flight;
 import by.netcracker.artemyev.service.FlightService;
 import by.netcracker.artemyev.service.GenericService;
 import org.springframework.beans.factory.annotation.Autowired;

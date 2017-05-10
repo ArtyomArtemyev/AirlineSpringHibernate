@@ -1,7 +1,7 @@
 package by.netcracker.artemyev.dao;
 
 
-import by.netcracker.artemyev.entity.Gender;
+import by.netcracker.artemyev.entity.impl.Gender;
 import by.netcracker.artemyev.exception.DaoException;
 
 public interface GenderDao extends GeneralDao<Gender> {

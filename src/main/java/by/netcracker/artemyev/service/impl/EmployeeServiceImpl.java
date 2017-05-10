@@ -1,7 +1,7 @@
 package by.netcracker.artemyev.service.impl;
 
 import by.netcracker.artemyev.dao.EmployeeDao;
-import by.netcracker.artemyev.entity.Employee;
+import by.netcracker.artemyev.entity.impl.Employee;
 import by.netcracker.artemyev.service.EmployeeService;
 import by.netcracker.artemyev.service.GenericService;
 import org.springframework.beans.factory.annotation.Autowired;

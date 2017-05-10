@@ -1,7 +1,7 @@
 package by.netcracker.artemyev.util;
 
 import by.netcracker.artemyev.constant.Page;
-import by.netcracker.artemyev.entity.User;
+import by.netcracker.artemyev.entity.impl.User;
 
 public final class UserRoleChecker {
 

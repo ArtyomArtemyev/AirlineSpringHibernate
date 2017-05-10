@@ -1,6 +1,6 @@
 package by.netcracker.artemyev.dao;
 
-import by.netcracker.artemyev.entity.Employee;
+import by.netcracker.artemyev.entity.impl.Employee;
 import by.netcracker.artemyev.exception.DaoException;
 
 public interface EmployeeDao extends GeneralDao<Employee> {
