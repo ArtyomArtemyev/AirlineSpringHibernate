@@ -1,7 +1,8 @@
-package by.netcracker.artemyev.entity;
+package by.netcracker.artemyev.entity.impl;
+
+import by.netcracker.artemyev.entity.BaseEntity;
 
 import javax.persistence.*;
-import java.io.Serializable;
 
 /**
  * Class describes user
@@ -9,23 +10,11 @@ import java.io.Serializable;
  */
 @Entity
 @Table(name = "user")
-public class User implements Serializable {
-    private long id;
+public class User extends BaseEntity {
     private String login;
     private String password;
     private String mail;
     private Role role;
-
-    @Id
-    @Column(name = "user_id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
 
     @Column(name = "login", nullable = false)
     public String getLogin() {
@@ -68,8 +57,8 @@ public class User implements Serializable {
         super();
     }
 
-    public User(long id, String login, String password, String mail, Role role) {
-        this.id = id;
+    public User(Long id, String login, String password, String mail, Role role) {
+        this.setId(id);
         this.login = login;
         this.password = password;
         this.mail = mail;
@@ -109,7 +98,7 @@ public class User implements Serializable {
     @Override
     public int hashCode() {
         int result = 0;
-        result = (int) this.getId() + 2;
+        result = (int) (long) this.getId() + 2;
         result += this.getLogin().hashCode();
         result += this.getPassword().hashCode();
         result += this.getMail().hashCode();
@@ -119,7 +108,7 @@ public class User implements Serializable {
 
     @Override
     public String toString() {
-        return "User{" + "id=" + id +
+        return "User{" + "id=" + this.getId() +
                 ", login='" + login + '\'' +
                 ", password='" + password + '\'' +
                 ", mail='" + mail + '\'' +

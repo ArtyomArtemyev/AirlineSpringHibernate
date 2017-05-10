@@ -1,7 +1,8 @@
-package by.netcracker.artemyev.entity;
+package by.netcracker.artemyev.entity.impl;
+
+import by.netcracker.artemyev.entity.BaseEntity;
 
 import javax.persistence.*;
-import java.io.Serializable;
 
 /**
  * Class describes employee
@@ -9,23 +10,11 @@ import java.io.Serializable;
  */
 @Entity
 @Table(name = "employee")
-public class Employee implements Serializable {
-    private long id;
+public class Employee extends BaseEntity {
     private String name;
     private String surname;
     private Gender gender;
     private Appointment appointment;
-
-    @Id
-    @Column(name = "employee_id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
 
     @Column(name = "name", nullable = false)
     public String getName() {
@@ -69,8 +58,8 @@ public class Employee implements Serializable {
         super();
     }
 
-    public Employee(long id, String name, String surname, Gender gender, Appointment appointment) {
-        this.id = id;
+    public Employee(Long id, String name, String surname, Gender gender, Appointment appointment) {
+        this.setId(id);
         this.name = name;
         this.surname = surname;
         this.gender = gender;
@@ -110,7 +99,7 @@ public class Employee implements Serializable {
     @Override
     public int hashCode() {
         int result = 0;
-        result = (int) this.getId() + 2;
+        result = (int) (long) this.getId() + 2;
         result += this.getName().hashCode();
         result += this.getSurname().hashCode();
         result += this.getAppointment().hashCode();
@@ -120,7 +109,7 @@ public class Employee implements Serializable {
 
     @Override
     public String toString() {
-        return "Employee{" + "id=" + id +
+        return "Employee{" + "id=" + this.getId() +
                 ", name='" + name + '\'' +
                 ", surname='" + surname + '\'' +
                 ", gender=" + gender +  + '\'' +

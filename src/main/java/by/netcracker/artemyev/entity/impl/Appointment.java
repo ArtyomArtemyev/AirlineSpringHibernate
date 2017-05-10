@@ -1,9 +1,9 @@
-package by.netcracker.artemyev.entity;
+package by.netcracker.artemyev.entity.impl;
 
+import by.netcracker.artemyev.entity.BaseEntity;
 import by.netcracker.artemyev.enumeration.AppointmentType;
 
 import javax.persistence.*;
-import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -12,21 +12,9 @@ import java.util.List;
  */
 @Entity
 @Table(name = "appointment")
-public class Appointment implements Serializable {
-    private long id;
+public class Appointment extends BaseEntity {
     private AppointmentType appointment;
     private List<Employee> employeeList;
-
-    @Id
-    @Column(name = "appointment_id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
 
     @Column(name = "name", nullable = false)
     @Enumerated(EnumType.STRING)
@@ -51,8 +39,8 @@ public class Appointment implements Serializable {
         super();
     }
 
-    public Appointment(long id, AppointmentType appointment) {
-        this.id = id;
+    public Appointment(Long id, AppointmentType appointment) {
+        this.setId(id);
         this.appointment = appointment;
     }
 
@@ -80,14 +68,14 @@ public class Appointment implements Serializable {
     @Override
     public int hashCode() {
         int result = 0;
-        result = (int) this.getId() + 2;
+        result = (int) (long) this.getId() + 2;
         result += this.getAppointment().hashCode();
         return result;
     }
 
     @Override
     public String toString() {
-        return "Appointment{" + "id=" + id +
+        return "Appointment{" + "id=" + this.getId() +
                 ", appointment=" + appointment +
                 '}';
     }

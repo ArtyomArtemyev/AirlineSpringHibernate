@@ -1,9 +1,9 @@
-package by.netcracker.artemyev.entity;
+package by.netcracker.artemyev.entity.impl;
 
+import by.netcracker.artemyev.entity.BaseEntity;
 import by.netcracker.artemyev.enumeration.GenderType;
 
 import javax.persistence.*;
-import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -12,21 +12,9 @@ import java.util.List;
  */
 @Entity
 @Table(name = "gender")
-public class Gender implements Serializable {
-    private long id;
+public class Gender extends BaseEntity {
     private GenderType gender;
     private List<Employee> employeeList;
-
-    @Id
-    @Column(name = "gender_id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
 
     @Column(name = "name", nullable = false)
     @Enumerated(EnumType.STRING)
@@ -52,7 +40,7 @@ public class Gender implements Serializable {
     }
 
     public Gender(long id, GenderType genderType) {
-        this.id = id;
+        this.setId(id);
         this.gender = genderType;
     }
 
@@ -80,14 +68,14 @@ public class Gender implements Serializable {
     @Override
     public int hashCode() {
         int result = 0;
-        result = (int) this.getId() + 2;
+        result = (int) (long) this.getId() + 2;
         result += this.getGender().hashCode();
         return result;
     }
 
     @Override
     public String toString() {
-        return "Gender{" + "id=" + id +
+        return "Gender{" + "id=" + this.getId() +
                 ", gender=" + gender +
                 '}';
     }

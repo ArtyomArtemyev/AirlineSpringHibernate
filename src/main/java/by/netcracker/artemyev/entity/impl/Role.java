@@ -1,9 +1,9 @@
-package by.netcracker.artemyev.entity;
+package by.netcracker.artemyev.entity.impl;
 
+import by.netcracker.artemyev.entity.BaseEntity;
 import by.netcracker.artemyev.enumeration.RoleType;
 
 import javax.persistence.*;
-import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -12,21 +12,9 @@ import java.util.List;
  */
 @Entity
 @Table(name = "user_role")
-public class Role implements Serializable {
-    private long id;
+public class Role extends BaseEntity {
     private RoleType roleType;
     private List<User> userList;
-
-    @Id
-    @Column(name = "user_id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
 
     @Column(name = "name", updatable = false, nullable = false)
     @Enumerated(EnumType.STRING)
@@ -52,7 +40,7 @@ public class Role implements Serializable {
     }
 
     public Role(long id, RoleType roleType) {
-        this.id = id;
+        this.setId(id);
         this.roleType = roleType;
     }
 
@@ -80,14 +68,14 @@ public class Role implements Serializable {
     @Override
     public int hashCode() {
         int result = 0;
-        result = (int) this.getId() + 2;
+        result = (int) (long) this.getId() + 2;
         result += this.getRoleType().hashCode();
         return result;
     }
 
     @Override
     public String toString() {
-        return "Role{" + "id=" + id +
+        return "Role{" + "id=" + this.getId() +
                 ", roleType=" + roleType +
                 '}';
     }

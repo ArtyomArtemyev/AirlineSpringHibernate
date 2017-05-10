@@ -1,7 +1,8 @@
-package by.netcracker.artemyev.entity;
+package by.netcracker.artemyev.entity.impl;
+
+import by.netcracker.artemyev.entity.BaseEntity;
 
 import javax.persistence.*;
-import java.io.Serializable;
 
 /**
  * Class describes flight
@@ -9,21 +10,9 @@ import java.io.Serializable;
  */
 @Entity
 @Table(name = "flight")
-public class Flight implements Serializable {
-    private long id;
+public class Flight extends BaseEntity {
     private String navigation;
     private Team team;
-
-    @Id
-    @Column(name = "flight_id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
 
     @Column(name = "navigation", nullable = false)
     public String getNavigation() {
@@ -48,8 +37,8 @@ public class Flight implements Serializable {
         super();
     }
 
-    public Flight(long id, String navigation, Team team) {
-        this.id = id;
+    public Flight(Long id, String navigation, Team team) {
+        this.setId(id);
         this.navigation = navigation;
         this.team = team;
     }
@@ -79,9 +68,17 @@ public class Flight implements Serializable {
     }
 
     @Override
+    public String toString() {
+        return "Flight{" + "id=" + this.getId() +
+                ", navigation=" + navigation + '\'' +
+                ", team=" + team +
+                '}';
+    }
+
+    @Override
     public int hashCode() {
         int result = 0;
-        result = (int) this.getId() + 2;
+        result = (int) (long) this.getId() + 2;
         result += this.getNavigation().hashCode();
         result += this.getTeam().hashCode();
         return result;
