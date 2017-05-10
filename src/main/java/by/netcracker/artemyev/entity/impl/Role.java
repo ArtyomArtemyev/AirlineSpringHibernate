@@ -39,7 +39,7 @@ public class Role extends BaseEntity {
         super();
     }
 
-    public Role(long id, RoleType roleType) {
+    public Role(Long id, RoleType roleType) {
         this.setId(id);
         this.roleType = roleType;
     }
