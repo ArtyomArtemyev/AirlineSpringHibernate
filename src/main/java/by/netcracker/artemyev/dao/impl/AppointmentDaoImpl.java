@@ -4,7 +4,7 @@ import by.netcracker.artemyev.constant.ErrorMessage;
 import by.netcracker.artemyev.constant.Statement;
 import by.netcracker.artemyev.dao.AppointmentDao;
 import by.netcracker.artemyev.dao.GenericDao;
-import by.netcracker.artemyev.entity.Appointment;
+import by.netcracker.artemyev.entity.impl.Appointment;
 import by.netcracker.artemyev.exception.DaoException;
 import org.hibernate.HibernateException;
 import org.springframework.stereotype.Repository;
