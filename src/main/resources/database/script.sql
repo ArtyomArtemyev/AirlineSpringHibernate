@@ -64,10 +64,10 @@ CREATE TABLE `airline`.`team` (
   DEFAULT CHARACTER SET = utf8;
 
 CREATE TABLE `airline`.`flight` (
-  `flight_id` INT NOT NULL AUTO_INCREMENT,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `navigation` VARCHAR(100) NOT NULL,
   `team_id` INT,
-  PRIMARY KEY (`flight_id`),
+  PRIMARY KEY (`id`),
   FOREIGN KEY (`team_id`)
   REFERENCES `airline`.`team` (`id`)
     ON DELETE NO ACTION
@@ -82,7 +82,7 @@ ALTER TABLE `airline`.`employee`
   CHANGE COLUMN `employee_id` `id` INT(11) NOT NULL AUTO_INCREMENT ;
 
 ALTER TABLE `airline`.`flight`
-  CHANGE COLUMN `flight_id` `id` INT(11) NOT NULL ;
+  CHANGE COLUMN `flight_id` `id` INT(11) NOT NULL AUTO_INCREMENT ;
 
 ALTER TABLE `airline`.`gender`
   CHANGE COLUMN `gender_id` `id` INT(11) NOT NULL AUTO_INCREMENT ;
