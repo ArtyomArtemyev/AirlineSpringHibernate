@@ -8,4 +8,5 @@ public final class RequestParameter {
     public final static String USER_LOGIN = "login";
     public final static String USER_PASSWORD = "password";
     public final static String USER_MAIL = "mail";
+    public final static String FLIGHT = "flights";
 }
