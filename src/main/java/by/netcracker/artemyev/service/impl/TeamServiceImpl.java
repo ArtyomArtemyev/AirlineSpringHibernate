@@ -7,6 +7,9 @@ import by.netcracker.artemyev.service.TeamService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+/**
+ * @autor Artemyev Artoym
+ */
 @Service
 public class TeamServiceImpl extends GenericService<Team> implements TeamService{
 

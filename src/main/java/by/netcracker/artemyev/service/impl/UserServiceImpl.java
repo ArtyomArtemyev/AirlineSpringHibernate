@@ -1,5 +1,6 @@
 package by.netcracker.artemyev.service.impl;
 
+import by.netcracker.artemyev.dao.RoleDao;
 import by.netcracker.artemyev.dao.UserDao;
 import by.netcracker.artemyev.entity.impl.Role;
 import by.netcracker.artemyev.entity.impl.User;
@@ -16,12 +17,18 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
+/**
+ * @autor Artemyev Artoym
+ */
 @Service
 public class UserServiceImpl extends GenericService<User> implements UserService {
     private static Logger logger = Logger.getLogger(UserServiceImpl.class);
 
     @Autowired
     private UserDao userDao;
+
+    @Autowired
+    private RoleDao roleDao;
 
     @Transactional
     @Override
@@ -40,11 +47,14 @@ public class UserServiceImpl extends GenericService<User> implements UserService
         return namePage;
     }
 
+    @Transactional
     @Override
     public void addUser(String userLogin, String userPassword, String userMail) throws ServiceException {
-        Role role = new Role(0, RoleType.USER);
-        User user = new User(0, userLogin, userPassword, userMail, role);
-        add(user);
+        Role role = new Role(RoleType.USER);
+        roleDao.add(role);
+        User user = new User(userLogin, userPassword, userMail, role);
+        System.out.println(user.toString());
+        this.add(user);
     }
 
 }

@@ -58,8 +58,7 @@ public class Employee extends BaseEntity {
         super();
     }
 
-    public Employee(Long id, String name, String surname, Gender gender, Appointment appointment) {
-        this.setId(id);
+    public Employee(String name, String surname, Gender gender, Appointment appointment) {
         this.name = name;
         this.surname = surname;
         this.gender = gender;

@@ -7,6 +7,9 @@ import by.netcracker.artemyev.service.RoleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+/**
+ * @autor Artemyev Artoym
+ */
 @Service
 public class RoleServiceImpl extends GenericService<Role> implements RoleService {
 

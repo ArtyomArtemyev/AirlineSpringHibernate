@@ -39,8 +39,7 @@ public class Appointment extends BaseEntity {
         super();
     }
 
-    public Appointment(Long id, AppointmentType appointment) {
-        this.setId(id);
+    public Appointment(AppointmentType appointment) {
         this.appointment = appointment;
     }
 

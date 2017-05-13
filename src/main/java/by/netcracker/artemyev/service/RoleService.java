@@ -5,6 +5,9 @@ import by.netcracker.artemyev.exception.ServiceException;
 
 import java.util.List;
 
+/**
+ * @autor Artemyev Artoym
+ */
 public interface RoleService extends GeneralService<Role> {
     void add(Role object) throws ServiceException;
     void update(Role object) throws ServiceException;

@@ -37,8 +37,7 @@ public class Team extends BaseEntity {
         super();
     }
 
-    public Team(Long id, String idMembers) {
-        this.setId(id);
+    public Team(String idMembers) {
         this.idMembers = idMembers;
     }
 

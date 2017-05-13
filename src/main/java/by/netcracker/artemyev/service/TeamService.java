@@ -5,6 +5,9 @@ import by.netcracker.artemyev.exception.ServiceException;
 
 import java.util.List;
 
+/**
+ * @autor Artemyev Artoym
+ */
 public interface TeamService extends GeneralService<Team> {
     void add(Team object) throws ServiceException;
     void update(Team object) throws ServiceException;

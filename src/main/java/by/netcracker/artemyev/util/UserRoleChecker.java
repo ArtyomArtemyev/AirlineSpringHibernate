@@ -3,6 +3,9 @@ package by.netcracker.artemyev.util;
 import by.netcracker.artemyev.constant.Page;
 import by.netcracker.artemyev.entity.impl.User;
 
+/**
+ * @autor Artemyev Artoym
+ */
 public final class UserRoleChecker {
 
     public static String defineUserPage(User user) {

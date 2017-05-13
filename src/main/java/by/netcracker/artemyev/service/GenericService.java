@@ -10,6 +10,9 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
+/**
+ * @autor Artemyev Artoym
+ */
 @Service
 public abstract class GenericService<T> implements GeneralService<T> {
     private static Logger logger = Logger.getLogger(GenericService.class);
@@ -17,10 +20,19 @@ public abstract class GenericService<T> implements GeneralService<T> {
     @Autowired
     private GenericDao<T> dao;
 
+    public GenericService() {
+        super();
+    }
+
+    public GenericService(GenericDao<T> dao) {
+        this.dao = dao;
+    }
+
     @Transactional
     @Override
     public void add(T object) throws ServiceException {
         try {
+
            dao.add(object);
         } catch (DaoException e) {
             logger.debug(e);

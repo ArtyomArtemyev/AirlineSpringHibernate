@@ -5,6 +5,9 @@ import by.netcracker.artemyev.exception.ServiceException;
 
 import java.util.List;
 
+/**
+ * @autor Artemyev Artoym
+ */
 public interface FlightService extends GeneralService<Flight> {
     void add(Flight object) throws ServiceException;
     void update(Flight object) throws ServiceException;

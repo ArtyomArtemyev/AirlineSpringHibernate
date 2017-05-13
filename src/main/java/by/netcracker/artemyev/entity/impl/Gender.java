@@ -39,8 +39,7 @@ public class Gender extends BaseEntity {
         super();
     }
 
-    public Gender(long id, GenderType genderType) {
-        this.setId(id);
+    public Gender(GenderType genderType) {
         this.gender = genderType;
     }
 

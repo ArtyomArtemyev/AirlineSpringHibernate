@@ -5,6 +5,9 @@ import by.netcracker.artemyev.exception.ServiceException;
 
 import java.util.List;
 
+/**
+ * @autor Artemyev Artoym
+ */
 public interface EmployeeService extends GeneralService<Employee> {
     void add(Employee object) throws ServiceException;
     void update(Employee object) throws ServiceException;

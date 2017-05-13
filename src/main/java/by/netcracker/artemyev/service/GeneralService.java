@@ -4,6 +4,9 @@ import by.netcracker.artemyev.exception.ServiceException;
 
 import java.util.List;
 
+/**
+ * @autor Artemyev Artoym
+ */
 public interface GeneralService<T> {
     void add(T object) throws ServiceException;
     void update(T object) throws ServiceException;

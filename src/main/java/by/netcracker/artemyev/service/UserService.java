@@ -5,6 +5,9 @@ import by.netcracker.artemyev.exception.ServiceException;
 
 import java.util.List;
 
+/**
+ * @autor Artemyev Artoym
+ */
 public interface UserService extends GeneralService<User> {
     void add(User object) throws ServiceException;
     void update(User object) throws ServiceException;
@@ -12,5 +15,5 @@ public interface UserService extends GeneralService<User> {
     User getById(int id) throws ServiceException;
     List<User> getAll() throws ServiceException;
     String checkUser(String userLogin, String userPassword) throws ServiceException;
-    public void addUser(String userLogin, String userPassword, String userMail) throws ServiceException;
+    void addUser(String userLogin, String userPassword, String userMail) throws ServiceException;
 }

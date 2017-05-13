@@ -37,8 +37,7 @@ public class Flight extends BaseEntity {
         super();
     }
 
-    public Flight(Long id, String navigation, Team team) {
-        this.setId(id);
+    public Flight(String navigation, Team team) {
         this.navigation = navigation;
         this.team = team;
     }
