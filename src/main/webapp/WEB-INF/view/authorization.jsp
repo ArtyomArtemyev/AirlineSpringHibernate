@@ -62,7 +62,7 @@
             <div class="row">
                 <div class="col-md-8 col-md-offset-2">
                     AUTHORIZATION USER
-                    <form name="loginForm" id="loginForm" method="POST" action="/check_user">
+                    <form name="loginForm" id="loginForm" method="POST" action="/user/check">
                         <p><input class="inputEnter" id="inputLogin" type="text" name="login" value="" placeholder="Login"/></p>
                         <p class="field"><input class="inputEnter" id="inputPassword" type="password" name="password" value="" placeholder="Password"/></p>
                         <p class="field"><input type="submit" id="sendButton" class="submitButton" value="Enter"/></p>

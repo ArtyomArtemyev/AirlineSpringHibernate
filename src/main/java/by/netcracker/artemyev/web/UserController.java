@@ -26,7 +26,7 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @RequestMapping(value = "/check_user", method = RequestMethod.POST)
+    @RequestMapping(value = "/user/check", method = RequestMethod.POST)
     public ModelAndView authorizationUser(HttpServletRequest request, HttpServletResponse response) {
         ModelAndView modelAndView = new ModelAndView();
         String returnPage;
@@ -40,7 +40,7 @@ public class UserController {
         return modelAndView;
     }
 
-    @RequestMapping(value = "/add_user", method = RequestMethod.POST)
+    @RequestMapping(value = "/user/add", method = RequestMethod.POST)
     public ModelAndView registrationUser(HttpServletRequest request, HttpServletResponse response) {
         ModelAndView modelAndView = new ModelAndView();
         String returnPage = Page.SUCCESSFUL_REGISTRATION;

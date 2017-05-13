@@ -63,7 +63,7 @@
             <div class="row">
                 <div class="col-md-8 col-md-offset-2">
 
-                    <form id="registrationForm" name="loginForm" method="POST" action="/add_user">REGISTRATION USER
+                    <form id="registrationForm" name="loginForm" method="POST" action="/user/add">REGISTRATION USER
                         <p>
                             <input class="inputEnter" type="text" name="login" id="login" placeholder="Login" value="">
                             <i class="icon-user icon-large"></i>
