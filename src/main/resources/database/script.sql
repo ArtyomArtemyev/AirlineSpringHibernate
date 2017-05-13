@@ -112,3 +112,8 @@ FOREIGN KEY (`gender_id`)
 REFERENCES `airline`.`gender` (`id`)
   ON DELETE NO ACTION
   ON UPDATE NO ACTION;
+
+INSERT INTO `airline`.`flight` (`navigation`, `team_id`) VALUES ('Minsk-Moscow');
+INSERT INTO `airline`.`flight` (`navigation`, `team_id`) VALUES ( 'Minsk-Paris');
+INSERT INTO `airline`.`flight` (`navigation`, `team_id`) VALUES ('Minsk-Lion');
+INSERT INTO `airline`.`flight` (`navigation`, `team_id`) VALUES ('Bern-Minsk');
