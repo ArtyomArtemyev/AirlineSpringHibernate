@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1"
+             xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+    <persistence-unit name="jpaPersistenceUnitG3DM"
+                      transaction-type="RESOURCE_LOCAL">
+
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+        <class>by.netcracker.artemyev.entity.impl.Appointment</class>
+        <class>by.netcracker.artemyev.entity.impl.User</class>
+        <class>by.netcracker.artemyev.entity.impl.Role</class>
+
+        <properties>
+
+            <property name="hibernate.cache.region.factory_class"
+                      value="org.hibernate.cache.ehcache.EhCacheRegionFactory" />
+            <property name="net.sf.ehcache.configurationResourceName"
+                      value="/hibernate-ehcache.xml" />
+            <property name="hibernate.cache.use_second_level_cache"
+                      value="true" />
+            <property name="hibernate.cache.use_query_cache" value="true" />
+
+        </properties>
+
+    </persistence-unit>
+
+</persistence>
