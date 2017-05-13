@@ -15,6 +15,9 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+/**
+ * @autor Artemyev Artoym
+ */
 @Controller
 public class UserController {
     private static String className = UserController.class.getName();
