@@ -23,7 +23,7 @@ public class UserDaoImpl extends GenericDao<User> implements UserDao {
     private final static String USER_LOGIN = "login";
     private final static String USER_PASSWORD = "password";
 
-    private UserDaoImpl() {
+    public UserDaoImpl() {
         super(User.class);
     }
 
