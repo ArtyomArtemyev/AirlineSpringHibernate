@@ -19,6 +19,8 @@
 
     <!-- Theme CSS -->
     <link href="${pageContext.request.contextPath}/resources/css/grayscale.css" rel="stylesheet" type="text/css">
+    <!-- My style CSS -->
+    <link href="${pageContext.request.contextPath}/resources/css/style.css" rel="stylesheet" type="text/css">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -59,16 +61,19 @@
             <div class="row">
                 <div class="col-md-8 col-md-offset-2">
                     <div align="center">
-                        <table id="adminTable" align="center">
-                            <caption>FLIGHTS MANAGEMENT</caption>
+                        <table id="adminTable" class="table_dark" align="center">
+                            <caption>FLIGHT MANAGEMENT</caption>
+                            <tr>
+                                <th colspan="3">Navigation flight</th>
+                                <th colspan="2">Action</th>
+                            </tr>
                             <tr>
                                 <form method="POST" action="/flight/add" id="createForm">
-                                    <td>
-                                        <label for="navigation">Navigation flight</label>
+                                    <td colspan="3">
                                         <input type="text" name="navigation" id="navigation" value="">
                                     </td>
-                                    <td>
-                                        <input type="submit" value="Create flight" id="createButton">
+                                    <td colspan="2">
+                                        <input type="submit" value="Add flight" id="createButton">
                                     </td>
                                 </form>
                             </tr>
@@ -84,8 +89,8 @@
                                 <c:forEach var="flight" items="${flights}">
                                     <tr>
                                         <td>${flight.id}</td>
-                                        <td>${flight.navigationFlight}</td>
-                                        <td>${flight.idTeam}</td>
+                                        <td>${flight.navigation}</td>
+                                        <td>${flight.team.id}</td>
                                         <td><input type="checkbox" name="id" id="${flight.id}" value="${flight.id}"></td>
                                         <td><input type="submit" value="Delete flight" id="deleteButton"></td>
                                     </tr>
