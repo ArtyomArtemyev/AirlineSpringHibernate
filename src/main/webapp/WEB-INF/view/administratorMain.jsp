@@ -68,12 +68,12 @@
                                 <th colspan="2">Action</th>
                             </tr>
                             <tr>
-                                <form method="POST" action="/flight/add" id="createForm">
+                                <form method="POST" action="/flight/add" id="addForm">
                                     <td colspan="3">
                                         <input type="text" name="navigation" id="navigation" value="">
                                     </td>
                                     <td colspan="2">
-                                        <input type="submit" value="Add flight" id="createButton">
+                                        <input type="submit" value="Add flight" id="addButton">
                                     </td>
                                 </form>
                             </tr>
