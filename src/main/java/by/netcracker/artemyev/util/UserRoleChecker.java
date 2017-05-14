@@ -15,10 +15,10 @@ public final class UserRoleChecker {
                 namePage = Page.USER_INDEX;
                 break;
             case DISPATCHER:
-                namePage = Page.ADMIN_INDEX;
+                namePage = Page.DISPATCHER_INDEX;
                 break;
             case ADMINISTRATOR:
-                namePage = Page.DISPATCHER_INDEX;
+                namePage = Page.ADMIN_INDEX;
                 break;
         }
         return namePage;
