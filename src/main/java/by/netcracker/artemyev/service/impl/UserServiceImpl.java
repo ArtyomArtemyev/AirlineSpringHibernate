@@ -36,7 +36,7 @@ public class UserServiceImpl extends GenericService<User> implements UserService
         String namePage = "errorAuthorization";
         List<User> userList;
         try {
-           userList = userDao.getByLoginAndPassword(userLogin, userPassword);
+           userList = userDao.getByLoginAndPassword(userLogin,String.valueOf(userPassword.hashCode()));
         }  catch (DaoException e) {
             logger.debug(e);
             throw new ServiceException(e.getMessage());
@@ -52,7 +52,7 @@ public class UserServiceImpl extends GenericService<User> implements UserService
     public void addUser(String userLogin, String userPassword, String userMail) throws ServiceException {
         Role role = new Role(RoleType.USER);
         roleDao.add(role);
-        User user = new User(userLogin, userPassword, userMail, role);
+        User user = new User(userLogin, String.valueOf(userPassword.hashCode()), userMail, role);
         System.out.println(user.toString());
         this.add(user);
     }
