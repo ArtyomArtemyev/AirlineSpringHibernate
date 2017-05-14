@@ -1,8 +1,6 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <title>Main administrator page</title>
+    <title>Chart page</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -29,6 +27,7 @@
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 </head>
+
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
 
 <!-- Navigation -->
@@ -60,59 +59,25 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8 col-md-offset-2">
-                    <div align="center">
-                        <table id="adminTable" class="table_dark" align="center">
-                            <caption>FLIGHT MANAGEMENT</caption>
-                            <tr>
-                                <th colspan="3">Navigation flight</th>
-                                <th colspan="2">Action</th>
-                            </tr>
-                            <tr>
-                                <form method="POST" action="/flight/add" id="addForm">
-                                    <td colspan="3">
-                                        <input type="text" name="navigation" id="navigation" value="">
-                                    </td>
-                                    <td colspan="2">
-                                        <input type="submit" value="Add flight" id="addButton">
-                                    </td>
-                                </form>
-                            </tr>
+                    <table class="table_dark" id="tablePie" >
+                        <caption>Diagrams</caption>
+                        <th>Name chart</th>
+                        <th>Display diagram</th>
+                        <tr>
+                            <td>Market of airline company</td>
+                            <td class="tdPie" id="diagramPie" style="opacity: 10"></td>
+                        </tr>
+                        <tr>
+                            <td>Amount of choice customer our company</td>
+                            <td class="tdPie" id="oil" style="opacity: 10"></td>
+                        </tr>
+                    </table>
 
-                            <tr>
-                                <th>Id</th>
-                                <th>Navigation</th>
-                                <th>TeamId</th>
-                                <th>Select</th>
-                                <th>Action</th>
-                            </tr>
-                            <form method="DELETE" action="/flight/delete/" id="deleteForm">
-                                <c:forEach var="flight" items="${flights}">
-                                    <tr>
-                                        <td>${flight.id}</td>
-                                        <td>${flight.navigation}</td>
-                                        <td>${flight.team.id}</td>
-                                        <td><input type="checkbox" name="id${flight.id}" id="${flight.id}" value="${flight.id}"></td>
-                                        <td><input type="submit" value="Delete flight" class="deleteButton"></td>
-                                    </tr>
-                                </c:forEach>
-                            </form>
-                        </table>
-                    </div>
                 </div>
             </div>
         </div>
     </div>
 </header>
-
-<!-- About Section -->
-<section id="about" class="container content-section text-center">
-    <div class="row">
-        <div class="col-lg-8 col-lg-offset-2">
-            <h2>About ArtAirline</h2>
-            <p>ArtAirline is one of the trustworthy airline company in the world. You can trust us</p>
-        </div>
-    </div>
-</section>
 
 <!-- Footer -->
 <footer>
@@ -122,22 +87,22 @@
 </footer>
 
 <!-- jQuery -->
-<script src="${pageContext.request.contextPath}/resources/vendor/jquery/jquery.js" type="text/javascript"></script>
+<script src="${pageContext.request.contextPath}/resourcesvendor/jquery/jquery.js" type="text/javascript"></script>
 
 <!-- Bootstrap Core JavaScript -->
 <script src="${pageContext.request.contextPath}/resources/vendor/bootstrap/js/bootstrap.js" type="text/javascript"></script>
 
 <!-- Plugin JavaScript -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js" type="text/javascript"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.js" type="text/javascript"></script>
 
 <!-- Google Maps API Key - Use your own API key to enable the map feature. More information on the Google Maps API can be found at https://developers.google.com/maps/ -->
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRngKslUGJTlibkQ3FkfTxj3Xss1UlZDA&sensor=false"></script>
 
 <!-- Theme JavaScript -->
 <script src="${pageContext.request.contextPath}/resources/js/grayscale.js" type="text/javascript"></script>
-
-<!--My script controller-->
-<script src="${pageContext.request.contextPath}/resources/js/administrator.main.controller.js" type="text/javascript"></script>
+<script src="${pageContext.request.contextPath}/resources/js/jsapi.js" type="text/javascript"></script>
+<script src="${pageContext.request.contextPath}/resources/js/chart.controller.js" type="text/javascript"></script>
 
 </body>
+
 </html>

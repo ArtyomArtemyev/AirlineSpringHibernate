@@ -33,4 +33,11 @@ public class MainController {
         return modelAndView;
     }
 
+    @RequestMapping(value = "/chart", method = RequestMethod.GET)
+    public ModelAndView getChart() {
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName(Page.INFORMATION_CHART);
+        return modelAndView;
+    }
+
 }

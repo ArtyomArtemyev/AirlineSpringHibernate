@@ -48,6 +48,9 @@
                 <li>
                     <a class="page-scroll" href="<c:url value="/flight" />">Show flights</a>
                 </li>
+                <li>
+                    <a class="page-scroll" href="<c:url value="/chart" />">Show information chart</a>
+                </li>
             </ul>
         </div>
         <!-- /.navbar-collapse -->
