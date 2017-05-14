@@ -1,15 +1,15 @@
 (function () {
     var deleteButton = document.getElementById('deleteButton');
-    var createButton = document.getElementById('createButton');
+    var addButton = document.getElementById('addButton');
     deleteButton.addEventListener('click', deleteButtonClickHandler);
-    createButton.addEventListener('click', createButtonClickHandler);
+    addButton.addEventListener('click', createButtonClickHandler);
 
     function deleteButtonClickHandler(event) {
         event.preventDefault();
 
         var adminTable = document.getElementById('adminTable').getElementsByTagName('tr');
         var check;
-        for (var i = 2; i < adminTable.length; i++) {
+        for (var i = 3; i < adminTable.length; i++) {
             var td = adminTable[i].querySelectorAll("td")[3];
             var checkbox = td.querySelector("input[type='checkbox']");
             if (checkbox.checked) {
@@ -36,8 +36,8 @@
             alert('Please enter navigation and then click on button');
         }
         else {
-            var createForm = document.getElementById('createForm');
-            createForm.submit();
+            var addForm = document.getElementById('addForm');
+            addForm.submit();
         }
     }
 
