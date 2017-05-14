@@ -117,3 +117,9 @@ INSERT INTO `airline`.`flight` (`navigation`, `team_id`) VALUES ('Minsk-Moscow')
 INSERT INTO `airline`.`flight` (`navigation`, `team_id`) VALUES ( 'Minsk-Paris');
 INSERT INTO `airline`.`flight` (`navigation`, `team_id`) VALUES ('Minsk-Lion');
 INSERT INTO `airline`.`flight` (`navigation`, `team_id`) VALUES ('Bern-Minsk');
+
+INSERT INTO `airline`.`user_role` (`id`, `name`) VALUES ('4', 'ADMINISTRATOR');
+INSERT INTO `airline`.`user` (`login`, `password`, `mail`, `user_role_id`) VALUES ('user', '3599307', 'user@mail.ru', '1');
+INSERT INTO `airline`.`user` (`login`, `password`, `mail`, `user_role_id`) VALUES ('admin', '92668751', 'admin@mail.ru', '4');
+INSERT INTO `airline`.`user` (`login`, `password`, `mail`, `user_role_id`) VALUES ('dispatcher', '-1212540249', 'dispatcher@mail.ru', '5');
+
