@@ -27,11 +27,39 @@ public class FlightController {
     private FlightService flightService;
 
     @RequestMapping(value = "/flight", method = RequestMethod.GET)
-    public ModelAndView registrationUser(HttpServletRequest request, HttpServletResponse response) {
+    public ModelAndView getFlight(HttpServletRequest request, HttpServletResponse response) {
         ModelAndView modelAndView = new ModelAndView();
         String returnPage = Page.USER_MAIN;
         try {
             request.setAttribute(RequestParameter.FLIGHT, flightService.getAll());
+        }  catch (ServiceException e) {
+            logger.debug(e);
+            returnPage = ErrorHandler.returnErrorPage(e.getMessage(), className);
+        }
+        modelAndView.setViewName(returnPage);
+        return modelAndView;
+    }
+
+    @RequestMapping(value = "/flight/management", method = RequestMethod.GET)
+    public ModelAndView manageFlight(HttpServletRequest request, HttpServletResponse response) {
+        ModelAndView modelAndView = new ModelAndView();
+        String returnPage = Page.ADMIN_MAIN;
+        try {
+            request.setAttribute(RequestParameter.FLIGHT, flightService.getAll());
+        }  catch (ServiceException e) {
+            logger.debug(e);
+            returnPage = ErrorHandler.returnErrorPage(e.getMessage(), className);
+        }
+        modelAndView.setViewName(returnPage);
+        return modelAndView;
+    }
+
+    @RequestMapping(value = "/flight/add", method = RequestMethod.POST)
+    public ModelAndView addFlight(HttpServletRequest request, HttpServletResponse response) {
+        ModelAndView modelAndView = new ModelAndView();
+        String returnPage = Page.SUCCESSFUL_ADD_FLIGHT;
+        try {
+            flightService.addFlight(request.getParameter(RequestParameter.NAVIGATION_FLIGHT));
         }  catch (ServiceException e) {
             logger.debug(e);
             returnPage = ErrorHandler.returnErrorPage(e.getMessage(), className);
