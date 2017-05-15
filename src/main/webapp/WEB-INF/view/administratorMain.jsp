@@ -22,6 +22,9 @@
     <!-- My style CSS -->
     <link href="${pageContext.request.contextPath}/resources/css/style.css" rel="stylesheet" type="text/css">
 
+    <!-- JQuery -->
+    <script src="${pageContext.request.contextPath}/resources/js/jquery-3.1.1.js"></script>
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -42,10 +45,13 @@
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
-            <ul class="nav navbar-nav">
+            <ul class="nav navbar-nav" >
                 <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
                 <li class="hidden">
                     <a href="#page-top"></a>
+                </li>
+                <li style="display:none;" id="hiddenLi">
+                    <a class="page-scroll" href="<c:url value="/flight/management" />">Flight management</a>
                 </li>
             </ul>
         </div>
@@ -60,7 +66,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8 col-md-offset-2">
-                    <div align="center">
+                    <div align="center" id="contentDiv">
+                        <p class="intro-text" id="informationP"><br></p>
                         <table id="adminTable" class="table_dark" align="center">
                             <caption>FLIGHT MANAGEMENT</caption>
                             <tr>
@@ -69,7 +76,7 @@
                             </tr>
                             <tr>
                                 <form method="POST" action="/flight/add" id="addForm">
-                                    <td colspan="3">
+                                    <td colspan="2">
                                         <input type="text" name="navigation" id="navigation" value="">
                                     </td>
                                     <td colspan="2">
@@ -82,17 +89,15 @@
                                 <th>Id</th>
                                 <th>Navigation</th>
                                 <th>TeamId</th>
-                                <th>Select</th>
                                 <th>Action</th>
                             </tr>
-                            <form method="DELETE" action="/flight/delete/" id="deleteForm">
+                            <form method="DELETE" action="" id="deleteForm">
                                 <c:forEach var="flight" items="${flights}">
                                     <tr>
                                         <td>${flight.id}</td>
                                         <td>${flight.navigation}</td>
                                         <td>${flight.team.id}</td>
-                                        <td><input type="checkbox" name="id${flight.id}" id="${flight.id}" value="${flight.id}"></td>
-                                        <td><input type="submit" value="Delete flight" class="deleteButton"></td>
+                                        <td><input type="submit" onclick="deleteButtonClickHandler(event)" value="Delete flight" id="${flight.id}"></td>
                                     </tr>
                                 </c:forEach>
                             </form>
@@ -121,6 +126,8 @@
     </div>
 </footer>
 
+<!--My script controller-->
+<script src="${pageContext.request.contextPath}/resources/js/administrator.main.controller.js" type="text/javascript"></script>
 <!-- jQuery -->
 <script src="${pageContext.request.contextPath}/resources/vendor/jquery/jquery.js" type="text/javascript"></script>
 
@@ -135,9 +142,6 @@
 
 <!-- Theme JavaScript -->
 <script src="${pageContext.request.contextPath}/resources/js/grayscale.js" type="text/javascript"></script>
-
-<!--My script controller-->
-<script src="${pageContext.request.contextPath}/resources/js/administrator.main.controller.js" type="text/javascript"></script>
 
 </body>
 </html>
