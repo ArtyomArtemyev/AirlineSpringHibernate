@@ -12,6 +12,6 @@ public interface AppointmentService extends GeneralService<Appointment> {
     void add(Appointment object) throws ServiceException;
     void update(Appointment object) throws ServiceException;
     void remove(Appointment object) throws ServiceException;
-    Appointment getById(int id) throws ServiceException;
+    Appointment getById(Long id) throws ServiceException;
     List<Appointment> getAll() throws ServiceException;
 }

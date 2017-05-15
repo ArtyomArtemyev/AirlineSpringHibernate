@@ -57,7 +57,7 @@ public abstract class GenericDao<T> implements GeneralDao<T> {
     }
 
     @Override
-    public T getById(int id) {
+    public T getById(Long id) {
         try {
             return getEntityManager().find(this.className, id);
         } catch (HibernateException e) {

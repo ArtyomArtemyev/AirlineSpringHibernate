@@ -12,6 +12,6 @@ public interface RoleService extends GeneralService<Role> {
     void add(Role object) throws ServiceException;
     void update(Role object) throws ServiceException;
     void remove(Role object) throws ServiceException;
-    Role getById(int id) throws ServiceException;
+    Role getById(Long id) throws ServiceException;
     List<Role> getAll() throws ServiceException;
 }

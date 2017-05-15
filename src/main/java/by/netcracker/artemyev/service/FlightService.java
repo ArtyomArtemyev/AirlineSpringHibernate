@@ -12,7 +12,7 @@ public interface FlightService extends GeneralService<Flight> {
     void add(Flight object) throws ServiceException;
     void update(Flight object) throws ServiceException;
     void remove(Flight object) throws ServiceException;
-    Flight getById(int id) throws ServiceException;
+    Flight getById(Long id) throws ServiceException;
     List<Flight> getAll() throws ServiceException;
     void addFlight(String navigation) throws ServiceException;
 }

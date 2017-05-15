@@ -12,7 +12,7 @@ public interface UserService extends GeneralService<User> {
     void add(User object) throws ServiceException;
     void update(User object) throws ServiceException;
     void remove(User object) throws ServiceException;
-    User getById(int id) throws ServiceException;
+    User getById(Long id) throws ServiceException;
     List<User> getAll() throws ServiceException;
     String checkUser(String userLogin, String userPassword) throws ServiceException;
     void addUser(String userLogin, String userPassword, String userMail) throws ServiceException;

@@ -64,7 +64,7 @@ public abstract class GenericService<T> implements GeneralService<T> {
 
     @Transactional(readOnly = true)
     @Override
-    public T getById(int id) throws ServiceException {
+    public T getById(Long id) throws ServiceException {
         try {
             return dao.getById(id);
         } catch (DaoException e) {
