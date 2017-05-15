@@ -1,7 +1,7 @@
 package by.netcracker.artemyev.constant;
 
 /**
- * Class contains name of pages
+ * Class contains pages name
  * @autor Artemyev Artoym
  */
 public final class Page {
@@ -16,6 +16,5 @@ public final class Page {
     public static final String DISPATCHER_INDEX = "dispatcherIndex";
     public static final String ERROR = "error";
     public static final String SUCCESSFUL_ADD_FLIGHT = "successfulAddFlight";
-    public static final String SUCCESSFUL_DELETE_FLIGHT = "successfulDeleteFlight";
     public static final String INFORMATION_CHART = "informationChart";
 }
