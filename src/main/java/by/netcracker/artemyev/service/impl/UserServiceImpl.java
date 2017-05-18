@@ -8,6 +8,7 @@ import by.netcracker.artemyev.enumeration.RoleType;
 import by.netcracker.artemyev.exception.DaoException;
 import by.netcracker.artemyev.exception.ServiceException;
 import by.netcracker.artemyev.service.GenericService;
+import by.netcracker.artemyev.service.MailService;
 import by.netcracker.artemyev.service.UserService;
 import by.netcracker.artemyev.util.UserRoleChecker;
 import org.apache.log4j.Logger;
@@ -24,11 +25,17 @@ import java.util.List;
 public class UserServiceImpl extends GenericService<User> implements UserService {
     private static Logger logger = Logger.getLogger(UserServiceImpl.class);
 
+    public static final String TOPIC_REGISTRATION = "REGISTRATION";
+    public static final String NOTIFICATION_MESSAGE = "Thank you for registration";
+
     @Autowired
     private UserDao userDao;
 
     @Autowired
     private RoleDao roleDao;
+
+    @Autowired
+    private MailService mailService;
 
     @Transactional
     @Override
@@ -55,6 +62,7 @@ public class UserServiceImpl extends GenericService<User> implements UserService
         User user = new User(userLogin, String.valueOf(userPassword.hashCode()), userMail, role);
         System.out.println(user.toString());
         this.add(user);
+        mailService.sendMail(userMail,TOPIC_REGISTRATION,NOTIFICATION_MESSAGE);
     }
 
 }

@@ -52,6 +52,13 @@
             <artifactId>spring-orm</artifactId>
             <version>${spring-framework-version}</version>
         </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context-support</artifactId>
+            <version>3.2.8.RELEASE</version>
+        </dependency>
+
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-core</artifactId>
@@ -106,6 +113,7 @@
             <artifactId>mail</artifactId>
             <version>${mail.version}</version>
         </dependency>
+
     </dependencies>
 
     <build>
