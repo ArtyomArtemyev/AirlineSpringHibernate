@@ -4,8 +4,6 @@ import by.netcracker.artemyev.service.MailService;
 import org.springframework.stereotype.Service;
 
 import javax.mail.*;
-import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeMessage;
 import java.util.Properties;
 
 /**
@@ -18,32 +16,26 @@ public class MailServiceImpl implements MailService {
     private Properties properties;
 
     private MailServiceImpl() {
-        this.username ="";
-        this.password = "";
+        this.username ="artairline2017@gmail.com";
+        this.password = "netcracker2017";
         properties = new Properties();
-        properties.put("mail.smtp.host", "smtp.gmail.com");
-        properties.put("mail.smtp.socketFactory.port", "465");
-        properties.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
+        properties.put("mail.smtp.host", "imap.gmail.com");
         properties.put("mail.smtp.auth", "true");
         properties.put("mail.smtp.port", "465");
+        properties.put("mail.smtp.ssl.enable", "true");
     }
 
     @Override
     public void sendMail(String to, String subject, String body) {
-        Session session = Session.getInstance(properties, new Authenticator() {
-            protected PasswordAuthentication getPasswordAuthentication() {
-                return new PasswordAuthentication(username, password);
-            }
-        });
+        String host = "imap.gmail.com";
+        Properties props = new Properties();
+        Session session = Session.getInstance(props);
+        Store store = null;
         try {
-            Message message = new MimeMessage(session);
-            message.setFrom(new InternetAddress(username));
-            message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(to));
-            message.setSubject(subject);
-            message.setText(body);
-            Transport.send(message);
+            store = session.getStore("imap");
+            store.connect(host, username, password);
         } catch (MessagingException e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
         }
     }
 }
