@@ -8,7 +8,6 @@ import by.netcracker.artemyev.enumeration.RoleType;
 import by.netcracker.artemyev.exception.DaoException;
 import by.netcracker.artemyev.exception.ServiceException;
 import by.netcracker.artemyev.service.GenericService;
-import by.netcracker.artemyev.service.MailService;
 import by.netcracker.artemyev.service.UserService;
 import by.netcracker.artemyev.util.UserRoleChecker;
 import org.apache.log4j.Logger;
@@ -25,8 +24,10 @@ import java.util.List;
 public class UserServiceImpl extends GenericService<User> implements UserService {
     private static Logger logger = Logger.getLogger(UserServiceImpl.class);
 
+    /*
     public static final String TOPIC_REGISTRATION = "REGISTRATION";
     public static final String NOTIFICATION_MESSAGE = "Thank you for registration";
+    */
 
     @Autowired
     private UserDao userDao;
@@ -34,8 +35,10 @@ public class UserServiceImpl extends GenericService<User> implements UserService
     @Autowired
     private RoleDao roleDao;
 
+    /*
     @Autowired
     private MailService mailService;
+    */
 
     @Transactional
     @Override
@@ -57,12 +60,36 @@ public class UserServiceImpl extends GenericService<User> implements UserService
     @Transactional
     @Override
     public void addUser(String userLogin, String userPassword, String userMail) throws ServiceException {
-        Role role = new Role(RoleType.USER);
-        roleDao.add(role);
+        Role role = getUserRole();
         User user = new User(userLogin, String.valueOf(userPassword.hashCode()), userMail, role);
-        System.out.println(user.toString());
         this.add(user);
-        mailService.sendMail(userMail,TOPIC_REGISTRATION,NOTIFICATION_MESSAGE);
+        //mailService.sendMail(userMail,TOPIC_REGISTRATION,NOTIFICATION_MESSAGE);
+    }
+
+    private Role getUserRole() {
+        Role userRole = null;
+        Long idRoleUser = 0L;
+        List<Role> roleList = roleDao.getAll();
+        idRoleUser = getRoleUserId(roleList);
+        if(idRoleUser == 0L) {
+            Role role = new Role(RoleType.USER);
+            roleDao.add(role);
+            List<Role> roleList2 = roleDao.getAll();
+            idRoleUser = getRoleUserId(roleList2);
+        }
+        userRole = roleDao.getById(idRoleUser);
+        return userRole;
+    }
+
+    private Long getRoleUserId(List<Role> roleList) {
+        Long idRoleUser = 0L;
+        for(int i = 0; i < roleList.size(); i++) {
+            if(roleList.get(i).getRoleType() == RoleType.USER) {
+                idRoleUser = roleList.get(i).getId();
+                break;
+            }
+        }
+        return idRoleUser;
     }
 
 }
