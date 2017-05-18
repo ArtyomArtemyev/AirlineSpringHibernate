@@ -123,3 +123,6 @@ INSERT INTO `airline`.`user` (`login`, `password`, `mail`, `user_role_id`) VALUE
 INSERT INTO `airline`.`user` (`login`, `password`, `mail`, `user_role_id`) VALUES ('admin', '92668751', 'admin@mail.ru', '4');
 INSERT INTO `airline`.`user` (`login`, `password`, `mail`, `user_role_id`) VALUES ('dispatcher', '-1212540249', 'dispatcher@mail.ru', '5');
 
+ALTER TABLE `airline`.`user`
+  CHANGE COLUMN `password` `password` VARCHAR(500) NOT NULL ,
+  CHANGE COLUMN `mail` `mail` VARCHAR(300) NOT NULL ;
