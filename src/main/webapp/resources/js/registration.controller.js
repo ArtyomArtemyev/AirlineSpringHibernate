@@ -22,8 +22,7 @@
             else {
                 resetHighlightning();
 
-                var registrationForm = document.getElementById('registrationForm');
-                registrationForm.submit();
+                sendData();
             }
         }
     }
@@ -56,6 +55,23 @@
         document.getElementById('password').style.borderWidth = '2px';
         document.getElementById('mail').style.borderColor = 'initial';
         document.getElementById('mail').style.borderWidth = '2px';
+    }
+
+    function sendData() {
+        var msg = $('#registrationForm').serialize();
+        $.ajax({
+            type: 'POST',
+            url:  '/user/add',
+            data: msg,
+            success: function(receive) {
+                $("#registrationForm").empty();
+                $("#informationP").replaceWith(receive);
+                $("#hiddenLi").removeAttr('style');
+            },
+            error: function() {
+                alert('Error registration');
+            }
+        });
     }
 
 })();

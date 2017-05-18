@@ -50,8 +50,8 @@
                 <li>
                     <a class="page-scroll" href="<c:url value="/index" />">To main page</a>
                 </li>
-                <li style="display:none;">
-                    <a class="page-scroll" href="<c:url value="/authorization" />">To main page</a>
+                <li style="display:none;" id="hiddenLi">
+                    <a class="page-scroll" href="<c:url value="/authorization" />">Sign in</a>
                 </li>
             </ul>
         </div>
@@ -65,9 +65,9 @@
     <div class="intro-body">
         <div class="container">
             <div class="row">
-                <div class="col-md-8 col-md-offset-2">
-
-                    <form id="registrationForm" name="loginForm" method="POST" action="/user/add">REGISTRATION USER
+                <div class="col-md-8 col-md-offset-2" >
+                    <p class="intro-text" id="informationP"><br></p>
+                    <form id="registrationForm" name="loginForm" method="POST" action="">REGISTRATION USER
                         <p>
                             <input class="inputEnter" type="text" name="login" id="login" placeholder="Login" value="">
                             <i class="icon-user icon-large"></i>
