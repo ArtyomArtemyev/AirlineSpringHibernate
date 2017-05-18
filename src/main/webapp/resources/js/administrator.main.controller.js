@@ -23,8 +23,7 @@
         }
     }
 
-    function sendData(event)
-    {
+    function sendData(event) {
         $.ajax({
             type: 'DELETE',
             url:  '/flight/delete/' + idFlight,

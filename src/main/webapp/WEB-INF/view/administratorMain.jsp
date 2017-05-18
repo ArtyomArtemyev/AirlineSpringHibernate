@@ -72,7 +72,7 @@
                             <caption>FLIGHT MANAGEMENT</caption>
                             <tr>
                                 <th colspan="3">Navigation flight</th>
-                                <th colspan="2">Action</th>
+                                <th colspan="2">Add</th>
                             </tr>
                             <tr>
                                 <form method="POST" action="/flight/add" id="addForm">
@@ -80,7 +80,7 @@
                                         <input type="text" name="navigation" id="navigation" value="">
                                     </td>
                                     <td colspan="2">
-                                        <input type="submit" value="Add flight" id="addButton">
+                                        <input type="submit" value="Add flight" id="addButton" class="myButtonStyle2">
                                     </td>
                                 </form>
                             </tr>
@@ -97,7 +97,7 @@
                                         <td>${flight.id}</td>
                                         <td>${flight.navigation}</td>
                                         <td>${flight.team.id}</td>
-                                        <td><input type="submit" onclick="deleteButtonClickHandler(event)" value="Delete flight" id="${flight.id}"></td>
+                                        <td><input type="submit" onclick="deleteButtonClickHandler(event)" value="Delete flight" id="${flight.id}" class="myButtonStyle3"></td>
                                     </tr>
                                 </c:forEach>
                             </form>
