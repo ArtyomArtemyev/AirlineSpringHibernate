@@ -68,7 +68,7 @@
                             <td class="tdPie" id="diagramPie" style="opacity: 10"></td>
                         </tr>
                         <tr>
-                            <td>Amount of choice customer our company</td>
+                            <td>Amount flights at the month</td>
                             <td class="tdPie" id="oil" style="opacity: 10"></td>
                         </tr>
                     </table>
