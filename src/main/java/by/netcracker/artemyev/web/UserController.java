@@ -24,11 +24,12 @@ import javax.servlet.http.HttpServletResponse;
 public class UserController {
     private static String className = UserController.class.getName();
     private static Logger logger = Logger.getLogger(UserController.class.getName());
+    private final String prefix = "/airline/";
 
     @Autowired
     private UserService userService;
 
-    @RequestMapping(value = "/user/check", method = RequestMethod.POST)
+    @RequestMapping(value = prefix +"user/check", method = RequestMethod.POST)
     public ModelAndView authorizationUser(HttpServletRequest request, HttpServletResponse response) {
         ModelAndView modelAndView = new ModelAndView();
         String returnPage;
@@ -48,7 +49,7 @@ public class UserController {
         return modelAndView;
     }
 
-    @RequestMapping(value = "/user/add", method = RequestMethod.POST)
+    @RequestMapping(value = prefix + "user", method = RequestMethod.POST)
     @ResponseBody
     public String registrationUser(HttpServletRequest request, HttpServletResponse response) {
         String returnText = "Thank you for registration. You can enter in system";

@@ -11,29 +11,30 @@ import org.springframework.web.servlet.ModelAndView;
  */
 @Controller
 public class MainController {
+    private final String prefix = "/airline/";
 
-    @RequestMapping(value = "/index", method = RequestMethod.GET)
+    @RequestMapping(value = prefix + "index", method = RequestMethod.GET)
     public ModelAndView getIndex() {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName(Page.INDEX);
         return modelAndView;
     }
 
-    @RequestMapping(value = "/registration", method = RequestMethod.GET)
+    @RequestMapping(value = prefix + "registration", method = RequestMethod.GET)
     public ModelAndView getRegistration() {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName(Page.REGISTRATION);
         return modelAndView;
     }
 
-    @RequestMapping(value = "/authorization", method = RequestMethod.GET)
+    @RequestMapping(value = prefix + "authorization", method = RequestMethod.GET)
     public ModelAndView getAuthorization() {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName(Page.AUTHORIZATION);
         return modelAndView;
     }
 
-    @RequestMapping(value = "/chart", method = RequestMethod.GET)
+    @RequestMapping(value = prefix + "chart", method = RequestMethod.GET)
     public ModelAndView getChart() {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName(Page.INFORMATION_CHART);

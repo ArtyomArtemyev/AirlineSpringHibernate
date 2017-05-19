@@ -12,8 +12,6 @@
 
             highlightFileds();
         } else {
-
-
             var userMail = formElements.mail.value;
             var isCorrectMail = userMail.match(/^[0-9a-z-\.]+\@[0-9a-z-]{2,}\.[a-z]{2,}$/i);
             if (!isCorrectMail){
@@ -59,9 +57,10 @@
 
     function sendData() {
         var msg = $('#registrationForm').serialize();
+        var prefix = '/airline/';
         $.ajax({
             type: 'POST',
-            url:  '/user/add',
+            url:  prefix + 'user',
             data: msg,
             success: function(receive) {
                 $("#registrationForm").empty();

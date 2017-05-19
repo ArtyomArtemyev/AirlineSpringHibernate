@@ -24,11 +24,12 @@ import javax.servlet.http.HttpServletResponse;
 public class FlightController {
     private static String className = FlightController.class.getName();
     private static Logger logger = Logger.getLogger(FlightController.class.getName());
+    private final String prefix = "/airline/";
 
     @Autowired
     private FlightService flightService;
 
-    @RequestMapping(value = "/flight", method = RequestMethod.GET)
+    @RequestMapping(value = prefix + "flights", method = RequestMethod.GET)
     public ModelAndView getFlight(HttpServletRequest request, HttpServletResponse response) {
         ModelAndView modelAndView = new ModelAndView();
         String returnPage = Page.USER_MAIN;
@@ -42,7 +43,7 @@ public class FlightController {
         return modelAndView;
     }
 
-    @RequestMapping(value = "/flight/management", method = RequestMethod.GET)
+    @RequestMapping(value = prefix + "flight/management", method = RequestMethod.GET)
     public ModelAndView manageFlight(HttpServletRequest request, HttpServletResponse response) {
         ModelAndView modelAndView = new ModelAndView();
         String returnPage = Page.ADMIN_MAIN;
@@ -56,7 +57,7 @@ public class FlightController {
         return modelAndView;
     }
 
-    @RequestMapping(value = "/flight/add", method = RequestMethod.POST)
+    @RequestMapping(value = prefix + "/flight/add", method = RequestMethod.POST)
     public ModelAndView addFlight(HttpServletRequest request, HttpServletResponse response) {
         ModelAndView modelAndView = new ModelAndView();
         String returnPage = Page.SUCCESSFUL_ADD_FLIGHT;
@@ -70,7 +71,7 @@ public class FlightController {
         return modelAndView;
     }
 
-    @RequestMapping(value = "/flight/delete/{id}", method = RequestMethod.DELETE)
+    @RequestMapping(value = prefix + "/flight/delete/{id}", method = RequestMethod.DELETE)
     @ResponseBody
     public String deleteFlight(@PathVariable("id") String id) {
         String returnText = "Flight was deleted successful";

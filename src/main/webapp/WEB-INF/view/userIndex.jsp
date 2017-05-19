@@ -46,10 +46,10 @@
                     <a href="#page-top"></a>
                 </li>
                 <li>
-                    <a class="page-scroll" href="<c:url value="/flight" />">Show flights</a>
+                    <a class="page-scroll" href="<c:url value="/airline/flights" />">Show flights</a>
                 </li>
                 <li>
-                    <a class="page-scroll" href="<c:url value="/chart" />">Show information chart</a>
+                    <a class="page-scroll" href="<c:url value="/airline/chart" />">Show information chart</a>
                 </li>
             </ul>
         </div>
