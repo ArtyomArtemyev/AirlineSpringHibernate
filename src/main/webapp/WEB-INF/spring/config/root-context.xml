@@ -70,17 +70,21 @@
         <property name="jpaDialect" ref="jpaDialect" />
     </bean>
 
+    <!-- Настройки gmail.com -->
+    <context:property-placeholder location="classpath:mail/gmail.com.properties" ignore-unresolvable="true" />
+
+    <!-- Класс для отправки писем. -->
     <bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
-        <property name="host" value="smtp.gmail.com" />
-        <property name="port" value="587" />
-        <property name="username" value="artairline2017@gmail.com" />
-        <property name="password" value="netcracker2017" />
         <property name="javaMailProperties">
             <props>
-                <prop key="mail.smtp.auth">true</prop>
-                <prop key="mail.smtp.starttls.enable">true</prop>
+                <prop key="mail.smtps.auth">${mail.smtps.auth}</prop>
             </props>
         </property>
+        <property name="host" value="${mail.host}" />
+        <property name="port" value="${mail.port}" />
+        <property name="username" value="${mail.username}" />
+        <property name="password" value="${mail.password}" />
+        <property name="protocol" value="${mail.protocol}" />
     </bean>
 
 </beans>

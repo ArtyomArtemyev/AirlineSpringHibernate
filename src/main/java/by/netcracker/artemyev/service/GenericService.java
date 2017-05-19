@@ -32,7 +32,6 @@ public abstract class GenericService<T> implements GeneralService<T> {
     @Override
     public void add(T object) throws ServiceException {
         try {
-
            dao.add(object);
         } catch (DaoException e) {
             logger.debug(e);
