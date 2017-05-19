@@ -78,6 +78,8 @@
         <property name="javaMailProperties">
             <props>
                 <prop key="mail.smtps.auth">${mail.smtps.auth}</prop>
+                <prop key="mail.debug">${mail.debug}</prop>
+                <prop key="mail.smtps.localhost">${mail.localhost}</prop>
             </props>
         </property>
         <property name="host" value="${mail.host}" />

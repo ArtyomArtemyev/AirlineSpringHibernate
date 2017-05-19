@@ -25,11 +25,6 @@ import java.util.List;
 public class UserServiceImpl extends GenericService<User> implements UserService {
     private static Logger logger = Logger.getLogger(UserServiceImpl.class);
 
-
-    public static final String TOPIC_REGISTRATION = "REGISTRATION";
-    public static final String NOTIFICATION_MESSAGE = "Thank you for registration";
-
-
     @Autowired
     private UserDao userDao;
 
@@ -64,7 +59,7 @@ public class UserServiceImpl extends GenericService<User> implements UserService
         Role role = getUserRole();
         User user = new User(userLogin, String.valueOf(userPassword.hashCode()), userMail, role);
         this.add(user);
-        mailService.sendMail(userMail,TOPIC_REGISTRATION,NOTIFICATION_MESSAGE);
+        mailService.sendMail(userMail);
     }
 
     private Role getUserRole() {
