@@ -56,6 +56,7 @@
 }
 
 .myButtonStyle1 {
+    width: 100%;
     position: relative;
     color: white;
     font-weight: bold;
@@ -81,6 +82,7 @@
 }
 
 .myButtonStyle2 {
+    width: 100%;
     position: relative;
     color: white;
     font-weight: bold;
@@ -106,6 +108,7 @@
 }
 
 .myButtonStyle3 {
+    width: 100%;
     position: relative;
     color: white;
     font-weight: bold;
