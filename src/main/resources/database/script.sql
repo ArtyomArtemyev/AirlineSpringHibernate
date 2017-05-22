@@ -145,3 +145,6 @@ INSERT INTO `airline`.`employee` (`name`, `surname`, `gender_id`, `appointment_i
 INSERT INTO `airline`.`employee` (`name`, `surname`, `gender_id`, `appointment_id`) VALUES ('Angelina', 'Dancevich', '3', '2');
 INSERT INTO `airline`.`employee` (`name`, `surname`, `gender_id`, `appointment_id`) VALUES ('Irina', 'Litvin', '3', '2');
 INSERT INTO `airline`.`employee` (`name`, `surname`, `gender_id`, `appointment_id`) VALUES ('Veronika', 'Loginova', '3', '2');
+
+INSERT INTO `airline`.`appointment` (`id`, `name`) VALUES ('3', 'NAVIGATOR');
+INSERT INTO `airline`.`appointment` (`id`, `name`) VALUES ('4', 'RADIO_OPERATOR');
