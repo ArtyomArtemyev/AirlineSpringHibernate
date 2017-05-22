@@ -46,10 +46,10 @@
                     <a href="#page-top"></a>
                 </li>
                 <li>
-                    <a class="page-scroll" href="<c:url value="/team/management" />">Create team</a>
+                    <a class="page-scroll" href="<c:url value="/airline/team/management" />">Create team</a>
                 </li>
                 <li>
-                    <a class="page-scroll" href="<c:url value="/team/appointment" />">Appoint team to flight</a>
+                    <a class="page-scroll" href="<c:url value="/airline/team/appointment" />">Appoint team to flight</a>
                 </li>
             </ul>
         </div>
