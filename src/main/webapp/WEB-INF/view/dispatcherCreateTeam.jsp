@@ -20,6 +20,9 @@
     <!-- Theme CSS -->
     <link href="${pageContext.request.contextPath}/resources/css/grayscale.css" rel="stylesheet" type="text/css">
 
+    <!-- My style CSS -->
+    <link href="${pageContext.request.contextPath}/resources/css/style.css" rel="stylesheet" type="text/css">
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -45,6 +48,9 @@
                 <li class="hidden">
                     <a href="#page-top"></a>
                 </li>
+                <li style="display:none;" id="hiddenLi">
+                    <a class="page-scroll" href="<c:url value="/airline/team/management" />">Create team</a>
+                </li>
             </ul>
         </div>
         <!-- /.navbar-collapse -->
@@ -58,6 +64,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8 col-md-offset-2">
+                    <p class="intro-text" id="informationP"><br></p>
                     <table class="table_dark" id="employeeTable">
                         <caption> EMPLOYEES </caption>
                         <tr>
@@ -66,19 +73,19 @@
                             <th>Name</th>
                             <th>Surname</th>
                             <th>Appointment</th>
-                            <th>Add</th>
+                            <th>Select</th>
                         </tr>
-                        <c:forEach var="employee" items="${list}">
+                        <c:forEach var="employee" items="${employees}">
                             <tr>
                                 <td>${employee.id}</td>
-                                <td>${employee.gender}</td>
-                                <td>${employee.firstName}</td>
-                                <td>${employee.lastName}</td>
-                                <td>${employee.appointment}</td>
+                                <td>${employee.gender.gender}</td>
+                                <td>${employee.name}</td>
+                                <td>${employee.surname}</td>
+                                <td>${employee.appointment.appointment}</td>
                                 <td><input type="checkbox" name="id" id="${employee.id}" value="${employee.id}"></td>
                             </tr>
                         </c:forEach>
-                        <tr><td><input type="submit" value="Create team" id="createTeamButton"></td></tr>
+                        <tr><td><input type="submit" value="Create team" id="createTeamButton" class="myButtonStyle1"></td></tr>
                     </table>
                 </div>
             </div>

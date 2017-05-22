@@ -13,6 +13,7 @@ public final class Page {
     public static final String ADMIN_INDEX = "administratorIndex";
     public static final String ADMIN_MAIN = "administratorMain";
     public static final String DISPATCHER_INDEX = "dispatcherIndex";
+    public static final String CREATE_TEAM = "dispatcherCreateTeam";
     public static final String ERROR = "error";
     public static final String INFORMATION_CHART = "informationChart";
     public static final String ABOUT_FLIGHT = "aboutFlight";

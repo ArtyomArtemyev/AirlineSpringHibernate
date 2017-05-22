@@ -11,4 +11,5 @@ public final class RequestParameter {
     public final static String ABOUT_FLIGHT = "flight";
     public final static String FLIGHT = "flights";
     public final static String NAVIGATION_FLIGHT = "navigation";
+    public final static String EMPLOYEES = "employees";
 }

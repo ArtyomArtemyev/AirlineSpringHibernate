@@ -4,10 +4,12 @@
 
     sendButton.addEventListener('click',sendButtonClickHandler);
 
+    var result;
+    var idMembers = [];
+
     function sendButtonClickHandler(event) {
         event.preventDefault();
 
-        var idMembers = [];
         var appointmentMembers = [];
         var employeeList = document.getElementById('employeeTable').getElementsByTagName('tr');
         for (var i = 1; i < employeeList.length - 1; i++) {
@@ -47,7 +49,6 @@
 
         if(pilot.length === 2 && navigator && radio_operator && stewardess.length === 2) {
 
-            var result;
             for(var i = 0; i < idMembers.length; i++) {
                 if(i === 0) {
                     result = result+"[" + idMembers[i] + ",";
@@ -61,22 +62,35 @@
                     }
                 }
             }
-
-            var employeeTable = document.getElementById('employeeTable');
-
-            var inputNew = document.createElement('input');
-            inputNew.type = 'hidden';
-            inputNew.id = 'result';
-            inputNew.name = 'result';
-            inputNew.value = result;
-            employeeTable.parentNode.insertBefore(inputNew, employeeTable);
-            var teamForm = document.getElementById('teamForm');
-            teamForm.submit();
+            sendTeamData();
         }
         else {
             alert("Team consist of 1 navigator and 1 radio operator, 2 pliots and 2 stewardess" + "\n" + "Please make true team");
         }
 
+    }
+    
+    function sendTeamData() {
+        var prefix = '/airline/';
+        console.log(JSON.stringify(idMembers));
+        $.ajax({
+            type: 'POST',
+            url: prefix +'team',
+            data: JSON.stringify(idMembers),
+            headers: {
+                'Accept': 'application/text',
+                'Content-Type': 'application/json'
+            },
+            dataType: 'text',
+            success: function(receive) {
+                $("#employeeTable").empty();
+                $("#informationP").replaceWith(receive);
+                $("#hiddenLi").removeAttr('style');
+            },
+            error: function() {
+                alert('Error created new team');
+            }
+        });
     }
 
 })();
