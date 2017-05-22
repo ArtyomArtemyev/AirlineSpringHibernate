@@ -148,3 +148,20 @@ INSERT INTO `airline`.`employee` (`name`, `surname`, `gender_id`, `appointment_i
 
 INSERT INTO `airline`.`appointment` (`id`, `name`) VALUES ('3', 'NAVIGATOR');
 INSERT INTO `airline`.`appointment` (`id`, `name`) VALUES ('4', 'RADIO_OPERATOR');
+
+INSERT INTO `airline`.`employee` (`name`, `surname`, `gender_id`, `appointment_id`) VALUES ('Anton', 'Ostapchuk', '4', '3');
+INSERT INTO `airline`.`employee` (`name`, `surname`, `gender_id`, `appointment_id`) VALUES ('Andrew', 'Mithcen', '4', '3');
+INSERT INTO `airline`.`employee` (`name`, `surname`, `gender_id`, `appointment_id`) VALUES ('Mark', 'Shafell', '4', '3');
+INSERT INTO `airline`.`employee` (`name`, `surname`, `gender_id`, `appointment_id`) VALUES ('Mich', 'Marnen', '4', '3');
+INSERT INTO `airline`.`employee` (`name`, `surname`, `gender_id`, `appointment_id`) VALUES ('Artyom', 'Biroeyv', '4', '3');
+INSERT INTO `airline`.`employee` (`name`, `surname`, `gender_id`, `appointment_id`) VALUES ('Kirill', 'Gotovets', '4', '3');
+INSERT INTO `airline`.`employee` (`name`, `surname`, `gender_id`, `appointment_id`) VALUES ('Kevin', 'MacDavid', '4', '3');
+INSERT INTO `airline`.`employee` (`name`, `surname`, `gender_id`, `appointment_id`) VALUES ('Alan', 'Lincoln', '4', '3');
+INSERT INTO `airline`.`employee` (`name`, `surname`, `gender_id`, `appointment_id`) VALUES ('Stew', 'Moris', '4', '4');
+INSERT INTO `airline`.`employee` (`name`, `surname`, `gender_id`, `appointment_id`) VALUES ('Mat', 'Dushen', '4', '4');
+INSERT INTO `airline`.`employee` (`name`, `surname`, `gender_id`, `appointment_id`) VALUES ('Shon', 'Cuterie', '4', '4');
+INSERT INTO `airline`.`employee` (`name`, `surname`, `gender_id`, `appointment_id`) VALUES ('Yegeniy', 'Andronov', '4', '4');
+INSERT INTO `airline`.`employee` (`name`, `surname`, `gender_id`, `appointment_id`) VALUES ('Mike', 'Scrivens', '4', '4');
+INSERT INTO `airline`.`employee` (`name`, `surname`, `gender_id`, `appointment_id`) VALUES ('Alex', 'Simons', '4', '4');
+INSERT INTO `airline`.`employee` (`name`, `surname`, `gender_id`, `appointment_id`) VALUES ('Mich', 'Marner', '4', '4');
+INSERT INTO `airline`.`employee` (`name`, `surname`, `gender_id`, `appointment_id`) VALUES ('Oskar', 'Osala', '4', '4');
