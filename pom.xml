@@ -19,6 +19,9 @@
         <jstl.version>1.2</jstl.version>
         <servlet.version>2.5</servlet.version>
         <mail.version>1.4</mail.version>
+        <spring-context-support.version>3.2.8.RELEASE</spring-context-support.version>
+        <org.springframework.boot.version>1.4.3.RELEASE</org.springframework.boot.version>
+        <org.json.version>20160810</org.json.version>
     </properties>
 
     <dependencies>
@@ -52,13 +55,11 @@
             <artifactId>spring-orm</artifactId>
             <version>${spring-framework-version}</version>
         </dependency>
-
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context-support</artifactId>
-            <version>3.2.8.RELEASE</version>
+            <version>${spring-context-support.version}</version>
         </dependency>
-
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-core</artifactId>
@@ -113,7 +114,17 @@
             <artifactId>mail</artifactId>
             <version>${mail.version}</version>
         </dependency>
-
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot</artifactId>
+            <version>${org.springframework.boot.version}</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.json/json -->
+        <dependency>
+            <groupId>org.json</groupId>
+            <artifactId>json</artifactId>
+            <version>${org.json.version}</version>
+        </dependency>
     </dependencies>
 
     <build>
