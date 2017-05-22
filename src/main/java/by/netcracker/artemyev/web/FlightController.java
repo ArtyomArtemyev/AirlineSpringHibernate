@@ -29,11 +29,25 @@ public class FlightController {
     private FlightService flightService;
 
     @RequestMapping(value = prefix + "flights", method = RequestMethod.GET)
-    public ModelAndView getFlight(HttpServletRequest request, HttpServletResponse response) {
+    public ModelAndView showFlights(HttpServletRequest request, HttpServletResponse response) {
         ModelAndView modelAndView = new ModelAndView();
         String returnPage = Page.USER_MAIN;
         try {
             request.setAttribute(RequestParameter.FLIGHT, flightService.getAll());
+        }  catch (ServiceException e) {
+            logger.debug(e);
+            returnPage = ErrorHandler.returnErrorPage(e.getMessage(), className);
+        }
+        modelAndView.setViewName(returnPage);
+        return modelAndView;
+    }
+
+    @RequestMapping(value = prefix + "flights/{id}", method = RequestMethod.GET)
+    public ModelAndView showFlight(@PathVariable("id") String id, HttpServletRequest request, HttpServletResponse response) {
+        ModelAndView modelAndView = new ModelAndView();
+        String returnPage = Page.ABOUT_FLIGHT;
+        try {
+            request.setAttribute(RequestParameter.ABOUT_FLIGHT, flightService.getById(Long.valueOf(id)));
         }  catch (ServiceException e) {
             logger.debug(e);
             returnPage = ErrorHandler.returnErrorPage(e.getMessage(), className);
@@ -79,7 +93,6 @@ public class FlightController {
         }
         return returnText;
     }
-
 
     @RequestMapping(value = prefix + "/flights/{id}", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE)
     public @ResponseBody String updateFlight(@PathVariable("id") String id,@RequestBody String json) {

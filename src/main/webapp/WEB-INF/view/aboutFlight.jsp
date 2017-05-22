@@ -2,7 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <title>Main administrator page</title>
+    <title>Information page</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -50,9 +50,6 @@
                 <li class="hidden">
                     <a href="#page-top"></a>
                 </li>
-                <li style="display:none;" id="hiddenLi">
-                    <a class="page-scroll" href="<c:url value="/airline/flight/management" />">Flight management</a>
-                </li>
             </ul>
         </div>
         <!-- /.navbar-collapse -->
@@ -68,43 +65,15 @@
                 <div class="col-md-8 col-md-offset-2">
                     <div align="center" id="contentDiv">
                         <p class="intro-text" id="informationP"><br></p>
-                        <table id="adminTable" class="table_dark" align="center">
-                            <caption>FLIGHT MANAGEMENT</caption>
-                            <tr>
-                                <th colspan="4">Navigation flight</th>
-                                <th colspan="2">Add</th>
-                            </tr>
-                            <tr>
-                                <form method="" action="" id="addForm">
-                                    <td colspan="4">
-                                        <input style="width: 95%" type="text" name="navigation" id="navigation" value="">
-                                    </td>
-                                    <td colspan="2">
-                                        <input type="submit" value="Add flight" id="addButton" class="myButtonStyle2">
-                                    </td>
-                                </form>
-                            </tr>
-
+                        <table class="table_dark" align="center">
                             <tr>
                                 <th>Id</th>
                                 <th>Navigation</th>
-                                <th>TeamId</th>
-                                <th>Edit</th>
-                                <th>Delete</th>
-                                <th>Show</th>
                             </tr>
-                            <form action="" id="flightForm">
-                                <c:forEach var="flight" items="${flights}">
-                                    <tr id="tr${flight.id}">
-                                        <td>${flight.id}</td>
-                                        <td>${flight.navigation}</td>
-                                        <td>${flight.team.id}</td>
-                                        <td><input type="submit" onclick="editButtonClickHandler(event)" value="Edit flight" id="edit${flight.id}" class="myButtonStyle1"></td>
-                                        <td><input type="submit" onclick="deleteButtonClickHandler(event)" value="Delete flight" id="${flight.id}" class="myButtonStyle3"></td>
-                                        <td><input type="submit" value="Show flight" onClick="window.open('/airline/flights/${flight.id}')" class="myButtonStyle3"></td>
-                                    </tr>
-                                </c:forEach>
-                            </form>
+                                <tr>
+                                    <td>${flight.id}</td>
+                                    <td>${flight.navigation}</td>
+                                </tr>
                         </table>
                     </div>
                 </div>
@@ -130,8 +99,6 @@
     </div>
 </footer>
 
-<!--My script controller-->
-<script src="${pageContext.request.contextPath}/resources/js/administrator.main.controller.js" type="text/javascript"></script>
 <!-- jQuery -->
 <script src="${pageContext.request.contextPath}/resources/vendor/jquery/jquery.js" type="text/javascript"></script>
 

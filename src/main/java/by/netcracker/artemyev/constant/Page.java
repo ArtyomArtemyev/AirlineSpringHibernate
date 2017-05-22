@@ -14,6 +14,6 @@ public final class Page {
     public static final String ADMIN_MAIN = "administratorMain";
     public static final String DISPATCHER_INDEX = "dispatcherIndex";
     public static final String ERROR = "error";
-    public static final String SUCCESSFUL_ADD_FLIGHT = "successfulAddFlight";
     public static final String INFORMATION_CHART = "informationChart";
+    public static final String ABOUT_FLIGHT = "aboutFlight";
 }
