@@ -32,4 +32,14 @@ public class FlightServiceImpl extends GenericService<Flight> implements FlightS
         flightDao.remove(flight);
     }
 
+    @Transactional
+    @Override
+    public void changeFlightNavigation(Long id, String navigation) throws ServiceException {
+        Flight changeFlight = new Flight();
+        changeFlight.setId(id);
+        changeFlight.setNavigation(navigation);
+        this.update(changeFlight);
+    }
+
+
 }

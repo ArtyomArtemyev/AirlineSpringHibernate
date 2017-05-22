@@ -158,22 +158,28 @@
     }
 
     function editNavigation() {
-        var msg = $('#editNavigationForm').serialize();
-        console.log(msg);
+        var flight={
+            id:idAction.replace('edit',''),
+            navigation:newNavigation
+        };
+        console.log(flight);
         var prefix = '/airline/';
         $.ajax({
             type: 'PUT',
             url: prefix +'flights/' + idAction.replace('edit',''),
-            data: {
-                navigation: newNavigation
+            data: JSON.stringify(flight),
+            headers: {
+                'Accept': 'application/text',
+                'Content-Type': 'application/json'
             },
+            dataType: 'text',
             success: function(receive) {
                 $("#adminTable").empty();
                 $("#informationP").replaceWith(receive);
                 $("#hiddenLi").removeAttr('style');
             },
-            error: function() {
-                alert('Error edited flight');
+            error: function (jqXhr, textStatus, errorThrown) {
+                alert("Ошибка '" + jqXhr.status + "' (textStatus: '" + textStatus + "', errorThrown: '" + errorThrown + "')");
             }
         });
     }

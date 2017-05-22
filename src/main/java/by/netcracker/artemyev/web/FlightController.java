@@ -6,7 +6,9 @@ import by.netcracker.artemyev.exception.ServiceException;
 import by.netcracker.artemyev.service.FlightService;
 import by.netcracker.artemyev.util.ErrorHandler;
 import org.apache.log4j.Logger;
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
@@ -78,21 +80,18 @@ public class FlightController {
         return returnText;
     }
 
-    @RequestMapping(value = prefix + "/flights/{id}", method = RequestMethod.PUT)
-    @ResponseBody
-    public String updateFlight(@PathVariable("id") String id, @RequestParam("navigation") String navigation) {
+
+    @RequestMapping(value = prefix + "/flights/{id}", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE)
+    public @ResponseBody String updateFlight(@PathVariable("id") String id,@RequestBody String json) {
         String returnText = "Flight edited successful";
-        /*
+        JSONObject jsonObject = new JSONObject(json);
         try {
-            flightService.addFlight(request.getParameter(RequestParameter.NAVIGATION_FLIGHT));
-        }  catch (ServiceException e) {
+            flightService.changeFlightNavigation(Long.valueOf(jsonObject.getString("id")),jsonObject.getString("navigation"));
+        } catch (ServiceException e) {
             logger.debug(e);
         }
-        */
-        String str2 = navigation;
-        String str1 = id;
-        String str3 = new String(str2);
         return returnText;
     }
+
 
 }
