@@ -2,6 +2,7 @@ package by.netcracker.artemyev.web;
 
 import by.netcracker.artemyev.constant.Page;
 import by.netcracker.artemyev.constant.RequestParameter;
+import by.netcracker.artemyev.constant.ServerResponse;
 import by.netcracker.artemyev.exception.ServiceException;
 import by.netcracker.artemyev.service.FlightService;
 import by.netcracker.artemyev.util.ErrorHandler;
@@ -73,7 +74,7 @@ public class FlightController {
     @RequestMapping(value = prefix + "/flights", method = RequestMethod.POST)
     @ResponseBody
     public String addFlight(HttpServletRequest request, HttpServletResponse response) {
-        String returnText = "Flight added successful";
+        String returnText = ServerResponse.ADD_FLIGHT;
         try {
             flightService.addFlight(request.getParameter(RequestParameter.NAVIGATION_FLIGHT));
         }  catch (ServiceException e) {
@@ -85,7 +86,7 @@ public class FlightController {
     @RequestMapping(value = prefix + "/flights/{id}", method = RequestMethod.DELETE)
     @ResponseBody
     public String deleteFlight(@PathVariable("id") String id) {
-        String returnText = "Flight deleted successful";
+        String returnText = ServerResponse.DELETE_FLIGHT;
         try {
             flightService.deleteFlight(Long.parseLong(id));
         }  catch (ServiceException e) {
@@ -96,7 +97,7 @@ public class FlightController {
 
     @RequestMapping(value = prefix + "/flights/{id}", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE)
     public @ResponseBody String updateFlight(@PathVariable("id") String id,@RequestBody String json) {
-        String returnText = "Flight edited successful";
+        String returnText = ServerResponse.EDIT_FLIGHT;
         JSONObject jsonObject = new JSONObject(json);
         try {
             flightService.changeFlightNavigation(Long.valueOf(jsonObject.getString("id")),jsonObject.getString("navigation"));

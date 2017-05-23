@@ -2,6 +2,7 @@ package by.netcracker.artemyev.web;
 
 import by.netcracker.artemyev.constant.Page;
 import by.netcracker.artemyev.constant.RequestParameter;
+import by.netcracker.artemyev.constant.ServerResponse;
 import by.netcracker.artemyev.exception.ServiceException;
 import by.netcracker.artemyev.service.EmployeeService;
 import by.netcracker.artemyev.service.TeamService;
@@ -53,7 +54,7 @@ public class TeamController {
 
     @RequestMapping(value = prefix + "/team", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
     public @ResponseBody String addTeam(@RequestBody String json) {
-        String returnText = "Team added successful";
+        String returnText = ServerResponse.ADD_TEAM;
         List<Long> idList = new ArrayList<>();
         idList = Converter.fromWebJson(json);
         try {

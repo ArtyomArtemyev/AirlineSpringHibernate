@@ -2,6 +2,7 @@ package by.netcracker.artemyev.web;
 
 import by.netcracker.artemyev.constant.Page;
 import by.netcracker.artemyev.constant.RequestParameter;
+import by.netcracker.artemyev.constant.ServerResponse;
 import by.netcracker.artemyev.exception.ServiceException;
 import by.netcracker.artemyev.service.UserService;
 import by.netcracker.artemyev.util.DataChecker;
@@ -52,7 +53,7 @@ public class UserController {
     @RequestMapping(value = prefix + "user", method = RequestMethod.POST)
     @ResponseBody
     public String registrationUser(HttpServletRequest request, HttpServletResponse response) {
-        String returnText = "Thank you for registration. You can enter in system";
+        String returnText = ServerResponse.SUCCESSFUL_USER_REGISTRATION;
         boolean isValidateData = false;
         isValidateData = DataChecker.validateUserData(request.getParameter(RequestParameter.USER_LOGIN), request.getParameter(RequestParameter.USER_PASSWORD), request.getParameter(RequestParameter.USER_MAIL));
         if(isValidateData) {
@@ -62,7 +63,7 @@ public class UserController {
                 logger.debug(e);
             }
         } else {
-            returnText = "You entered wrong data. Please registration again";
+            returnText = ServerResponse.WRONG_USER_REGISTRATION;
         }
         return returnText;
     }
