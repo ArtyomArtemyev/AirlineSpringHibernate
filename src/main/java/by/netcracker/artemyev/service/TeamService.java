@@ -14,4 +14,5 @@ public interface TeamService extends GeneralService<Team> {
     void remove(Team object) throws ServiceException;
     Team getById(Long id) throws ServiceException;
     List<Team> getAll() throws ServiceException;
+    void createTeam(List<Long> lisId) throws ServiceException;
 }
