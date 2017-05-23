@@ -29,7 +29,7 @@
             ['2017', 350]
         ]);
         var options2 = {
-            title: 'Amount choices at the month',
+            title: 'Amount flights at the month',
             hAxis: {title: 'Year'},
             vAxis: {title: 'Amount flights'}
         };
