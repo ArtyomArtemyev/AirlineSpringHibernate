@@ -1,11 +1,14 @@
 package by.netcracker.artemyev.dao.impl;
 
 import by.netcracker.artemyev.constant.ErrorMessage;
+import by.netcracker.artemyev.constant.LoggingName;
 import by.netcracker.artemyev.constant.Statement;
 import by.netcracker.artemyev.dao.GenericDao;
 import by.netcracker.artemyev.dao.UserDao;
 import by.netcracker.artemyev.entity.impl.User;
 import by.netcracker.artemyev.exception.DaoException;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.hibernate.HibernateException;
 import org.springframework.stereotype.Repository;
 
@@ -20,6 +23,7 @@ import java.util.List;
  */
 @Repository
 public class UserDaoImpl extends GenericDao<User> implements UserDao {
+    private static Logger logger = LogManager.getLogger(UserDaoImpl.class.getName());
     private final static String USER_LOGIN = "login";
     private final static String USER_PASSWORD = "password";
 
@@ -29,6 +33,7 @@ public class UserDaoImpl extends GenericDao<User> implements UserDao {
 
     @Override
     public List<User> getAll() {
+        logger.debug(LoggingName.DAO_FUNCTION_GET_ALL_USERS);
         List<User> userList;
         try {
             userList = getEntityManager().createQuery(Statement.GET_ALL_USERS).getResultList();
@@ -39,6 +44,7 @@ public class UserDaoImpl extends GenericDao<User> implements UserDao {
     }
 
     public List<User> getByLoginAndPassword(String userLogin, String userPassword) throws DaoException {
+        logger.debug(LoggingName.DAO_FUNCTION_GET_USER_BY_LOGIN_AND_PASSWORD);
         CriteriaQuery<User> criteriaQuery;
         try {
             CriteriaBuilder criteriaBuilder = getEntityManager().getCriteriaBuilder();
