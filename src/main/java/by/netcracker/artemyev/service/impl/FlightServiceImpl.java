@@ -5,6 +5,7 @@ import by.netcracker.artemyev.dao.FlightDao;
 import by.netcracker.artemyev.dao.TeamDao;
 import by.netcracker.artemyev.entity.impl.Flight;
 import by.netcracker.artemyev.entity.impl.Team;
+import by.netcracker.artemyev.exception.DaoException;
 import by.netcracker.artemyev.exception.ServiceException;
 import by.netcracker.artemyev.service.FlightService;
 import by.netcracker.artemyev.service.GenericService;
@@ -39,8 +40,13 @@ public class FlightServiceImpl extends GenericService<Flight> implements FlightS
     @Override
     public void deleteFlight(Long id) throws ServiceException {
         logger.debug(LoggingName.SERVICE_FUNCTION_REMOVE_FLIGHT);
-        Flight flight = flightDao.getById(id);
-        flightDao.remove(flight);
+        try {
+            Flight flight = flightDao.getById(id);
+            flightDao.remove(flight);
+        } catch (DaoException e) {
+            logger.debug(e);
+            throw new ServiceException(e.getMessage());
+        }
     }
 
     @Transactional
@@ -58,11 +64,16 @@ public class FlightServiceImpl extends GenericService<Flight> implements FlightS
     public void appointTeam(Long idFlight, Long idTeam) throws ServiceException {
         logger.debug(LoggingName.SERVICE_FUNCTION_APPOINT_TEAM_TO_FLIGHT);
         Flight changeFlight = new Flight();
-        changeFlight = flightDao.getById(idFlight);
-        Team appointedTeam = new Team();
-        appointedTeam = teamDao.getById(idTeam);
-        changeFlight.setTeam(appointedTeam);
-        flightDao.update(changeFlight);
+        try {
+            changeFlight = flightDao.getById(idFlight);
+            Team appointedTeam = new Team();
+            appointedTeam = teamDao.getById(idTeam);
+            changeFlight.setTeam(appointedTeam);
+            flightDao.update(changeFlight);
+        } catch (DaoException e) {
+            logger.debug(e);
+            throw new ServiceException(e.getMessage());
+        }
     }
 
 }
