@@ -7,7 +7,8 @@ import by.netcracker.artemyev.exception.ServiceException;
 import by.netcracker.artemyev.service.UserService;
 import by.netcracker.artemyev.util.DataChecker;
 import by.netcracker.artemyev.util.ErrorHandler;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,7 +25,7 @@ import javax.servlet.http.HttpServletResponse;
 @Controller
 public class UserController {
     private static String className = UserController.class.getName();
-    private static Logger logger = Logger.getLogger(UserController.class.getName());
+    private static Logger logger = LogManager.getLogger(UserController.class);
     private final String prefix = "/airline/";
 
     @Autowired

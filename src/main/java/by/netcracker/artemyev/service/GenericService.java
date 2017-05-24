@@ -3,7 +3,8 @@ package by.netcracker.artemyev.service;
 import by.netcracker.artemyev.dao.GenericDao;
 import by.netcracker.artemyev.exception.DaoException;
 import by.netcracker.artemyev.exception.ServiceException;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -15,7 +16,7 @@ import java.util.List;
  */
 @Service
 public abstract class GenericService<T> implements GeneralService<T> {
-    private static Logger logger = Logger.getLogger(GenericService.class);
+    private static Logger logger = LogManager.getLogger(GenericService.class);
 
     @Autowired
     private GenericDao<T> dao;

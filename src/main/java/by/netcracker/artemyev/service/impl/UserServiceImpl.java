@@ -11,7 +11,8 @@ import by.netcracker.artemyev.service.GenericService;
 import by.netcracker.artemyev.service.MailService;
 import by.netcracker.artemyev.service.UserService;
 import by.netcracker.artemyev.util.UserRoleChecker;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -23,7 +24,7 @@ import java.util.List;
  */
 @Service
 public class UserServiceImpl extends GenericService<User> implements UserService {
-    private static Logger logger = Logger.getLogger(UserServiceImpl.class);
+    private static Logger logger = LogManager.getLogger(UserServiceImpl.class);
 
     @Autowired
     private UserDao userDao;
@@ -31,10 +32,8 @@ public class UserServiceImpl extends GenericService<User> implements UserService
     @Autowired
     private RoleDao roleDao;
 
-
     @Autowired
     private MailService mailService;
-
 
     @Transactional
     @Override
