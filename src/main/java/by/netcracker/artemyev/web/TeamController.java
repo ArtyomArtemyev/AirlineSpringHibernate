@@ -9,14 +9,12 @@ import by.netcracker.artemyev.service.FlightService;
 import by.netcracker.artemyev.service.TeamService;
 import by.netcracker.artemyev.util.Converter;
 import by.netcracker.artemyev.util.ErrorHandler;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
@@ -30,7 +28,7 @@ import java.util.List;
 @Controller
 public class TeamController {
     private static String className = TeamController.class.getName();
-    private static Logger logger = Logger.getLogger(FlightController.class.getName());
+    private static Logger logger = LogManager.getLogger(FlightController.class.getName());
     private final String prefix = "/airline/";
 
     @Autowired
@@ -69,6 +67,17 @@ public class TeamController {
         return returnText;
     }
 
+    @RequestMapping(value = prefix + "/team/{id}", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE)
+    public @ResponseBody String appointTeam(@PathVariable String id, @RequestBody String json) {
+        String returnText = ServerResponse.APPOINTMENT_TEAM;
+        try {
+            flightService.appointTeam(Long.valueOf(json), Long.valueOf(id));
+        } catch (ServiceException e) {
+            logger.debug(e);
+        }
+        return returnText;
+    }
+
     @RequestMapping(value = prefix + "team/appointment", method = RequestMethod.GET)
     public ModelAndView getTeamsAndFlights(HttpServletRequest request, HttpServletResponse response) {
         ModelAndView modelAndView = new ModelAndView();
@@ -83,5 +92,7 @@ public class TeamController {
         modelAndView.setViewName(returnPage);
         return modelAndView;
     }
+
+
 
 }

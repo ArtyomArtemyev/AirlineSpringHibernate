@@ -3,70 +3,59 @@
     var sendButton = document.getElementById('appointButton');
     sendButton.addEventListener('click',sendButtonClickHandler);
 
+    var teamId = 0;
+    var flightId = 0;
+
     function sendButtonClickHandler(event) {
         event.preventDefault();
 
-        var teamList = document.getElementById('teamTable').getElementsByTagName('tr');
-        var checkTeam = false;
-        for (var i = 1; i < teamList.length; i++) {
-            var td = teamList[i].querySelectorAll("td")[1];
-            var checkbox = td.querySelector("input[type='checkbox']");
-            if (checkbox.checked) {
-                checkTeam = true;
-            }
-        }
-        var checkFlight = false;
-        var flightList = document.getElementById('flightTable').getElementsByTagName('tr');
-        for (var i = 1; i < flightList.length; i++) {
-            var td = flightList[i].querySelectorAll("td")[3];
-            var checkbox = td.querySelector("input[type='checkbox']");
-            if (checkbox.checked) {
-                checkFlight = true;
+        var teamRadioButton = document.getElementsByClassName('radioButtonTeam');
+        for (var i = 0; i < teamRadioButton.length; i++) {
+            if (teamRadioButton[i].type == "radio" && teamRadioButton[i].checked) {
+                teamId = teamRadioButton[i].value;
             }
         }
 
-        if(checkTeam && checkFlight) {
-            var idTeam;
-            for (var i = 1; i < teamList.length; i++) {
-                var td = teamList[i].querySelectorAll("td")[1];
-                var checkbox = td.querySelector("input[type='checkbox']");
-                if (checkbox.checked) {
-                    idTeam = teamList[i].querySelectorAll("td")[0].innerHTML;
-                }
+        var flightRadioButton = document.getElementsByClassName('radioButtonFlight');
+        for (var j = 0; j < teamRadioButton.length; j++) {
+            if (flightRadioButton[j].type == "radio" && flightRadioButton[j].checked) {
+                flightId = flightRadioButton[j].value;
             }
+        }
 
-            var idFlight;
-            var flightList = document.getElementById('flightTable').getElementsByTagName('tr');
-            for (var i = 1; i < flightList.length; i++) {
-                var td = flightList[i].querySelectorAll("td")[3];
-                var checkbox = td.querySelector("input[type='checkbox']");
-                if (checkbox.checked) {
-                    idFlight = flightList[i].querySelectorAll("td")[0].innerHTML;
-                }
-            }
+        if(flightId !== 0 && teamId !== 0) {
 
-            var flightTable = document.getElementById('flightTable');
-            var inputTeam = document.createElement('input');
-            inputTeam.type = 'hidden';
-            inputTeam.id = 'idTeam';
-            inputTeam.name = 'idTeam';
-            inputTeam.value = idTeam;
-            flightTable.parentNode.insertBefore(inputTeam,  flightTable);
-            var inputFlight = document.createElement('input');
-            inputFlight.type = 'hidden';
-            inputFlight.id = 'idFlight';
-            inputFlight.name = 'idFlight';
-            inputFlight.value = idFlight;
-            inputTeam.parentNode.insertBefore(inputFlight, inputTeam);
-
-            var appointForm = document.getElementById('appointForm');
-            appointForm.submit();
+            sendUpdateFlight();
         }
         else {
-            alert("Please check team and flight and after click on button");
+            alert("Please check team and flight and then click on button");
         }
 
 
+    }
+
+    function sendUpdateFlight() {
+        console.log('team'+teamId);
+        console.log('flight'+flightId);
+        var prefix = '/airline/';
+        $.ajax({
+            type: 'PUT',
+            url: prefix +'team/' + teamId,
+            data: flightId,
+            headers: {
+                'Accept': 'application/text',
+                'Content-Type': 'application/json'
+            },
+            dataType: 'text',
+            success: function(receive) {
+                $("#contentDiv").empty();
+                $("#informationP").replaceWith(receive);
+                $("#hiddenLi").removeAttr('style');
+            },
+            error: function (jqXhr, textStatus, errorThrown) {
+                alert("Ошибка '" + jqXhr.status + "' (textStatus: '" + textStatus + "', errorThrown: '" + errorThrown + "')");
+            }
+        });
     }
 
 })();

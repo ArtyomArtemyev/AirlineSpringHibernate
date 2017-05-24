@@ -65,8 +65,7 @@
             <div class="row">
                 <div class="col-md-8 col-md-offset-2">
                     <p class="intro-text" id="informationP"><br></p>
-                    <form method="" action="" id="appointForm">
-                        <div>
+                        <div id="contentDiv">
                             <table class="table_dark" id="teamTable">
                                 <caption>Teams</caption>
                                 <tr>
@@ -76,7 +75,7 @@
                                 <c:forEach var="team" items="${listTeam}">
                                     <tr>
                                         <td>${team.id}</td>
-                                        <td><input type="radio" name="id" id="${team.id}" value="${team.id}"></td>
+                                        <td><input type="radio" name="idTeam" class="radioButtonTeam" id="${team.id}" value="${team.id}"></td>
                                     </tr>
                                 </c:forEach>
                             </table>
@@ -93,13 +92,12 @@
                                         <td>${flight.id}</td>
                                         <td>${flight.navigation}</td>
                                         <td>${flight.team.id}</td>
-                                        <td><input type="radio" name="id" id="${flight.id}" value="${flight.id}"></td>
+                                        <td><input type="radio" name="idFlight" id="${flight.id}" value="${flight.id}" class="radioButtonFlight"></td>
                                     </tr>
                                 </c:forEach>
                             </table>
-                            <input type="submit" value="appointTeam" id="appointButton" class="myButtonStyle3">
+                            <input type="submit" style="width:300px" value="Appoint team" id="appointButton" class="myButtonStyle3">
                         </div>
-                    </form>
                 </div>
             </div>
         </div>

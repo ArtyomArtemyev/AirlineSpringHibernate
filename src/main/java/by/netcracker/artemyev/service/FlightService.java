@@ -17,4 +17,5 @@ public interface FlightService extends GeneralService<Flight> {
     void addFlight(String navigation) throws ServiceException;
     void deleteFlight(Long id) throws ServiceException;
     void changeFlightNavigation(Long id, String navigation) throws ServiceException;
+    void appointTeam(Long idFlight, Long idTeam) throws ServiceException;
 }
