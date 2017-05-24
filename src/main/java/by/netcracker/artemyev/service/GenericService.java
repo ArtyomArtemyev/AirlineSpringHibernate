@@ -1,5 +1,6 @@
 package by.netcracker.artemyev.service;
 
+import by.netcracker.artemyev.constant.LoggingName;
 import by.netcracker.artemyev.dao.GenericDao;
 import by.netcracker.artemyev.exception.DaoException;
 import by.netcracker.artemyev.exception.ServiceException;
@@ -32,6 +33,7 @@ public abstract class GenericService<T> implements GeneralService<T> {
     @Transactional
     @Override
     public void add(T object) throws ServiceException {
+        logger.debug(LoggingName.SERVICE_FUNCTION_ADD_ENTITY);
         try {
            dao.add(object);
         } catch (DaoException e) {
@@ -43,6 +45,7 @@ public abstract class GenericService<T> implements GeneralService<T> {
     @Transactional
     @Override
     public void update(T object) throws ServiceException {
+        logger.debug(LoggingName.SERVICE_FUNCTION_UPDATE_ENTITY);
         try {
             dao.update(object);
         } catch (DaoException e) {
@@ -54,6 +57,7 @@ public abstract class GenericService<T> implements GeneralService<T> {
     @Transactional
     @Override
     public void remove(T object) throws ServiceException {
+        logger.debug(LoggingName.SERVICE_FUNCTION_REMOVE_ENTITY);
         try {
             dao.remove(object);
         } catch (DaoException e) {
@@ -65,6 +69,7 @@ public abstract class GenericService<T> implements GeneralService<T> {
     @Transactional(readOnly = true)
     @Override
     public T getById(Long id) throws ServiceException {
+        logger.debug(LoggingName.SERVICE_FUNCTION_GET_ENTITY_BY_ID);
         try {
             return dao.getById(id);
         } catch (DaoException e) {
@@ -76,6 +81,7 @@ public abstract class GenericService<T> implements GeneralService<T> {
     @Transactional(readOnly = true)
     @Override
     public List<T> getAll() throws ServiceException {
+        logger.debug(LoggingName.SERVICE_FUNCTION_GET_ALL_ENTITY);
         try {
             return dao.getAll();
         } catch (DaoException e) {
