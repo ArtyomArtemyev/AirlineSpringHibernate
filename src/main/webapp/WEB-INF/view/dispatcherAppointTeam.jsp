@@ -49,7 +49,7 @@
                     <a href="#page-top"></a>
                 </li>
                 <li style="display:none;" id="hiddenLi">
-                    <a class="page-scroll" href="<c:url value="/airline/team/management" />">Create team</a>
+                    <a class="page-scroll" href="<c:url value="/airline/team/appointment" />">Appoint team to flight</a>
                 </li>
             </ul>
         </div>
@@ -67,7 +67,7 @@
                     <p class="intro-text" id="informationP"><br></p>
                     <form method="" action="" id="appointForm">
                         <div>
-                            <table class="myTable" id="teamTable">
+                            <table class="table_dark" id="teamTable">
                                 <caption>Teams</caption>
                                 <tr>
                                     <th>Id</th>
@@ -80,7 +80,7 @@
                                     </tr>
                                 </c:forEach>
                             </table>
-                            <table class="myTable" id="flightTable">
+                            <table class="table_dark" id="flightTable">
                                 <caption>Flights</caption>
                                 <tr>
                                     <th>Id</th>
@@ -91,13 +91,13 @@
                                 <c:forEach var="flight" items="${listFlight}">
                                     <tr>
                                         <td>${flight.id}</td>
-                                        <td>${flight.navigationFlight}</td>
-                                        <td>${flight.idTeam}</td>
+                                        <td>${flight.navigation}</td>
+                                        <td>${flight.team.id}</td>
                                         <td><input type="radio" name="id" id="${flight.id}" value="${flight.id}"></td>
                                     </tr>
                                 </c:forEach>
                             </table>
-                            <input type="submit" value="appointTeam" id="appointButton">
+                            <input type="submit" value="appointTeam" id="appointButton" class="myButtonStyle3">
                         </div>
                     </form>
                 </div>

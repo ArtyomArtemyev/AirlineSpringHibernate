@@ -5,6 +5,7 @@ import by.netcracker.artemyev.constant.RequestParameter;
 import by.netcracker.artemyev.constant.ServerResponse;
 import by.netcracker.artemyev.exception.ServiceException;
 import by.netcracker.artemyev.service.EmployeeService;
+import by.netcracker.artemyev.service.FlightService;
 import by.netcracker.artemyev.service.TeamService;
 import by.netcracker.artemyev.util.Converter;
 import by.netcracker.artemyev.util.ErrorHandler;
@@ -38,8 +39,11 @@ public class TeamController {
     @Autowired
     private TeamService teamService;
 
+    @Autowired
+    private FlightService flightService;
+
     @RequestMapping(value = prefix + "team/management", method = RequestMethod.GET)
-    public ModelAndView showEmployees(HttpServletRequest request, HttpServletResponse response) {
+    public ModelAndView getEmployees(HttpServletRequest request, HttpServletResponse response) {
         ModelAndView modelAndView = new ModelAndView();
         String returnPage = Page.CREATE_TEAM;
         try {
@@ -63,6 +67,21 @@ public class TeamController {
             logger.debug(e);
         }
         return returnText;
+    }
+
+    @RequestMapping(value = prefix + "team/appointment", method = RequestMethod.GET)
+    public ModelAndView getTeamsAndFlights(HttpServletRequest request, HttpServletResponse response) {
+        ModelAndView modelAndView = new ModelAndView();
+        String returnPage = Page.APPOINT_TEAM;
+        try {
+            request.setAttribute("listTeam", teamService.getAll());
+            request.setAttribute("listFlight", flightService.getAll());
+        }  catch (ServiceException e) {
+            logger.debug(e);
+            returnPage = ErrorHandler.returnErrorPage(e.getMessage(), className);
+        }
+        modelAndView.setViewName(returnPage);
+        return modelAndView;
     }
 
 }
