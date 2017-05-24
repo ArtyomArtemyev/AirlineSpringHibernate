@@ -4,7 +4,7 @@ package by.netcracker.artemyev.constant;
  * Class contains server response
  * @autor Artemyev Artoym
  */
-public class ServerResponse {
+public final class ServerResponse {
     public static final String ADD_FLIGHT = "Flight added successful";
     public static final String EDIT_FLIGHT = "Flight edited successful";
     public static final String DELETE_FLIGHT = "Flight deleted successful";

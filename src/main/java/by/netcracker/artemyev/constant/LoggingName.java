@@ -15,11 +15,12 @@ public final class LoggingName {
     public static final String FUNCTION_DELETE_FLIGHT = "FlightController: deleteFlight";
     public static final String FUNCTION_EDIT_FLIGHT = "FlightController: editFlight";
     public static final String FUNCTION_GET_FLIGHT_MANAGEMENT_PAGE = "FlightController: manageFlight";
-    public static final String FUNCTION_GET_TEAM_MANAGEMENT_PAGE = "TeamController: manageTeam";
+    public static final String FUNCTION_GET_CREATE_TEAM_PAGE = "TeamController: getCreateTeamPage";
+    public static final String FUNCTION_GET_DELETE_TEAM_PAGE  = "TeamController: getDeleteTeamPage";
     public static final String FUNCTION_ADD_TEAM = "TeamController: addTeam";
     public static final String FUNCTION_APPOINT_TEAM = "TeamController: appointTeam";
     public static final String FUNCTION_GET_TEAMS_AND_FLIGHTS_PAGE = "TeamController: getTeamsAndFlights";
-    public static final String FUNCTION_AUTHORIZATION_USER = "UserController: authorizationUser";
+    public static final String FUNCTION_GET_USER_PAGE = "UserController: getUserPage";
     public static final String FUNCTION_REGISTRATION_USER = "UserController: registrationUser";
     public static final String FUNCTION_CONVERSION_TO_LIST = "Converter: convertToList";
     public static final String FUNCTION_CONVERSION_TO_LINE = "Converter: convertToLine";
