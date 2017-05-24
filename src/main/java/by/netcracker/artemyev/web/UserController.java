@@ -1,5 +1,6 @@
 package by.netcracker.artemyev.web;
 
+import by.netcracker.artemyev.constant.LoggingName;
 import by.netcracker.artemyev.constant.Page;
 import by.netcracker.artemyev.constant.RequestParameter;
 import by.netcracker.artemyev.constant.ServerResponse;
@@ -17,9 +18,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 /**
+ * Class describes controller for work with entity User
  * @autor Artemyev Artoym
  */
 @Controller
@@ -32,7 +33,8 @@ public class UserController {
     private UserService userService;
 
     @RequestMapping(value = prefix +"user/check", method = RequestMethod.POST)
-    public ModelAndView authorizationUser(HttpServletRequest request, HttpServletResponse response) {
+    public ModelAndView authorizationUser(HttpServletRequest request) {
+        logger.debug(LoggingName.FUNCTION_AUTHORIZATION_USER);
         ModelAndView modelAndView = new ModelAndView();
         String returnPage;
         boolean isValidateData = false;
@@ -53,7 +55,8 @@ public class UserController {
 
     @RequestMapping(value = prefix + "user", method = RequestMethod.POST)
     @ResponseBody
-    public String registrationUser(HttpServletRequest request, HttpServletResponse response) {
+    public String registrationUser(HttpServletRequest request) {
+        logger.debug(LoggingName.FUNCTION_REGISTRATION_USER);
         String returnText = ServerResponse.SUCCESSFUL_USER_REGISTRATION;
         boolean isValidateData = false;
         isValidateData = DataChecker.validateUserData(request.getParameter(RequestParameter.USER_LOGIN), request.getParameter(RequestParameter.USER_PASSWORD), request.getParameter(RequestParameter.USER_MAIL));

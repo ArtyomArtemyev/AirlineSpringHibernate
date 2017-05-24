@@ -1,5 +1,6 @@
 package by.netcracker.artemyev.web;
 
+import by.netcracker.artemyev.constant.LoggingName;
 import by.netcracker.artemyev.constant.Page;
 import by.netcracker.artemyev.constant.RequestParameter;
 import by.netcracker.artemyev.constant.ServerResponse;
@@ -16,9 +17,9 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 /**
+ * Class describes controller for work with entity Flight
  * @autor Artemyev Artoym
  */
 @Controller
@@ -31,7 +32,8 @@ public class FlightController {
     private FlightService flightService;
 
     @RequestMapping(value = prefix + "flights", method = RequestMethod.GET)
-    public ModelAndView showFlights(HttpServletRequest request, HttpServletResponse response) {
+    public ModelAndView getFlights(HttpServletRequest request) {
+        logger.debug(LoggingName.FUNCTION_GET_FLIGHTS);
         ModelAndView modelAndView = new ModelAndView();
         String returnPage = Page.USER_MAIN;
         try {
@@ -45,7 +47,8 @@ public class FlightController {
     }
 
     @RequestMapping(value = prefix + "flights/{id}", method = RequestMethod.GET)
-    public ModelAndView showFlight(@PathVariable("id") String id, HttpServletRequest request, HttpServletResponse response) {
+    public ModelAndView showFlight(@PathVariable("id") String id, HttpServletRequest request) {
+        logger.debug(LoggingName.FUNCTION_GET_FLIGHT);
         ModelAndView modelAndView = new ModelAndView();
         String returnPage = Page.ABOUT_FLIGHT;
         try {
@@ -59,7 +62,8 @@ public class FlightController {
     }
 
     @RequestMapping(value = prefix + "flight/management", method = RequestMethod.GET)
-    public ModelAndView manageFlight(HttpServletRequest request, HttpServletResponse response) {
+    public ModelAndView manageFlight(HttpServletRequest request) {
+        logger.debug(LoggingName.FUNCTION_GET_FLIGHT_MANAGEMENT_PAGE);
         ModelAndView modelAndView = new ModelAndView();
         String returnPage = Page.ADMIN_MAIN;
         try {
@@ -74,7 +78,8 @@ public class FlightController {
 
     @RequestMapping(value = prefix + "/flights", method = RequestMethod.POST)
     @ResponseBody
-    public String addFlight(HttpServletRequest request, HttpServletResponse response) {
+    public String addFlight(HttpServletRequest request) {
+        logger.debug(LoggingName.FUNCTION_ADD_FLIGHT);
         String returnText = ServerResponse.ADD_FLIGHT;
         try {
             flightService.addFlight(request.getParameter(RequestParameter.NAVIGATION_FLIGHT));
@@ -87,6 +92,7 @@ public class FlightController {
     @RequestMapping(value = prefix + "/flights/{id}", method = RequestMethod.DELETE)
     @ResponseBody
     public String deleteFlight(@PathVariable("id") String id) {
+        logger.debug(LoggingName.FUNCTION_DELETE_FLIGHT);
         String returnText = ServerResponse.DELETE_FLIGHT;
         try {
             flightService.deleteFlight(Long.parseLong(id));
@@ -97,7 +103,8 @@ public class FlightController {
     }
 
     @RequestMapping(value = prefix + "/flights/{id}", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE)
-    public @ResponseBody String updateFlight(@PathVariable("id") String id,@RequestBody String json) {
+    public @ResponseBody String updateFlight(@PathVariable("id") String id, @RequestBody String json) {
+        logger.debug(LoggingName.FUNCTION_EDIT_FLIGHT);
         String returnText = ServerResponse.EDIT_FLIGHT;
         JSONObject jsonObject = new JSONObject(json);
         try {
@@ -107,6 +114,5 @@ public class FlightController {
         }
         return returnText;
     }
-
 
 }

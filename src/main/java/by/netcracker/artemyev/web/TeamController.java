@@ -1,5 +1,6 @@
 package by.netcracker.artemyev.web;
 
+import by.netcracker.artemyev.constant.LoggingName;
 import by.netcracker.artemyev.constant.Page;
 import by.netcracker.artemyev.constant.RequestParameter;
 import by.netcracker.artemyev.constant.ServerResponse;
@@ -18,11 +19,11 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * Class describes controller for work with entity Team
  * @autor Artemyev Artoym
  */
 @Controller
@@ -41,7 +42,8 @@ public class TeamController {
     private FlightService flightService;
 
     @RequestMapping(value = prefix + "team/management", method = RequestMethod.GET)
-    public ModelAndView getEmployees(HttpServletRequest request, HttpServletResponse response) {
+    public ModelAndView manageTeam(HttpServletRequest request) {
+        logger.debug(LoggingName.FUNCTION_GET_TEAM_MANAGEMENT_PAGE);
         ModelAndView modelAndView = new ModelAndView();
         String returnPage = Page.CREATE_TEAM;
         try {
@@ -56,6 +58,7 @@ public class TeamController {
 
     @RequestMapping(value = prefix + "/team", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
     public @ResponseBody String addTeam(@RequestBody String json) {
+        logger.debug(LoggingName.FUNCTION_ADD_TEAM);
         String returnText = ServerResponse.ADD_TEAM;
         List<Long> idList = new ArrayList<>();
         idList = Converter.fromWebJson(json);
@@ -69,6 +72,7 @@ public class TeamController {
 
     @RequestMapping(value = prefix + "/team/{id}", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE)
     public @ResponseBody String appointTeam(@PathVariable String id, @RequestBody String json) {
+        logger.debug(LoggingName.FUNCTION_APPOINT_TEAM);
         String returnText = ServerResponse.APPOINTMENT_TEAM;
         try {
             flightService.appointTeam(Long.valueOf(json), Long.valueOf(id));
@@ -79,7 +83,8 @@ public class TeamController {
     }
 
     @RequestMapping(value = prefix + "team/appointment", method = RequestMethod.GET)
-    public ModelAndView getTeamsAndFlights(HttpServletRequest request, HttpServletResponse response) {
+    public ModelAndView getTeamsAndFlights(HttpServletRequest request) {
+        logger.debug(LoggingName.FUNCTION_GET_TEAMS_AND_FLIGHTS_PAGE);
         ModelAndView modelAndView = new ModelAndView();
         String returnPage = Page.APPOINT_TEAM;
         try {
@@ -92,7 +97,5 @@ public class TeamController {
         modelAndView.setViewName(returnPage);
         return modelAndView;
     }
-
-
 
 }
