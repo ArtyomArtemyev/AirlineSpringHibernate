@@ -1,5 +1,7 @@
 package by.netcracker.artemyev.service.impl;
 
+import by.netcracker.artemyev.constant.LoggingName;
+import by.netcracker.artemyev.constant.Page;
 import by.netcracker.artemyev.dao.RoleDao;
 import by.netcracker.artemyev.dao.UserDao;
 import by.netcracker.artemyev.entity.impl.Role;
@@ -10,7 +12,7 @@ import by.netcracker.artemyev.exception.ServiceException;
 import by.netcracker.artemyev.service.GenericService;
 import by.netcracker.artemyev.service.MailService;
 import by.netcracker.artemyev.service.UserService;
-import by.netcracker.artemyev.util.UserRoleChecker;
+import by.netcracker.artemyev.util.Definer;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,7 +40,8 @@ public class UserServiceImpl extends GenericService<User> implements UserService
     @Transactional
     @Override
     public String checkUser(String userLogin, String userPassword) throws ServiceException {
-        String namePage = "errorAuthorization";
+        logger.debug(LoggingName.SERVICE_FUNCTION_CHECK_USER);
+        String namePage = Page.ERROR_AUTHORIZATION;
         List<User> userList;
         try {
            userList = userDao.getByLoginAndPassword(userLogin,String.valueOf(userPassword.hashCode()));
@@ -47,14 +50,15 @@ public class UserServiceImpl extends GenericService<User> implements UserService
             throw new ServiceException(e.getMessage());
         }
         if(userList.size() != 0) {
-            return UserRoleChecker.defineUserPage(userList.get(0));
+            return Definer.defineUserPage(userList.get(0));
         }
         return namePage;
     }
 
     @Transactional
     @Override
-    public void addUser(String userLogin, String userPassword, String userMail) throws ServiceException {
+    public void createUser(String userLogin, String userPassword, String userMail) throws ServiceException {
+        logger.debug(LoggingName.SERVICE_FUNCTION_ADD_USER);
         Role role = getUserRole();
         User user = new User(userLogin, String.valueOf(userPassword.hashCode()), userMail, role);
         this.add(user);
@@ -62,6 +66,7 @@ public class UserServiceImpl extends GenericService<User> implements UserService
     }
 
     private Role getUserRole() {
+        logger.debug(LoggingName.SERVICE_FUNCTION_GET_USER_ROLE);
         Role userRole = null;
         Long idRoleUser = 0L;
         List<Role> roleList = roleDao.getAll();
@@ -77,6 +82,7 @@ public class UserServiceImpl extends GenericService<User> implements UserService
     }
 
     private Long getRoleUserId(List<Role> roleList) {
+        logger.debug(LoggingName.SERVICE_FUNCTION_GET_USER_ROLE_ID);
         Long idRoleUser = 0L;
         for(int i = 0; i < roleList.size(); i++) {
             if(roleList.get(i).getRoleType() == RoleType.USER) {
