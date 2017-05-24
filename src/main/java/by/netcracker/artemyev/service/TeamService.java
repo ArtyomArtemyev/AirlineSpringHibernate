@@ -1,5 +1,6 @@
 package by.netcracker.artemyev.service;
 
+import by.netcracker.artemyev.dto.TeamDto;
 import by.netcracker.artemyev.entity.impl.Team;
 import by.netcracker.artemyev.exception.ServiceException;
 
@@ -15,5 +16,5 @@ public interface TeamService extends GeneralService<Team> {
     Team getById(Long id) throws ServiceException;
     List<Team> getAll() throws ServiceException;
     void createTeam(List<Long> lisId) throws ServiceException;
-
+    List<TeamDto> getTeamDto() throws ServiceException;
 }

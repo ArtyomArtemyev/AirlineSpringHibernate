@@ -41,13 +41,28 @@ public class TeamController {
     @Autowired
     private FlightService flightService;
 
-    @RequestMapping(value = prefix + "team/management", method = RequestMethod.GET)
-    public ModelAndView manageTeam(HttpServletRequest request) {
-        logger.debug(LoggingName.FUNCTION_GET_TEAM_MANAGEMENT_PAGE);
+    @RequestMapping(value = prefix + "team/create", method = RequestMethod.GET)
+    public ModelAndView getCreateTeamPage(HttpServletRequest request) {
+        logger.debug(LoggingName.FUNCTION_GET_CREATE_TEAM_PAGE);
         ModelAndView modelAndView = new ModelAndView();
         String returnPage = Page.CREATE_TEAM;
         try {
             request.setAttribute(RequestParameter.EMPLOYEES, employeeService.getAll());
+        }  catch (ServiceException e) {
+            logger.debug(e);
+            returnPage = ErrorHandler.returnErrorPage(e.getMessage(), className);
+        }
+        modelAndView.setViewName(returnPage);
+        return modelAndView;
+    }
+
+    @RequestMapping(value = prefix + "team/delete", method = RequestMethod.GET)
+    public ModelAndView getDeleteTeamPage(HttpServletRequest request) {
+        logger.debug(LoggingName.FUNCTION_GET_DELETE_TEAM_PAGE);
+        ModelAndView modelAndView = new ModelAndView();
+        String returnPage = Page.DELETE_TEAM;
+        try {
+            request.setAttribute("teams", teamService.getTeamDto());
         }  catch (ServiceException e) {
             logger.debug(e);
             returnPage = ErrorHandler.returnErrorPage(e.getMessage(), className);
