@@ -1,15 +1,21 @@
 package by.netcracker.artemyev.util;
 
+import by.netcracker.artemyev.constant.LoggingName;
 import by.netcracker.artemyev.constant.Page;
 import by.netcracker.artemyev.entity.impl.User;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 /**
+ * Class describes different function for define something data
  * @autor Artemyev Artoym
  */
-public final class UserRoleChecker {
+public final class Definer {
+    private static Logger logger = LogManager.getLogger(Definer.class.getName());
 
     public static String defineUserPage(User user) {
-        String namePage = "errorAuthorization";
+        logger.debug(LoggingName.FUNCTION_DEFINE_USER_PAGE);
+        String namePage = Page.ERROR_AUTHORIZATION;
         switch (user.getRole().getRoleType()) {
             case USER:
                 namePage = Page.USER_INDEX;
