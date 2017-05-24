@@ -16,6 +16,8 @@ public final class Page {
     public static final String CREATE_TEAM = "dispatcherCreateTeam";
     public static final String APPOINT_TEAM = "dispatcherAppointTeam";
     public static final String ERROR = "error";
+    public static final String ERROR_AUTHORIZATION = "errorAuthorization";
     public static final String INFORMATION_CHART = "informationChart";
     public static final String ABOUT_FLIGHT = "aboutFlight";
+
 }

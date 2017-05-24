@@ -61,7 +61,7 @@ public class TeamController {
         logger.debug(LoggingName.FUNCTION_ADD_TEAM);
         String returnText = ServerResponse.ADD_TEAM;
         List<Long> idList = new ArrayList<>();
-        idList = Converter.fromWebJson(json);
+        idList = Converter.convertToList(json);
         try {
             teamService.createTeam(idList);
         } catch (ServiceException e) {

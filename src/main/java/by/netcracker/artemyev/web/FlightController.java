@@ -82,7 +82,7 @@ public class FlightController {
         logger.debug(LoggingName.FUNCTION_ADD_FLIGHT);
         String returnText = ServerResponse.ADD_FLIGHT;
         try {
-            flightService.addFlight(request.getParameter(RequestParameter.NAVIGATION_FLIGHT));
+            flightService.createFlight(request.getParameter(RequestParameter.NAVIGATION_FLIGHT));
         }  catch (ServiceException e) {
             logger.debug(e);
         }
