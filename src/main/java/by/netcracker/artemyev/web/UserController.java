@@ -33,8 +33,8 @@ public class UserController {
     private UserService userService;
 
     @RequestMapping(value = prefix +"user/check", method = RequestMethod.POST)
-    public ModelAndView authorizationUser(HttpServletRequest request) {
-        logger.debug(LoggingName.FUNCTION_AUTHORIZATION_USER);
+    public ModelAndView getUserPage(HttpServletRequest request) {
+        logger.debug(LoggingName.FUNCTION_GET_USER_PAGE);
         ModelAndView modelAndView = new ModelAndView();
         String returnPage;
         boolean isValidateData = false;
