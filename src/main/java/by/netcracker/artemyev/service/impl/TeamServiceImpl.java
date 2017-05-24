@@ -38,7 +38,12 @@ public class TeamServiceImpl extends GenericService<Team> implements TeamService
     public void createTeam(List<Long> listId) throws ServiceException {
         logger.debug(LoggingName.SERVICE_FUNCTION_CREATE_TEAM);
         Team team = new Team(Converter.convertToLine(listId));
-        this.teamDao.add(team);
+        try {
+            this.teamDao.add(team);
+        } catch (DaoException e) {
+            logger.debug(e);
+            throw new ServiceException(e.getMessage());
+        }
     }
 
     @Transactional
