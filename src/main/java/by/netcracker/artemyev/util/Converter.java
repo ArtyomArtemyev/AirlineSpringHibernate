@@ -15,7 +15,7 @@ import java.util.List;
  * Class describes converter for different types
  * @autor Artemyev Artoym
  */
-public class Converter {
+public final class Converter {
     private static Logger logger = LogManager.getLogger(Converter.class.getName());
     private static Gson gson = new Gson();
 

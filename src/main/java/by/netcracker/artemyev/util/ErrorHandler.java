@@ -7,7 +7,7 @@ import org.apache.logging.log4j.Logger;
 /**
  * @autor Artemyev Artoym
  */
-public class ErrorHandler {
+public final class ErrorHandler {
     private static final Logger logger = LogManager.getLogger(ErrorHandler.class.getName());
 
     public static String returnErrorPage(String error, String className) {
