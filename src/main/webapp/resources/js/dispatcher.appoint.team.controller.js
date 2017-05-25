@@ -17,7 +17,7 @@
         }
 
         var flightRadioButton = document.getElementsByClassName('radioButtonFlight');
-        for (var j = 0; j < teamRadioButton.length; j++) {
+        for (var j = 0; j < flightRadioButton.length; j++) {
             if (flightRadioButton[j].type == "radio" && flightRadioButton[j].checked) {
                 flightId = flightRadioButton[j].value;
             }
@@ -30,7 +30,6 @@
         else {
             alert("Please check team and flight and then click on button");
         }
-
 
     }
 
