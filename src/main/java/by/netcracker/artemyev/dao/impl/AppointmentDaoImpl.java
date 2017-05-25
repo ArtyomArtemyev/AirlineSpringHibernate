@@ -27,12 +27,13 @@ public class AppointmentDaoImpl extends GenericDao<Appointment> implements Appoi
     }
 
     @Override
-    public List<Appointment> getAll() {
+    public List<Appointment> getAll() throws DaoException {
         logger.debug(LoggingName.DAO_FUNCTION_GET_ALL_APPOINTMENTS);
         List<Appointment> appointmentList;
         try {
             appointmentList = getEntityManager().createQuery(Statement.GET_ALL_APPOINTMENTS).getResultList();
         } catch (HibernateException e) {
+            logger.debug(e);
             throw new DaoException(ErrorMessage.GET_ALL_ENTITY_FAIL, e);
         }
         return appointmentList;

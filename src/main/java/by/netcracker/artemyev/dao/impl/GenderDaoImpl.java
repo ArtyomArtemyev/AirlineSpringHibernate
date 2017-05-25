@@ -27,12 +27,13 @@ public class GenderDaoImpl extends GenericDao<Gender> implements GenderDao {
     }
 
     @Override
-    public List<Gender> getAll() {
+    public List<Gender> getAll() throws DaoException {
         logger.debug(LoggingName.DAO_FUNCTION_GET_ALL_GENDERS);
         List<Gender> genderList;
         try {
             genderList = getEntityManager().createQuery(Statement.GET_ALL_GENDERS).getResultList();
         } catch (HibernateException e) {
+            logger.debug(e);
             throw new DaoException(ErrorMessage.GET_ALL_ENTITY_FAIL, e);
         }
         return genderList;

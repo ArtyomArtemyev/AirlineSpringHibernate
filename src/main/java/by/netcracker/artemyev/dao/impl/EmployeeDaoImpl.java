@@ -27,12 +27,13 @@ public class EmployeeDaoImpl extends GenericDao<Employee> implements EmployeeDao
     }
 
     @Override
-    public List<Employee> getAll() {
+    public List<Employee> getAll() throws DaoException {
         logger.debug(LoggingName.DAO_FUNCTION_GET_ALL_EMPLOYEES);
         List<Employee> employeeList;
         try {
             employeeList = getEntityManager().createQuery(Statement.GET_ALL_EMPLOYEES).getResultList();
         } catch (HibernateException e) {
+            logger.debug(e);
             throw new DaoException(ErrorMessage.GET_ALL_ENTITY_FAIL, e);
         }
         return employeeList;

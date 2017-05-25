@@ -27,12 +27,13 @@ public class FlightDaoImpl extends GenericDao<Flight> implements FlightDao {
     }
 
     @Override
-    public List<Flight> getAll() {
+    public List<Flight> getAll() throws DaoException {
         logger.debug(LoggingName.DAO_FUNCTION_GET_ALL_FLIGHTS);
         List<Flight> flightList;
         try {
             flightList = getEntityManager().createQuery(Statement.GET_ALL_FLIGHTS).getResultList();
         } catch (HibernateException e) {
+            logger.debug(e);
             throw new DaoException(ErrorMessage.GET_ALL_ENTITY_FAIL, e);
         }
         return flightList;

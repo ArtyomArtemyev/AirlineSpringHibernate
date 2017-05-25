@@ -32,12 +32,13 @@ public class UserDaoImpl extends GenericDao<User> implements UserDao {
     }
 
     @Override
-    public List<User> getAll() {
+    public List<User> getAll() throws DaoException {
         logger.debug(LoggingName.DAO_FUNCTION_GET_ALL_USERS);
         List<User> userList;
         try {
             userList = getEntityManager().createQuery(Statement.GET_ALL_USERS).getResultList();
         } catch (HibernateException e) {
+            logger.debug(e);
             throw new DaoException(ErrorMessage.GET_ALL_ENTITY_FAIL, e);
         }
         return userList;
@@ -56,6 +57,7 @@ public class UserDaoImpl extends GenericDao<User> implements UserDao {
                     criteriaBuilder.equal(userRoot.get(USER_PASSWORD), userPassword)
             );
         } catch (HibernateException e) {
+            logger.debug(e);
             throw new DaoException(ErrorMessage.GET_ENTITY_BY_LOGIN_AND_PASSWORD_FAIL, e);
         }
         return getEntityManager().createQuery(criteriaQuery).getResultList();

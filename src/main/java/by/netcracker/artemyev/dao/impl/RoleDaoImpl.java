@@ -27,12 +27,13 @@ public class RoleDaoImpl extends GenericDao<Role> implements RoleDao {
     }
 
     @Override
-    public List<Role> getAll() {
+    public List<Role> getAll() throws DaoException {
         logger.debug(LoggingName.DAO_FUNCTION_GET_ALL_ROLES);
         List<Role> roleList;
         try {
             roleList = getEntityManager().createQuery(Statement.GET_ALL_ROLES).getResultList();
         } catch (HibernateException e) {
+            logger.debug(e);
             throw new DaoException(ErrorMessage.GET_ALL_ENTITY_FAIL, e);
         }
         return roleList;

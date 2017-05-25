@@ -27,12 +27,13 @@ public class TeamDaoImpl extends GenericDao<Team> implements TeamDao {
     }
 
     @Override
-    public List<Team> getAll() {
+    public List<Team> getAll() throws DaoException {
         logger.debug(LoggingName.DAO_FUNCTION_GET_ALL_TEAMS);
         List<Team> teamList;
         try {
             teamList = getEntityManager().createQuery(Statement.GET_ALL_TEAMS).getResultList();
         } catch (HibernateException e) {
+            logger.debug(e);
             throw new DaoException(ErrorMessage.GET_ALL_ENTITY_FAIL, e);
         }
         return teamList;
