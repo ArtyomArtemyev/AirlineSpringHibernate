@@ -116,7 +116,7 @@ public class TeamController {
     @RequestMapping(value = prefix + "/team/{id}", method = RequestMethod.DELETE)
     @ResponseBody
     public String deleteTeam(@PathVariable("id") String id) {
-        logger.debug(LoggingName.FUNCTION_DELETE_FLIGHT);
+        logger.debug(LoggingName.FUNCTION_DELETE_TEAM);
         String returnText = ServerResponse.DELETE_TEAM;
         try {
             boolean isTeamAppointToFlight = teamService.checkAppointingTeamToFlight(Long.valueOf(id));
