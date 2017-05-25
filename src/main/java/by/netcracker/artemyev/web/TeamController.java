@@ -113,4 +113,17 @@ public class TeamController {
         return modelAndView;
     }
 
+    @RequestMapping(value = prefix + "/team/{id}", method = RequestMethod.DELETE)
+    @ResponseBody
+    public String deleteTeam(@PathVariable("id") String id) {
+        logger.debug(LoggingName.FUNCTION_DELETE_FLIGHT);
+        String returnText = ServerResponse.DELETE_TEAM;
+        try {
+            teamService.deleteTeam(Long.parseLong(id));
+        }  catch (ServiceException e) {
+            logger.debug(e);
+        }
+        return returnText;
+    }
+
 }

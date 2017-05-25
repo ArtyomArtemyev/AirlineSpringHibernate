@@ -46,7 +46,10 @@
                     <a href="#page-top"></a>
                 </li>
                 <li>
-                    <a class="page-scroll" href="<c:url value="/airline/team/management" />">Create team</a>
+                    <a class="page-scroll" href="<c:url value="/airline/team/create" />">Create team</a>
+                </li>
+                <li>
+                    <a class="page-scroll" href="<c:url value="/airline/team/delete" />">Delete team</a>
                 </li>
                 <li>
                     <a class="page-scroll" href="<c:url value="/airline/team/appointment" />">Appoint team to flight</a>

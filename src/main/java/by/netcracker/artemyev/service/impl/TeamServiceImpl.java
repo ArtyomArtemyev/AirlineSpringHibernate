@@ -25,7 +25,7 @@ import java.util.List;
  */
 @Service
 public class TeamServiceImpl extends GenericService<Team> implements TeamService {
-    private static Logger logger = LogManager.getLogger(TeamServiceImpl.class);
+    private static Logger logger = LogManager.getLogger(TeamServiceImpl.class.getName());
 
     @Autowired
     private TeamDao teamDao;
@@ -69,6 +69,13 @@ public class TeamServiceImpl extends GenericService<Team> implements TeamService
             throw new ServiceException(e.getMessage());
         }
         return teamDtoList;
+    }
+
+    @Transactional
+    @Override
+    public void deleteTeam(Long id) throws ServiceException {
+        Team team = this.getById(id);
+        this.remove(team);
     }
 
 }

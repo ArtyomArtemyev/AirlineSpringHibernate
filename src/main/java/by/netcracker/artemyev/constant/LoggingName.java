@@ -17,6 +17,7 @@ public final class LoggingName {
     public static final String FUNCTION_GET_FLIGHT_MANAGEMENT_PAGE = "FlightController: manageFlight";
     public static final String FUNCTION_GET_CREATE_TEAM_PAGE = "TeamController: getCreateTeamPage";
     public static final String FUNCTION_GET_DELETE_TEAM_PAGE  = "TeamController: getDeleteTeamPage";
+    public static final String FUNCTION_DELETE_TEAM = "TeamController: deleteTeam";
     public static final String FUNCTION_ADD_TEAM = "TeamController: addTeam";
     public static final String FUNCTION_APPOINT_TEAM = "TeamController: appointTeam";
     public static final String FUNCTION_GET_TEAMS_AND_FLIGHTS_PAGE = "TeamController: getTeamsAndFlights";

@@ -2,7 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <title>Create team page</title>
+    <title>Delete team page</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -49,7 +49,7 @@
                     <a href="#page-top"></a>
                 </li>
                 <li style="display:none;" id="hiddenLi">
-                    <a class="page-scroll" href="<c:url value="/airline/team/create" />">Create team</a>
+                    <a class="page-scroll" href="<c:url value="/airline/team/delete" />">Delete team</a>
                 </li>
             </ul>
         </div>
@@ -66,26 +66,35 @@
                 <div class="col-md-8 col-md-offset-2">
                     <p class="intro-text" id="informationP"><br></p>
                     <table class="table_dark" id="employeeTable">
-                        <caption> EMPLOYEES </caption>
-                        <tr>
-                            <th>Id</th>
-                            <th>Gender</th>
-                            <th>Name</th>
-                            <th>Surname</th>
-                            <th>Appointment</th>
-                            <th>Select</th>
-                        </tr>
-                        <c:forEach var="employee" items="${employees}">
+                        <caption>Teams</caption>
+                        <c:forEach var="team" items="${teams}">
                             <tr>
-                                <td>${employee.id}</td>
-                                <td>${employee.gender.gender}</td>
-                                <td>${employee.name}</td>
-                                <td>${employee.surname}</td>
-                                <td>${employee.appointment.appointment}</td>
-                                <td><input type="checkbox" name="id" id="${employee.id}" value="${employee.id}"></td>
+                                <th colspan="2">Id team</th>
+                                <th colspan="2">Select</th>
+                            </tr>
+                            <tr>
+                                <th colspan="2">${team.idTeam}</th>
+                                <td colspan="2"><input type="radio" class="radioButtonTeam" name="teamId" id="${team.idTeam}" value="${team.idTeam}"></td>
+                            </tr>
+                            <tr>
+                                <th colspan="4" align="center">Team members</th>
+                            </tr>
+                            <tr>
+                                <th>Name</th>
+                                <th>Surname</th>
+                                <th>Gender</th>
+                                <th>Appointment</th>
+                            </tr>
+                        <c:forEach var="teamMember" items="${team.teamMembers}">
+                            <tr>
+                                <td>${teamMember.name}</td>
+                                <td>${teamMember.surname}</td>
+                                <td>${teamMember.appointment.appointment}</td>
+                                <td>${teamMember.gender.gender}</td>
                             </tr>
                         </c:forEach>
-                        <tr><td><input type="submit" value="Create team" id="createTeamButton" class="myButtonStyle1"></td></tr>
+                        </c:forEach>
+                        <tr><td><input type="submit" value="Delete team" id="deleteTeamButton" class="myButtonStyle1"></td></tr>
                     </table>
                 </div>
             </div>
@@ -111,7 +120,7 @@
 </footer>
 
 <!--My script controller-->
-<script src="${pageContext.request.contextPath}/resources/js/dispatcher.create.team.controller.js"></script>
+<script src="${pageContext.request.contextPath}/resources/js/dispatcher.delete.team.controller.js"></script>
 
 <!-- jQuery -->
 <script src="${pageContext.request.contextPath}/resources/vendor/jquery/jquery.js" type="text/javascript"></script>
@@ -130,4 +139,3 @@
 
 </body>
 </html>
-
