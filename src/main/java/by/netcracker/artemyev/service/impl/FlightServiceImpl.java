@@ -2,13 +2,13 @@ package by.netcracker.artemyev.service.impl;
 
 import by.netcracker.artemyev.constant.LoggingName;
 import by.netcracker.artemyev.dao.FlightDao;
-import by.netcracker.artemyev.dao.TeamDao;
 import by.netcracker.artemyev.entity.impl.Flight;
 import by.netcracker.artemyev.entity.impl.Team;
 import by.netcracker.artemyev.exception.DaoException;
 import by.netcracker.artemyev.exception.ServiceException;
 import by.netcracker.artemyev.service.FlightService;
 import by.netcracker.artemyev.service.GenericService;
+import by.netcracker.artemyev.service.TeamService;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,7 +26,7 @@ public class FlightServiceImpl extends GenericService<Flight> implements FlightS
     private FlightDao flightDao;
 
     @Autowired
-    private TeamDao teamDao;
+    private TeamService teamService;
 
     @Transactional
     @Override
@@ -67,7 +67,7 @@ public class FlightServiceImpl extends GenericService<Flight> implements FlightS
         try {
             changeFlight = flightDao.getById(idFlight);
             Team appointedTeam = new Team();
-            appointedTeam = teamDao.getById(idTeam);
+            appointedTeam = teamService.getById(idTeam);
             changeFlight.setTeam(appointedTeam);
             flightDao.update(changeFlight);
         } catch (DaoException e) {
