@@ -20,5 +20,4 @@ public final class Page {
     public static final String ERROR_AUTHORIZATION = "errorAuthorization";
     public static final String INFORMATION_CHART = "informationChart";
     public static final String ABOUT_FLIGHT = "aboutFlight";
-
 }

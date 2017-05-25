@@ -37,6 +37,10 @@ public final class LoggingName {
     public static final String SERVICE_FUNCTION_GET_USER_ROLE = "UserServiceImpl: getUserRole";
     public static final String SERVICE_FUNCTION_GET_USER_ROLE_ID = "UserServiceImpl: getRoleUserId";
     public static final String SERVICE_FUNCTION_CREATE_TEAM = "TeamServiceImpl: createTeam";
+    public static final String SERVICE_FUNCTION_DELETE_TEAM = "TeamServiceImpl: deleteTeam";
+    public static final String SERVICE_FUNCTION_CHECK_APPOINT_TEAM = "TeamServiceImpl: checkAppointingTeamToFlight";
+    public static final String SERVICE_FUNCTION_FIND_TEAM_IN_FLIGHTS = "TeamServiceImpl: findTeamId";
+    public static final String SERVICE_FUNCTION_GET_TEAM_DTO = "TeamServiceImpl: getTeamDto";
     public static final String SERVICE_FUNCTION_SEND_MAIL = "MailServiceImpl: sendMail";
     public static final String SERVICE_FUNCTION_CREATE_FLIGHT = "FlightServiceImpl: createFlight";
     public static final String SERVICE_FUNCTION_REMOVE_FLIGHT = "FlightServiceImpl: deleteFlight";
