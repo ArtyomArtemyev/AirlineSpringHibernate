@@ -119,7 +119,13 @@ public class TeamController {
         logger.debug(LoggingName.FUNCTION_DELETE_FLIGHT);
         String returnText = ServerResponse.DELETE_TEAM;
         try {
-            teamService.deleteTeam(Long.parseLong(id));
+            boolean isTeamAppointToFlight = teamService.checkAppointingTeamToFlight(Long.valueOf(id));
+            logger.info(isTeamAppointToFlight);
+            if(isTeamAppointToFlight) {
+                returnText = ServerResponse.CAN_NOT_DELETE_TEAM;
+            } else {
+                teamService.deleteTeam(Long.parseLong(id));
+            }
         }  catch (ServiceException e) {
             logger.debug(e);
         }

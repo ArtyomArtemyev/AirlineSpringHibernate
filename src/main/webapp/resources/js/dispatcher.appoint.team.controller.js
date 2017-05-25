@@ -35,8 +35,6 @@
     }
 
     function sendUpdateFlight() {
-        console.log('team'+teamId);
-        console.log('flight'+flightId);
         var prefix = '/airline/';
         $.ajax({
             type: 'PUT',
