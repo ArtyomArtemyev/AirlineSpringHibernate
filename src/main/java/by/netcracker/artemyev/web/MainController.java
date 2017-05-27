@@ -2,12 +2,20 @@ package by.netcracker.artemyev.web;
 
 import by.netcracker.artemyev.constant.LoggingName;
 import by.netcracker.artemyev.constant.Page;
+import by.netcracker.artemyev.constant.RequestParameter;
+import by.netcracker.artemyev.exception.ServiceException;
+import by.netcracker.artemyev.service.UserService;
+import by.netcracker.artemyev.util.DataChecker;
+import by.netcracker.artemyev.util.ErrorHandler;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+
+import javax.servlet.http.HttpServletRequest;
 
 /**
  * Class describes controller for common common application pages
@@ -15,7 +23,11 @@ import org.springframework.web.servlet.ModelAndView;
  */
 @Controller
 public class MainController {
-    private static Logger logger = LogManager.getLogger(MainController.class.getName());
+    private static String className = MainController.class.getName();
+    private static Logger logger = LogManager.getLogger(className);
+
+    @Autowired
+    private UserService userService;
 
     @RequestMapping(value = "/index", method = RequestMethod.GET)
     public ModelAndView getIndex() {
@@ -46,6 +58,27 @@ public class MainController {
         logger.debug(LoggingName.FUNCTION_GET_CHART_PAGE);
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName(Page.INFORMATION_CHART);
+        return modelAndView;
+    }
+
+    @RequestMapping(value = "/user/check", method = RequestMethod.POST)
+    public ModelAndView getUserPage(HttpServletRequest request) {
+        logger.debug(LoggingName.FUNCTION_GET_USER_PAGE);
+        ModelAndView modelAndView = new ModelAndView();
+        String returnPage;
+        boolean isValidateData = false;
+        isValidateData = DataChecker.validateUserData(request.getParameter(RequestParameter.USER_LOGIN), request.getParameter(RequestParameter.USER_PASSWORD));
+        if(isValidateData) {
+            try {
+                returnPage = userService.checkUser(request.getParameter(RequestParameter.USER_LOGIN), request.getParameter(RequestParameter.USER_PASSWORD));
+            } catch (ServiceException e) {
+                logger.debug(e);
+                returnPage = ErrorHandler.returnErrorPage(e.getMessage(), className);
+            }
+        } else {
+            returnPage = Page.ERROR;
+        }
+        modelAndView.setViewName(returnPage);
         return modelAndView;
     }
 
