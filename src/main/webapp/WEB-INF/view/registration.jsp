@@ -48,10 +48,10 @@
                     <a href="#page-top"></a>
                 </li>
                 <li>
-                    <a class="page-scroll" href="<c:url value="/airline/index" />">To main page</a>
+                    <a class="page-scroll" href="<c:url value="/index" />">To main page</a>
                 </li>
                 <li style="display:none;" id="hiddenLi">
-                    <a class="page-scroll" href="<c:url value="/airline/authorization" />">Sign in</a>
+                    <a class="page-scroll" href="<c:url value="/authorization" />">Sign in</a>
                 </li>
             </ul>
         </div>
@@ -63,10 +63,8 @@
 <!-- Intro Header -->
 <header class="intro">
     <div class="intro-body">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-8 col-md-offset-2" >
-                    <p class="intro-text" id="informationP"><br></p>
+        <div class="container" id="mainDivContainer">
+                    <p class="intro-text" id="informationP"></p>
                     <form id="registrationForm" name="loginForm" method="POST" action="">REGISTRATION USER
                         <p>
                             <input class="inputEnter" type="text" name="login" id="login" placeholder="Login" value="">
@@ -84,9 +82,6 @@
                             <input type="submit" id="submitButton" class="submitButton" value="Registration"/>
                         </p>
                     </form>
-
-                </div>
-            </div>
         </div>
     </div>
 </header>

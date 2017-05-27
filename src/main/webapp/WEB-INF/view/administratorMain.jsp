@@ -51,7 +51,7 @@
                     <a href="#page-top"></a>
                 </li>
                 <li style="display:none;" id="hiddenLi">
-                    <a class="page-scroll" href="<c:url value="/airline/flight/management" />">Flight management</a>
+                    <a class="page-scroll" href="<c:url value="/flights/management" />">Flight management</a>
                 </li>
             </ul>
         </div>

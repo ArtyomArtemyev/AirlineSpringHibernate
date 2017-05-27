@@ -26,12 +26,11 @@ import javax.servlet.http.HttpServletRequest;
 public class FlightController {
     private static String className = FlightController.class.getName();
     private static Logger logger = LogManager.getLogger(FlightController.class.getName());
-    private final String prefix = "/airline/";
 
     @Autowired
     private FlightService flightService;
 
-    @RequestMapping(value = prefix + "flights", method = RequestMethod.GET)
+    @RequestMapping(value = "/flights", method = RequestMethod.GET)
     public ModelAndView getFlights(HttpServletRequest request) {
         logger.debug(LoggingName.FUNCTION_GET_FLIGHTS);
         ModelAndView modelAndView = new ModelAndView();
@@ -46,7 +45,7 @@ public class FlightController {
         return modelAndView;
     }
 
-    @RequestMapping(value = prefix + "flights/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/flights/{id}", method = RequestMethod.GET)
     public ModelAndView showFlight(@PathVariable("id") String id, HttpServletRequest request) {
         logger.debug(LoggingName.FUNCTION_GET_FLIGHT);
         ModelAndView modelAndView = new ModelAndView();
@@ -61,7 +60,7 @@ public class FlightController {
         return modelAndView;
     }
 
-    @RequestMapping(value = prefix + "flight/management", method = RequestMethod.GET)
+    @RequestMapping(value = "/flights/management", method = RequestMethod.GET)
     public ModelAndView manageFlight(HttpServletRequest request) {
         logger.debug(LoggingName.FUNCTION_GET_FLIGHT_MANAGEMENT_PAGE);
         ModelAndView modelAndView = new ModelAndView();
@@ -76,7 +75,7 @@ public class FlightController {
         return modelAndView;
     }
 
-    @RequestMapping(value = prefix + "/flights", method = RequestMethod.POST)
+    @RequestMapping(value = "/flights", method = RequestMethod.POST)
     @ResponseBody
     public String addFlight(HttpServletRequest request) {
         logger.debug(LoggingName.FUNCTION_ADD_FLIGHT);
@@ -89,7 +88,7 @@ public class FlightController {
         return returnText;
     }
 
-    @RequestMapping(value = prefix + "/flights/{id}", method = RequestMethod.DELETE)
+    @RequestMapping(value = "/flights/{id}", method = RequestMethod.DELETE)
     @ResponseBody
     public String deleteFlight(@PathVariable("id") String id) {
         logger.debug(LoggingName.FUNCTION_DELETE_FLIGHT);
@@ -102,7 +101,7 @@ public class FlightController {
         return returnText;
     }
 
-    @RequestMapping(value = prefix + "/flights/{id}", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value = "/flights/{id}", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE)
     public @ResponseBody String updateFlight(@PathVariable("id") String id, @RequestBody String json) {
         logger.debug(LoggingName.FUNCTION_EDIT_FLIGHT);
         String returnText = ServerResponse.EDIT_FLIGHT;

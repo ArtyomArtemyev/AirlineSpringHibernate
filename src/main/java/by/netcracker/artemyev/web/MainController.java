@@ -16,9 +16,8 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class MainController {
     private static Logger logger = LogManager.getLogger(MainController.class.getName());
-    private final String prefix = "/airline/";
 
-    @RequestMapping(value = prefix + "index", method = RequestMethod.GET)
+    @RequestMapping(value = "/index", method = RequestMethod.GET)
     public ModelAndView getIndex() {
         logger.debug(LoggingName.FUNCTION_GET_INDEX_PAGE);
         ModelAndView modelAndView = new ModelAndView();
@@ -26,7 +25,7 @@ public class MainController {
         return modelAndView;
     }
 
-    @RequestMapping(value = prefix + "registration", method = RequestMethod.GET)
+    @RequestMapping(value = "/registration", method = RequestMethod.GET)
     public ModelAndView getRegistration() {
         logger.debug(LoggingName.FUNCTION_GET_REGISTRATION_PAGE);
         ModelAndView modelAndView = new ModelAndView();
@@ -34,7 +33,7 @@ public class MainController {
         return modelAndView;
     }
 
-    @RequestMapping(value = prefix + "authorization", method = RequestMethod.GET)
+    @RequestMapping(value = "/authorization", method = RequestMethod.GET)
     public ModelAndView getAuthorization() {
         logger.debug(LoggingName.FUNCTION_GET_AUTHORIZATION_PAGE);
         ModelAndView modelAndView = new ModelAndView();
@@ -42,7 +41,7 @@ public class MainController {
         return modelAndView;
     }
 
-    @RequestMapping(value = prefix + "chart", method = RequestMethod.GET)
+    @RequestMapping(value = "/chart", method = RequestMethod.GET)
     public ModelAndView getChart() {
         logger.debug(LoggingName.FUNCTION_GET_CHART_PAGE);
         ModelAndView modelAndView = new ModelAndView();

@@ -49,7 +49,7 @@
                     <a href="#page-top"></a>
                 </li>
                 <li style="display:none;" id="hiddenLi">
-                    <a class="page-scroll" href="<c:url value="/airline/team/appointment" />">Appoint team to flight</a>
+                    <a class="page-scroll" href="<c:url value="/team/appointment" />">Appoint team to flight</a>
                 </li>
             </ul>
         </div>

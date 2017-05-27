@@ -30,7 +30,6 @@ import java.util.List;
 public class TeamController {
     private static String className = TeamController.class.getName();
     private static Logger logger = LogManager.getLogger(FlightController.class.getName());
-    private final String prefix = "/airline/";
 
     @Autowired
     private EmployeeService employeeService;
@@ -41,7 +40,7 @@ public class TeamController {
     @Autowired
     private FlightService flightService;
 
-    @RequestMapping(value = prefix + "team/create", method = RequestMethod.GET)
+    @RequestMapping(value = "/team/create", method = RequestMethod.GET)
     public ModelAndView getCreateTeamPage(HttpServletRequest request) {
         logger.debug(LoggingName.FUNCTION_GET_CREATE_TEAM_PAGE);
         ModelAndView modelAndView = new ModelAndView();
@@ -56,7 +55,7 @@ public class TeamController {
         return modelAndView;
     }
 
-    @RequestMapping(value = prefix + "team/delete", method = RequestMethod.GET)
+    @RequestMapping(value = "/team/delete", method = RequestMethod.GET)
     public ModelAndView getDeleteTeamPage(HttpServletRequest request) {
         logger.debug(LoggingName.FUNCTION_GET_DELETE_TEAM_PAGE);
         ModelAndView modelAndView = new ModelAndView();
@@ -71,7 +70,7 @@ public class TeamController {
         return modelAndView;
     }
 
-    @RequestMapping(value = prefix + "/team", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value = "/teams", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
     public @ResponseBody String addTeam(@RequestBody String json) {
         logger.debug(LoggingName.FUNCTION_ADD_TEAM);
         String returnText = ServerResponse.ADD_TEAM;
@@ -85,7 +84,7 @@ public class TeamController {
         return returnText;
     }
 
-    @RequestMapping(value = prefix + "/team/{id}", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value = "/teams/{id}", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE)
     public @ResponseBody String appointTeam(@PathVariable String id, @RequestBody String json) {
         logger.debug(LoggingName.FUNCTION_APPOINT_TEAM);
         String returnText = ServerResponse.APPOINTMENT_TEAM;
@@ -97,7 +96,7 @@ public class TeamController {
         return returnText;
     }
 
-    @RequestMapping(value = prefix + "team/appointment", method = RequestMethod.GET)
+    @RequestMapping(value = "team/appointment", method = RequestMethod.GET)
     public ModelAndView getTeamsAndFlights(HttpServletRequest request) {
         logger.debug(LoggingName.FUNCTION_GET_TEAMS_AND_FLIGHTS_PAGE);
         ModelAndView modelAndView = new ModelAndView();
@@ -113,7 +112,7 @@ public class TeamController {
         return modelAndView;
     }
 
-    @RequestMapping(value = prefix + "/team/{id}", method = RequestMethod.DELETE)
+    @RequestMapping(value = "/teams/{id}", method = RequestMethod.DELETE)
     @ResponseBody
     public String deleteTeam(@PathVariable("id") String id) {
         logger.debug(LoggingName.FUNCTION_DELETE_TEAM);

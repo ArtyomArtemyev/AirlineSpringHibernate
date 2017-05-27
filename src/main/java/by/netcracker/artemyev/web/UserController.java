@@ -27,12 +27,11 @@ import javax.servlet.http.HttpServletRequest;
 public class UserController {
     private static String className = UserController.class.getName();
     private static Logger logger = LogManager.getLogger(UserController.class);
-    private final String prefix = "/airline/";
 
     @Autowired
     private UserService userService;
 
-    @RequestMapping(value = prefix +"user/check", method = RequestMethod.POST)
+    @RequestMapping(value = "/user/check", method = RequestMethod.POST)
     public ModelAndView getUserPage(HttpServletRequest request) {
         logger.debug(LoggingName.FUNCTION_GET_USER_PAGE);
         ModelAndView modelAndView = new ModelAndView();
@@ -53,7 +52,7 @@ public class UserController {
         return modelAndView;
     }
 
-    @RequestMapping(value = prefix + "user", method = RequestMethod.POST)
+    @RequestMapping(value = "/user", method = RequestMethod.POST)
     @ResponseBody
     public String registrationUser(HttpServletRequest request) {
         logger.debug(LoggingName.FUNCTION_REGISTRATION_USER);

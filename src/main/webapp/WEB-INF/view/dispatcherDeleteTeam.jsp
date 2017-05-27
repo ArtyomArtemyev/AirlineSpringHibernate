@@ -49,7 +49,7 @@
                     <a href="#page-top"></a>
                 </li>
                 <li style="display:none;" id="hiddenLi">
-                    <a class="page-scroll" href="<c:url value="/airline/team/delete" />">Delete team</a>
+                    <a class="page-scroll" href="<c:url value="/team/delete" />">Delete team</a>
                 </li>
             </ul>
         </div>

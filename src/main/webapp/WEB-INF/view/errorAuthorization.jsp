@@ -46,10 +46,10 @@
                     <a href="#page-top"></a>
                 </li>
                 <li>
-                    <a class="page-scroll" href="<c:url value="/airline/index" />">To main page</a>
+                    <a class="page-scroll" href="<c:url value="/index" />">To main page</a>
                 </li>
                 <li>
-                    <a class="page-scroll" href="<c:url value="/airline/registration" />">Sign up</a>
+                    <a class="page-scroll" href="<c:url value="/registration" />">Sign up</a>
                 </li>
             </ul>
         </div>
