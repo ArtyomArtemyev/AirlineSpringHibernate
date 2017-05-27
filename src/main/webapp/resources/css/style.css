@@ -1,7 +1,7 @@
 .submitButton {
     background-color: #d4d4d4;
     color: black;
-    width: 34%;
+    width: 50%;
     opacity:0.4;
 }
 .submitButton:hover {
@@ -135,4 +135,17 @@
 
 #tablePie .tdPie {
     width: 650px;
+}
+
+#mainDivContainer {
+    border: 2px solid #717171;
+    background: #20211A;
+    opacity: 0.8;
+    width: 40%;
+    color:white;
+    box-shadow:
+            0 1px 4px rgba(0, 0, 0, .3),
+            -23px 0 20px -23px rgba(0, 0, 0, .8),
+            23px 0 20px -23px rgba(0, 0, 0, .8),
+            0 0 40px rgba(0, 0, 0, .1) inset;
 }
