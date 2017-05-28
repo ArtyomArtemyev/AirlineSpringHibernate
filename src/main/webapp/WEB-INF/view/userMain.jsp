@@ -67,11 +67,13 @@
                             <tr>
                                 <th>Id</th>
                                 <th>Navigation</th>
+                                <th>Registration to flight</th>
                             </tr>
                             <c:forEach var="flight" items="${flights}">
-                                <tr>
+                                <tr id="tr${flight.id}">
                                     <td>${flight.id}</td>
                                     <td>${flight.navigation}</td>
+                                    <td><input type="submit" onclick="registrationClickHandler(event)" value="Register" id="register${flight.id}" class="myButtonStyle1"></td>
                                 </tr>
                             </c:forEach>
                         </table>
@@ -98,6 +100,9 @@
         <p>Copyright &copy; Artyom Artemyev</p>
     </div>
 </footer>
+
+<!--My script controller-->
+<script src="${pageContext.request.contextPath}/resources/js/user.main.controller.js" type="text/javascript"></script>
 
 <!-- jQuery -->
 <script src="${pageContext.request.contextPath}/resources/vendor/jquery/jquery.js" type="text/javascript"></script>
