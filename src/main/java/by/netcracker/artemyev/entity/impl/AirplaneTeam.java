@@ -28,7 +28,7 @@ public class AirplaneTeam extends BaseEntity {
         this.team = team;
     }
 
-    @OneToMany(mappedBy = "team")
+    @OneToMany(mappedBy = "airplaneTeam")
     public List<Airplane> getAirplaneList() {
         return airplaneList;
     }

@@ -8,7 +8,7 @@ import javax.persistence.*;
 @Table(name = "airplane")
 public class Airplane extends BaseEntity {
     private String model;
-    private AirplaneTeam team;
+    private AirplaneTeam airplaneTeam;
 
     public Airplane() {
         super();
@@ -26,18 +26,18 @@ public class Airplane extends BaseEntity {
     @ManyToOne
     @JoinColumn(name = "team_id", nullable = false)
     public AirplaneTeam getAirplaneTeam() {
-        return team;
+        return airplaneTeam;
     }
 
     public void setAirplaneTeam(AirplaneTeam airplaneTeam) {
-        this.team = airplaneTeam;
+        this.airplaneTeam = airplaneTeam;
     }
 
     @Override
     public String toString() {
         return "Airplane{" + "id=" + this.getId() +
                 ", model=" + model +
-                ", team=" + team +
+                ", team=" + airplaneTeam +
                 '}';
     }
 
