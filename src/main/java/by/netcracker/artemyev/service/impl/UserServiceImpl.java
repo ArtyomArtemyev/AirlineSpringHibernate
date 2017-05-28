@@ -65,6 +65,22 @@ public class UserServiceImpl extends GenericService<User> implements UserService
         mailService.sendMail(userMail);
     }
 
+    @Override
+    public Long getByLoginAndPassword(String userLogin, String userPassword) throws ServiceException {
+        Long idUser = 0L;
+        List<User> userList;
+        try {
+            userList = userDao.getByLoginAndPassword(userLogin, String.valueOf(userPassword.hashCode()));
+        } catch (DaoException e) {
+            logger.debug(e);
+            throw new ServiceException(e.getMessage());
+        }
+        if(userList.size() != 0) {
+            idUser = userList.get(0).getId();
+        }
+        return idUser;
+    }
+
     private Role getUserRole() throws ServiceException {
         logger.debug(LoggingName.SERVICE_FUNCTION_GET_USER_ROLE);
         Role userRole = null;

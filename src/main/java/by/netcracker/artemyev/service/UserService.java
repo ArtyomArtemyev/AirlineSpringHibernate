@@ -16,4 +16,5 @@ public interface UserService extends GeneralService<User> {
     List<User> getAll() throws ServiceException;
     String checkUser(String userLogin, String userPassword) throws ServiceException;
     void createUser(String userLogin, String userPassword, String userMail) throws ServiceException;
+    Long getByLoginAndPassword(String userLogin, String userPassword) throws ServiceException;
 }
