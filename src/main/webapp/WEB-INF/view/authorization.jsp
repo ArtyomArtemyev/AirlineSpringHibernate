@@ -59,13 +59,14 @@
 <header class="intro">
     <div class="intro-body">
         <div class="container" id="mainDivContainer">
+                    <br/>
                     AUTHORIZATION USER
-                    <form name="loginForm" id="loginForm" method="POST" action="/airline/user/check">
+                    <form name="loginForm" id="loginForm" method="POST" action="/user/check">
                         <p>
-                            <input class="inputEnter" id="inputLogin" type="text" name="login" value="" placeholder="Login"/>
+                            <input class="inputEnter" id="inputLogin" type="text" name="login" value="" placeholder="Login" maxlength="22"/>
                         </p>
                         <p class="field">
-                            <input class="inputEnter" id="inputPassword" type="password" name="password" value="" placeholder="Password"/>
+                            <input class="inputEnter" id="inputPassword" type="password" name="password" value="" placeholder="Password" maxlength="22"/>
                         </p>
                         <p>
                             <input type="submit" id="sendButton" class="submitButton" value="Enter"/>

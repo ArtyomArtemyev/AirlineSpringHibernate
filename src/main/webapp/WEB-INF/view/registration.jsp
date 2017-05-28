@@ -67,15 +67,15 @@
                     <p class="intro-text" id="informationP"></p>
                     <form id="registrationForm" name="loginForm" method="POST" action="">REGISTRATION USER
                         <p>
-                            <input class="inputEnter" type="text" name="login" id="login" placeholder="Login" value="">
+                            <input class="inputEnter" type="text" name="login" id="login" placeholder="Login" value="" maxlength="22">
                             <i class="icon-user icon-large"></i>
                         </p>
                         <p class="field">
-                            <input class="inputEnter" type="password" name="password" id="password" placeholder="Password" value="">
+                            <input class="inputEnter" type="password" name="password" id="password" placeholder="Password" value="" maxlength="22">
                             <i class="icon-lock icon-large"></i>
                         </p>
                         <p class="field">
-                            <input class="inputEnter" type="text" name="mail" id="mail" placeholder="Email" value="">
+                            <input class="inputEnter" type="text" name="mail" id="mail" placeholder="Email" value="" maxlength="22">
                             <i class="icon-lock icon-large"></i>
                         </p>
                         <p>
