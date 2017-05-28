@@ -3,6 +3,7 @@ package by.netcracker.artemyev.entity.impl;
 import by.netcracker.artemyev.entity.BaseEntity;
 
 import javax.persistence.*;
+import java.util.List;
 
 /**
  * Class describes flight
@@ -13,6 +14,16 @@ import javax.persistence.*;
 public class Flight extends BaseEntity {
     private String navigation;
     private Team team;
+    private List<Order> orderList;
+
+    public Flight() {
+        super();
+    }
+
+    public Flight(String navigation, Team team) {
+        this.navigation = navigation;
+        this.team = team;
+    }
 
     @Column(name = "navigation", nullable = false)
     public String getNavigation() {
@@ -33,13 +44,9 @@ public class Flight extends BaseEntity {
         this.team = team;
     }
 
-    public Flight() {
-        super();
-    }
-
-    public Flight(String navigation, Team team) {
-        this.navigation = navigation;
-        this.team = team;
+    @OneToMany(mappedBy = "flight")
+    public List<Order> getOrderList() {
+        return orderList;
     }
 
     @Override

@@ -3,6 +3,7 @@ package by.netcracker.artemyev.entity.impl;
 import by.netcracker.artemyev.entity.BaseEntity;
 
 import javax.persistence.*;
+import java.util.List;
 
 /**
  * Class describes user
@@ -15,6 +16,18 @@ public class User extends BaseEntity {
     private String password;
     private String mail;
     private Role role;
+    private List<Order> orderList;
+
+    public User() {
+        super();
+    }
+
+    public User(String login, String password, String mail, Role role) {
+        this.login = login;
+        this.password = password;
+        this.mail = mail;
+        this.role = role;
+    }
 
     @Column(name = "login", nullable = false)
     public String getLogin() {
@@ -53,15 +66,9 @@ public class User extends BaseEntity {
         this.role = role;
     }
 
-    public User() {
-        super();
-    }
-
-    public User(String login, String password, String mail, Role role) {
-        this.login = login;
-        this.password = password;
-        this.mail = mail;
-        this.role = role;
+    @OneToMany(mappedBy = "user")
+    public List<Order> getOrderList() {
+        return orderList;
     }
 
     @Override
@@ -114,4 +121,5 @@ public class User extends BaseEntity {
                 ", role=" + role +
                 '}';
     }
+
 }
