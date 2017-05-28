@@ -37,7 +37,7 @@
         var prefix = '/airline/';
         $.ajax({
             type: 'PUT',
-            url: prefix +'team/' + teamId,
+            url: prefix +'teams/' + teamId,
             data: flightId,
             headers: {
                 'Accept': 'application/text',

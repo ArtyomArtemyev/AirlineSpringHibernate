@@ -27,7 +27,7 @@
         var prefix = '/airline/';
         $.ajax({
             type: 'DELETE',
-            url: prefix +'team/' + idTeam,
+            url: prefix +'teams/' + idTeam,
             headers: {
                 'Accept': 'application/text',
                 'Content-Type': 'application/json'

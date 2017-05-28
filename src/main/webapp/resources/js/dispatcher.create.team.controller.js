@@ -82,7 +82,7 @@
         console.log(result);
         $.ajax({
             type: 'POST',
-            url: prefix +'team',
+            url: prefix +'teams',
             data: result,
             headers: {
                 'Accept': 'application/text',

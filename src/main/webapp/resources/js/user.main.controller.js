@@ -76,6 +76,7 @@
      tdClose.id = 'tdClose';
      var inputSubmit = document.createElement('input');
      inputSubmit.id = 'inputSubmit';
+     var tempInputSubmit = inputSubmit.id;
      inputSubmit.type = 'submit';
      inputSubmit.value = 'Send order';
      var inputClose = document.createElement('input');
@@ -86,6 +87,7 @@
      tdClose.appendChild(inputClose);
      insertTr5.appendChild(tdSubmit);
      insertTr5.appendChild(tdClose);
+     inputSubmit.addEventListener('click', createOrder);
      inputClose.addEventListener('click', close);
      $(insertTr5).insertAfter(insertTr4);
      $("#inputClose").attr("class", "myButtonStyle1");
@@ -101,4 +103,66 @@
      insertTr3.remove();
      insertTr4.remove();
      insertTr5.remove();
+ }
+
+ function createOrder(event) {
+     event.preventDefault();
+
+     var inputNameUser = document.getElementById('inputName');
+     var inputSurnameUser = document.getElementById('inputSurname');
+     var inputPhoneUser = document.getElementById('inputPhone');
+     var inputEmailUser = document.getElementById('inputMail');
+
+     if(inputNameUser.value === '' || inputSurnameUser.value === '' ||  inputPhoneUser === '' || inputEmailUser === '') {
+         alert('Please enter all fields');
+         highlightFileds ();
+     }
+     else {
+         resetHighlightning ();
+
+         alert('send');
+     }
+
+ }
+
+ function highlightFileds () {
+     var inputNameUser = document.getElementById('inputName');
+     var inputSurnameUser = document.getElementById('inputSurname');
+     var inputPhoneUser = document.getElementById('inputPhone');
+     var inputEmailUser = document.getElementById('inputMail');
+
+     if (inputNameUser.value === '') {
+         document.getElementById('inputName').style.borderColor = 'red';
+         document.getElementById('inputName').style.borderWidth = '2px';
+     }
+
+     if (inputSurnameUser.value === '') {
+         document.getElementById('inputSurname').style.borderColor = 'red';
+         document.getElementById('inputSurname').style.borderWidth = '2px';
+     }
+
+     if (inputPhoneUser.value === '') {
+         document.getElementById('inputPhone').style.borderColor = 'red';
+         document.getElementById('inputPhone').style.borderWidth = '2px';
+     }
+
+     if (inputEmailUser.value === '') {
+         document.getElementById('inputMail').style.borderColor = 'red';
+         document.getElementById('inputMail').style.borderWidth = '2px';
+     }
+
+ }
+
+ function resetHighlightning () {
+     document.getElementById('inputName').style.borderColor = 'initial';
+     document.getElementById('inputName').style.borderWidth = '2px';
+
+     document.getElementById('inputSurname').style.borderColor = 'initial';
+     document.getElementById('inputSurname').style.borderWidth = '2px';
+
+     document.getElementById('inputPhone').style.borderColor = 'initial';
+     document.getElementById('inputPhone').style.borderWidth = '2px';
+
+     document.getElementById('inputMail').style.borderColor = 'initial';
+     document.getElementById('inputMail').style.borderWidth = '2px';
  }
