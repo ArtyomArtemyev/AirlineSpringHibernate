@@ -77,7 +77,7 @@
                             <tr>
                                 <form method="" action="" id="addForm">
                                     <td colspan="4">
-                                        <input style="width: 95%" type="text" name="navigation" id="navigation" value="">
+                                        <input style="width: 95%" type="text" name="navigation" id="navigation" value="" maxlength="25">
                                     </td>
                                     <td colspan="2">
                                         <input type="submit" value="Add flight" id="addButton" class="myButtonStyle2">
