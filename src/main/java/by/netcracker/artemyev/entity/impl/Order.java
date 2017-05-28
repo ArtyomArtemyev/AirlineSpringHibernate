@@ -39,7 +39,7 @@ public class Order extends BaseEntity {
 
     @Override
     public String toString() {
-        return "Airplane{" + "id=" + this.getId() +
+        return "Order{" + "id=" + this.getId() +
                 ", idUser=" + getFlight() +
                 ", idFlight=" + getUser() +
                 '}';

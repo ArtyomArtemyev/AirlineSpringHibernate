@@ -71,6 +71,10 @@ public class User extends BaseEntity {
         return orderList;
     }
 
+    public void setOrderList(List<Order> orderList) {
+        this.orderList = orderList;
+    }
+
     @Override
     public boolean equals(Object object) {
         if (object == null) {
@@ -83,19 +87,19 @@ public class User extends BaseEntity {
             return false;
         }
         User user = (User) object;
-        if(this.getId() != user.getId()) {
+        if (this.getId() != user.getId()) {
             return false;
         }
-        if(!this.getLogin().equals(user.getLogin())) {
+        if (!this.getLogin().equals(user.getLogin())) {
             return false;
         }
-        if(!this.getPassword().equals(user.getPassword())) {
+        if (!this.getPassword().equals(user.getPassword())) {
             return false;
         }
-        if(!this.getMail().equals(user.getMail())) {
+        if (!this.getMail().equals(user.getMail())) {
             return false;
         }
-        if(this.getRole() != user.getRole()) {
+        if (this.getRole() != user.getRole()) {
             return false;
         }
         return true;

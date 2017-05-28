@@ -49,6 +49,10 @@ public class Flight extends BaseEntity {
         return orderList;
     }
 
+    public void setOrderList(List<Order> orderList) {
+        this.orderList = orderList;
+    }
+
     @Override
     public boolean equals(Object object) {
         if (object == null) {
