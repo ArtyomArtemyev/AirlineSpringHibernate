@@ -27,7 +27,7 @@
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 </head>
-<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top" onload="setId(event)">
 
 <!-- Navigation -->
 <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
@@ -70,6 +70,7 @@
                     </a>
                 </div>
             </div>
+            <input type="hidden" value="${idUser}" id="idUser" name="idUser"/>
         </div>
     </div>
 </header>
@@ -90,6 +91,9 @@
         <p>Copyright &copy; Artyom Artemyev</p>
     </div>
 </footer>
+
+<!--My script controller-->
+<script src="${pageContext.request.contextPath}/resources/js/user.index.controller.js" type="text/javascript"></script>
 
 <!-- jQuery -->
 <script src="${pageContext.request.contextPath}/resources/vendor/jquery/jquery.js" type="text/javascript"></script>

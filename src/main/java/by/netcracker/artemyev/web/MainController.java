@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 /**
  * Class describes controller for common common application pages
@@ -62,7 +63,7 @@ public class MainController {
     }
 
     @RequestMapping(value = "/user/check", method = RequestMethod.POST)
-    public ModelAndView getUserPage(HttpServletRequest request) {
+    public ModelAndView getUserPage(HttpServletRequest request, HttpServletResponse response) {
         logger.debug(LoggingName.FUNCTION_GET_USER_PAGE);
         ModelAndView modelAndView = new ModelAndView();
         String returnPage;
@@ -71,6 +72,9 @@ public class MainController {
         if(isValidateData) {
             try {
                 returnPage = userService.checkUser(request.getParameter(RequestParameter.USER_LOGIN), request.getParameter(RequestParameter.USER_PASSWORD));
+                if(returnPage.equals(Page.USER_INDEX)) {
+                    request.setAttribute("idUser", userService.getByLoginAndPassword(request.getParameter(RequestParameter.USER_LOGIN), request.getParameter(RequestParameter.USER_PASSWORD)));
+                }
             } catch (ServiceException e) {
                 logger.debug(e);
                 returnPage = ErrorHandler.returnErrorPage(e.getMessage(), className);
