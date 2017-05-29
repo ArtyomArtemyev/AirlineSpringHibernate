@@ -1,10 +1,14 @@
- function registrationClickHandler(event) {
+
+var sendIdFlight;
+
+function registrationClickHandler(event) {
      event.preventDefault();
 
      insertTr = document.createElement('tr');
      insertTr.id='insertTr';
      idAction = event.target.id;
      var idTr = idAction.replace('register','tr');
+     sendIdFlight = idAction.replace('register','');
      tr = document.getElementById(idTr);
      $(insertTr).insertAfter(tr);
      var tdText = document.createElement('td');
@@ -19,6 +23,7 @@
      $("#tdText").text("Name");
      $("#tdInput").attr("colspan", "2");
      $("#inputName").attr("style", "width:100%");
+     $("#inputName").attr("maxlength", "15");
 
      insertTr2 = document.createElement('tr');
      insertTr2.id='insertTr2';
@@ -35,8 +40,9 @@
      $("#tdText2").text("Surname");
      $("#tdInput2").attr("colspan", "2");
      $("#inputSurname").attr("style", "width:100%");
+     $("#inputSurname").attr("maxlength", "15");
 
-     insertTr3 = document.createElement('tr');
+    insertTr3 = document.createElement('tr');
      insertTr3.id='insertTr3';
      var tdText3 = document.createElement('td');
      tdText3.id = 'tdText3';
@@ -51,8 +57,9 @@
      $("#tdText3").text("Email");
      $("#tdInput3").attr("colspan", "2");
      $("#inputMail").attr("style", "width:100%");
+     $("#inputMail").attr("maxlength", "15");
 
-     insertTr4 = document.createElement('tr');
+    insertTr4 = document.createElement('tr');
      insertTr4.id='insertTr4';
      var tdText4 = document.createElement('td');
      tdText4.id = 'tdText4';
@@ -67,8 +74,9 @@
      $("#tdText4").text("Phone");
      $("#tdInput4").attr("colspan", "2");
      $("#inputPhone").attr("style", "width:100%");
+     $("#inputPhone").attr("maxlength", "15");
 
-     insertTr5 = document.createElement('tr');
+    insertTr5 = document.createElement('tr');
      insertTr5.id='insertTr5';
      var tdSubmit = document.createElement('td');
      tdSubmit.id = 'tdSubmit';
@@ -105,6 +113,12 @@
      insertTr5.remove();
  }
 
+ var sendNameUser;
+ var sendSurnameUser;
+ var sendPhoneUser;
+ var sendEmailUser;
+ var idUserStorage;
+
  function createOrder(event) {
      event.preventDefault();
 
@@ -120,7 +134,17 @@
      else {
          resetHighlightning ();
 
+         var id = localStorage.getItem('id') || "[]";
+         id = JSON.parse(id);
+         idUserStorage = id;
+
+         sendNameUser = inputNameUser.value;
+         sendSurnameUser = inputSurnameUser.value;
+         sendPhoneUser = inputPhoneUser.value;
+         sendEmailUser = inputEmailUser.value;
+
          alert('send');
+         send();
      }
 
  }
@@ -165,4 +189,35 @@
 
      document.getElementById('inputMail').style.borderColor = 'initial';
      document.getElementById('inputMail').style.borderWidth = '2px';
+ }
+
+ function send() {
+         var order={
+             idFlight:sendIdFlight,
+             idUser:idUserStorage,
+             name:sendNameUser,
+             surname:sendSurnameUser,
+             phone:sendPhoneUser,
+             email:sendEmailUser
+         };
+         console.log(order);
+         var prefix = '/airline/';
+         $.ajax({
+             type: 'POST',
+             url: prefix +'orders',
+             data: JSON.stringify(order),
+             headers: {
+                 'Accept': 'application/text',
+                 'Content-Type': 'application/json'
+             },
+             dataType: 'text',
+             success: function(receive) {
+                 $("#adminTable").empty();
+                 $("#informationP").replaceWith(receive);
+                 $("#hiddenLi").removeAttr('style');
+             },
+             error: function (jqXhr, textStatus, errorThrown) {
+                 alert("Ошибка '" + jqXhr.status + "' (textStatus: '" + textStatus + "', errorThrown: '" + errorThrown + "')");
+             }
+         });
  }
