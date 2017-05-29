@@ -2,16 +2,17 @@ package by.netcracker.artemyev.entity.impl;
 
 import by.netcracker.artemyev.entity.BaseEntity;
 
-import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "order")
 public class Order extends BaseEntity {
     private User user;
     private Flight flight;
+    private String name;
+    private String surname;
+    private String phone;
+    private String mail;
 
     public Order() {
         super();
@@ -37,11 +38,51 @@ public class Order extends BaseEntity {
         this.flight = flight;
     }
 
+    @Column(name = "name", nullable = false)
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    @Column(name = "surname", nullable = false)
+    public String getSurname() {
+        return surname;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
+    }
+
+    @Column(name = "phone", nullable = false)
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    @Column(name = "mail", nullable = false)
+    public String getMail() {
+        return mail;
+    }
+
+    public void setMail(String mail) {
+        this.mail = mail;
+    }
+
     @Override
     public String toString() {
         return "Order{" + "id=" + this.getId() +
                 ", idUser=" + getFlight() +
                 ", idFlight=" + getUser() +
+                ", name=" + name +
+                ", surname=" + surname +
+                ", phone=" + phone +
+                ", mail=" + mail +
                 '}';
     }
 
@@ -51,6 +92,10 @@ public class Order extends BaseEntity {
         result = (int) (long) this.getId() + 2;
         result += this.getUser().hashCode();
         result += this.getFlight().hashCode();
+        result += this.getName().hashCode();
+        result += this.getSurname().hashCode();
+        result += this.getPhone().hashCode();
+        result += this.getMail().hashCode();
         return result;
     }
 
@@ -75,8 +120,19 @@ public class Order extends BaseEntity {
         if(this.getUser() != order.getUser()) {
             return false;
         }
+        if(!this.getName().equals(order.getName())) {
+            return false;
+        }
+        if(!this.getSurname().equals(order.getSurname())) {
+            return false;
+        }
+        if(!this.getPhone().equals(order.getPhone())) {
+            return false;
+        }
+        if(!this.getMail().equals(order.getMail())) {
+            return false;
+        }
         return true;
     }
-
 
 }
