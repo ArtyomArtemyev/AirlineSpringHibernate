@@ -1,4 +1,4 @@
-package by.netcracker.artemyev.web.User;
+package by.netcracker.artemyev.web.user;
 
 import by.netcracker.artemyev.constant.LoggingName;
 import by.netcracker.artemyev.constant.RequestParameter;

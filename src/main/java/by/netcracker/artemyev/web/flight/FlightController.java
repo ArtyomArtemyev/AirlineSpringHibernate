@@ -1,4 +1,4 @@
-package by.netcracker.artemyev.web.Flight;
+package by.netcracker.artemyev.web.flight;
 
 import by.netcracker.artemyev.constant.LoggingName;
 import by.netcracker.artemyev.constant.RequestParameter;

@@ -1,5 +1,4 @@
-package by.netcracker.artemyev.web.Team;
-
+package by.netcracker.artemyev.web.team;
 
 import by.netcracker.artemyev.constant.LoggingName;
 import by.netcracker.artemyev.constant.Page;
