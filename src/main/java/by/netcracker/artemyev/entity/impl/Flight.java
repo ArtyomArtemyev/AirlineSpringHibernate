@@ -14,6 +14,7 @@ import java.util.List;
 public class Flight extends BaseEntity {
     private String navigation;
     private Team team;
+    private Airplane airplane;
     private List<Order> orderList;
 
     public Flight() {
@@ -32,6 +33,16 @@ public class Flight extends BaseEntity {
 
     public void setNavigation(String navigation) {
         this.navigation = navigation;
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "airplane_id")
+    public Airplane getAirplane() {
+        return airplane;
+    }
+
+    public void setAirplane(Airplane airplane) {
+        this.airplane = airplane;
     }
 
     @ManyToOne
@@ -93,5 +104,6 @@ public class Flight extends BaseEntity {
         result += this.getTeam().hashCode();
         return result;
     }
+
 
 }

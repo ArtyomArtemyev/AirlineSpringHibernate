@@ -3,12 +3,14 @@ package by.netcracker.artemyev.entity.impl;
 import by.netcracker.artemyev.entity.BaseEntity;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "airplane")
 public class Airplane extends BaseEntity {
     private String model;
     private AirplaneTeam airplaneTeam;
+    private List<Flight> flightList;
 
     public Airplane() {
         super();
@@ -31,6 +33,15 @@ public class Airplane extends BaseEntity {
 
     public void setAirplaneTeam(AirplaneTeam airplaneTeam) {
         this.airplaneTeam = airplaneTeam;
+    }
+
+    @OneToMany(mappedBy = "airplane")
+    public List<Flight> getFlightList() {
+        return flightList;
+    }
+
+    public void setFlightList(List<Flight> flightList) {
+        this.flightList = flightList;
     }
 
     @Override

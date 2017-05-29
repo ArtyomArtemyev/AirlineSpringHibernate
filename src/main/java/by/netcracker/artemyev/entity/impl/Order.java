@@ -5,7 +5,7 @@ import by.netcracker.artemyev.entity.BaseEntity;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "order")
+@Table(name = "user_order")
 public class Order extends BaseEntity {
     private User user;
     private Flight flight;
@@ -77,8 +77,8 @@ public class Order extends BaseEntity {
     @Override
     public String toString() {
         return "Order{" + "id=" + this.getId() +
-                ", idUser=" + getFlight() +
-                ", idFlight=" + getUser() +
+                ", user=" + getUser() +
+                ", flight=" + getFlight() +
                 ", name=" + name +
                 ", surname=" + surname +
                 ", phone=" + phone +
