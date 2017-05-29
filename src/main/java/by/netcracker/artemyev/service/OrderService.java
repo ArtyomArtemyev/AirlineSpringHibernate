@@ -11,4 +11,5 @@ public interface OrderService extends GeneralService<Order> {
     void remove(Order object) throws ServiceException;
     Order getById(Long id) throws ServiceException;
     List<Order> getAll() throws ServiceException;
+    void createOrder(Long idFlight, Long idUser, String name, String surname, String phone, String mail) throws ServiceException;
 }
