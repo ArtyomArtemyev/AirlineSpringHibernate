@@ -88,7 +88,6 @@
                             <tr>
                                 <th>Id</th>
                                 <th>Navigation</th>
-                                <th>TeamId</th>
                                 <th>Edit</th>
                                 <th>Delete</th>
                                 <th>Show</th>
@@ -98,7 +97,6 @@
                                     <tr id="tr${flight.id}">
                                         <td>${flight.id}</td>
                                         <td>${flight.navigation}</td>
-                                        <td>${flight.team.id}</td>
                                         <td><input type="submit" onclick="editButtonClickHandler(event)" value="Edit flight" id="edit${flight.id}" class="myButtonStyle1"></td>
                                         <td><input type="submit" onclick="deleteButtonClickHandler(event)" value="Delete flight" id="${flight.id}" class="myButtonStyle3"></td>
                                         <td><input type="submit" value="Show flight" onClick="window.open('/airline/flights/${flight.id}')" class="myButtonStyle3"></td>
