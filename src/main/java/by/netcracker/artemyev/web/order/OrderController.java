@@ -23,21 +23,34 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class OrderController {
     private static String className = OrderController.class.getName();
     private static Logger logger = LogManager.getLogger(className);
+    private static final String FIELD_ID_FLIGHT = "idFlight";
+    private static final String FIELD_ID_USER = "idUser";
+    private static final String FIELD_NAME = "name";
+    private static final String FIELD_SURNAME = "surname";
+    private static final String FIELD_PHONE = "phone";
+    private static final String FIELD_MAIL = "mail";
 
     @Autowired
     private OrderService orderService;
 
     @RequestMapping(value = "airline/orders", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
-    public @ResponseBody String updateFlight( @RequestBody String json) {
+    public @ResponseBody String updateFlight(@RequestBody String json) {
         logger.debug(LoggingName.FUNCTION_EDIT_FLIGHT);
         String returnText = ServerResponse.EDIT_FLIGHT;
         JSONObject jsonObject = new JSONObject(json);
         logger.info(jsonObject.toString());
         try {
-            orderService.createOrder(Long.valueOf(jsonObject.getString("idFlight")), Long.valueOf(jsonObject.getString("idUser")), jsonObject.getString("name"), jsonObject.getString("surname"), jsonObject.getString("phone"), jsonObject.getString("mail"));
+            orderService.createOrder(
+                    Long.valueOf(jsonObject.getString(FIELD_ID_FLIGHT)),
+                    Long.valueOf(jsonObject.getString(FIELD_ID_USER)),
+                    jsonObject.getString(FIELD_NAME),
+                    jsonObject.getString(FIELD_SURNAME),
+                    jsonObject.getString(FIELD_PHONE),
+                    jsonObject.getString(FIELD_MAIL));
         } catch (ServiceException e) {
             logger.debug(e);
         }
         return returnText;
     }
+
 }
