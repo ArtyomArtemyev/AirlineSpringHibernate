@@ -66,6 +66,7 @@
                 $("#registrationForm").empty();
                 $("#informationP").replaceWith(receive);
                 $("#hiddenLi").removeAttr('style');
+                $("#mainDivContainer").removeAttr('id');
             },
             error: function() {
                 alert('Error registration');
