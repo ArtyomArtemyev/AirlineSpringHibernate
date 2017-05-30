@@ -165,7 +165,7 @@ INSERT INTO `airline`.`flight` (`navigation`) VALUES ('Minsk-Sochi');
 INSERT INTO `airline`.`flight` (`navigation`) VALUES ('Minsk-Yalta');
 INSERT INTO `airline`.`flight` (`navigation`) VALUES ('Minsk-London');
 
-CREATE TABLE `airline`.`order` (
+CREATE TABLE `airline`.`user_order` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(220) NOT NULL,
   `surname` VARCHAR(220) NOT NULL,
