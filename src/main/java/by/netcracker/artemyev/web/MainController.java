@@ -2,6 +2,7 @@ package by.netcracker.artemyev.web;
 
 import by.netcracker.artemyev.constant.LoggingName;
 import by.netcracker.artemyev.constant.Page;
+import by.netcracker.artemyev.constant.RequestAttribute;
 import by.netcracker.artemyev.constant.RequestParameter;
 import by.netcracker.artemyev.exception.ServiceException;
 import by.netcracker.artemyev.service.UserService;
@@ -19,7 +20,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Class describes controller for common common application pages
+ * Class describes controller for common application pages
  * @autor Artemyev Artoym
  */
 @Controller
@@ -31,7 +32,7 @@ public class MainController {
     private UserService userService;
 
     @RequestMapping(value = "/index", method = RequestMethod.GET)
-    public ModelAndView getIndex() {
+    public ModelAndView getIndexPage() {
         logger.debug(LoggingName.FUNCTION_GET_INDEX_PAGE);
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName(Page.INDEX);
@@ -39,7 +40,7 @@ public class MainController {
     }
 
     @RequestMapping(value = "/registration", method = RequestMethod.GET)
-    public ModelAndView getRegistration() {
+    public ModelAndView getRegistrationPage() {
         logger.debug(LoggingName.FUNCTION_GET_REGISTRATION_PAGE);
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName(Page.REGISTRATION);
@@ -47,7 +48,7 @@ public class MainController {
     }
 
     @RequestMapping(value = "/authorization", method = RequestMethod.GET)
-    public ModelAndView getAuthorization() {
+    public ModelAndView getAuthorizationPage() {
         logger.debug(LoggingName.FUNCTION_GET_AUTHORIZATION_PAGE);
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName(Page.AUTHORIZATION);
@@ -55,7 +56,7 @@ public class MainController {
     }
 
     @RequestMapping(value = "/chart", method = RequestMethod.GET)
-    public ModelAndView getChart() {
+    public ModelAndView getChartPage() {
         logger.debug(LoggingName.FUNCTION_GET_CHART_PAGE);
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName(Page.INFORMATION_CHART);
@@ -73,7 +74,7 @@ public class MainController {
             try {
                 returnPage = userService.checkUser(request.getParameter(RequestParameter.USER_LOGIN), request.getParameter(RequestParameter.USER_PASSWORD));
                 if(returnPage.equals(Page.USER_INDEX)) {
-                    request.setAttribute("idUser", userService.getByLoginAndPassword(request.getParameter(RequestParameter.USER_LOGIN), request.getParameter(RequestParameter.USER_PASSWORD)));
+                    request.setAttribute(RequestAttribute.ID_USER, userService.getByLoginAndPassword(request.getParameter(RequestParameter.USER_LOGIN), request.getParameter(RequestParameter.USER_PASSWORD)));
                 }
             } catch (ServiceException e) {
                 logger.debug(e);
