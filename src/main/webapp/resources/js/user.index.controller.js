@@ -2,5 +2,6 @@
     event.preventDefault();
 
      var inputId = document.getElementById('idUser')
-     localStorage.setItem('id', JSON.stringify(inputId.value));
+     localStorage.setItem('id', inputId.value);
+     inputId.remove();
  }
