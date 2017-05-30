@@ -40,5 +40,29 @@ public class MailServiceImpl implements MailService {
             throw new ServiceException(e.getMessage());
         }
     }
+
+    @Override
+    public void sendNotification(String name, String surname, String email, String navigationFlight) throws ServiceException {
+        SimpleMailMessage templateMessage = new SimpleMailMessage();
+        templateMessage.setFrom(FROM);
+        templateMessage.setSubject("Registration to flight");
+        SimpleMailMessage mailMessage = new SimpleMailMessage(templateMessage);
+        mailMessage.setTo(email);
+        mailMessage.setText(String.valueOf(createNotification(name, surname, navigationFlight)));
+        try {
+            mailSender.send(mailMessage);
+        } catch (MailException e) {
+            logger.error(e);
+            throw new ServiceException(e.getMessage());
+        }
+    }
+
+    public StringBuilder createNotification(String name, String surname, String navigationFlight) {
+        StringBuilder notification = new StringBuilder();
+        notification.append("Dear, " + name + " "+ surname + ".\n");
+        notification.append("You have applied for a flight " + navigationFlight + ". In the near future our employee will contact you.");
+        return notification;
+    }
+
 }
 
