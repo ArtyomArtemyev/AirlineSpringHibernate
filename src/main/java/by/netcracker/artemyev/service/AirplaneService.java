@@ -15,4 +15,5 @@ public interface AirplaneService extends GeneralService<Airplane> {
     void remove(Airplane object) throws ServiceException;
     Airplane getById(Long id) throws ServiceException;
     List<Airplane> getAll() throws ServiceException;
+    String getTypeTeam(Long idAirplane) throws ServiceException;
 }
