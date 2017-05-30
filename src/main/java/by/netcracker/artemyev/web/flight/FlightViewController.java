@@ -30,7 +30,7 @@ public class FlightViewController {
     private FlightService flightService;
 
     @RequestMapping(value = "/flights", method = RequestMethod.GET)
-    public ModelAndView getFlights(HttpServletRequest request) {
+    public ModelAndView getFlightsPage(HttpServletRequest request) {
         logger.debug(LoggingName.FUNCTION_GET_FLIGHTS);
         ModelAndView modelAndView = new ModelAndView();
         String returnPage = Page.USER_MAIN;
@@ -45,7 +45,7 @@ public class FlightViewController {
     }
 
     @RequestMapping(value = "airline/flights/{id}", method = RequestMethod.GET)
-    public ModelAndView showFlight(@PathVariable("id") String id, HttpServletRequest request) {
+    public ModelAndView aboutFlightPage(@PathVariable("id") String id, HttpServletRequest request) {
         logger.debug(LoggingName.FUNCTION_GET_FLIGHT);
         ModelAndView modelAndView = new ModelAndView();
         String returnPage = Page.ABOUT_FLIGHT;
@@ -60,7 +60,7 @@ public class FlightViewController {
     }
 
     @RequestMapping(value = "/flights/management", method = RequestMethod.GET)
-    public ModelAndView manageFlight(HttpServletRequest request) {
+    public ModelAndView manageFlightPage(HttpServletRequest request) {
         logger.debug(LoggingName.FUNCTION_GET_FLIGHT_MANAGEMENT_PAGE);
         ModelAndView modelAndView = new ModelAndView();
         String returnPage = Page.ADMIN_MAIN;
