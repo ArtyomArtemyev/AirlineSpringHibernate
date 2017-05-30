@@ -2,7 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <title>Index dispatcher page</title>
+    <title>Appoint airplane to flight page</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -19,6 +19,9 @@
 
     <!-- Theme CSS -->
     <link href="${pageContext.request.contextPath}/resources/css/grayscale.css" rel="stylesheet" type="text/css">
+
+    <!-- My style CSS -->
+    <link href="${pageContext.request.contextPath}/resources/css/style.css" rel="stylesheet" type="text/css">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -45,17 +48,8 @@
                 <li class="hidden">
                     <a href="#page-top"></a>
                 </li>
-                <li>
-                    <a class="page-scroll" href="<c:url value="/team/create" />">Create team</a>
-                </li>
-                <li>
-                    <a class="page-scroll" href="<c:url value="/team/delete" />">Delete team</a>
-                </li>
-                <li>
+                <li style="display:none;" id="hiddenLi">
                     <a class="page-scroll" href="<c:url value="/team/appointment" />">Appoint team to flight</a>
-                </li>
-                <li>
-                    <a class="page-scroll" href="<c:url value="/airplane/appointment" />">Appoint airplane to flight</a>
                 </li>
             </ul>
         </div>
@@ -70,10 +64,42 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8 col-md-offset-2">
-                    <p class="intro-text">You authorized as dispatcher<br></p>
-                    <a href="#about" class="btn btn-circle page-scroll">
-                        <i class="fa fa-angle-double-down animated"></i>
-                    </a>
+                    <p class="intro-text" id="informationP"><br></p>
+                    <div id="contentDiv">
+                        <table class="table_dark" id="flightTable">
+                            <caption>Flights</caption>
+                            <tr>
+                                <th>Id</th>
+                                <th>Navigation</th>
+                                <th>Id airplane</th>
+                                <th>Select</th>
+                            </tr>
+                            <c:forEach var="flight" items="${listFlight}">
+                                <tr>
+                                    <td>${flight.id}</td>
+                                    <td>${flight.navigation}</td>
+                                    <td>${flight.airplane.id}</td>
+                                    <td><input type="radio" name="idFlight" id="${flight.id}" value="${flight.id}" class="radioButtonFlight"></td>
+                                </tr>
+                            </c:forEach>
+                        </table>
+                        <table class="table_dark" id="teamTable">
+                            <caption>Airplanes</caption>
+                            <tr>
+                                <th>Id</th>
+                                <th>Model</th>
+                                <th>Select</th>
+                            </tr>
+                            <c:forEach var="airplane" items="${listAirplanes}">
+                                <tr>
+                                    <td>${airplane.id}</td>
+                                    <td>${airplane.model}</td>
+                                    <td><input type="radio" name="idAirplane" class="radioButtonAirplane" id="${airplane.id}" value="${airplane.id}"></td>
+                                </tr>
+                            </c:forEach>
+                        </table>
+                        <input type="submit" style="width:300px" value="Appoint team" id="appointButton" class="myButtonStyle3">
+                    </div>
                 </div>
             </div>
         </div>
@@ -96,6 +122,9 @@
         <p>Copyright &copy; Artyom Artemyev</p>
     </div>
 </footer>
+
+<!--My script controller-->
+<script src="${pageContext.request.contextPath}/resources/js/dispatcher.appoint.team.controller.js"></script>
 
 <!-- jQuery -->
 <script src="${pageContext.request.contextPath}/resources/vendor/jquery/jquery.js" type="text/javascript"></script>
