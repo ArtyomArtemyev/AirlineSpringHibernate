@@ -145,7 +145,7 @@
     function highlightFileds () {
         var newInputNavigation  = document.getElementById('newInputNavigation');
 
-        if (newInputNavigation .value === '') {
+        if (newInputNavigation.value === '') {
             document.getElementById('newInputNavigation').style.borderColor = 'red';
             document.getElementById('newInputNavigation').style.borderWidth = '2px';
         }
@@ -159,7 +159,6 @@
 
     function editNavigation() {
         var flight={
-            id:idAction.replace('edit',''),
             navigation:newNavigation
         };
         console.log(flight);
