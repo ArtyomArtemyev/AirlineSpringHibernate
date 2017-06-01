@@ -69,7 +69,7 @@
                     <div align="center" id="contentDiv">
                         <p class="intro-text" id="informationP"><br></p>
                         <table id="adminTable" class="table_dark" align="center">
-                            <caption>FLIGHT MANAGEMENT</caption>
+                            <caption>FLIGHTS MANAGEMENT</caption>
                             <tr>
                                 <th colspan="4">Navigation flight</th>
                                 <th colspan="2">Add</th>

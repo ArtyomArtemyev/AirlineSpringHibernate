@@ -59,7 +59,7 @@ public class FlightViewController {
     }
 
     @RequestMapping(value = "/flights/management", method = RequestMethod.GET)
-    public ModelAndView manageFlightPage(HttpServletRequest request) {
+    public ModelAndView manageFlightsPage(HttpServletRequest request) {
         logger.debug(LoggingName.FUNCTION_GET_FLIGHT_MANAGEMENT_PAGE);
         ModelAndView modelAndView = new ModelAndView();
         String returnPage = Page.ADMIN_MAIN;
