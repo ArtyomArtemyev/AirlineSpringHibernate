@@ -34,11 +34,13 @@
     }
 
     function sendUpdateFlight() {
-        var prefix = '/airline/';
+        var sendData = {
+            idFlight:flightId
+        };
         $.ajax({
             type: 'PUT',
-            url: prefix +'airplane/' + airplaneId,
-            data: flightId,
+            url: '/airplane/' + airplaneId,
+            data:JSON.stringify(sendData),
             headers: {
                 'Accept': 'application/text',
                 'Content-Type': 'application/json'
