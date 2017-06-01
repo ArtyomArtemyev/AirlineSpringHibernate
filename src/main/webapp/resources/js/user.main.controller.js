@@ -213,9 +213,10 @@ function registrationClickHandler(event) {
              },
              dataType: 'text',
              success: function(receive) {
-                 $("#adminTable").empty();
-                 $("#informationP").replaceWith(receive);
+                 $("#informationDiv").empty();
+                 $("#informationDiv").replaceWith(receive);
                  $("#hiddenLi").removeAttr('style');
+                 $("#hiddenLi2").removeAttr('style');
              },
              error: function (jqXhr, textStatus, errorThrown) {
                  alert("Ошибка '" + jqXhr.status + "' (textStatus: '" + textStatus + "', errorThrown: '" + errorThrown + "')");
