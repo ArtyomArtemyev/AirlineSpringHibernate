@@ -76,12 +76,14 @@
                                     <th>Select</th>
                                 </tr>
                                 <c:forEach var="flight" items="${listFlights}">
+                                    <c:if test="${not empty flight.airplane}">
                                     <tr>
                                         <td>${flight.id}</td>
                                         <td>${flight.navigation}</td>
                                         <td>${flight.airplane.model}</td>
                                         <td><input type="radio" name="idFlight" id="${flight.id}" value="${flight.id}" class="radioButtonFlight"></td>
                                     </tr>
+                                    </c:if>
                                 </c:forEach>
                             </table>
                             <input type="submit" style="width:300px" value="Create team" id="createTeamButton" class="myButtonStyle3">
