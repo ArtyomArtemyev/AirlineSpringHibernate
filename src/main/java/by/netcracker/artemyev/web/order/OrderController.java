@@ -21,8 +21,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
  */
 @Controller
 public class OrderController {
-    private static String className = OrderController.class.getName();
-    private static Logger logger = LogManager.getLogger(className);
+    private static Logger logger = LogManager.getLogger(OrderController.class);
     private static final String FIELD_ID_FLIGHT = "idFlight";
     private static final String FIELD_ID_USER = "idUser";
     private static final String FIELD_NAME = "name";
@@ -34,9 +33,9 @@ public class OrderController {
     private OrderService orderService;
 
     @RequestMapping(value = "airline/orders", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
-    public @ResponseBody String updateFlight(@RequestBody String json) {
-        logger.debug(LoggingName.FUNCTION_EDIT_FLIGHT);
-        String returnText = ServerResponse.EDIT_FLIGHT;
+    public @ResponseBody String createOrder(@RequestBody String json) {
+        logger.debug(LoggingName.FUNCTION_CREATE_ORDER);
+        String returnText = ServerResponse.SUCCESSFUL_CHECK_IN;
         JSONObject jsonObject = new JSONObject(json);
         logger.info(jsonObject.toString());
         try {
