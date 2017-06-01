@@ -66,6 +66,10 @@
                 <div class="col-md-8 col-md-offset-2">
                     <p class="intro-text" id="informationP"><br></p>
                     <table class="table_dark" id="employeeTable">
+                        <c:if test="${teams.size() eq 0}">
+                            <tr>No teams</tr>
+                        </c:if>
+                        <c:if test="${teams.size() lt 0}">
                         <caption>Teams</caption>
                         <c:forEach var="team" items="${teams}">
                             <tr>
@@ -95,6 +99,7 @@
                         </c:forEach>
                         </c:forEach>
                         <tr><td><input type="submit" value="Delete team" id="deleteTeamButton" class="myButtonStyle1"></td></tr>
+                        </c:if>
                     </table>
                 </div>
             </div>
