@@ -47,6 +47,12 @@
                 <li class="hidden">
                     <a href="#page-top"></a>
                 </li>
+                <li style="display:none;" id="hiddenLi">
+                    <a class="page-scroll" href="<c:url value="/flights" />">Check in</a>
+                </li>
+                <li style="display:none;" id="hiddenLi2">
+                    <a class="page-scroll" href="<c:url value="/chart" />">Information chart</a>
+                </li>
             </ul>
         </div>
         <!-- /.navbar-collapse -->
@@ -61,7 +67,7 @@
             <div class="row">
                 <div class="col-md-8 col-md-offset-2">
                     <p class="intro-text"></p>
-                    <div align="center">
+                    <div align="center" id="informationDiv">
                     <c:if test="${flights.size() eq 0}">
                         Sorry, no flights
                     </c:if>
