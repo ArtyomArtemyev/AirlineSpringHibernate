@@ -22,8 +22,7 @@ import java.util.List;
  */
 @Controller
 public class TeamController {
-    private static String className = TeamController.class.getName();
-    private static Logger logger = LogManager.getLogger(className);
+    private static Logger logger = LogManager.getLogger(TeamController.class);
 
     @Autowired
     private TeamService teamService;
