@@ -22,14 +22,16 @@ public final class DataChecker {
     public static boolean validateUserData(String userLogin, String userPassword, String userMail) {
         logger.debug(LoggingName.FUNCTION_VALIDATE_USER_DATA);
         boolean isValidateData = false;
-        if(userLogin != null || userPassword != null && userMail != null) {
-          boolean isUserMailValidate = false;
-          pattern = Pattern.compile(EMAIL_PATTERN);
-          matcher = pattern.matcher(userMail);
-          isUserMailValidate = matcher.matches();
-          if(isUserMailValidate) {
-              isValidateData = true;
-          }
+        if(userLogin != null && userPassword != null && userMail != null) {
+            if (userLogin.length() <= 100 && userPassword.length() <= 100 && userMail.length() <= 100) {
+                boolean isUserMailValidate = false;
+                pattern = Pattern.compile(EMAIL_PATTERN);
+                matcher = pattern.matcher(userMail);
+                isUserMailValidate = matcher.matches();
+                if (isUserMailValidate) {
+                    isValidateData = true;
+                }
+            }
         }
         return isValidateData;
     }
@@ -38,7 +40,9 @@ public final class DataChecker {
         logger.debug(LoggingName.FUNCTION_VALIDATE_USER_DATA);
         boolean isValidateData = false;
         if(userLogin != null && userPassword != null) {
-            isValidateData = true;
+            if(userLogin.length() <= 100 && userPassword.length() <= 100) {
+                isValidateData = true;
+            }
         }
         return isValidateData;
     }
