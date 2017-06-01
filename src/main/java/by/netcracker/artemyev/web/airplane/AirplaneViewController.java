@@ -16,6 +16,10 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 
+/**
+ * Class describes controller for work with pages, which consist of information about airplane
+ * @autor Artemyev Artoym
+ */
 @Controller
 public class AirplaneViewController {
     private static Logger logger = LogManager.getLogger(AirplaneViewController.class);
@@ -27,7 +31,7 @@ public class AirplaneViewController {
     private AirplaneService airplaneService;
 
     @RequestMapping(value = "/airplane/appointment", method = RequestMethod.GET)
-    public ModelAndView manageFlight(HttpServletRequest request) {
+    public ModelAndView getAppointmentAirplanePage(HttpServletRequest request) {
         ModelAndView modelAndView = new ModelAndView();
         String returnPage = Page.APPOINT_AIRPLANE;
         try {
