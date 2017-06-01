@@ -71,19 +71,26 @@
                             <tr>
                                 <th>Id</th>
                                 <th>Navigation</th>
-                                <th>Id airplane</th>
+                                <th>Airplane id</th>
+                                <th>Airplane model</th>
                                 <th>Select</th>
                             </tr>
                             <c:forEach var="flight" items="${listFlight}">
                                 <tr>
                                     <td>${flight.id}</td>
                                     <td>${flight.navigation}</td>
+                                <c:if test="${empty flight.airplane.id}">
+                                    <td colspan="2">No airplane</td>
+                                </c:if>
+                                <c:if test="${not empty flight.airplane.id}">
                                     <td>${flight.airplane.id}</td>
+                                    <td>${flight.airplane.model}</td>
+                                </c:if>
                                     <td><input type="radio" name="idFlight" id="${flight.id}" value="${flight.id}" class="radioButtonFlight"></td>
                                 </tr>
                             </c:forEach>
                         </table>
-                        <table class="table_dark" id="teamTable">
+                        <table class="table_dark" id="airplaneTable">
                             <caption>Airplanes</caption>
                             <tr>
                                 <th>Id</th>
@@ -98,7 +105,7 @@
                                 </tr>
                             </c:forEach>
                         </table>
-                        <input type="submit" style="width:300px" value="Appoint team" id="appointButton" class="myButtonStyle3">
+                        <input type="submit" style="width:300px" value="Appoint airplane" id="appointButton" class="myButtonStyle3">
                     </div>
                 </div>
             </div>
@@ -124,7 +131,7 @@
 </footer>
 
 <!--My script controller-->
-<script src="${pageContext.request.contextPath}/resources/js/dispatcher.appoint.team.controller.js"></script>
+<script src="${pageContext.request.contextPath}/resources/js/dispatcher.appoint.airplane.controller.js"></script>
 
 <!-- jQuery -->
 <script src="${pageContext.request.contextPath}/resources/vendor/jquery/jquery.js" type="text/javascript"></script>
