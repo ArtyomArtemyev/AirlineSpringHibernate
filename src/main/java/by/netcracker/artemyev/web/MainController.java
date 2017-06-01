@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 /**
  * Class describes controller for common application pages
@@ -25,8 +24,7 @@ import javax.servlet.http.HttpServletResponse;
  */
 @Controller
 public class MainController {
-    private static String className = MainController.class.getName();
-    private static Logger logger = LogManager.getLogger(className);
+    private static Logger logger = LogManager.getLogger(MainController.class);
 
     @Autowired
     private UserService userService;
@@ -64,7 +62,7 @@ public class MainController {
     }
 
     @RequestMapping(value = "/user/check", method = RequestMethod.POST)
-    public ModelAndView getUserPage(HttpServletRequest request, HttpServletResponse response) {
+    public ModelAndView getUserPage(HttpServletRequest request) {
         logger.debug(LoggingName.FUNCTION_GET_USER_PAGE);
         ModelAndView modelAndView = new ModelAndView();
         String returnPage;
@@ -78,7 +76,7 @@ public class MainController {
                 }
             } catch (ServiceException e) {
                 logger.debug(e);
-                returnPage = ErrorHandler.returnErrorPage(e.getMessage(), className);
+                returnPage = ErrorHandler.returnErrorPage(e.getMessage(), MainController.class.getName());
             }
         } else {
             returnPage = Page.ERROR;
