@@ -58,4 +58,5 @@ public final class LoggingName {
     public static final String DAO_FUNCTION_GET_ALL_FLIGHTS = "FlightDaoImpl: getAll";
     public static final String DAO_FUNCTION_GET_ALL_EMPLOYEES = "EmployeeDaoImpl: getAll";
     public static final String DAO_FUNCTION_GET_ALL_APPOINTMENTS = "AppointmentDaoImpl: getAll";
+    public static final String FUNCTION_CREATE_ORDER = "OrderController: createOrder";
 }
