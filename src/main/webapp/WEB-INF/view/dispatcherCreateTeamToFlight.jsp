@@ -131,7 +131,7 @@
 </footer>
 
 <!--My script controller-->
-<script src="${pageContext.request.contextPath}/resources/js/dispatcher.appoint.team.main.controller.js"></script>
+<script src="${pageContext.request.contextPath}/resources/js/dispatcher.appoint.create.team.to.flight.controller.js"></script>
 
 <!-- jQuery -->
 <script src="${pageContext.request.contextPath}/resources/vendor/jquery/jquery.js" type="text/javascript"></script>
