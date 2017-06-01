@@ -62,21 +62,26 @@
                 <div class="col-md-8 col-md-offset-2">
                     <p class="intro-text"></p>
                     <div align="center">
+                    <c:if test="${flights.size() eq 0}">
+                        Sorry, no flights
+                    </c:if>
+                    <c:if test="${flights.size() gt 0}">
                         <table class="table_dark">
                             <caption>FLIGHTS</caption>
                             <tr>
                                 <th>Id</th>
                                 <th>Navigation</th>
-                                <th>Registration to flight</th>
+                                <th>Check in</th>
                             </tr>
                             <c:forEach var="flight" items="${flights}">
                                 <tr id="tr${flight.id}">
                                     <td>${flight.id}</td>
                                     <td>${flight.navigation}</td>
-                                    <td><input type="submit" onclick="registrationClickHandler(event)" value="Register" id="register${flight.id}" class="myButtonStyle1"></td>
+                                    <td><input type="submit" onclick="registrationClickHandler(event)" value="Check in" id="register${flight.id}" class="myButtonStyle1"></td>
                                 </tr>
                             </c:forEach>
                         </table>
+                    </c:if>
                     </div>
                 </div>
             </div>
