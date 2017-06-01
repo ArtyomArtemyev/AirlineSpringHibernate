@@ -1,39 +1,39 @@
-    var addButton = document.getElementById('addButton');
-    addButton.addEventListener('click', createButtonClickHandler);
+var addButton = document.getElementById('addButton');
+addButton.addEventListener('click', createButtonClickHandler);
 
-    function createButtonClickHandler(event) {
-        event.preventDefault();
+function createButtonClickHandler(event) {
+    event.preventDefault();
 
-        var navigation = document.getElementById('navigation');
-        if (navigation.value === '') {
-            alert('Please enter navigation and then click on add button');
-            highlightFieldNavigation();
-        }
-        else {
-            resetHighlightNavigation();
+    var navigation = document.getElementById('navigation');
+    if (navigation.value === '') {
+        alert('Please enter navigation and then click on the add button');
 
-            sendNewFlight();
-        }
+        highlightFieldNavigation();
     }
+    else {
+        resetHighlightNavigation();
 
-    function highlightFieldNavigation () {
-        var newInputNavigation  = document.getElementById('navigation');
-
-        if (newInputNavigation .value === '') {
-            document.getElementById('navigation').style.borderColor = 'red';
-            document.getElementById('navigation').style.borderWidth = '2px';
-        }
-
+        sendNewFlight();
     }
+}
 
-    function resetHighlightNavigation () {
-        document.getElementById('navigation').style.borderColor = 'initial';
+function highlightFieldNavigation () {
+    var newInputNavigation  = document.getElementById('navigation');
+
+    if (newInputNavigation.value === '') {
+        document.getElementById('navigation').style.borderColor = 'red';
         document.getElementById('navigation').style.borderWidth = '2px';
     }
+}
 
-    function sendNewFlight(event) {
-        var msg = $('#addForm').serialize();
-        var prefix = '/airline/';
+function resetHighlightNavigation () {
+    document.getElementById('navigation').style.borderColor = 'initial';
+    document.getElementById('navigation').style.borderWidth = '2px';
+}
+
+function sendNewFlight(event) {
+    var msg = $('#addForm').serialize();
+    var prefix = '/airline/';
         $.ajax({
             type: 'POST',
             url:  prefix + 'flights',
@@ -47,18 +47,19 @@
                 alert('Error added new flight');
             }
         });
-    }
+}
 
-    var idFlight = 0;
+var idFlight = 0;
 
-    function deleteButtonClickHandler(event) {
-        event.preventDefault();
-        idFlight = event.target.id;
-        deleteFlight();
-    }
+function deleteButtonClickHandler(event) {
+    event.preventDefault();
 
-    function deleteFlight() {
-        var prefix = '/airline/';
+    idFlight = event.target.id;
+    deleteFlight();
+}
+
+function deleteFlight() {
+    var prefix = '/airline/';
         $.ajax({
             type: 'DELETE',
             url:  prefix + 'flights/' + idFlight,
@@ -71,13 +72,13 @@
                 alert('Error deleted flight');
             }
         });
-    }
+}
 
-    var tr;
-    var insertTr;
-    var idAction;
+var tr;
+var insertTr;
+var idAction;
 
-    function editButtonClickHandler(event) {
+function editButtonClickHandler(event) {
         event.preventDefault();
 
         insertTr = document.createElement('tr');
@@ -118,16 +119,16 @@
         $("#newCloseButton").attr("class", "myButtonStyle1");
         var newCloseButton = document.getElementById('newCloseButton');
         newCloseButton.addEventListener('click', closeEditField);
-    }
+}
 
-    function closeEditField(event) {
-        event.preventDefault();
+function closeEditField(event) {
+    event.preventDefault();
 
-        insertTr.remove();
-    }
+    insertTr.remove();
+}
 
-    var newNavigation;
-    function editFlight(event) {
+var newNavigation;
+function editFlight(event) {
         event.preventDefault();
 
         var newInputNavigation = document.getElementById('newInputNavigation');
@@ -140,28 +141,26 @@
             newNavigation = newInputNavigation.value;
             editNavigation();
         }
-    }
+}
 
-    function highlightFileds () {
+function highlightFileds () {
         var newInputNavigation  = document.getElementById('newInputNavigation');
 
         if (newInputNavigation.value === '') {
             document.getElementById('newInputNavigation').style.borderColor = 'red';
             document.getElementById('newInputNavigation').style.borderWidth = '2px';
         }
+}
 
-    }
-
-    function resetHighlightning () {
+function resetHighlightning () {
         document.getElementById('newInputNavigation').style.borderColor = 'initial';
         document.getElementById('newInputNavigation').style.borderWidth = '2px';
-    }
+}
 
-    function editNavigation() {
+function editNavigation() {
         var flight={
             navigation:newNavigation
         };
-        console.log(flight);
         var prefix = '/airline/';
         $.ajax({
             type: 'PUT',
@@ -181,6 +180,6 @@
                 alert("Ошибка '" + jqXhr.status + "' (textStatus: '" + textStatus + "', errorThrown: '" + errorThrown + "')");
             }
         });
-    }
+}
 
 
