@@ -33,10 +33,9 @@ function resetHighlightNavigation () {
 
 function sendNewFlight(event) {
     var msg = $('#addForm').serialize();
-    var prefix = '/airline/';
         $.ajax({
             type: 'POST',
-            url:  prefix + 'flights',
+            url:  '/flights',
             data: msg,
             success: function(receive) {
                 $("#adminTable").empty();
@@ -62,7 +61,7 @@ function deleteFlight() {
     var prefix = '/airline/';
         $.ajax({
             type: 'DELETE',
-            url:  prefix + 'flights/' + idFlight,
+            url: '/flights/' + idFlight,
             success: function(receive) {
                 $("#adminTable").empty();
                 $("#informationP").replaceWith(receive);
@@ -161,10 +160,9 @@ function editNavigation() {
         var flight={
             navigation:newNavigation
         };
-        var prefix = '/airline/';
         $.ajax({
             type: 'PUT',
-            url: prefix +'flights/' + idAction.replace('edit',''),
+            url: '/flights/' + idAction.replace('edit',''),
             data: JSON.stringify(flight),
             headers: {
                 'Accept': 'application/text',

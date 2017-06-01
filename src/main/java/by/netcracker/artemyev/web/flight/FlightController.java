@@ -20,13 +20,15 @@ import javax.servlet.http.HttpServletRequest;
  * @autor Artemyev Artoym
  */
 @Controller
+@RequestMapping("/flights")
 public class FlightController {
     private static Logger logger = LogManager.getLogger(FlightController.class);
+    private static final String FIELD_NAVIGATION = "navigation";
 
     @Autowired
     private FlightService flightService;
 
-    @RequestMapping(value = "airline/flights", method = RequestMethod.POST)
+    @RequestMapping(method = RequestMethod.POST)
     @ResponseBody
     public String addFlight(HttpServletRequest request) {
         logger.debug(LoggingName.FUNCTION_ADD_FLIGHT);
@@ -39,7 +41,7 @@ public class FlightController {
         return returnText;
     }
 
-    @RequestMapping(value = "airline/flights/{id}", method = RequestMethod.DELETE)
+    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     @ResponseBody
     public String deleteFlight(@PathVariable("id") String id) {
         logger.debug(LoggingName.FUNCTION_DELETE_FLIGHT);
@@ -52,25 +54,13 @@ public class FlightController {
         return returnText;
     }
 
-    @RequestMapping(value = "airline/flights/{id}", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value = "/{id}", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE)
     public @ResponseBody String updateFlight(@PathVariable("id") String id, @RequestBody String json) {
         logger.debug(LoggingName.FUNCTION_EDIT_FLIGHT);
         String returnText = ServerResponse.EDIT_FLIGHT;
         JSONObject jsonObject = new JSONObject(json);
         try {
-            flightService.changeFlightNavigation(Long.valueOf(id),jsonObject.getString("navigation"));
-        } catch (ServiceException e) {
-            logger.debug(e);
-        }
-        return returnText;
-    }
-
-    @RequestMapping(value = "airline/airplane/{id}", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE)
-    public @ResponseBody String appointAirplane(@PathVariable("id") String id, @RequestBody String json) {
-        logger.debug(LoggingName.FUNCTION_EDIT_FLIGHT);
-        String returnText = ServerResponse.EDIT_FLIGHT;
-        try {
-            flightService.appointAirplane(Long.valueOf(id), Long.valueOf(id));
+            flightService.changeFlightNavigation(Long.valueOf(id),jsonObject.getString(FIELD_NAVIGATION));
         } catch (ServiceException e) {
             logger.debug(e);
         }
