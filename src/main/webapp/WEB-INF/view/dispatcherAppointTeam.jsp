@@ -66,37 +66,26 @@
                 <div class="col-md-8 col-md-offset-2">
                     <p class="intro-text" id="informationP"><br></p>
                         <div id="contentDiv">
-                            <table class="table_dark" id="teamTable">
-                                <caption>Teams</caption>
-                                <tr>
-                                    <th>Id</th>
-                                    <th>Select</th>
-                                </tr>
-                                <c:forEach var="team" items="${listTeam}">
-                                    <tr>
-                                        <td>${team.id}</td>
-                                        <td><input type="radio" name="idTeam" class="radioButtonTeam" id="${team.id}" value="${team.id}"></td>
-                                    </tr>
-                                </c:forEach>
-                            </table>
+                            <form id="changeForm" method="GET">
                             <table class="table_dark" id="flightTable">
                                 <caption>Flights</caption>
                                 <tr>
                                     <th>Id</th>
                                     <th>Navigation</th>
-                                    <th>Id team</th>
+                                    <th>Airplane</th>
                                     <th>Select</th>
                                 </tr>
-                                <c:forEach var="flight" items="${listFlight}">
+                                <c:forEach var="flight" items="${listFlights}">
                                     <tr>
                                         <td>${flight.id}</td>
                                         <td>${flight.navigation}</td>
-                                        <td>${flight.team.id}</td>
+                                        <td>${flight.airplane.model}</td>
                                         <td><input type="radio" name="idFlight" id="${flight.id}" value="${flight.id}" class="radioButtonFlight"></td>
                                     </tr>
                                 </c:forEach>
                             </table>
-                            <input type="submit" style="width:300px" value="Appoint team" id="appointButton" class="myButtonStyle3">
+                            <input type="submit" style="width:300px" value="Create team" id="createTeamButton" class="myButtonStyle3">
+                            </form>
                         </div>
                 </div>
             </div>
