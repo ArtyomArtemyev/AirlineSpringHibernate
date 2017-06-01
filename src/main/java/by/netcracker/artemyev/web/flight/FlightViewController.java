@@ -23,8 +23,7 @@ import javax.servlet.http.HttpServletRequest;
  */
 @Controller
 public class FlightViewController {
-    private static String className = FlightViewController.class.getName();
-    private static Logger logger = LogManager.getLogger(className);
+    private static Logger logger = LogManager.getLogger(FlightViewController.class);
 
     @Autowired
     private FlightService flightService;
@@ -38,7 +37,7 @@ public class FlightViewController {
             request.setAttribute(RequestParameter.FLIGHT, flightService.getAll());
         }  catch (ServiceException e) {
             logger.debug(e);
-            returnPage = ErrorHandler.returnErrorPage(e.getMessage(), className);
+            returnPage = ErrorHandler.returnErrorPage(e.getMessage(), FlightViewController.class.getName());
         }
         modelAndView.setViewName(returnPage);
         return modelAndView;
@@ -53,7 +52,7 @@ public class FlightViewController {
             request.setAttribute(RequestParameter.ABOUT_FLIGHT, flightService.getById(Long.valueOf(id)));
         }  catch (ServiceException e) {
             logger.debug(e);
-            returnPage = ErrorHandler.returnErrorPage(e.getMessage(), className);
+            returnPage = ErrorHandler.returnErrorPage(e.getMessage(), FlightViewController.class.getName());
         }
         modelAndView.setViewName(returnPage);
         return modelAndView;
@@ -68,7 +67,7 @@ public class FlightViewController {
             request.setAttribute(RequestParameter.FLIGHT, flightService.getAll());
         }  catch (ServiceException e) {
             logger.debug(e);
-            returnPage = ErrorHandler.returnErrorPage(e.getMessage(), className);
+            returnPage = ErrorHandler.returnErrorPage(e.getMessage(), FlightViewController.class.getName());
         }
         modelAndView.setViewName(returnPage);
         return modelAndView;

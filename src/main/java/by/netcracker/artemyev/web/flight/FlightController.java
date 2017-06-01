@@ -21,8 +21,7 @@ import javax.servlet.http.HttpServletRequest;
  */
 @Controller
 public class FlightController {
-    private static String className = FlightController.class.getName();
-    private static Logger logger = LogManager.getLogger(className);
+    private static Logger logger = LogManager.getLogger(FlightController.class);
 
     @Autowired
     private FlightService flightService;
@@ -60,6 +59,18 @@ public class FlightController {
         JSONObject jsonObject = new JSONObject(json);
         try {
             flightService.changeFlightNavigation(Long.valueOf(id),jsonObject.getString("navigation"));
+        } catch (ServiceException e) {
+            logger.debug(e);
+        }
+        return returnText;
+    }
+
+    @RequestMapping(value = "airline/airplane/{id}", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE)
+    public @ResponseBody String appointAirplane(@PathVariable("id") String id, @RequestBody String json) {
+        logger.debug(LoggingName.FUNCTION_EDIT_FLIGHT);
+        String returnText = ServerResponse.EDIT_FLIGHT;
+        try {
+            flightService.appointAirplane(Long.valueOf(id), Long.valueOf(id));
         } catch (ServiceException e) {
             logger.debug(e);
         }
