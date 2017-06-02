@@ -89,4 +89,19 @@ public class TeamViewController {
         return modelAndView;
     }
 
+
+    @RequestMapping(value = "team/employee", method = RequestMethod.GET)
+    public ModelAndView getEmployeesPage(HttpServletRequest request) {
+        ModelAndView modelAndView = new ModelAndView();
+        String returnPage = "dispatcherShowEmployees";
+        try {
+            request.setAttribute(RequestAttribute.EMPLOYEES, employeeService.getAll());
+        } catch (ServiceException e) {
+            logger.debug(e);
+            returnPage = ErrorHandler.returnErrorPage(e.getMessage(), TeamViewController.class.getName());
+        }
+        modelAndView.setViewName(returnPage);
+        return modelAndView;
+    }
+
 }
