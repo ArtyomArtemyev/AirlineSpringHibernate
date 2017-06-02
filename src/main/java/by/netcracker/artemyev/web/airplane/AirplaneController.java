@@ -16,8 +16,7 @@ import org.springframework.web.bind.annotation.*;
 @Controller
 @RequestMapping("/airplane")
 public class AirplaneController {
-    private static String className = AirplaneViewController.class.getName();
-    private static Logger logger = LogManager.getLogger(className);
+    private static Logger logger = LogManager.getLogger(AirplaneViewController.class);
     private static final String FIELD_ID_FLIGHT = "idFlight";
 
     @Autowired

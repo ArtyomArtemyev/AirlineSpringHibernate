@@ -13,7 +13,6 @@ import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -30,15 +29,14 @@ public class TeamController {
     @Autowired
     private FlightService flightService;
 
-    @RequestMapping(value = "airline/teams", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
-    public @ResponseBody
-    String addTeam(@RequestBody String json) {
+    @RequestMapping(value = "/{id}/teams", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
+    public @ResponseBody String addTeam(@PathVariable String id, @RequestBody String json) {
         logger.debug(LoggingName.FUNCTION_ADD_TEAM);
-        String returnText = ServerResponse.ADD_TEAM;
-        List<Long> idList = new ArrayList<>();
-        idList = Converter.convertToList(json);
+        String returnText = ServerResponse.SUCCESFULL_APPOINT_CREATE_TEAM;
+        List<Long> idList = Converter.convertToList(json);
         try {
             teamService.createTeam(idList);
+            teamService.appointTeamToFlight(Long.valueOf(id), idList);
         } catch (ServiceException e) {
             logger.debug(e);
         }
