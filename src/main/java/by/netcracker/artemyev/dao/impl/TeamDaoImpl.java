@@ -20,7 +20,7 @@ import java.util.List;
  */
 @Repository
 public class TeamDaoImpl extends GenericDao<Team> implements TeamDao {
-    private static Logger logger = LogManager.getLogger(TeamDaoImpl.class.getName());
+    private static Logger logger = LogManager.getLogger(TeamDaoImpl.class);
 
     private TeamDaoImpl() {
         super(Team.class);

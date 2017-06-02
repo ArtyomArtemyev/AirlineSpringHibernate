@@ -9,11 +9,13 @@ import by.netcracker.artemyev.exception.DaoException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.hibernate.HibernateException;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+@Repository
 public class OrderDaoImpl extends GenericDao<Order> implements OrderDao {
-    private static Logger logger = LogManager.getLogger(OrderDaoImpl.class.getName());
+    private static Logger logger = LogManager.getLogger(OrderDaoImpl.class);
 
     private OrderDaoImpl() {
         super(Order.class);

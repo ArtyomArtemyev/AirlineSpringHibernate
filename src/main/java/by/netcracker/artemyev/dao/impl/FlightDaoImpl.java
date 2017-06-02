@@ -20,7 +20,7 @@ import java.util.List;
  */
 @Repository
 public class FlightDaoImpl extends GenericDao<Flight> implements FlightDao {
-    private static Logger logger = LogManager.getLogger(FlightDaoImpl.class.getName());
+    private static Logger logger = LogManager.getLogger(FlightDaoImpl.class);
 
     private FlightDaoImpl() {
         super(Flight.class);

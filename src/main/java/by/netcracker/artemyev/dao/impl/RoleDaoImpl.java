@@ -20,7 +20,7 @@ import java.util.List;
  */
 @Repository
 public class RoleDaoImpl extends GenericDao<Role> implements RoleDao {
-    private static Logger logger = LogManager.getLogger(RoleDaoImpl.class.getName());
+    private static Logger logger = LogManager.getLogger(RoleDaoImpl.class);
 
     private RoleDaoImpl() {
         super(Role.class);

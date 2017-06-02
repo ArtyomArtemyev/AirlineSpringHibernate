@@ -10,11 +10,13 @@ import by.netcracker.artemyev.exception.DaoException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.hibernate.HibernateException;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+@Repository
 public class AirplaneDaoImpl extends GenericDao<Airplane> implements AirplaneDao  {
-    private static Logger logger = LogManager.getLogger(FlightDaoImpl.class.getName());
+    private static Logger logger = LogManager.getLogger(FlightDaoImpl.class);
 
     private AirplaneDaoImpl() {
         super(Airplane.class);

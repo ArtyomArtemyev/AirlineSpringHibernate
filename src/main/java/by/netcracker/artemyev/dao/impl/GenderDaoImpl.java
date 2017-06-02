@@ -20,7 +20,7 @@ import java.util.List;
  */
 @Repository
 public class GenderDaoImpl extends GenericDao<Gender> implements GenderDao {
-    private static Logger logger = LogManager.getLogger(GenderDaoImpl.class.getName());
+    private static Logger logger = LogManager.getLogger(GenderDaoImpl.class);
 
     private GenderDaoImpl() {
         super(Gender.class);

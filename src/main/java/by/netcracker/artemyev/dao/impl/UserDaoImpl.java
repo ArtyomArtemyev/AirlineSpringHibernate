@@ -23,7 +23,7 @@ import java.util.List;
  */
 @Repository
 public class UserDaoImpl extends GenericDao<User> implements UserDao {
-    private static Logger logger = LogManager.getLogger(UserDaoImpl.class.getName());
+    private static Logger logger = LogManager.getLogger(UserDaoImpl.class);
     private final static String USER_LOGIN = "login";
     private final static String USER_PASSWORD = "password";
 

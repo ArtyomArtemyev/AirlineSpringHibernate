@@ -20,7 +20,7 @@ import java.util.List;
  */
 @Repository
 public class EmployeeDaoImpl extends GenericDao<Employee> implements EmployeeDao {
-    private static Logger logger = LogManager.getLogger(EmployeeDaoImpl.class.getName());
+    private static Logger logger = LogManager.getLogger(EmployeeDaoImpl.class);
 
     private EmployeeDaoImpl() {
         super(Employee.class);

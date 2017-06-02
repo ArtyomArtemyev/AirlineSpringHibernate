@@ -20,7 +20,7 @@ import java.util.List;
  */
 @Repository
 public class AppointmentDaoImpl extends GenericDao<Appointment> implements AppointmentDao {
-    private static Logger logger = LogManager.getLogger(AppointmentDaoImpl.class.getName());
+    private static Logger logger = LogManager.getLogger(AppointmentDaoImpl.class);
 
     private AppointmentDaoImpl() {
         super(Appointment.class);
