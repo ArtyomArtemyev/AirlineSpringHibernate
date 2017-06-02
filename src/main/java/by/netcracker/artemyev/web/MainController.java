@@ -61,6 +61,14 @@ public class MainController {
         return modelAndView;
     }
 
+    @RequestMapping(value = "/contact", method = RequestMethod.GET)
+    public ModelAndView getContactPage() {
+        logger.debug(LoggingName.FUNCTION_GET_CONTACT_PAGE);
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName(Page.CONTACT);
+        return modelAndView;
+    }
+
     @RequestMapping(value = "/user/check", method = RequestMethod.POST)
     public ModelAndView getUserPage(HttpServletRequest request) {
         logger.debug(LoggingName.FUNCTION_GET_USER_PAGE);
