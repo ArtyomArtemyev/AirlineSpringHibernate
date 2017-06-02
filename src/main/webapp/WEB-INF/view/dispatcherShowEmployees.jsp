@@ -68,27 +68,89 @@
             <div class="row">
                 <div class="col-md-8 col-md-offset-2">
                     <p class="intro-text" id="informationP"><br></p>
-                    <table class="table_dark" id="employeeTable">
-                        <caption> EMPLOYEES </caption>
+                    <table class="table_dark" id="pilotsTable">
+                        <caption>Pilots</caption>
                         <tr>
                             <th>Id</th>
                             <th>Gender</th>
                             <th>Name</th>
                             <th>Surname</th>
                             <th>Appointment</th>
-                            <th>Select</th>
                         </tr>
                         <c:forEach var="employee" items="${employees}">
+                            <c:if test="${employee.appointment.appointment eq 'PILOT'}">
                             <tr>
                                 <td>${employee.id}</td>
                                 <td>${employee.gender.gender}</td>
                                 <td>${employee.name}</td>
                                 <td>${employee.surname}</td>
                                 <td>${employee.appointment.appointment}</td>
-                                <td><input type="checkbox" name="id" id="${employee.id}" value="${employee.id}"></td>
                             </tr>
+                            </c:if>
                         </c:forEach>
-                        <tr><td><input type="submit" value="Create team" id="createTeamButton" class="myButtonStyle1"></td></tr>
+                    </table>
+                    <table class="table_dark" id="stewardessTable">
+                        <caption>Stewardess</caption>
+                        <tr>
+                            <th>Id</th>
+                            <th>Gender</th>
+                            <th>Name</th>
+                            <th>Surname</th>
+                            <th>Appointment</th>
+                        </tr>
+                        <c:forEach var="employee" items="${employees}">
+                            <c:if test="${employee.appointment.appointment eq 'STEWARDESS'}">
+                            <tr>
+                                <td>${employee.id}</td>
+                                <td>${employee.gender.gender}</td>
+                                <td>${employee.name}</td>
+                                <td>${employee.surname}</td>
+                                <td>${employee.appointment.appointment}</td>
+                            </tr>
+                            </c:if>
+                        </c:forEach>
+                    </table>
+                    <table class="table_dark" id="navigatorsTable">
+                        <caption>Navigators</caption>
+                        <tr>
+                            <th>Id</th>
+                            <th>Gender</th>
+                            <th>Name</th>
+                            <th>Surname</th>
+                            <th>Appointment</th>
+                        </tr>
+                        <c:forEach var="employee" items="${employees}">
+                            <c:if test="${employee.appointment.appointment eq 'NAVIGATOR'}">
+                            <tr>
+                                <td>${employee.id}</td>
+                                <td>${employee.gender.gender}</td>
+                                <td>${employee.name}</td>
+                                <td>${employee.surname}</td>
+                                <td>${employee.appointment.appointment}</td>
+                            </tr>
+                            </c:if>
+                        </c:forEach>
+                    </table>
+                    <table class="table_dark" id="radioperatorsTable">
+                        <caption>Navigators</caption>
+                        <tr>
+                            <th>Id</th>
+                            <th>Gender</th>
+                            <th>Name</th>
+                            <th>Surname</th>
+                            <th>Appointment</th>
+                        </tr>
+                        <c:forEach var="employee" items="${employees}">
+                            <c:if test="${employee.appointment.appointment eq 'RADIO_OPERATOR'}">
+                            <tr>
+                                <td>${employee.id}</td>
+                                <td>${employee.gender.gender}</td>
+                                <td>${employee.name}</td>
+                                <td>${employee.surname}</td>
+                                <td>${employee.appointment.appointment}</td>
+                            </tr>
+                            </c:if>
+                        </c:forEach>
                     </table>
                 </div>
             </div>
