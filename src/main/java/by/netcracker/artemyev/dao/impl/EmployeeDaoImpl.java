@@ -15,7 +15,8 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 /**
- * Class describes dao for Employee
+ * Class describes dao for employee
+ *
  * @autor Artemyev Artoym
  */
 @Repository

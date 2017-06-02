@@ -1,6 +1,5 @@
 package by.netcracker.artemyev.dao.impl;
 
-
 import by.netcracker.artemyev.constant.ErrorMessage;
 import by.netcracker.artemyev.constant.Statement;
 import by.netcracker.artemyev.dao.AirplaneDao;
@@ -14,8 +13,13 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+/**
+ * Class describes dao for airplane
+ *
+ * @autor Artemyev Artoym
+ */
 @Repository
-public class AirplaneDaoImpl extends GenericDao<Airplane> implements AirplaneDao  {
+public class AirplaneDaoImpl extends GenericDao<Airplane> implements AirplaneDao {
     private static Logger logger = LogManager.getLogger(FlightDaoImpl.class);
 
     private AirplaneDaoImpl() {

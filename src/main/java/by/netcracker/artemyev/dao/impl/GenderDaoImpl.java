@@ -15,7 +15,8 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 /**
- * Class describes dao for Gender
+ * Class describes dao for gender
+ *
  * @autor Artemyev Artoym
  */
 @Repository

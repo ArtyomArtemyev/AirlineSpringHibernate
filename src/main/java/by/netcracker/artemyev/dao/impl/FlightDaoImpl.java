@@ -15,7 +15,8 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 /**
- * Class describes dao for Flight
+ * Class describes dao for flight
+ *
  * @autor Artemyev Artoym
  */
 @Repository

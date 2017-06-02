@@ -13,6 +13,11 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+/**
+ * Class describes dao for order
+ *
+ * @autor Artemyev Artoym
+ */
 @Repository
 public class OrderDaoImpl extends GenericDao<Order> implements OrderDao {
     private static Logger logger = LogManager.getLogger(OrderDaoImpl.class);

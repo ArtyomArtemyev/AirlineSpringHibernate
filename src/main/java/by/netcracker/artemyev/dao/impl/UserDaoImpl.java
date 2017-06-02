@@ -18,7 +18,8 @@ import javax.persistence.criteria.Root;
 import java.util.List;
 
 /**
- * Class describes dao for User
+ * Class describes dao for user
+ *
  * @autor Artemyev Artoym
  */
 @Repository
