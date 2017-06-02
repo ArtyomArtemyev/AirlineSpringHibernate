@@ -61,7 +61,7 @@
         <div class="container" id="mainDivContainer">
                     <br/>
                     AUTHORIZATION USER
-                    <form name="loginForm" id="loginForm" method="POST" action="/user/check">
+                    <form name="loginForm" id="loginForm" method="POST" action="${pageContext.request.contextPath}/user/check">
                         <p>
                             <input class="inputEnter" id="inputLogin" type="text" name="login" value="" placeholder="Login" maxlength="22"/>
                         </p>

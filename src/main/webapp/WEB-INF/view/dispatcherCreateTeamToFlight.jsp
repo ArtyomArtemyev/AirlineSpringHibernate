@@ -49,7 +49,10 @@
                     <a href="#page-top"></a>
                 </li>
                 <li style="display:none;" id="hiddenLi">
-                    <a class="page-scroll" href="<c:url value="/team/appointment" />">Appoint team to flight</a>
+                    <a class="page-scroll" href="<c:url value="/team/create" />">Create team to flight</a>
+                </li>
+                <li style="display:none;" id="hiddenLi2">
+                    <a class="page-scroll" href="<c:url value="/airplane/appointment" />">Appoint airplane to flight</a>
                 </li>
             </ul>
         </div>
@@ -72,10 +75,9 @@
                                 <th>Id</th>
                                 <th>Navigation</th>
                                 <th>Airplane</th>
-                                <th>Select</th>
                             </tr>
                                 <tr>
-                                    <td>${flight.id}</td>
+                                    <td id="idFlight" name = "${flight.id}">${flight.id}</td>
                                     <td>${flight.navigation}</td>
                                     <td>${flight.airplane.model}</td>
                                 </tr>
@@ -100,9 +102,8 @@
                                     <td><input type="checkbox" name="id" id="${employee.id}" value="${employee.id}"></td>
                                 </tr>
                             </c:forEach>
-                            <tr><td><input type="submit" value="Create team" id="createTeamButton" class="myButtonStyle1"></td></tr>
+                            <tr><td><input type="submit" value="Create and appoint team" id="createTeamButton" class="myButtonStyle1"></td></tr>
                         </table>
-                        <input type="submit" style="width:300px" value="Appoint team" id="appointButton" class="myButtonStyle3">
                     </div>
                 </div>
             </div>

@@ -49,7 +49,7 @@
                     <a href="#page-top"></a>
                 </li>
                 <li style="display:none;" id="hiddenLi">
-                    <a class="page-scroll" href="<c:url value="/team/appointment" />">Appoint team to flight</a>
+                    <a class="page-scroll" href="<c:url value="/team/create" />">Create team to flight</a>
                 </li>
             </ul>
         </div>
@@ -75,7 +75,7 @@
                                 <th>Airplane model</th>
                                 <th>Select</th>
                             </tr>
-                            <c:forEach var="flight" items="${listFlight}">
+                            <c:forEach var="flight" items="${listFlights}">
                                 <tr>
                                     <td>${flight.id}</td>
                                     <td>${flight.navigation}</td>
