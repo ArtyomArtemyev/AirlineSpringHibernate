@@ -27,7 +27,7 @@ import java.util.List;
  */
 @Service
 public class TeamServiceImpl extends GenericService<Team> implements TeamService {
-    private static Logger logger = LogManager.getLogger(TeamServiceImpl.class.getName());
+    private static Logger logger = LogManager.getLogger(TeamServiceImpl.class);
 
     @Autowired
     private TeamDao teamDao;
@@ -97,6 +97,29 @@ public class TeamServiceImpl extends GenericService<Team> implements TeamService
             throw new ServiceException(e.getMessage());
         }
         return isAppoint;
+    }
+
+    @Transactional
+    @Override
+    public void appointTeamToFlight(Long idFlight, List<Long> teamId) throws ServiceException {
+        try {
+            List<Team> teamList = teamDao.getAll();
+            logger.debug(teamId);
+            Long idTeam = 0L;
+            for (int i = 0; i < teamList.size(); i++) {
+                logger.debug(Converter.convertToLine(teamId));
+                logger.debug(teamList.get(i).getIdMembers());
+                List<Long> checkList = Converter.convertToList(teamList.get(i).getIdMembers());
+                if (teamId.containsAll(checkList)) {
+                    idTeam = teamList.get(i).getId();
+                    break;
+                }
+            }
+            flightService.appointTeam(idFlight, idTeam);
+        } catch (DaoException e) {
+            logger.debug(e);
+            throw new ServiceException(e.getMessage());
+        }
     }
 
     private boolean findTeamId(List<Flight> flightList, Long id) {

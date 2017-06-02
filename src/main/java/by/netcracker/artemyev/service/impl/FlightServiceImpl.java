@@ -22,7 +22,7 @@ import org.springframework.transaction.annotation.Transactional;
  */
 @Service
 public class FlightServiceImpl extends GenericService<Flight> implements FlightService {
-    private static Logger logger = LogManager.getLogger(GenericService.class.getName());
+    private static Logger logger = LogManager.getLogger(GenericService.class);
 
     @Autowired
     private FlightDao flightDao;
@@ -68,11 +68,9 @@ public class FlightServiceImpl extends GenericService<Flight> implements FlightS
     @Override
     public void appointTeam(Long idFlight, Long idTeam) throws ServiceException {
         logger.debug(LoggingName.SERVICE_FUNCTION_APPOINT_TEAM_TO_FLIGHT);
-        Flight changeFlight = new Flight();
         try {
-            changeFlight = flightDao.getById(idFlight);
-            Team appointedTeam = new Team();
-            appointedTeam = teamService.getById(idTeam);
+            Flight changeFlight = flightDao.getById(idFlight);
+            Team appointedTeam = teamService.getById(idTeam);
             changeFlight.setTeam(appointedTeam);
             flightDao.update(changeFlight);
         } catch (DaoException e) {

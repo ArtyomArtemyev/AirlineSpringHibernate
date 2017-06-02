@@ -26,7 +26,7 @@ import java.util.List;
  */
 @Service
 public class UserServiceImpl extends GenericService<User> implements UserService {
-    private static Logger logger = LogManager.getLogger(UserServiceImpl.class.getName());
+    private static Logger logger = LogManager.getLogger(UserServiceImpl.class);
 
     @Autowired
     private UserDao userDao;

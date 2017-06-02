@@ -16,7 +16,7 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class MailServiceImpl implements MailService {
-    private static Logger logger = LogManager.getLogger(MailServiceImpl.class.getName());
+    private static Logger logger = LogManager.getLogger(MailServiceImpl.class);
     private final String FROM = "artairline2017@gmail.com";
     private final String SUBJECT = "Registration in ArtAirline system";
     private final String MESSAGE = "Thank you for registration in our system. Now you can enter in system";

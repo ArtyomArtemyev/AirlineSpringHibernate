@@ -16,7 +16,7 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class AirplaneServiceImpl extends GenericService<Airplane> implements AirplaneService {
-    private static Logger logger = LogManager.getLogger(AirplaneServiceImpl.class.getName());
+    private static Logger logger = LogManager.getLogger(AirplaneServiceImpl.class);
 
     @Autowired
     private AirplaneDao airplaneDao;
