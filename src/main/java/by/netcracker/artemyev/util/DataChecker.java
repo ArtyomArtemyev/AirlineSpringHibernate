@@ -12,7 +12,7 @@ import java.util.regex.Pattern;
  * @autor Artemyev Artoym
  */
 public final class DataChecker {
-    private static Logger logger = LogManager.getLogger(DataChecker.class.getName());
+    private static Logger logger = LogManager.getLogger(DataChecker.class);
     private static Pattern pattern;
     private static Matcher matcher;
     private static final String EMAIL_PATTERN =

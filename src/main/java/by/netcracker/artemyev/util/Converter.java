@@ -16,7 +16,7 @@ import java.util.List;
  * @autor Artemyev Artoym
  */
 public final class Converter {
-    private static Logger logger = LogManager.getLogger(Converter.class.getName());
+    private static Logger logger = LogManager.getLogger(Converter.class);
     private static Gson gson = new Gson();
 
     public static List<Long> convertToList(String line) {
