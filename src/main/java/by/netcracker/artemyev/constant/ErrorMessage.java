@@ -1,7 +1,8 @@
 package by.netcracker.artemyev.constant;
 
 /**
- * Class contains different messages, which describes possible error
+ * Class contains different messages. They are describes possible errors
+ *
  * @autor Artemyev Artoym
  */
 public final class ErrorMessage {

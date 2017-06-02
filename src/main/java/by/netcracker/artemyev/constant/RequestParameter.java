@@ -2,6 +2,7 @@ package by.netcracker.artemyev.constant;
 
 /**
  * Class contains request parameters
+ *
  * @autor Artemyev Artoym
  */
 public final class RequestParameter {

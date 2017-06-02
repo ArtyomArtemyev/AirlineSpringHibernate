@@ -1,7 +1,8 @@
 package by.netcracker.artemyev.constant;
 
 /**
- * Class contains server response
+ * Class contains messages for server response
+ *
  * @autor Artemyev Artoym
  */
 public final class ServerResponse {
@@ -15,4 +16,6 @@ public final class ServerResponse {
     public static final String SUCCESSFUL_USER_REGISTRATION = "Thank you for registration. You can enter in system";
     public static final String WRONG_USER_REGISTRATION = "You entered wrong data. Please registration again";
     public static final String SUCCESSFUL_CHECK_IN = "Thank you for choosing our airline";
+    public static final String APPOINT_AIRPLANE = "Airplane appointed successful";
+    public static final String SUCCESFULL_APPOINT_CREATE_TEAM = "Sucessfull added and appointed team";
 }

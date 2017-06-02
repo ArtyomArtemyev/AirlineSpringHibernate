@@ -1,7 +1,8 @@
 package by.netcracker.artemyev.constant;
 
 /**
- * Class contains all function names
+ * Class contains messages for logging
+ *
  * @autor Artemyev Artoym
  */
 public final class LoggingName {

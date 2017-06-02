@@ -1,7 +1,8 @@
 package by.netcracker.artemyev.constant;
 
 /**
- * Class contains pages name
+ * Class contains pages names
+ *
  * @autor Artemyev Artoym
  */
 public final class Page {
