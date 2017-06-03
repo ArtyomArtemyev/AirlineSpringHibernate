@@ -48,11 +48,11 @@
             dataType: 'text',
             success: function(receive) {
                 $("#contentDiv").empty();
-                $("#informationP").replaceWith(receive);
+                $("#informationP").text(receive);
                 $("#hiddenLi").removeAttr('style');
             },
             error: function (jqXhr, textStatus, errorThrown) {
-                alert("Ошибка '" + jqXhr.status + "' (textStatus: '" + textStatus + "', errorThrown: '" + errorThrown + "')");
+                alert("Error appointed airplane");
             }
         });
     }
