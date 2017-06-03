@@ -64,11 +64,15 @@ public class FlightController {
     public @ResponseBody String updateFlight(@PathVariable("id") String id, @RequestBody String json) {
         logger.debug(LoggingName.FUNCTION_EDIT_FLIGHT);
         String returnText = ServerResponse.EDIT_FLIGHT;
-        JSONObject jsonObject = new JSONObject(json);
-        try {
-            flightService.changeFlightNavigation(Long.valueOf(id),jsonObject.getString(FIELD_NAVIGATION));
-        } catch (ServiceException e) {
-            logger.debug(e);
+        if(DataChecker.checkUserData(json)) {
+            JSONObject jsonObject = new JSONObject(json);
+            try {
+                flightService.changeFlightNavigation(Long.valueOf(id), jsonObject.getString(FIELD_NAVIGATION));
+            } catch (ServiceException e) {
+                logger.debug(e);
+            }
+        } else {
+            returnText = ServerResponse.EDIT_NOT_FLIGHT;
         }
         return returnText;
     }
