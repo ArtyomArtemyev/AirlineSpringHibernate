@@ -1,24 +1,20 @@
 var team;
+var flightId;
 
 window.onload=function(){
     var inputIdAirplane = document.getElementById('idAirplane');
-    var prefix = '/airline/';
     $.ajax({
         type: 'GET',
-        url: prefix +'airplane/'+ inputIdAirplane.value +'/team',
+        url: '/airplane/'+ inputIdAirplane.value +'/team',
         headers: {
             'Accept': 'application/text'
         },
         dataType: 'text',
         success: function(receive) {
-          console.log(receive);
           team = JSON.parse(receive);
-          console.log(team);
-          console.log(team.pilots);
-          console.log(team.stewardess);
         },
         error: function (jqXhr, textStatus, errorThrown) {
-            alert("Ошибка '" + jqXhr.status + "' (textStatus: '" + textStatus + "', errorThrown: '" + errorThrown + "')");
+            alert("Error");
         }
     });
 };
@@ -83,11 +79,13 @@ window.onload=function(){
                     }
                 }
             }
+            var idFlight = document.getElementById('idFlight');
+            flightId = Number(idFlight.innerHTML);
 
             sendTeamData();
         }
         else {
-            alert("Team consist of 1 navigator and 1 radio operator, 2 pliots and 2 stewardess" + "\n" + "Please make true team");
+            alert('Team consist of ' + team.navigators + ' navigators and ' + team.radio_operators + ' radio operators,' + team.pilots + ' pliots and '+ team.stewardess +' stewardess ' + "\n" + "Please make true team");
 
             idMembers = [];
             for (var i = 1; i < employeeList.length - 1; i++) {
@@ -102,11 +100,9 @@ window.onload=function(){
     }
 
     function sendTeamData() {
-        var prefix = '/airline/';
-        console.log(result);
         $.ajax({
             type: 'POST',
-            url: prefix +'teams',
+            url: '/' + flightId + '/teams',
             data: result,
             headers: {
                 'Accept': 'application/text',
@@ -114,12 +110,13 @@ window.onload=function(){
             },
             dataType: 'text',
             success: function(receive) {
-                $("#employeeTable").empty();
-                $("#informationP").replaceWith(receive);
+                $("#contentDiv").empty();
+                $("#informationP").text(receive);
                 $("#hiddenLi").removeAttr('style');
+                $("#hiddenLi2").removeAttr('style');
             },
             error: function() {
-                alert('Error created new team');
+                alert('Error appointed new team');
             }
         });
     }
