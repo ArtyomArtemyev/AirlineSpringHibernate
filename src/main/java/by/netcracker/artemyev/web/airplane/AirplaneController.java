@@ -1,10 +1,10 @@
 package by.netcracker.artemyev.web.airplane;
 
-import by.netcracker.artemyev.constant.LoggingName;
 import by.netcracker.artemyev.constant.ServerResponse;
 import by.netcracker.artemyev.exception.ServiceException;
 import by.netcracker.artemyev.service.AirplaneService;
 import by.netcracker.artemyev.service.FlightService;
+import by.netcracker.artemyev.util.DataChecker;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.json.JSONObject;
@@ -31,20 +31,23 @@ public class AirplaneController {
         try {
             returnText = airplaneService.getTypeTeam(Long.valueOf(id));
         } catch (ServiceException e) {
-
+            logger.debug(e);
         }
         return returnText;
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE)
     public @ResponseBody String appointAirplane(@PathVariable("id") String id, @RequestBody String json) {
-        logger.debug(LoggingName.FUNCTION_EDIT_FLIGHT);
         String returnText = ServerResponse.APPOINT_AIRPLANE;
-        JSONObject jsonObject = new JSONObject(json);
-        try {
-            flightService.appointAirplane(Long.valueOf(jsonObject.getString(FIELD_ID_FLIGHT)), Long.valueOf(id));
-        } catch (ServiceException e) {
-            logger.debug(e);
+        if(DataChecker.checkUserData(json)) {
+            JSONObject jsonObject = new JSONObject(json);
+            try {
+                flightService.appointAirplane(Long.valueOf(jsonObject.getString(FIELD_ID_FLIGHT)), Long.valueOf(id));
+            } catch (ServiceException e) {
+                logger.debug(e);
+            }
+        } else {
+            returnText = ServerResponse.NO_APPOINT_AIRPLANE;
         }
         return returnText;
     }
