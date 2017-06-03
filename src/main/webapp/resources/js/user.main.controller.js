@@ -43,6 +43,7 @@ function registrationClickHandler(event) {
      $("#tdInput").attr("colspan", "2");
      $("#inputName").attr("style", "width:100%");
      $("#inputName").attr("maxlength", "25");
+     $("#inputName").attr("placeholder", "Your name");
      $("#insertTdNavigationText").text("Navigation");
      $("#insertTdNavigation").text(textNavigationValue);
 
@@ -62,6 +63,7 @@ function registrationClickHandler(event) {
      $("#tdInput2").attr("colspan", "2");
      $("#inputSurname").attr("style", "width:100%");
      $("#inputSurname").attr("maxlength", "25");
+     $("#inputSurname").attr("placeholder", "Your surname");
 
      insertTr3 = document.createElement('tr');
      insertTr3.id='insertTr3';
@@ -79,6 +81,7 @@ function registrationClickHandler(event) {
      $("#tdInput3").attr("colspan", "2");
      $("#inputMail").attr("style", "width:100%");
      $("#inputMail").attr("maxlength", "50");
+     $("#inputMail").attr("placeholder", "Your mail");
 
      insertTr4 = document.createElement('tr');
      insertTr4.id='insertTr4';
@@ -96,6 +99,7 @@ function registrationClickHandler(event) {
      $("#tdInput4").attr("colspan", "2");
      $("#inputPhone").attr("style", "width:100%");
      $("#inputPhone").attr("maxlength", "10");
+     $("#inputPhone").attr("placeholder", "Your phone");
 
     insertTr5 = document.createElement('tr');
      insertTr5.id='insertTr5';
