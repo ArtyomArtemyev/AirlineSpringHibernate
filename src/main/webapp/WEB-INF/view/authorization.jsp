@@ -63,10 +63,10 @@
                     AUTHORIZATION USER
                     <form name="loginForm" id="loginForm" method="POST" action="${pageContext.request.contextPath}/user/check">
                         <p>
-                            <input class="inputEnter" id="inputLogin" type="text" name="login" value="" placeholder="Login" maxlength="22"/>
+                            <input class="inputEnter" id="inputLogin" type="text" name="login" value="" placeholder="Your login" maxlength="22"/>
                         </p>
                         <p class="field">
-                            <input class="inputEnter" id="inputPassword" type="password" name="password" value="" placeholder="Password" maxlength="22"/>
+                            <input class="inputEnter" id="inputPassword" type="password" name="password" value="" placeholder="Your password" maxlength="22"/>
                         </p>
                         <p>
                             <input type="submit" id="sendButton" class="submitButton" value="Enter"/>
