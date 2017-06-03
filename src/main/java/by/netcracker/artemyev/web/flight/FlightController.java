@@ -5,6 +5,7 @@ import by.netcracker.artemyev.constant.RequestParameter;
 import by.netcracker.artemyev.constant.ServerResponse;
 import by.netcracker.artemyev.exception.ServiceException;
 import by.netcracker.artemyev.service.FlightService;
+import by.netcracker.artemyev.util.DataChecker;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.json.JSONObject;
@@ -17,6 +18,7 @@ import javax.servlet.http.HttpServletRequest;
 
 /**
  * Class describes controller for work with entity Flight
+ *
  * @autor Artemyev Artoym
  */
 @Controller
@@ -33,10 +35,14 @@ public class FlightController {
     public String addFlight(HttpServletRequest request) {
         logger.debug(LoggingName.FUNCTION_ADD_FLIGHT);
         String returnText = ServerResponse.ADD_FLIGHT;
-        try {
-            flightService.createFlight(request.getParameter(RequestParameter.NAVIGATION_FLIGHT));
-        }  catch (ServiceException e) {
-            logger.debug(e);
+        if(DataChecker.checkUserData(request.getParameter(RequestParameter.NAVIGATION_FLIGHT))) {
+            try {
+                flightService.createFlight(request.getParameter(RequestParameter.NAVIGATION_FLIGHT));
+            }  catch (ServiceException e) {
+                logger.debug(e);
+            }
+        } else {
+            returnText = ServerResponse.ADD_NOT_FLIGHT;
         }
         return returnText;
     }
