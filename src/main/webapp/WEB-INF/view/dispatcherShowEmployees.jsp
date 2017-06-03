@@ -175,9 +175,6 @@
     </div>
 </footer>
 
-<!--My script controller-->
-<script src="${pageContext.request.contextPath}/resources/js/dispatcher.create.team.controller.js"></script>
-
 <!-- jQuery -->
 <script src="${pageContext.request.contextPath}/resources/vendor/jquery/jquery.js" type="text/javascript"></script>
 
