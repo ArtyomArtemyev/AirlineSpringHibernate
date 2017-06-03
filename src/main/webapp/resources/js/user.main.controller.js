@@ -253,12 +253,12 @@ function registrationClickHandler(event) {
              dataType: 'text',
              success: function(receive) {
                  $("#informationDiv").empty();
-                 $("#informationDiv").replaceWith(receive);
+                 $("#informationDiv").text(receive);
                  $("#hiddenLi").removeAttr('style');
                  $("#hiddenLi2").removeAttr('style');
              },
              error: function (jqXhr, textStatus, errorThrown) {
-                 alert("Ошибка '" + jqXhr.status + "' (textStatus: '" + textStatus + "', errorThrown: '" + errorThrown + "')");
+                 alert("Error creating order");
              }
          });
  }
