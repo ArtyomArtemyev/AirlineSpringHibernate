@@ -8,7 +8,8 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * Class describes checker function for different data
+ * Class describes function for checking different data
+ *
  * @autor Artemyev Artoym
  */
 public final class DataChecker {
@@ -41,6 +42,17 @@ public final class DataChecker {
         boolean isValidateData = false;
         if(userLogin != null && userPassword != null) {
             if(userLogin.length() <= 100 && userPassword.length() <= 100) {
+                isValidateData = true;
+            }
+        }
+        return isValidateData;
+    }
+
+    public static boolean checkUserData(String userData) {
+        logger.debug(LoggingName.FUNCTION_VALIDATE_USER_DATA);
+        boolean isValidateData = false;
+        if(userData != null) {
+            if(userData.length() > 0) {
                 isValidateData = true;
             }
         }
