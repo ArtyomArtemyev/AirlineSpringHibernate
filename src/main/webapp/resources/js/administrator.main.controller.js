@@ -39,7 +39,7 @@ function sendNewFlight(event) {
             data: msg,
             success: function(receive) {
                 $("#adminTable").empty();
-                $("#informationP").replaceWith(receive);
+                $("#informationP").text(receive);
                 $("#hiddenLi").removeAttr('style');
             },
             error: function() {
@@ -64,7 +64,7 @@ function deleteFlight() {
             url: '/flights/' + idFlight,
             success: function(receive) {
                 $("#adminTable").empty();
-                $("#informationP").replaceWith(receive);
+                $("#informationP").text(receive);
                 $("#hiddenLi").removeAttr('style');
             },
             error: function() {
@@ -173,11 +173,11 @@ function editNavigation() {
             dataType: 'text',
             success: function(receive) {
                 $("#adminTable").empty();
-                $("#informationP").replaceWith(receive);
+                $("#informationP").text(receive);
                 $("#hiddenLi").removeAttr('style');
             },
             error: function (jqXhr, textStatus, errorThrown) {
-                alert("Ошибка '" + jqXhr.status + "' (textStatus: '" + textStatus + "', errorThrown: '" + errorThrown + "')");
+                alert("Error edited flight");
             }
         });
 }
