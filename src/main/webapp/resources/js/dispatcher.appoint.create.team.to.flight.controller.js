@@ -12,6 +12,10 @@ window.onload=function(){
         dataType: 'text',
         success: function(receive) {
           team = JSON.parse(receive);
+          $("#amountPilots").text(team.pilots);
+          $("#amountNavigators").text(team.navigators);
+          $("#amountRoperators").text(team.radio_operators);
+          $("#amountStewardess").text(team.stewardess);
         },
         error: function (jqXhr, textStatus, errorThrown) {
             alert("Error");

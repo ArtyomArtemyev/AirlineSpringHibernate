@@ -82,6 +82,29 @@
                                     <td>${flight.airplane.model}</td>
                                 </tr>
                         </table>
+                        <table class="table_dark" id="airplaneTeam">
+                            <caption>Airplane team</caption>
+                            <tr>
+                                <th>Appointment</th>
+                                <th>Amount</th>
+                            </tr>
+                            <tr>
+                                <td>Pilots</td>
+                                <td id="amountPilots"></td>
+                            </tr>
+                            <tr>
+                                <td>Navigators</td>
+                                <td id="amountNavigators"></td>
+                            </tr>
+                            <tr>
+                                <td>Radio operators</td>
+                                <td id="amountRoperators"></td>
+                            </tr>
+                            <tr>
+                                <td>Stewardess</td>
+                                <td id="amountStewardess"></td>
+                            </tr>
+                        </table>
                         <table class="table_dark" id="employeeTable">
                             <caption>Employees</caption>
                             <tr>
