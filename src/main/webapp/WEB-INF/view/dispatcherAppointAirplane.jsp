@@ -104,8 +104,8 @@
                                     <td><input type="radio" name="idAirplane" class="radioButtonAirplane" id="${airplane.id}" value="${airplane.id}"></td>
                                 </tr>
                             </c:forEach>
+                            <tr><td><input type="submit" style="width:300px" value="Appoint airplane" id="appointButton" class="myButtonStyle3"></td></tr>
                         </table>
-                        <input type="submit" style="width:300px" value="Appoint airplane" id="appointButton" class="myButtonStyle3">
                     </div>
                 </div>
             </div>

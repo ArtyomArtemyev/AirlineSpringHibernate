@@ -85,8 +85,8 @@
                                     </tr>
                                     </c:if>
                                 </c:forEach>
+                                <tr><td> <input type="submit" style="width:300px" value="Create team" id="createTeamButton" class="myButtonStyle3"></td></tr>
                             </table>
-                            <input type="submit" style="width:300px" value="Create team" id="createTeamButton" class="myButtonStyle3">
                             </form>
                         </div>
                 </div>
