@@ -118,6 +118,8 @@ function editButtonClickHandler(event) {
         $("#newCloseButton").attr("class", "myButtonStyle1");
         var newCloseButton = document.getElementById('newCloseButton');
         newCloseButton.addEventListener('click', closeEditField);
+        $("#newInputNavigation").attr("maxlength", "45");
+        $("#newInputNavigation").attr("placeholder", "New navigation flight");
 }
 
 function closeEditField(event) {
