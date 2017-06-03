@@ -1,16 +1,35 @@
 
 var sendIdFlight;
 
+var insertInputNavigation;
+
 function registrationClickHandler(event) {
      event.preventDefault();
 
+    $('.row-that-can-be-hidden').hide();
+    $(this).closest('.row-that-can-be-hidden').show();
+    idAction = event.target.id;
+
+    var actionTr = idAction.replace('register','tr');
+    var flightdNavigationTdId = idAction.replace('register','navigationFlight');
+    var tdNavigation = document.getElementById(flightdNavigationTdId);
+    var textNavigationValue = tdNavigation.innerHTML;
+
+     insertInputNavigation = document.createElement('tr');
+     insertTdNavigationText = document.createElement('td');
+     insertTdNavigationText.id = 'insertTdNavigationText';
+     insertTdNavigation = document.createElement('td');
+     insertTdNavigation.id = 'insertTdNavigation';
+     insertInputNavigation.appendChild(insertTdNavigationText);
+     insertInputNavigation.appendChild(insertTdNavigation);
+
      insertTr = document.createElement('tr');
      insertTr.id='insertTr';
-     idAction = event.target.id;
      var idTr = idAction.replace('register','tr');
      sendIdFlight = idAction.replace('register','');
      tr = document.getElementById(idTr);
-     $(insertTr).insertAfter(tr);
+     $(insertInputNavigation).insertAfter(tr);
+     $(insertTr).insertAfter(insertInputNavigation);
      var tdText = document.createElement('td');
      tdText.id = 'tdText';
      var tdInput = document.createElement('td');
@@ -24,6 +43,8 @@ function registrationClickHandler(event) {
      $("#tdInput").attr("colspan", "2");
      $("#inputName").attr("style", "width:100%");
      $("#inputName").attr("maxlength", "25");
+     $("#insertTdNavigationText").text("Navigation");
+     $("#insertTdNavigation").text(textNavigationValue);
 
      insertTr2 = document.createElement('tr');
      insertTr2.id='insertTr2';
@@ -42,7 +63,7 @@ function registrationClickHandler(event) {
      $("#inputSurname").attr("style", "width:100%");
      $("#inputSurname").attr("maxlength", "25");
 
-    insertTr3 = document.createElement('tr');
+     insertTr3 = document.createElement('tr');
      insertTr3.id='insertTr3';
      var tdText3 = document.createElement('td');
      tdText3.id = 'tdText3';
@@ -59,7 +80,7 @@ function registrationClickHandler(event) {
      $("#inputMail").attr("style", "width:100%");
      $("#inputMail").attr("maxlength", "50");
 
-    insertTr4 = document.createElement('tr');
+     insertTr4 = document.createElement('tr');
      insertTr4.id='insertTr4';
      var tdText4 = document.createElement('td');
      tdText4.id = 'tdText4';
@@ -106,11 +127,14 @@ function registrationClickHandler(event) {
  function close(event) {
     event.preventDefault();
 
+     insertInputNavigation.remove();
      insertTr.remove();
      insertTr2.remove();
      insertTr3.remove();
      insertTr4.remove();
      insertTr5.remove();
+
+     $('.row-that-can-be-hidden').show();
  }
 
  var sendNameUser;

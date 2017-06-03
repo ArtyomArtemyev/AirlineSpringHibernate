@@ -73,16 +73,16 @@
                     </c:if>
                     <c:if test="${flights.size() gt 0}">
                         <table class="table_dark">
-                            <caption>FLIGHTS</caption>
-                            <tr>
+                            <caption class="row-that-can-be-hidden">FLIGHTS</caption>
+                            <tr class="row-that-can-be-hidden">
                                 <th>Id</th>
                                 <th>Navigation</th>
                                 <th>Check in</th>
                             </tr>
                             <c:forEach var="flight" items="${flights}">
-                                <tr id="tr${flight.id}">
+                                <tr id="tr${flight.id}" class="row-that-can-be-hidden">
                                     <td>${flight.id}</td>
-                                    <td>${flight.navigation}</td>
+                                    <td id="navigationFlight${flight.id}">${flight.navigation}</td>
                                     <td><input type="submit" onclick="registrationClickHandler(event)" value="Check in" id="register${flight.id}" class="myButtonStyle1"></td>
                                 </tr>
                             </c:forEach>
