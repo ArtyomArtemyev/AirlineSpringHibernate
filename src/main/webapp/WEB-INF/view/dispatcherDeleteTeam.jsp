@@ -69,7 +69,7 @@
                         <c:if test="${teams.size() eq 0}">
                             <tr>No teams</tr>
                         </c:if>
-                        <c:if test="${teams.size() lt 0}">
+                        <c:if test="${teams.size() gt 0}">
                         <caption>Teams</caption>
                         <c:forEach var="team" items="${teams}">
                             <tr>
