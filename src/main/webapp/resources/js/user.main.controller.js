@@ -155,25 +155,36 @@ function registrationClickHandler(event) {
      var inputPhoneUser = document.getElementById('inputPhone');
      var inputEmailUser = document.getElementById('inputMail');
 
-     if(inputNameUser.value === '' || inputSurnameUser.value === '' ||  inputPhoneUser === '' || inputEmailUser === '') {
+     if(inputNameUser.value === '' || inputSurnameUser.value === '' ||  inputPhoneUser.value === '' || inputEmailUser.value === '') {
          alert('Please enter all fields');
          highlightFileds ();
      }
      else {
          resetHighlightning ();
 
+         var userMail = inputEmailUser.value;
+         var isCorrectMail = userMail.match(/^[0-9a-z-\.]+\@[0-9a-z-]{2,}\.[a-z]{2,}$/i);
+         if (!isCorrectMail){
+             alert('Input correct email address')
+         }
+         else {
+             var phonePattern = /((8|\+7)[\- ]?)?(\(?\d{3,4}\)?[\- ]?)?[\d\- ]{5,10}/;
+             var userPhoneNumber = inputPhoneUser.value;
 
+             if(phonePattern.test(userPhoneNumber)){
+                 idUserStorage = localStorage.getItem('id');
 
-         idUserStorage = localStorage.getItem('id');
-         alert(idUserStorage);
+                 sendNameUser = inputNameUser.value;
+                 sendSurnameUser = inputSurnameUser.value;
+                 sendPhoneUser = inputPhoneUser.value;
+                 sendEmailUser = inputEmailUser.value;
 
-         sendNameUser = inputNameUser.value;
-         sendSurnameUser = inputSurnameUser.value;
-         sendPhoneUser = inputPhoneUser.value;
-         sendEmailUser = inputEmailUser.value;
-
-         alert('send');
-         send();
+                 send();
+             }
+             else {
+                 alert('Input correct phone number')
+             }
+         }
      }
 
  }
