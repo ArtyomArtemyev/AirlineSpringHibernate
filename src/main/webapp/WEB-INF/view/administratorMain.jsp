@@ -69,12 +69,12 @@
                     <div align="center" id="contentDiv">
                         <p class="intro-text" id="informationP"><br></p>
                         <table id="adminTable" class="table_dark" align="center">
-                            <caption>FLIGHTS MANAGEMENT</caption>
-                            <tr>
+                            <caption class="row-that-can-be-hidden">FLIGHTS MANAGEMENT</caption>
+                            <tr class="row-that-can-be-hidden">
                                 <th colspan="4">Navigation flight</th>
                                 <th colspan="2">Add</th>
                             </tr>
-                            <tr>
+                            <tr class="row-that-can-be-hidden">
                                 <form method="" action="" id="addForm">
                                     <td colspan="4">
                                         <input style="width: 95%" type="text" name="navigation" id="navigation" value="" maxlength="45" placeholder="Navigation flight">
@@ -85,7 +85,7 @@
                                 </form>
                             </tr>
 
-                            <tr>
+                            <tr class="row-that-can-be-hidden">
                                 <th>Id</th>
                                 <th>Navigation</th>
                                 <th>Edit</th>
@@ -94,9 +94,9 @@
                             </tr>
                             <form action="" id="flightForm">
                                 <c:forEach var="flight" items="${flights}">
-                                    <tr id="tr${flight.id}">
+                                    <tr id="tr${flight.id}" class="row-that-can-be-hidden">
                                         <td>${flight.id}</td>
-                                        <td>${flight.navigation}</td>
+                                        <td id="flightNavigationValue${flight.id}">${flight.navigation}</td>
                                         <td><input type="submit" onclick="editButtonClickHandler(event)" value="Edit flight" id="edit${flight.id}" class="myButtonStyle1"></td>
                                         <td><input type="submit" onclick="deleteButtonClickHandler(event)" value="Delete flight" id="${flight.id}" class="myButtonStyle3"></td>
                                         <td><input type="submit" value="Show flight" onClick="window.open('/airline/flights/${flight.id}')" class="myButtonStyle3"></td>

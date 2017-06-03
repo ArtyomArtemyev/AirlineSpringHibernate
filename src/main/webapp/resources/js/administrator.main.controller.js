@@ -77,15 +77,33 @@ var tr;
 var insertTr;
 var idAction;
 
+var insertOldNavigationTR;
+
 function editButtonClickHandler(event) {
         event.preventDefault();
 
+        idAction = event.target.id;
+
+        $('.row-that-can-be-hidden').hide();
+        $(this).closest('.row-that-can-be-hidden').show();
+
+        var flightdNavigationTdId = idAction.replace('edit','flightNavigationValue');
+        insertOldNavigationTR = document.createElement('tr');
+        var insertOldNavigationText = document.createElement('td');
+        insertOldNavigationText.id = 'insertOldNavigationText';
+        var insertOldNavigation = document.createElement('td');
+        insertOldNavigation.id = "insertOldNavigation";
+        insertOldNavigationTR.appendChild(insertOldNavigationText);
+        insertOldNavigationTR.appendChild(insertOldNavigation);
+        var tdNavigationOld = document.getElementById(flightdNavigationTdId);
+
         insertTr = document.createElement('tr');
         insertTr.id='insertTr';
-        idAction = event.target.id;
+
         var idTr = idAction.replace('edit','tr');
         tr = document.getElementById(idTr);
-        $(insertTr).insertAfter(tr);
+        $(insertOldNavigationTR).insertAfter(tr);
+        $(insertTr).insertAfter(insertOldNavigationTR);
         var td = document.createElement('td');
         td.id = 'insertTd';
         var inputNavigation = document.createElement('input');
@@ -120,12 +138,18 @@ function editButtonClickHandler(event) {
         newCloseButton.addEventListener('click', closeEditField);
         $("#newInputNavigation").attr("maxlength", "45");
         $("#newInputNavigation").attr("placeholder", "New navigation flight");
+        $("#insertOldNavigationText").text("Old navigation");
+        $("#insertOldNavigationText").attr("colspan", "1");
+        $("#insertOldNavigation").attr("colspan", "4");
+        $("#insertOldNavigation").text(tdNavigationOld.innerHTML);
 }
 
 function closeEditField(event) {
     event.preventDefault();
 
     insertTr.remove();
+    insertOldNavigationTR.remove();
+    $('.row-that-can-be-hidden').show();
 }
 
 var newNavigation;
