@@ -23,8 +23,8 @@ import javax.servlet.http.HttpServletRequest;
  * @autor Artemyev Artoym
  */
 @Controller
-public class MainController {
-    private static Logger logger = LogManager.getLogger(MainController.class);
+public class MainViewController {
+    private static Logger logger = LogManager.getLogger(MainViewController.class);
 
     @Autowired
     private UserService userService;
@@ -84,7 +84,7 @@ public class MainController {
                 }
             } catch (ServiceException e) {
                 logger.debug(e);
-                returnPage = ErrorHandler.returnErrorPage(e.getMessage(), MainController.class.getName());
+                returnPage = ErrorHandler.returnErrorPage(e.getMessage(), MainViewController.class.getName());
             }
         } else {
             returnPage = Page.ERROR;
