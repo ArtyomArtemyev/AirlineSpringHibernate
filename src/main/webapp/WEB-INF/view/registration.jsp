@@ -50,7 +50,7 @@
                 <li>
                     <a class="page-scroll" href="<c:url value="/index" />">To main page</a>
                 </li>
-                <li style="display:none;" id="hiddenLi">
+                <li>
                     <a class="page-scroll" href="<c:url value="/authorization" />">Sign in</a>
                 </li>
                 <li>
