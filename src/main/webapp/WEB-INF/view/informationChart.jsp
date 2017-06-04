@@ -46,6 +46,12 @@
                 <li class="hidden">
                     <a href="#page-top"></a>
                 </li>
+                <li>
+                    <a class="page-scroll" href="<c:url value="/order/create" />">Check in</a>
+                </li>
+                <li>
+                    <a style="color:lime" class="page-scroll" href="<c:url value="/logout" />">Logout</a>
+                </li>
             </ul>
         </div>
         <!-- /.navbar-collapse -->
