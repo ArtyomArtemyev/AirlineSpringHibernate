@@ -48,6 +48,12 @@
                 <li>
                     <a class="page-scroll" href="<c:url value="/index" />">To main page</a>
                 </li>
+                <li>
+                    <a class="page-scroll" href="<c:url value="/registration" />">Sign up</a>
+                </li>
+                <li>
+                    <a class="page-scroll" href="<c:url value="/contact" />">Contact</a>
+                </li>
             </ul>
         </div>
         <!-- /.navbar-collapse -->
