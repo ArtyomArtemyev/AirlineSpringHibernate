@@ -55,6 +55,9 @@
                 <li style="display:none;" id="hiddenLi2">
                     <a class="page-scroll" href="<c:url value="/chart" />">Information chart</a>
                 </li>
+                <li>
+                    <a style="color:lime" class="page-scroll" href="<c:url value="/logout" />">Logout</a>
+                </li>
             </ul>
         </div>
         <!-- /.navbar-collapse -->
