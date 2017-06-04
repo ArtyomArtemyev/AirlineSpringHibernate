@@ -87,7 +87,7 @@
 </footer>
 
 <!-- jQuery -->
-<script src="${pageContext.request.contextPath}/resourcesvendor/jquery/jquery.js" type="text/javascript"></script>
+<script src="${pageContext.request.contextPath}/resources/vendor/jquery/jquery.js" type="text/javascript"></script>
 
 <!-- Bootstrap Core JavaScript -->
 <script src="${pageContext.request.contextPath}/resources/vendor/bootstrap/js/bootstrap.js" type="text/javascript"></script>
