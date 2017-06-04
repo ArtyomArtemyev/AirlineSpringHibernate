@@ -24,10 +24,9 @@
     }
     
     function sendTeamData() {
-        var prefix = '/airline/';
         $.ajax({
             type: 'DELETE',
-            url: prefix +'teams/' + idTeam,
+            url: CONTEXTPATH +'/teams/' + idTeam,
             headers: {
                 'Accept': 'application/text',
                 'Content-Type': 'application/json'
