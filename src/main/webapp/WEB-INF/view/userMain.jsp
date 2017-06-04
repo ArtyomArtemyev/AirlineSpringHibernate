@@ -50,7 +50,7 @@
                     <a href="#page-top"></a>
                 </li>
                 <li style="display:none;" id="hiddenLi">
-                    <a class="page-scroll" href="<c:url value="/flights/registration" />">Check in</a>
+                    <a class="page-scroll" href="<c:url value="/order/create" />">Check in</a>
                 </li>
                 <li style="display:none;" id="hiddenLi2">
                     <a class="page-scroll" href="<c:url value="/chart" />">Information chart</a>
