@@ -53,6 +53,9 @@
                 <li style="display:none;" id="hiddenLi">
                     <a class="page-scroll" href="<c:url value="/authorization" />">Sign in</a>
                 </li>
+                <li>
+                    <a class="page-scroll" href="<c:url value="/contact" />">Contact</a>
+                </li>
             </ul>
         </div>
         <!-- /.navbar-collapse -->
