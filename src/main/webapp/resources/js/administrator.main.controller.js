@@ -35,7 +35,7 @@ function sendNewFlight(event) {
     var msg = $('#addForm').serialize();
         $.ajax({
             type: 'POST',
-            url:  '/flights',
+            url: CONTEXTPATH + '/flights',
             data: msg,
             success: function(receive) {
                 $("#adminTable").empty();
@@ -58,10 +58,9 @@ function deleteButtonClickHandler(event) {
 }
 
 function deleteFlight() {
-    var prefix = '/airline/';
         $.ajax({
             type: 'DELETE',
-            url: '/flights/' + idFlight,
+            url: CONTEXTPATH + '/flights/' + idFlight,
             success: function(receive) {
                 $("#adminTable").empty();
                 $("#informationP").text(receive);
@@ -188,7 +187,7 @@ function editNavigation() {
         };
         $.ajax({
             type: 'PUT',
-            url: '/flights/' + idAction.replace('edit',''),
+            url: CONTEXTPATH + '/flights/' + idAction.replace('edit',''),
             data: JSON.stringify(flight),
             headers: {
                 'Accept': 'application/text',
