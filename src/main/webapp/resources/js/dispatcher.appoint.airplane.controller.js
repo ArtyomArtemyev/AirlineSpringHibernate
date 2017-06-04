@@ -39,7 +39,7 @@
         };
         $.ajax({
             type: 'PUT',
-            url: '/airplane/' + airplaneId,
+            url: CONTEXTPATH + '/airplane/' + airplaneId,
             data:JSON.stringify(sendData),
             headers: {
                 'Accept': 'application/text',
