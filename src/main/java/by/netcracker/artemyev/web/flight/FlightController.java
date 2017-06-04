@@ -30,49 +30,67 @@ public class FlightController {
     @Autowired
     private FlightService flightService;
 
+    /**
+     * Add new flight
+     *
+     * @param  - HttpServletRequest request
+     * @return - String line with server response
+     */
     @RequestMapping(method = RequestMethod.POST)
     @ResponseBody
     public String addFlight(HttpServletRequest request) {
-        logger.debug(LoggingName.FUNCTION_ADD_FLIGHT);
-        String returnText = ServerResponse.ADD_FLIGHT;
+        logger.debug(LoggingName.CONTROLLER_FUNCTION_ADD_FLIGHT);
+        String returnText = ServerResponse.FAIL_ADDED_FLIGHT;
         if(DataChecker.checkUserData(request.getParameter(RequestParameter.NAVIGATION_FLIGHT))) {
             try {
                 flightService.createFlight(request.getParameter(RequestParameter.NAVIGATION_FLIGHT));
+                returnText = ServerResponse.ADDED_FLIGHT;
             }  catch (ServiceException e) {
                 logger.debug(e);
             }
-        } else {
-            returnText = ServerResponse.ADD_NOT_FLIGHT;
         }
         return returnText;
     }
 
+    /**
+     * Delete current flight
+     *
+     * @param  - String id flight for deleting
+     * @return - String line with server response
+     */
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     @ResponseBody
     public String deleteFlight(@PathVariable("id") String id) {
-        logger.debug(LoggingName.FUNCTION_DELETE_FLIGHT);
-        String returnText = ServerResponse.DELETE_FLIGHT;
+        logger.debug(LoggingName.CONTROLLER_FUNCTION_DELETE_FLIGHT);
+        String returnText = ServerResponse.FAIL_DELETED_FLIGHT;
         try {
             flightService.deleteFlight(Long.parseLong(id));
+            returnText = ServerResponse.DELETED_FLIGHT;
         }  catch (ServiceException e) {
             logger.debug(e);
         }
         return returnText;
     }
 
+    /**
+     * Update current flight
+     *
+     * @param  - String id flight for deleting, String json with new flight navigation
+     * @return - String line with server response
+     */
     @RequestMapping(value = "/{id}", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE)
-    public @ResponseBody String updateFlight(@PathVariable("id") String id, @RequestBody String json) {
-        logger.debug(LoggingName.FUNCTION_EDIT_FLIGHT);
-        String returnText = ServerResponse.EDIT_FLIGHT;
+    @ResponseBody
+    public String updateFlight(@PathVariable("id") String id, @RequestBody String json) {
+        logger.debug(LoggingName.CONTROLLER_FUNCTION_EDIT_FLIGHT);
+        String returnText = ServerResponse.FAIL_EDITED_FLIGHT;
         if(DataChecker.checkUserData(json)) {
             JSONObject jsonObject = new JSONObject(json);
             try {
                 flightService.changeFlightNavigation(Long.valueOf(id), jsonObject.getString(FIELD_NAVIGATION));
+                returnText = ServerResponse.EDITED_FLIGHT;
             } catch (ServiceException e) {
                 logger.debug(e);
             }
-        } else {
-            returnText = ServerResponse.EDIT_NOT_FLIGHT;
         }
         return returnText;
     }
