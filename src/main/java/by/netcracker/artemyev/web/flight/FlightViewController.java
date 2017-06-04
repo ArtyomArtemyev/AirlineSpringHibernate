@@ -28,7 +28,7 @@ public class FlightViewController {
     @Autowired
     private FlightService flightService;
 
-    @RequestMapping(value = "/flights", method = RequestMethod.GET)
+    @RequestMapping(value = "/flights/registration", method = RequestMethod.GET)
     public ModelAndView getFlightsPage(HttpServletRequest request) {
         logger.debug(LoggingName.FUNCTION_GET_FLIGHTS);
         ModelAndView modelAndView = new ModelAndView();

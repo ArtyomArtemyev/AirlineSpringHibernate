@@ -60,7 +60,7 @@
     <filter-mapping>
         <filter-name>userSecurityFilter</filter-name>
         <url-pattern>/chart</url-pattern>
-        <url-pattern>/flights</url-pattern>
+        <url-pattern>/flights/registration</url-pattern>
     </filter-mapping>
 
     <filter>
