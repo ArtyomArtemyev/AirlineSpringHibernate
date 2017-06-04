@@ -19,6 +19,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 /**
@@ -39,7 +40,7 @@ public class UserServiceImpl extends GenericService<User> implements UserService
 
     @Transactional
     @Override
-    public String checkUser(String userLogin, String userPassword) throws ServiceException {
+    public String checkUser(String userLogin, String userPassword, HttpSession httpSession) throws ServiceException {
         logger.debug(LoggingName.SERVICE_FUNCTION_CHECK_USER);
         String namePage = Page.ERROR_AUTHORIZATION;
         List<User> userList;
@@ -50,6 +51,7 @@ public class UserServiceImpl extends GenericService<User> implements UserService
             throw new ServiceException(e.getMessage());
         }
         if(userList.size() != 0) {
+            httpSession.setAttribute("user", userList.get(0));
             return Definer.defineUserPage(userList.get(0));
         }
         return namePage;

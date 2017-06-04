@@ -78,7 +78,7 @@ public class MainController {
         isValidateData = DataChecker.validateUserData(request.getParameter(RequestParameter.USER_LOGIN), request.getParameter(RequestParameter.USER_PASSWORD));
         if(isValidateData) {
             try {
-                returnPage = userService.checkUser(request.getParameter(RequestParameter.USER_LOGIN), request.getParameter(RequestParameter.USER_PASSWORD));
+                returnPage = userService.checkUser(request.getParameter(RequestParameter.USER_LOGIN), request.getParameter(RequestParameter.USER_PASSWORD), request.getSession());
                 if(returnPage.equals(Page.USER_INDEX)) {
                     request.setAttribute(RequestAttribute.ID_USER, userService.getByLoginAndPassword(request.getParameter(RequestParameter.USER_LOGIN), request.getParameter(RequestParameter.USER_PASSWORD)));
                 }
