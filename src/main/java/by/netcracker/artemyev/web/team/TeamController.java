@@ -43,7 +43,7 @@ public class TeamController {
         return returnText;
     }
 
-    @RequestMapping(value = "airline/teams/{id}", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value = "/teams/{id}", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE)
     public @ResponseBody String appointTeam(@PathVariable String id, @RequestBody String json) {
         logger.debug(LoggingName.FUNCTION_APPOINT_TEAM);
         String returnText = ServerResponse.APPOINTMENT_TEAM;
@@ -55,7 +55,7 @@ public class TeamController {
         return returnText;
     }
 
-    @RequestMapping(value = "airline/teams/{id}", method = RequestMethod.DELETE)
+    @RequestMapping(value = "/teams/{id}", method = RequestMethod.DELETE)
     @ResponseBody
     public String deleteTeam(@PathVariable("id") String id) {
         logger.debug(LoggingName.FUNCTION_DELETE_TEAM);
