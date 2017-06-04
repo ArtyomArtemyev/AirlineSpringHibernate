@@ -5,7 +5,7 @@ window.onload=function(){
     var inputIdAirplane = document.getElementById('idAirplane');
     $.ajax({
         type: 'GET',
-        url: '/airplane/'+ inputIdAirplane.value +'/team',
+        url: CONTEXTPATH + '/airplane/'+ inputIdAirplane.value +'/team',
         headers: {
             'Accept': 'application/text'
         },
@@ -106,7 +106,7 @@ window.onload=function(){
     function sendTeamData() {
         $.ajax({
             type: 'POST',
-            url: '/' + flightId + '/teams',
+            url: CONTEXTPATH + '/' + flightId + '/teams',
             data: result,
             headers: {
                 'Accept': 'application/text',
