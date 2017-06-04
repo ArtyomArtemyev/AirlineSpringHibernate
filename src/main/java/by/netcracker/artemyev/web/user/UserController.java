@@ -18,12 +18,12 @@ import javax.servlet.http.HttpServletRequest;
 
 /**
  * Class describes controller for work with entity User
+ *
  * @autor Artemyev Artoym
  */
 @Controller
 public class UserController {
-    private static String className = UserController.class.getName();
-    private static Logger logger = LogManager.getLogger(className);
+    private static Logger logger = LogManager.getLogger(UserController.class);
 
     @Autowired
     private UserService userService;
