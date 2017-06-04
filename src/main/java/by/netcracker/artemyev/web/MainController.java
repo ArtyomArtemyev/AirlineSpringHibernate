@@ -93,4 +93,12 @@ public class MainController {
         return modelAndView;
     }
 
+    @RequestMapping(value = "/logout", method = RequestMethod.GET)
+    public ModelAndView getLogoutPage(HttpServletRequest request) {
+        request.removeAttribute("user");
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName(Page.INDEX);
+        return modelAndView;
+    }
+
 }
