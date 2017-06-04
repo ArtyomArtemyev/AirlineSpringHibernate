@@ -19,31 +19,23 @@ import javax.servlet.http.HttpServletRequest;
 
 /**
  * Class describes controller for work with pages, which consist of information about flight
+ *
  * @autor Artemyev Artoym
  */
 @Controller
+@RequestMapping("/flights")
 public class FlightViewController {
     private static Logger logger = LogManager.getLogger(FlightViewController.class);
 
     @Autowired
     private FlightService flightService;
 
-    @RequestMapping(value = "/flights/registration", method = RequestMethod.GET)
-    public ModelAndView getFlightsPage(HttpServletRequest request) {
-        logger.debug(LoggingName.FUNCTION_GET_FLIGHTS);
-        ModelAndView modelAndView = new ModelAndView();
-        String returnPage = Page.USER_MAIN;
-        try {
-            request.setAttribute(RequestParameter.FLIGHT, flightService.getAll());
-        }  catch (ServiceException e) {
-            logger.debug(e);
-            returnPage = ErrorHandler.returnErrorPage(e.getMessage(), FlightViewController.class.getName());
-        }
-        modelAndView.setViewName(returnPage);
-        return modelAndView;
-    }
-
-    @RequestMapping(value = "airline/flights/{id}", method = RequestMethod.GET)
+    /**
+     * Return page with information about single flight for admin
+     *
+     * @return - ModelAndView with main user page
+     */
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public ModelAndView aboutFlightPage(@PathVariable("id") String id, HttpServletRequest request) {
         logger.debug(LoggingName.FUNCTION_GET_FLIGHT);
         ModelAndView modelAndView = new ModelAndView();
@@ -58,7 +50,12 @@ public class FlightViewController {
         return modelAndView;
     }
 
-    @RequestMapping(value = "/flights/management", method = RequestMethod.GET)
+    /**
+     * Return main page for admin
+     *
+     * @return - ModelAndView with main admin page
+     */
+    @RequestMapping(value = "/management", method = RequestMethod.GET)
     public ModelAndView manageFlightsPage(HttpServletRequest request) {
         logger.debug(LoggingName.FUNCTION_GET_FLIGHT_MANAGEMENT_PAGE);
         ModelAndView modelAndView = new ModelAndView();
