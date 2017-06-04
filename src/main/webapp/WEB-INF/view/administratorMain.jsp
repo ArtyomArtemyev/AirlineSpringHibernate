@@ -55,6 +55,9 @@
                 <li style="display:none;" id="hiddenLi">
                     <a class="page-scroll" href="<c:url value="/flights/management" />">Flights management</a>
                 </li>
+                <li>
+                    <a style="color:lime" class="page-scroll" href="<c:url value="/logout" />">Logout</a>
+                </li>
             </ul>
         </div>
         <!-- /.navbar-collapse -->
