@@ -240,11 +240,9 @@ function registrationClickHandler(event) {
              phone:sendPhoneUser,
              mail:sendEmailUser
          };
-         console.log(order);
-         var prefix = '/airline/';
          $.ajax({
              type: 'POST',
-             url: prefix +'orders',
+             url: CONTEXTPATH + '/orders',
              data: JSON.stringify(order),
              headers: {
                  'Accept': 'application/text',
@@ -253,7 +251,7 @@ function registrationClickHandler(event) {
              dataType: 'text',
              success: function(receive) {
                  $("#informationDiv").empty();
-                 $("#informationDiv").text(receive);
+                 $("#informationP").text(receive);
                  $("#hiddenLi").removeAttr('style');
                  $("#hiddenLi2").removeAttr('style');
              },

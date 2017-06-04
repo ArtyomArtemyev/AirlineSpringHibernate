@@ -22,6 +22,8 @@
     <!-- My CSS -->
     <link href="${pageContext.request.contextPath}/resources/css/style.css" rel="stylesheet" type="text/css">
 
+    <script>CONTEXTPATH = "${pageContext.request.contextPath}"</script>
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -66,7 +68,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8 col-md-offset-2">
-                    <p class="intro-text"></p>
+                    <p class="intro-text" id="informationP"></p>
                     <div align="center" id="informationDiv">
                     <c:if test="${flights.size() eq 0}">
                         Sorry, no flights
