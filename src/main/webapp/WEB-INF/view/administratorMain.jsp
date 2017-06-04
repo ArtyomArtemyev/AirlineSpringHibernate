@@ -104,7 +104,7 @@
                                         <td id="flightNavigationValue${flight.id}">${flight.navigation}</td>
                                         <td><input type="submit" onclick="editButtonClickHandler(event)" value="Edit flight" id="edit${flight.id}" class="myButtonStyle1"></td>
                                         <td><input type="submit" onclick="deleteButtonClickHandler(event)" value="Delete flight" id="${flight.id}" class="myButtonStyle3"></td>
-                                        <td><input type="submit" value="Show flight" onClick="window.open('/airline/flights/${flight.id}')" class="myButtonStyle3"></td>
+                                        <td><input type="submit" value="Show flight" onClick="window.open('${pageContext.request.contextPath}/flights/${flight.id}')" class="myButtonStyle3"></td>
                                     </tr>
                                 </c:forEach>
                             </form>
