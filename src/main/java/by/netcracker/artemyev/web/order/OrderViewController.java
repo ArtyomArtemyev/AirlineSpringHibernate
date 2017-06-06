@@ -19,6 +19,7 @@ import javax.servlet.http.HttpServletRequest;
 /**
  * Class describes controller for work with pages, which consist of information about order
  *
+ *
  * @autor Artemyev Artoym
  */
 @Controller
@@ -35,13 +36,13 @@ public class OrderViewController {
      */
     @RequestMapping(value = "/order/create", method = RequestMethod.GET)
     public ModelAndView getFlightsPage(HttpServletRequest request) {
-        logger.debug(LoggingName.FUNCTION_GET_FLIGHTS);
+        logger.debug(LoggingName.CONTROLLER_FUNCTION_GET_FLIGHTS);
         ModelAndView modelAndView = new ModelAndView();
         String returnPage = Page.USER_MAIN;
         try {
             request.setAttribute(RequestParameter.FLIGHT, flightService.getAll());
         }  catch (ServiceException e) {
-            logger.debug(e);
+            logger.error(e);
             returnPage = ErrorHandler.returnErrorPage(e.getMessage(), OrderViewController.class.getName());
         }
         modelAndView.setViewName(returnPage);
