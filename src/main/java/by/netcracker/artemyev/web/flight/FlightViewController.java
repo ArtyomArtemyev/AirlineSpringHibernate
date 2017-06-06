@@ -43,7 +43,7 @@ public class FlightViewController {
         try {
             request.setAttribute(RequestParameter.ABOUT_FLIGHT, flightService.getById(Long.valueOf(id)));
         }  catch (ServiceException e) {
-            logger.debug(e);
+            logger.error(e);
             returnPage = ErrorHandler.returnErrorPage(e.getMessage(), FlightViewController.class.getName());
         }
         modelAndView.setViewName(returnPage);
@@ -63,7 +63,7 @@ public class FlightViewController {
         try {
             request.setAttribute(RequestParameter.FLIGHT, flightService.getAll());
         }  catch (ServiceException e) {
-            logger.debug(e);
+            logger.error(e);
             returnPage = ErrorHandler.returnErrorPage(e.getMessage(), FlightViewController.class.getName());
         }
         modelAndView.setViewName(returnPage);
