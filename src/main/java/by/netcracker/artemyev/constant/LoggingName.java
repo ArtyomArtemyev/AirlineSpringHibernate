@@ -6,24 +6,27 @@ package by.netcracker.artemyev.constant;
  * @autor Artemyev Artoym
  */
 public final class LoggingName {
-    public static final String FUNCTION_GET_INDEX_PAGE = "MainController: getIndex";
-    public static final String FUNCTION_GET_REGISTRATION_PAGE = "MainController: getRegistration";
-    public static final String FUNCTION_GET_AUTHORIZATION_PAGE = "MainController: getAuthorization";
-    public static final String FUNCTION_GET_CHART_PAGE = "MainController: getChart";
-    public static final String FUNCTION_GET_FLIGHTS = "FlightController: getFlights";
+    public static final String CONTROLLER_FUNCTION_GET_INDEX_PAGE = "MainViewController: getIndexPage";
+    public static final String CONTROLLER_FUNCTION_GET_REGISTRATION_PAGE = "MainViewController: getRegistrationPage";
+    public static final String CONTROLLER_FUNCTION_GET_AUTHORIZATION_PAGE = "MainViewController: getAuthorizationPage";
+    public static final String CONTROLLER_FUNCTION_GET_CHART_PAGE = "MainViewController: getChartPage";
+    public static final String CONTROLLER_FUNCTION_GET_CONTACT_PAGE = "MainController: getContactPage";
+    public static final String CONTROLLER_FUNCTION_GET_FLIGHTS = "FlightController: getFlights";
     public static final String FUNCTION_GET_FLIGHT = "FlightController: getFlight";
-    public static final String FUNCTION_ADD_FLIGHT = "FlightController: addFlight";
-    public static final String FUNCTION_DELETE_FLIGHT = "FlightController: deleteFlight";
-    public static final String FUNCTION_EDIT_FLIGHT = "FlightController: editFlight";
+    public static final String CONTROLLER_FUNCTION_ADD_FLIGHT = "FlightController: addFlight";
+    public static final String CONTROLLER_FUNCTION_DELETE_FLIGHT = "FlightController: deleteFlight";
+    public static final String CONTROLLER_FUNCTION_EDIT_FLIGHT = "FlightController: editFlight";
     public static final String FUNCTION_GET_FLIGHT_MANAGEMENT_PAGE = "FlightController: manageFlight";
     public static final String FUNCTION_GET_CREATE_TEAM_PAGE = "TeamController: getCreateTeamPage";
-    public static final String FUNCTION_GET_DELETE_TEAM_PAGE  = "TeamController: getDeleteTeamPage";
-    public static final String FUNCTION_DELETE_TEAM = "TeamController: deleteTeam";
-    public static final String FUNCTION_ADD_TEAM = "TeamController: addTeam";
-    public static final String FUNCTION_APPOINT_TEAM = "TeamController: appointTeam";
-    public static final String FUNCTION_GET_TEAMS_AND_FLIGHTS_PAGE = "TeamController: getTeamsAndFlights";
-    public static final String FUNCTION_GET_USER_PAGE = "UserController: getUserPage";
-    public static final String FUNCTION_REGISTRATION_USER = "UserController: registrationUser";
+    public static final String CONTROLLER_FUNCTION_GET_DELETE_TEAM_PAGE  = "TeamViewController: getDeleteTeamPage";
+    public static final String CONTROLLER_FUNCTION_DELETE_TEAM = "TeamController: deleteTeam";
+    public static final String CONTROLLER_FUNCTION_ADD_TEAM = "TeamController: addTeam";
+    public static final String CONTROLLER_FUNCTION_APPOINT_TEAM = "TeamController: appointTeam";
+    public static final String CONTROLLER_FUNCTION_GET_TEAMS_AND_FLIGHTS_PAGE = "TeamViewController: getFlightsPage";
+    public static final String CONTROLLER_FUNCTION_GET_FLIGHT_AND_EMPLOYEES_PAGE = "TeamViewController: getFlightAndEmployeesPage";
+    public static final String CONTROLLER_FUNCTION_GET_EMPLOYEES_PAGE = "TeamViewController: getEmployeesPage";
+    public static final String CONTROLLER_FUNCTION_GET_USER_PAGE = "MainViewController: getUserPage";
+    public static final String CONTROLLER_FUNCTION_REGISTRATION_USER = "UserController: registrationUser";
     public static final String FUNCTION_CONVERSION_TO_LIST = "Converter: convertToList";
     public static final String FUNCTION_CONVERSION_TO_LINE = "Converter: convertToLine";
     public static final String FUNCTION_VALIDATE_USER_DATA = "DataChecker: validateUserData";
@@ -59,5 +62,8 @@ public final class LoggingName {
     public static final String DAO_FUNCTION_GET_ALL_FLIGHTS = "FlightDaoImpl: getAll";
     public static final String DAO_FUNCTION_GET_ALL_EMPLOYEES = "EmployeeDaoImpl: getAll";
     public static final String DAO_FUNCTION_GET_ALL_APPOINTMENTS = "AppointmentDaoImpl: getAll";
-    public static final String FUNCTION_CREATE_ORDER = "OrderController: createOrder";
+    public static final String CONTROLLER_FUNCTION_CREATE_ORDER = "OrderController: createOrder";
+    public static final String CONTROLLER_FUNCTION_APPOINTMENT_AIRPLANE = "AirplaneViewController: getAppointmentAirplanePage";
+    public static final String CONTROLLER_UPDATE_FLIGHT = "AirplaneController: updateFlight";
+    public static final String CONTROLLER_APPOINT_AIRPLANE = "AirplaneController: appointAirplane";
 }

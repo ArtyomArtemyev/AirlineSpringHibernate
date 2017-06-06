@@ -8,4 +8,5 @@ public final class RequestAttribute {
     public final static String EMPLOYEES = "employees";
     public final static String FLIGHT = "flight";
     public final static String ID_AIRPLANE = "idAirplane";
+    public final static String USER = "user";
 }

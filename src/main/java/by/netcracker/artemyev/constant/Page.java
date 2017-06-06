@@ -23,4 +23,6 @@ public final class Page {
     public static final String INFORMATION_CHART = "informationChart";
     public static final String ABOUT_FLIGHT = "aboutFlight";
     public static final String CREATE_TEAM_TO_FLIGHT = "dispatcherCreateTeamToFlight";
+    public static final String CONTACT = "contactsPage";
+    public static final String DISPATCHER_SHOW_EMPLOYEES = "dispatcherShowEmployees";
 }
