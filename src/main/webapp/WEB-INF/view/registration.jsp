@@ -78,7 +78,7 @@
                             <i class="icon-lock icon-large"></i>
                         </p>
                         <p class="field">
-                            <input class="inputEnter" type="text" name="mail" id="mail" placeholder="Your email address" value="" maxlength="22">
+                            <input class="inputEnter" type="text" name="mail" id="mail" placeholder="Your email address" value="" maxlength="50">
                             <i class="icon-lock icon-large"></i>
                         </p>
                         <p>
