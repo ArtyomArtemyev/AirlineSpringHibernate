@@ -23,6 +23,7 @@ import javax.servlet.http.HttpServletRequest;
 
 /**
  * Class describes controller for work with pages, which consist of information about team
+ *
  * @autor Artemyev Artoym
  */
 @Controller
@@ -41,38 +42,57 @@ public class TeamViewController {
     @Autowired
     private AirplaneService airplaneService;
 
+    /**
+     * Get page for deleting team
+     *
+     * @param  - HttpServletRequest
+     * @return - ModelAndView with page for deleting team
+     */
     @RequestMapping(value = "/team/delete", method = RequestMethod.GET)
     public ModelAndView getDeleteTeamPage(HttpServletRequest request) {
-        logger.debug(LoggingName.FUNCTION_GET_DELETE_TEAM_PAGE);
+        logger.debug(LoggingName.CONTROLLER_FUNCTION_GET_DELETE_TEAM_PAGE);
         ModelAndView modelAndView = new ModelAndView();
         String returnPage = Page.DELETE_TEAM;
         try {
             request.setAttribute(RequestAttribute.TEAMS, teamService.getTeamDto());
         }  catch (ServiceException e) {
-            logger.debug(e);
+            logger.error(e);
             returnPage = ErrorHandler.returnErrorPage(e.getMessage(), TeamViewController.class.getName());
         }
         modelAndView.setViewName(returnPage);
         return modelAndView;
     }
 
+    /**
+     * Get page for creating team
+     *
+     * @param  - HttpServletRequest
+     * @return - ModelAndView with page for creating team
+     */
     @RequestMapping(value = "team/create", method = RequestMethod.GET)
     public ModelAndView getFlightsPage(HttpServletRequest request) {
-        logger.debug(LoggingName.FUNCTION_GET_TEAMS_AND_FLIGHTS_PAGE);
+        logger.debug(LoggingName.CONTROLLER_FUNCTION_GET_TEAMS_AND_FLIGHTS_PAGE);
         ModelAndView modelAndView = new ModelAndView();
         String returnPage = Page.APPOINT_TEAM;
         try {
             request.setAttribute(RequestAttribute.LIST_FLIGHTS, flightService.getAll());
         } catch (ServiceException e) {
-            logger.debug(e);
+            logger.error(e);
             returnPage = ErrorHandler.returnErrorPage(e.getMessage(), TeamViewController.class.getName());
         }
         modelAndView.setViewName(returnPage);
         return modelAndView;
     }
 
+    /**
+     * Get page for creating team to flight
+     *
+     * @param  - HttpServletRequest
+     * @return - ModelAndView with page for creating team
+     */
     @RequestMapping(value = "/team/flight/update/{id}", method = RequestMethod.GET)
     public ModelAndView getFlightAndEmployeesPage(@PathVariable String id, HttpServletRequest request) {
+        logger.debug(LoggingName.CONTROLLER_FUNCTION_GET_FLIGHT_AND_EMPLOYEES_PAGE);
         ModelAndView modelAndView = new ModelAndView();
         String returnPage = Page.CREATE_TEAM_TO_FLIGHT;
         try {
@@ -82,22 +102,28 @@ public class TeamViewController {
             String typeTeam = airplaneService.getTypeTeam(flight.getAirplane().getId());
             request.setAttribute(RequestAttribute.ID_AIRPLANE, flight.getAirplane().getId());
         } catch (ServiceException e) {
-            logger.debug(e);
+            logger.error(e);
             returnPage = ErrorHandler.returnErrorPage(e.getMessage(), TeamViewController.class.getName());
         }
         modelAndView.setViewName(returnPage);
         return modelAndView;
     }
 
-
+    /**
+     * Get page with all employees
+     *
+     * @param  - HttpServletRequest
+     * @return - ModelAndView with page for creating team
+     */
     @RequestMapping(value = "team/employee", method = RequestMethod.GET)
     public ModelAndView getEmployeesPage(HttpServletRequest request) {
+        logger.debug(LoggingName.CONTROLLER_FUNCTION_GET_EMPLOYEES_PAGE);
         ModelAndView modelAndView = new ModelAndView();
-        String returnPage = "dispatcherShowEmployees";
+        String returnPage = Page.DISPATCHER_SHOW_EMPLOYEES;
         try {
             request.setAttribute(RequestAttribute.EMPLOYEES, employeeService.getAll());
         } catch (ServiceException e) {
-            logger.debug(e);
+            logger.error(e);
             returnPage = ErrorHandler.returnErrorPage(e.getMessage(), TeamViewController.class.getName());
         }
         modelAndView.setViewName(returnPage);
