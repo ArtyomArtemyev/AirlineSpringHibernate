@@ -34,7 +34,7 @@
             dataType: 'text',
             success: function(receive) {
                 $("#employeeTable").empty();
-                $("#informationP").replaceWith(receive);
+                $("#informationP").text(receive);
                 $("#hiddenLi").removeAttr('style');
             },
             error: function() {
