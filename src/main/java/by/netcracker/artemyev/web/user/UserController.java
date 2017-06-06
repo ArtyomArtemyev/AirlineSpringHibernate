@@ -28,21 +28,26 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+    /**
+     * Add new user
+     *
+     * @param  - HttpServletRequest
+     * @return - ModelAndView with logout page
+     */
     @RequestMapping(value = "airline/user", method = RequestMethod.POST)
     @ResponseBody
     public String registrationUser(HttpServletRequest request) {
-        logger.debug(LoggingName.FUNCTION_REGISTRATION_USER);
-        String returnText = ServerResponse.SUCCESSFUL_USER_REGISTRATION;
+        logger.debug(LoggingName.CONTROLLER_FUNCTION_REGISTRATION_USER);
+        String returnText = ServerResponse.WRONG_USER_REGISTRATION;
         boolean isValidateData = false;
         isValidateData = DataChecker.validateUserData(request.getParameter(RequestParameter.USER_LOGIN), request.getParameter(RequestParameter.USER_PASSWORD), request.getParameter(RequestParameter.USER_MAIL));
         if(isValidateData) {
             try {
                 userService.createUser(request.getParameter(RequestParameter.USER_LOGIN), request.getParameter(RequestParameter.USER_PASSWORD), request.getParameter(RequestParameter.USER_MAIL));
+                returnText = ServerResponse.SUCCESSFUL_USER_REGISTRATION;
             } catch (ServiceException e) {
-                logger.debug(e);
+                logger.error(e);
             }
-        } else {
-            returnText = ServerResponse.WRONG_USER_REGISTRATION;
         }
         return returnText;
     }
