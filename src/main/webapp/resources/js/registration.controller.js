@@ -57,10 +57,9 @@
 
     function sendData() {
         var msg = $('#registrationForm').serialize();
-        var prefix = '/airline/';
         $.ajax({
             type: 'POST',
-            url:  prefix + 'user',
+            url:  CONTEXTPATH + '/user',
             data: msg,
             success: function(receive) {
                 $("#registrationForm").empty();
