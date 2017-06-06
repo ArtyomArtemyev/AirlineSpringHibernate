@@ -20,6 +20,7 @@ import javax.servlet.http.HttpServletRequest;
 
 /**
  * Class describes controller for common application pages
+ *
  * @autor Artemyev Artoym
  */
 @Controller
@@ -29,49 +30,79 @@ public class MainViewController {
     @Autowired
     private UserService userService;
 
+    /**
+     * Get index page
+     *
+     * @return - ModelAndView with index page
+     */
     @RequestMapping(value = "/index", method = RequestMethod.GET)
     public ModelAndView getIndexPage() {
-        logger.debug(LoggingName.FUNCTION_GET_INDEX_PAGE);
+        logger.debug(LoggingName.CONTROLLER_FUNCTION_GET_INDEX_PAGE);
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName(Page.INDEX);
         return modelAndView;
     }
 
+    /**
+     * Get registration page
+     *
+     * @return - ModelAndView with registration page
+     */
     @RequestMapping(value = "/registration", method = RequestMethod.GET)
     public ModelAndView getRegistrationPage() {
-        logger.debug(LoggingName.FUNCTION_GET_REGISTRATION_PAGE);
+        logger.debug(LoggingName.CONTROLLER_FUNCTION_GET_REGISTRATION_PAGE);
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName(Page.REGISTRATION);
         return modelAndView;
     }
 
+    /**
+     * Get authorization page
+     *
+     * @return - ModelAndView with registration page
+     */
     @RequestMapping(value = "/authorization", method = RequestMethod.GET)
     public ModelAndView getAuthorizationPage() {
-        logger.debug(LoggingName.FUNCTION_GET_AUTHORIZATION_PAGE);
+        logger.debug(LoggingName.CONTROLLER_FUNCTION_GET_AUTHORIZATION_PAGE);
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName(Page.AUTHORIZATION);
         return modelAndView;
     }
 
+    /**
+     * Get page with information chart
+     *
+     * @return - ModelAndView with registration page
+     */
     @RequestMapping(value = "/chart", method = RequestMethod.GET)
     public ModelAndView getChartPage() {
-        logger.debug(LoggingName.FUNCTION_GET_CHART_PAGE);
+        logger.debug(LoggingName.CONTROLLER_FUNCTION_GET_CHART_PAGE);
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName(Page.INFORMATION_CHART);
         return modelAndView;
     }
 
+    /**
+     * Get page with contact information
+     *
+     * @return - ModelAndView with registration page
+     */
     @RequestMapping(value = "/contact", method = RequestMethod.GET)
     public ModelAndView getContactPage() {
-        logger.debug(LoggingName.FUNCTION_GET_CONTACT_PAGE);
+        logger.debug(LoggingName.CONTROLLER_FUNCTION_GET_CONTACT_PAGE);
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName(Page.CONTACT);
         return modelAndView;
     }
 
+    /**
+     * Get page depends on user role
+     *
+     * @return - ModelAndView with user page
+     */
     @RequestMapping(value = "/user/check", method = RequestMethod.POST)
     public ModelAndView getUserPage(HttpServletRequest request) {
-        logger.debug(LoggingName.FUNCTION_GET_USER_PAGE);
+        logger.debug(LoggingName.CONTROLLER_FUNCTION_GET_USER_PAGE);
         ModelAndView modelAndView = new ModelAndView();
         String returnPage;
         boolean isValidateData = false;
@@ -93,9 +124,14 @@ public class MainViewController {
         return modelAndView;
     }
 
+    /**
+     * Get logout page
+     *
+     * @return - ModelAndView with logout page
+     */
     @RequestMapping(value = "/logout", method = RequestMethod.GET)
     public ModelAndView getLogoutPage(HttpServletRequest request) {
-        request.removeAttribute("user");
+        request.removeAttribute(RequestAttribute.USER);
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName(Page.INDEX);
         return modelAndView;
