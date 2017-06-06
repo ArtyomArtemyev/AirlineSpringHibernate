@@ -46,7 +46,7 @@ public class FlightController {
                 flightService.createFlight(request.getParameter(RequestParameter.NAVIGATION_FLIGHT));
                 returnText = ServerResponse.ADDED_FLIGHT;
             }  catch (ServiceException e) {
-                logger.debug(e);
+                logger.error(e);
             }
         }
         return returnText;
@@ -67,7 +67,7 @@ public class FlightController {
             flightService.deleteFlight(Long.parseLong(id));
             returnText = ServerResponse.DELETED_FLIGHT;
         }  catch (ServiceException e) {
-            logger.debug(e);
+            logger.error(e);
         }
         return returnText;
     }
@@ -89,7 +89,7 @@ public class FlightController {
                 flightService.changeFlightNavigation(Long.valueOf(id), jsonObject.getString(FIELD_NAVIGATION));
                 returnText = ServerResponse.EDITED_FLIGHT;
             } catch (ServiceException e) {
-                logger.debug(e);
+                logger.error(e);
             }
         }
         return returnText;
