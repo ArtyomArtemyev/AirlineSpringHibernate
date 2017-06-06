@@ -36,8 +36,9 @@ public class OrderController {
     private OrderService orderService;
 
     @RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
-    public @ResponseBody String createOrder(@RequestBody String json) {
-        logger.debug(LoggingName.FUNCTION_CREATE_ORDER);
+    @ResponseBody
+    public String createOrder(@RequestBody String json) {
+        logger.debug(LoggingName.CONTROLLER_FUNCTION_CREATE_ORDER);
         String returnText = ServerResponse.SUCCESSFUL_CHECK_IN;
         if(DataChecker.checkUserData(json)) {
             JSONObject jsonObject = new JSONObject(json);
@@ -51,7 +52,7 @@ public class OrderController {
                         jsonObject.getString(FIELD_PHONE),
                         jsonObject.getString(FIELD_MAIL));
             } catch (ServiceException e) {
-                logger.debug(e);
+                logger.error(e);
             }
         } else {
             returnText = ServerResponse.UNSUCCESSFUL_CHECK_IN;
