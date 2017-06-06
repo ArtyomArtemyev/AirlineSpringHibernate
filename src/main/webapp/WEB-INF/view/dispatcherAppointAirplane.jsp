@@ -53,6 +53,9 @@
                 <li style="display:none;" id="hiddenLi">
                     <a class="page-scroll" href="<c:url value="/team/create" />">Create team to flight</a>
                 </li>
+                <li>
+                    <a style="color:lime" class="page-scroll" href="<c:url value="/logout" />">Logout</a>
+                </li>
             </ul>
         </div>
         <!-- /.navbar-collapse -->

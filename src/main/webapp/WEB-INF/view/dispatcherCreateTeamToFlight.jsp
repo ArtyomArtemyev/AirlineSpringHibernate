@@ -56,6 +56,9 @@
                 <li style="display:none;" id="hiddenLi2">
                     <a class="page-scroll" href="<c:url value="/airplane/appointment" />">Appoint airplane to flight</a>
                 </li>
+                <li>
+                    <a style="color:lime" class="page-scroll" href="<c:url value="/logout" />">Logout</a>
+                </li>
             </ul>
         </div>
         <!-- /.navbar-collapse -->
