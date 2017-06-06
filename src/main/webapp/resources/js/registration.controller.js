@@ -64,7 +64,7 @@
             data: msg,
             success: function(receive) {
                 $("#registrationForm").empty();
-                $("#informationP").replaceWith(receive);
+                $("#informationP").text(receive);
                 $("#hiddenLi").removeAttr('style');
                 $("#mainDivContainer").removeAttr('id');
             },
