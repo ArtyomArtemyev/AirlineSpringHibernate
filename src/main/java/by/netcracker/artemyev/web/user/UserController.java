@@ -22,6 +22,7 @@ import javax.servlet.http.HttpServletRequest;
  * @autor Artemyev Artoym
  */
 @Controller
+@RequestMapping("/user")
 public class UserController {
     private static Logger logger = LogManager.getLogger(UserController.class);
 
@@ -34,7 +35,7 @@ public class UserController {
      * @param  - HttpServletRequest
      * @return - ModelAndView with logout page
      */
-    @RequestMapping(value = "airline/user", method = RequestMethod.POST)
+    @RequestMapping(method = RequestMethod.POST)
     @ResponseBody
     public String registrationUser(HttpServletRequest request) {
         logger.debug(LoggingName.CONTROLLER_FUNCTION_REGISTRATION_USER);
