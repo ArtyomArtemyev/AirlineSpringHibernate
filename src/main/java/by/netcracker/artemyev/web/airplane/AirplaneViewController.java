@@ -1,5 +1,6 @@
 package by.netcracker.artemyev.web.airplane;
 
+import by.netcracker.artemyev.constant.LoggingName;
 import by.netcracker.artemyev.constant.Page;
 import by.netcracker.artemyev.constant.RequestAttribute;
 import by.netcracker.artemyev.exception.ServiceException;
@@ -30,15 +31,22 @@ public class AirplaneViewController {
     @Autowired
     private AirplaneService airplaneService;
 
+    /**
+     * Get page for appointing airplane to flight
+     *
+     * @param  - HttpServletRequest
+     * @return - ModelAndView with page for creating team
+     */
     @RequestMapping(value = "/airplane/appointment", method = RequestMethod.GET)
     public ModelAndView getAppointmentAirplanePage(HttpServletRequest request) {
+        logger.debug(LoggingName.CONTROLLER_FUNCTION_APPOINTMENT_AIRPLANE);
         ModelAndView modelAndView = new ModelAndView();
         String returnPage = Page.APPOINT_AIRPLANE;
         try {
             request.setAttribute(RequestAttribute.LIST_FLIGHTS, flightService.getAll());
             request.setAttribute(RequestAttribute.LIST_AIRPLANES, airplaneService.getAll());
         }  catch (ServiceException e) {
-            logger.debug(e);
+            logger.error(e);
             returnPage = ErrorHandler.returnErrorPage(e.getMessage(), AirplaneViewController.class.getName());
         }
         modelAndView.setViewName(returnPage);
