@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
+ * Class describes concrete implementation of the GenderService
+ *
  * @autor Artemyev Artoym
  */
 @Service

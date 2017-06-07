@@ -18,6 +18,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 /**
+ * Class describes concrete implementation of the FlightService
+ *
  * @autor Artemyev Artoym
  */
 @Service
@@ -33,6 +35,13 @@ public class FlightServiceImpl extends GenericService<Flight> implements FlightS
     @Autowired
     private AirplaneService airplaneService;
 
+
+    /**
+     * Creates new flight
+     *
+     * @param navigation - flight navigation
+     * @throws ServiceException If something fails at service level
+     */
     @Transactional
     @Override
     public void createFlight(String navigation) throws ServiceException {
@@ -41,6 +50,12 @@ public class FlightServiceImpl extends GenericService<Flight> implements FlightS
         this.add(flight);
     }
 
+    /**
+     * Deletes flight
+     *
+     * @param id - id flight for deleting from database
+     * @throws ServiceException If something fails at service level
+     */
     @Transactional
     @Override
     public void deleteFlight(Long id) throws ServiceException {
@@ -49,11 +64,18 @@ public class FlightServiceImpl extends GenericService<Flight> implements FlightS
             Flight flight = flightDao.getById(id);
             flightDao.remove(flight);
         } catch (DaoException e) {
-            logger.debug(e);
+            logger.error(e);
             throw new ServiceException(e.getMessage());
         }
     }
 
+    /**
+     * Changes navigation of flights
+     *
+     * @param id - id flight for deleting from database
+     * @param navigation - new navigation of flight
+     * @throws ServiceException If something fails at service level
+     */
     @Transactional
     @Override
     public void changeFlightNavigation(Long id, String navigation) throws ServiceException {
@@ -64,6 +86,13 @@ public class FlightServiceImpl extends GenericService<Flight> implements FlightS
         this.update(changeFlight);
     }
 
+    /**
+     * Appoints team to flight
+     *
+     * @param idFlight - flight for appointing
+     * @param idTeam - team for appointing
+     * @throws ServiceException If something fails at service level
+     */
     @Transactional
     @Override
     public void appointTeam(Long idFlight, Long idTeam) throws ServiceException {
@@ -74,11 +103,18 @@ public class FlightServiceImpl extends GenericService<Flight> implements FlightS
             changeFlight.setTeam(appointedTeam);
             flightDao.update(changeFlight);
         } catch (DaoException e) {
-            logger.debug(e);
+            logger.error(e);
             throw new ServiceException(e.getMessage());
         }
     }
 
+    /**
+     * Appoints airplane to flight
+     *
+     * @param idFlight - flight for appointing
+     * @param idAirplane - airplane for appointing
+     * @throws ServiceException If something fails at service level
+     */
     @Transactional
     @Override
     public void appointAirplane(Long idFlight, Long idAirplane) throws ServiceException {
@@ -88,7 +124,7 @@ public class FlightServiceImpl extends GenericService<Flight> implements FlightS
             flight.setAirplane(airplane);
             flightDao.update(flight);
         } catch (DaoException e) {
-            logger.debug(e);
+            logger.error(e);
             throw new ServiceException(e.getMessage());
         }
     }

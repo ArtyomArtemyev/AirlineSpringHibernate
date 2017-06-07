@@ -12,24 +12,33 @@ import org.springframework.mail.SimpleMailMessage;
 import org.springframework.stereotype.Service;
 
 /**
+ * Class describes concrete implementation of the MailService
+ *
  * @autor Artemyev Artoym
  */
 @Service
 public class MailServiceImpl implements MailService {
     private static Logger logger = LogManager.getLogger(MailServiceImpl.class);
     private final String FROM = "artairline2017@gmail.com";
-    private final String SUBJECT = "Registration in ArtAirline system";
+    private final String SUBJECT_REGISTRATION_IN_SYSTEM = "Registration in ArtAirline system";
+    private final String SUBJECT_REGISTRATION_TO_FLIGHT = "Registration to flight";
     private final String MESSAGE = "Thank you for registration in our system. Now you can enter in system";
 
     @Autowired
     private MailSender mailSender;
 
+    /**
+     * Sends notification to user about successful registration in system
+     *
+     * @param userMail - mail for sending notification
+     * @throws ServiceException If something fails at service level
+     */
     @Override
-    public void sendMail(String userMail) throws ServiceException {
+    public void sendNotificationAboutRegistration(String userMail) throws ServiceException {
         logger.debug(LoggingName.SERVICE_FUNCTION_SEND_MAIL);
         SimpleMailMessage templateMessage = new SimpleMailMessage();
         templateMessage.setFrom(FROM);
-        templateMessage.setSubject(SUBJECT);
+        templateMessage.setSubject(SUBJECT_REGISTRATION_IN_SYSTEM);
         SimpleMailMessage mailMessage = new SimpleMailMessage(templateMessage);
         mailMessage.setTo(userMail);
         mailMessage.setText(MESSAGE);
@@ -41,11 +50,20 @@ public class MailServiceImpl implements MailService {
         }
     }
 
+    /**
+     * Sends notification to user about successful registration in system
+     *
+     * @param name - entered user name
+     * @param surname - entered user surname
+     * @param email - entered user email
+     * @param navigationFlight - selected flight
+     * @throws ServiceException If something fails at service level
+     */
     @Override
-    public void sendNotification(String name, String surname, String email, String navigationFlight) throws ServiceException {
+    public void sendNotificationAboutFlight(String name, String surname, String email, String navigationFlight) throws ServiceException {
         SimpleMailMessage templateMessage = new SimpleMailMessage();
         templateMessage.setFrom(FROM);
-        templateMessage.setSubject("Registration to flight");
+        templateMessage.setSubject(SUBJECT_REGISTRATION_TO_FLIGHT);
         SimpleMailMessage mailMessage = new SimpleMailMessage(templateMessage);
         mailMessage.setTo(email);
         mailMessage.setText(String.valueOf(createNotification(name, surname, navigationFlight)));
@@ -57,8 +75,15 @@ public class MailServiceImpl implements MailService {
         }
     }
 
-    public StringBuilder createNotification(String name, String surname, String navigationFlight) {
-        StringBuilder notification = new StringBuilder();
+    /**
+     * Creates notification for user
+     *
+     * @param name - entered user name
+     * @param surname - entered user surname
+     * @param navigationFlight - selected flight
+     */
+    private StringBuffer createNotification(String name, String surname, String navigationFlight) {
+        StringBuffer notification = new StringBuffer();
         notification.append("Dear, " + name + " "+ surname + ".\n");
         notification.append("You have applied for a flight " + navigationFlight + ". In the near future our employee will contact you.");
         return notification;

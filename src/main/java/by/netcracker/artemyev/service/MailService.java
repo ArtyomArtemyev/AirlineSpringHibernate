@@ -6,6 +6,6 @@ import by.netcracker.artemyev.exception.ServiceException;
  * @autor Artemyev Artoym
  */
 public interface MailService {
-    void sendMail(String mailUser) throws ServiceException;
-    void sendNotification(String name, String surname, String email, String navigationFlight) throws ServiceException;
+    void sendNotificationAboutRegistration(String mailUser) throws ServiceException;
+    void sendNotificationAboutFlight(String name, String surname, String email, String navigationFlight) throws ServiceException;
 }

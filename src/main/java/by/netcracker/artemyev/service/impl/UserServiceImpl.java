@@ -2,6 +2,7 @@ package by.netcracker.artemyev.service.impl;
 
 import by.netcracker.artemyev.constant.LoggingName;
 import by.netcracker.artemyev.constant.Page;
+import by.netcracker.artemyev.constant.RequestAttribute;
 import by.netcracker.artemyev.dao.UserDao;
 import by.netcracker.artemyev.entity.impl.Role;
 import by.netcracker.artemyev.entity.impl.User;
@@ -23,6 +24,8 @@ import javax.servlet.http.HttpSession;
 import java.util.List;
 
 /**
+ * Class describes concrete implementation of the UserService
+ *
  * @autor Artemyev Artoym
  */
 @Service
@@ -38,6 +41,16 @@ public class UserServiceImpl extends GenericService<User> implements UserService
     @Autowired
     private MailService mailService;
 
+    /**
+     * Checks user from database by login and password
+     *
+     * @param userLogin - entered user login
+     * @param userPassword - entered user password
+     * @param httpSession - current session with user
+     * @return name page depends on type user, if user registered in system
+     * else return name of error registration page
+     * @throws ServiceException If something fails at service level
+     */
     @Transactional
     @Override
     public String checkUser(String userLogin, String userPassword, HttpSession httpSession) throws ServiceException {
@@ -47,16 +60,24 @@ public class UserServiceImpl extends GenericService<User> implements UserService
         try {
            userList = userDao.getByLoginAndPassword(userLogin,String.valueOf(userPassword.hashCode()));
         }  catch (DaoException e) {
-            logger.debug(e);
+            logger.error(e);
             throw new ServiceException(e.getMessage());
         }
         if(userList.size() != 0) {
-            httpSession.setAttribute("user", userList.get(0));
+            httpSession.setAttribute(RequestAttribute.USER, userList.get(0));
             return Definer.defineUserPage(userList.get(0));
         }
         return namePage;
     }
 
+    /**
+     * Creates new user
+     *
+     * @param userLogin - entered user login
+     * @param userPassword - entered user password
+     * @param userMail - entered user mail
+     * @throws ServiceException If something fails at service level
+     */
     @Transactional
     @Override
     public void createUser(String userLogin, String userPassword, String userMail) throws ServiceException {
@@ -64,9 +85,17 @@ public class UserServiceImpl extends GenericService<User> implements UserService
         Role role = getUserRole();
         User user = new User(userLogin, String.valueOf(userPassword.hashCode()), userMail, role);
         this.add(user);
-        mailService.sendMail(userMail);
+        mailService.sendNotificationAboutRegistration(userMail);
     }
 
+    /**
+     * Get id user by login and password
+     *
+     * @param userLogin - entered user login
+     * @param userPassword - entered user password
+     * @return id of user
+     * @throws ServiceException If something fails at service level
+     */
     @Override
     public Long getByLoginAndPassword(String userLogin, String userPassword) throws ServiceException {
         Long idUser = 0L;
@@ -74,7 +103,7 @@ public class UserServiceImpl extends GenericService<User> implements UserService
         try {
             userList = userDao.getByLoginAndPassword(userLogin, String.valueOf(userPassword.hashCode()));
         } catch (DaoException e) {
-            logger.debug(e);
+            logger.error(e);
             throw new ServiceException(e.getMessage());
         }
         if(userList.size() != 0) {
@@ -83,6 +112,12 @@ public class UserServiceImpl extends GenericService<User> implements UserService
         return idUser;
     }
 
+    /**
+     * Get standard user role
+     *
+     * @return user role
+     * @throws ServiceException If something fails at service level
+     */
     private Role getUserRole() throws ServiceException {
         logger.debug(LoggingName.SERVICE_FUNCTION_GET_USER_ROLE);
         Role userRole = null;
@@ -99,6 +134,12 @@ public class UserServiceImpl extends GenericService<User> implements UserService
         return userRole;
     }
 
+    /**
+     * Get current id of role User
+     *
+     * @param roleList - list with roles
+     * @return id user role
+     */
     private Long getRoleUserId(List<Role> roleList) {
         logger.debug(LoggingName.SERVICE_FUNCTION_GET_USER_ROLE_ID);
         Long idRoleUser = 0L;
