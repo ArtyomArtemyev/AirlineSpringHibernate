@@ -14,7 +14,6 @@ public final class Page {
     public static final String ADMIN_INDEX = "administratorIndex";
     public static final String ADMIN_MAIN = "administratorMain";
     public static final String DISPATCHER_INDEX = "dispatcherIndex";
-    public static final String CREATE_TEAM = "dispatcherCreateTeam";
     public static final String DELETE_TEAM = "dispatcherDeleteTeam";
     public static final String APPOINT_TEAM = "dispatcherAppointTeam";
     public static final String APPOINT_AIRPLANE = "dispatcherAppointAirplane";

@@ -1,5 +1,10 @@
 package by.netcracker.artemyev.constant;
 
+/**
+ * Class contains request attribute
+ *
+ * @autor Artemyev Artoym
+ */
 public final class RequestAttribute {
     public final static String ID_USER = "idUser";
     public final static String LIST_FLIGHTS = "listFlights";

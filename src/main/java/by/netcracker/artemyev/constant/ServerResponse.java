@@ -12,7 +12,6 @@ public final class ServerResponse {
     public static final String FAIL_EDITED_FLIGHT = "Fail edited flight";
     public static final String DELETED_FLIGHT = "Flight deleted successful";
     public static final String FAIL_DELETED_FLIGHT = "Fail deleted flight";
-    public static final String ADD_TEAM = "Team added successful";
     public static final String DELETE_TEAM = "Team deleted successful";
     public static final String CAN_NOT_DELETE_TEAM = "This team appoint to flight. Please remove flight and then remove team";
     public static final String APPOINTMENT_TEAM = "Team appointed successful";
