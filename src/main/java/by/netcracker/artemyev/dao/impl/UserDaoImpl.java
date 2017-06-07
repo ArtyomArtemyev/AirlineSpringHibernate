@@ -54,6 +54,8 @@ public class UserDaoImpl extends GenericDao<User> implements UserDao {
     /**
      * Returns user from database by login and password
      *
+     * @param userLogin - login, which user entered
+     * @param userPassword - password, which user entered
      * @return list with user from database
      * @throws DaoException If something fails at database layer
      */
