@@ -14,7 +14,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 /**
- * Class describes dao for order
+ * Class describes concrete implementation of the OrderDao
  *
  * @autor Artemyev Artoym
  */
@@ -26,13 +26,19 @@ public class OrderDaoImpl extends GenericDao<Order> implements OrderDao {
         super(Order.class);
     }
 
+    /**
+     * Returns all orders from database
+     *
+     * @return list with orders from database
+     * @throws DaoException If something fails at database layer
+     */
     @Override
     public List<Order> getAll() throws DaoException {
         List<Order> orderList;
         try {
             orderList = getEntityManager().createQuery(Statement.GET_ALL_ORDERS).getResultList();
         } catch (HibernateException e) {
-            logger.debug(e);
+            logger.error(e);
             throw new DaoException(ErrorMessage.GET_ALL_ENTITY_FAIL, e);
         }
         return orderList;

@@ -15,7 +15,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 /**
- * Class describes dao for role
+ * Class describes concrete implementation of the RoleDao
  *
  * @autor Artemyev Artoym
  */
@@ -27,6 +27,12 @@ public class RoleDaoImpl extends GenericDao<Role> implements RoleDao {
         super(Role.class);
     }
 
+    /**
+     * Returns all roles from database
+     *
+     * @return list with roles from database
+     * @throws DaoException If something fails at database layer
+     */
     @Override
     public List<Role> getAll() throws DaoException {
         logger.debug(LoggingName.DAO_FUNCTION_GET_ALL_ROLES);
@@ -34,7 +40,7 @@ public class RoleDaoImpl extends GenericDao<Role> implements RoleDao {
         try {
             roleList = getEntityManager().createQuery(Statement.GET_ALL_ROLES).getResultList();
         } catch (HibernateException e) {
-            logger.debug(e);
+            logger.error(e);
             throw new DaoException(ErrorMessage.GET_ALL_ENTITY_FAIL, e);
         }
         return roleList;

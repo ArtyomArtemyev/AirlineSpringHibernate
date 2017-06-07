@@ -18,7 +18,7 @@ import javax.persistence.criteria.Root;
 import java.util.List;
 
 /**
- * Class describes dao for user
+ * Class describes concrete implementation of the UserDao
  *
  * @autor Artemyev Artoym
  */
@@ -32,6 +32,12 @@ public class UserDaoImpl extends GenericDao<User> implements UserDao {
         super(User.class);
     }
 
+    /**
+     * Returns all users from database
+     *
+     * @return list with users from database
+     * @throws DaoException If something fails at database layer
+     */
     @Override
     public List<User> getAll() throws DaoException {
         logger.debug(LoggingName.DAO_FUNCTION_GET_ALL_USERS);
@@ -39,12 +45,18 @@ public class UserDaoImpl extends GenericDao<User> implements UserDao {
         try {
             userList = getEntityManager().createQuery(Statement.GET_ALL_USERS).getResultList();
         } catch (HibernateException e) {
-            logger.debug(e);
+            logger.error(e);
             throw new DaoException(ErrorMessage.GET_ALL_ENTITY_FAIL, e);
         }
         return userList;
     }
 
+    /**
+     * Returns user from database by login and password
+     *
+     * @return list with user from database
+     * @throws DaoException If something fails at database layer
+     */
     public List<User> getByLoginAndPassword(String userLogin, String userPassword) throws DaoException {
         logger.debug(LoggingName.DAO_FUNCTION_GET_USER_BY_LOGIN_AND_PASSWORD);
         CriteriaQuery<User> criteriaQuery;
@@ -58,7 +70,7 @@ public class UserDaoImpl extends GenericDao<User> implements UserDao {
                     criteriaBuilder.equal(userRoot.get(USER_PASSWORD), userPassword)
             );
         } catch (HibernateException e) {
-            logger.debug(e);
+            logger.error(e);
             throw new DaoException(ErrorMessage.GET_ENTITY_BY_LOGIN_AND_PASSWORD_FAIL, e);
         }
         return getEntityManager().createQuery(criteriaQuery).getResultList();

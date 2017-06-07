@@ -15,7 +15,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 /**
- * Class describes dao for team
+ * Class describes concrete implementation of the TeamDao
  *
  * @autor Artemyev Artoym
  */
@@ -27,6 +27,12 @@ public class TeamDaoImpl extends GenericDao<Team> implements TeamDao {
         super(Team.class);
     }
 
+    /**
+     * Returns all teams from database
+     *
+     * @return list with teams from database
+     * @throws DaoException If something fails at database layer
+     */
     @Override
     public List<Team> getAll() throws DaoException {
         logger.debug(LoggingName.DAO_FUNCTION_GET_ALL_TEAMS);
@@ -34,7 +40,7 @@ public class TeamDaoImpl extends GenericDao<Team> implements TeamDao {
         try {
             teamList = getEntityManager().createQuery(Statement.GET_ALL_TEAMS).getResultList();
         } catch (HibernateException e) {
-            logger.debug(e);
+            logger.error(e);
             throw new DaoException(ErrorMessage.GET_ALL_ENTITY_FAIL, e);
         }
         return teamList;

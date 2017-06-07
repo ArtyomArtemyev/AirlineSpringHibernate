@@ -15,7 +15,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 /**
- * Class describes dao for flight
+ * Class describes concrete implementation of the FlightDao
  *
  * @autor Artemyev Artoym
  */
@@ -27,6 +27,12 @@ public class FlightDaoImpl extends GenericDao<Flight> implements FlightDao {
         super(Flight.class);
     }
 
+    /**
+     * Returns all flights from database
+     *
+     * @return list with flights from database
+     * @throws DaoException If something fails at database layer
+     */
     @Override
     public List<Flight> getAll() throws DaoException {
         logger.debug(LoggingName.DAO_FUNCTION_GET_ALL_FLIGHTS);
@@ -34,7 +40,7 @@ public class FlightDaoImpl extends GenericDao<Flight> implements FlightDao {
         try {
             flightList = getEntityManager().createQuery(Statement.GET_ALL_FLIGHTS).getResultList();
         } catch (HibernateException e) {
-            logger.debug(e);
+            logger.error(e);
             throw new DaoException(ErrorMessage.GET_ALL_ENTITY_FAIL, e);
         }
         return flightList;

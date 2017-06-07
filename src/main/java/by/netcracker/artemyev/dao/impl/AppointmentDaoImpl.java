@@ -15,7 +15,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 /**
- * Class describes dao for appointment
+ * Class describes concrete implementation of the AppointmentDao
  *
  * @autor Artemyev Artoym
  */
@@ -27,6 +27,12 @@ public class AppointmentDaoImpl extends GenericDao<Appointment> implements Appoi
         super(Appointment.class);
     }
 
+    /**
+     * Returns all appointment from database
+     *
+     * @return list with appointments from database
+     * @throws DaoException If something fails at database layer
+     */
     @Override
     public List<Appointment> getAll() throws DaoException {
         logger.debug(LoggingName.DAO_FUNCTION_GET_ALL_APPOINTMENTS);

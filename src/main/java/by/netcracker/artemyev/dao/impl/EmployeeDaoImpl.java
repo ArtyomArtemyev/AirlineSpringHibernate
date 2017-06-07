@@ -15,7 +15,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 /**
- * Class describes dao for employee
+ * Class describes concrete implementation of the EmployeeDao
  *
  * @autor Artemyev Artoym
  */
@@ -27,6 +27,12 @@ public class EmployeeDaoImpl extends GenericDao<Employee> implements EmployeeDao
         super(Employee.class);
     }
 
+    /**
+     * Returns all employees from database
+     *
+     * @return list with employees from database
+     * @throws DaoException If something fails at database layer
+     */
     @Override
     public List<Employee> getAll() throws DaoException {
         logger.debug(LoggingName.DAO_FUNCTION_GET_ALL_EMPLOYEES);
@@ -34,7 +40,7 @@ public class EmployeeDaoImpl extends GenericDao<Employee> implements EmployeeDao
         try {
             employeeList = getEntityManager().createQuery(Statement.GET_ALL_EMPLOYEES).getResultList();
         } catch (HibernateException e) {
-            logger.debug(e);
+            logger.error(e);
             throw new DaoException(ErrorMessage.GET_ALL_ENTITY_FAIL, e);
         }
         return employeeList;

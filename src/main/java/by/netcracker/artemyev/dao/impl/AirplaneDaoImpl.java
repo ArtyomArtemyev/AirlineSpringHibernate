@@ -14,18 +14,24 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 /**
- * Class describes dao for airplane
+ * Class describes concrete implementation of the AirplaneDao
  *
  * @autor Artemyev Artoym
  */
 @Repository
 public class AirplaneDaoImpl extends GenericDao<Airplane> implements AirplaneDao {
-    private static Logger logger = LogManager.getLogger(FlightDaoImpl.class);
+    private static Logger logger = LogManager.getLogger(AirplaneDaoImpl.class);
 
     private AirplaneDaoImpl() {
         super(Airplane.class);
     }
 
+    /**
+     * Returns all airplanes from database
+     *
+     * @return list with airplanes from database
+     * @throws DaoException If something fails at database layer
+     */
     @Override
     public List<Airplane> getAll() throws DaoException {
         List<Airplane> airplaneList;
