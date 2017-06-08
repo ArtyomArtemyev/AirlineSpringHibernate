@@ -34,7 +34,7 @@ public class TeamController {
     @ResponseBody
     public String addTeam(@PathVariable String id, @RequestBody String json) {
         logger.debug(LoggingName.CONTROLLER_FUNCTION_ADD_TEAM);
-        String returnText = ServerResponse.SUCCESFULL_APPOINT_CREATE_TEAM;
+        String returnText = ServerResponse.SUCCESSFUL_APPOINT_CREATE_TEAM;
         List<Long> idList = Converter.convertToList(json);
         try {
             teamService.createTeam(idList);
