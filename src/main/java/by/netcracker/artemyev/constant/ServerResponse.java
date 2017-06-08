@@ -21,5 +21,5 @@ public final class ServerResponse {
     public static final String UNSUCCESSFUL_CHECK_IN = "Sorry, fail created order";
     public static final String APPOINT_AIRPLANE = "Airplane appointed successful";
     public static final String NO_APPOINT_AIRPLANE = "No appointed airplane";
-    public static final String SUCCESFULL_APPOINT_CREATE_TEAM = "Sucessfull added and appointed team";
+    public static final String SUCCESSFUL_APPOINT_CREATE_TEAM = "Successful added and appointed team";
 }

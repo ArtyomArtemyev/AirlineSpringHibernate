@@ -1,7 +1,7 @@
 package by.netcracker.artemyev.constant;
 
 /**
- * Class contains different messages. They are describes possible errors
+ * Class contains different messages. They are describe possible errors
  *
  * @autor Artemyev Artoym
  */

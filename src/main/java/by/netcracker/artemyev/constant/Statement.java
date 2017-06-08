@@ -1,7 +1,7 @@
 package by.netcracker.artemyev.constant;
 
 /**
- * Class contains statements for dao
+ * Class contains statements for dao layer
  *
  * @autor Artemyev Artoym
  */

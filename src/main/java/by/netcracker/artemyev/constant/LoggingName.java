@@ -1,7 +1,7 @@
 package by.netcracker.artemyev.constant;
 
 /**
- * Class contains messages for logging
+ * Class contains messages for logging. They are describe concrete class and method
  *
  * @autor Artemyev Artoym
  */
@@ -66,4 +66,7 @@ public final class LoggingName {
     public static final String CONTROLLER_FUNCTION_APPOINTMENT_AIRPLANE = "AirplaneViewController: getAppointmentAirplanePage";
     public static final String CONTROLLER_UPDATE_FLIGHT = "AirplaneController: updateFlight";
     public static final String CONTROLLER_APPOINT_AIRPLANE = "AirplaneController: appointAirplane";
+    public static final String SERVICE_FUNCTION_GET_TYPE_TEAM = "AirplaneServiceImpl: getTypeTeam";
+    public static final String SERVICE_FUNCTION_CREATE_ORDER = "OrderServiceImpl: createOrder";
+    public static final String SERVICE_FUNCTION_CREATE_OBJECT_ORDER = "OrderServiceImpl: orderBuilder";
 }
