@@ -19,8 +19,12 @@
             }
             else {
                 resetHighlightning();
-
-                sendData();
+                if(formElements.login.value === 'admin' || formElements.login.value === 'dispatcher') {
+                    alert('Change login name');
+                }
+                else {
+                    sendData();
+                }
             }
         }
     }
