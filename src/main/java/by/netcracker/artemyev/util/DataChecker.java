@@ -14,6 +14,8 @@ import java.util.regex.Pattern;
  */
 public final class DataChecker {
     private static Logger logger = LogManager.getLogger(DataChecker.class);
+    private final static String LOGIN_ADMIN = "admin";
+    private final static String LOGIN_DISPATCHER = "dispatcher";
     private static Pattern pattern;
     private static Matcher matcher;
     private static final String EMAIL_PATTERN =
@@ -33,12 +35,14 @@ public final class DataChecker {
         boolean isValidateData = false;
         if(userLogin != null && userPassword != null && userMail != null) {
             if (userLogin.length() <= 100 && userPassword.length() <= 100 && userMail.length() <= 100) {
-                boolean isUserMailValidate = false;
-                pattern = Pattern.compile(EMAIL_PATTERN);
-                matcher = pattern.matcher(userMail);
-                isUserMailValidate = matcher.matches();
-                if (isUserMailValidate) {
-                    isValidateData = true;
+                if(!userLogin.equals(LOGIN_ADMIN) || userLogin.equals(LOGIN_DISPATCHER)) {
+                    boolean isUserMailValidate = false;
+                    pattern = Pattern.compile(EMAIL_PATTERN);
+                    matcher = pattern.matcher(userMail);
+                    isUserMailValidate = matcher.matches();
+                    if (isUserMailValidate) {
+                        isValidateData = true;
+                    }
                 }
             }
         }
