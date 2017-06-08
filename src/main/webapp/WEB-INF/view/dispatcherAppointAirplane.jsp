@@ -54,9 +54,6 @@
                     <a class="page-scroll" href="<c:url value="/team/create" />">Create team to flight</a>
                 </li>
                 <li>
-                    <a class="page-scroll" href="<c:url value="/airplane/appointment" />">Appoint airplane to flight</a>
-                </li>
-                <li>
                     <a class="page-scroll" href="<c:url value="/team/delete" />">Delete team</a>
                 </li>
                 <li>
