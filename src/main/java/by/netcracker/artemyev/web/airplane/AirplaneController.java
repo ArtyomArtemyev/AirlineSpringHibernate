@@ -14,6 +14,11 @@ import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+/**
+ * Class describes controller for work with entity airplane
+ *
+ * @autor Artemyev Artoym
+ */
 @Controller
 @RequestMapping("/airplane")
 public class AirplaneController {
