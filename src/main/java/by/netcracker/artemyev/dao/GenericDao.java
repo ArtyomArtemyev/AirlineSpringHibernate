@@ -21,22 +21,21 @@ import java.util.List;
 public abstract class GenericDao<T> implements GeneralDao<T> {
     private static Logger logger = LogManager.getLogger(GenericDao.class);
 
+    @PersistenceContext
+    private EntityManager entityManager;
+
     private Class<T> className;
 
     public GenericDao(Class<T> className) {
         this.className = className;
     }
 
-
-    @PersistenceContext
-    private EntityManager entityManager;
-
     public EntityManager getEntityManager() {
         return entityManager;
     }
 
     /**
-     * Create the given entity in the database
+     * Creates the given entity in the database
      *
      * @param object - entity to be created
      * @throws DaoException If something fails at database level
@@ -53,7 +52,7 @@ public abstract class GenericDao<T> implements GeneralDao<T> {
     }
 
     /**
-     * Update the given entity in the database
+     * Updates the given entity in the database
      *
      * @param object - entity to be updated
      * @throws DaoException If something fails at database level
@@ -70,7 +69,7 @@ public abstract class GenericDao<T> implements GeneralDao<T> {
     }
 
     /**
-     * Delete the given entity in the database
+     * Deletes the given entity in the database
      *
      * @param object - entity to be deleted
      * @throws DaoException If something fails at database level
@@ -89,8 +88,8 @@ public abstract class GenericDao<T> implements GeneralDao<T> {
     /**
      * Returns entity from the database matching the given ID
      *
-     * @param id - The id of the entities to be returned
-     * @return - the entities from the database
+     * @param id - id of the entities to be returned
+     * @return - entity from the database
      * @throws DaoException If something fails at database level
      */
     @Override
@@ -107,7 +106,7 @@ public abstract class GenericDao<T> implements GeneralDao<T> {
     /**
      * Returns a list with all entities from the database
      *
-     * @return - a list of all entities from the database
+     * @return - a list with all entities from the database
      * @throws DaoException If something fails at database level
      */
     public abstract List<T> getAll() throws DaoException;

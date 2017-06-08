@@ -6,6 +6,8 @@ import by.netcracker.artemyev.exception.DaoException;
 import java.util.List;
 
 /**
+ * Interface describes dao layer for entity User
+ *
  * @autor Artemyev Artoym
  */
 public interface UserDao extends GeneralDao<User> {

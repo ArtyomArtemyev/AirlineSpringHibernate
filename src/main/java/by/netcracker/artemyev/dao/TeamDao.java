@@ -6,6 +6,8 @@ import by.netcracker.artemyev.exception.DaoException;
 import java.util.List;
 
 /**
+ * Interface describes dao layer for entity Team
+ *
  * @autor Artemyev Artoym
  */
 public interface TeamDao extends GeneralDao<Team> {
