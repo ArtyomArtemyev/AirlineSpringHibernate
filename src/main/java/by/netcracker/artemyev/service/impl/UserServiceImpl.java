@@ -49,7 +49,7 @@ public class UserServiceImpl extends GenericService<User> implements UserService
      * @param httpSession - current session with user
      * @return name page depends on type user, if user registered in system
      * else return name of error registration page
-     * @throws ServiceException If something fails at service level
+     * @throws ServiceException - if something fails at service layer
      */
     @Transactional
     @Override
@@ -76,7 +76,7 @@ public class UserServiceImpl extends GenericService<User> implements UserService
      * @param userLogin - entered user login
      * @param userPassword - entered user password
      * @param userMail - entered user mail
-     * @throws ServiceException If something fails at service level
+     * @throws ServiceException - if something fails at service layer
      */
     @Transactional
     @Override
@@ -94,7 +94,7 @@ public class UserServiceImpl extends GenericService<User> implements UserService
      * @param userLogin - entered user login
      * @param userPassword - entered user password
      * @return id of user
-     * @throws ServiceException If something fails at service level
+     * @throws ServiceException - if something fails at service layer
      */
     @Override
     public Long getByLoginAndPassword(String userLogin, String userPassword) throws ServiceException {
@@ -116,7 +116,7 @@ public class UserServiceImpl extends GenericService<User> implements UserService
      * Get standard user role
      *
      * @return user role
-     * @throws ServiceException If something fails at service level
+     * @throws ServiceException - if something fails at service layer
      */
     private Role getUserRole() throws ServiceException {
         logger.debug(LoggingName.SERVICE_FUNCTION_GET_USER_ROLE);

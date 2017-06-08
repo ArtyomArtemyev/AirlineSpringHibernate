@@ -30,7 +30,7 @@ public class AirplaneServiceImpl extends GenericService<Airplane> implements Air
      *
      * @param idAirplane - id of the airplane from database
      * @return string with team
-     * @throws ServiceException If something fails at database layer
+     * @throws ServiceException - if something fails at service layer
      */
     @Override
     public String getTypeTeam(Long idAirplane) throws ServiceException {

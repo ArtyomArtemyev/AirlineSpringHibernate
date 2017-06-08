@@ -44,7 +44,7 @@ public class TeamServiceImpl extends GenericService<Team> implements TeamService
      * Creates new team
      *
      * @param listId - list with employees id
-     * @throws ServiceException If something fails at service level
+     * @throws ServiceException - if something fails at service layer
      */
     @Transactional
     @Override
@@ -63,7 +63,7 @@ public class TeamServiceImpl extends GenericService<Team> implements TeamService
      * Returns dto team
      *
      * @return - list with dto team
-     * @throws ServiceException If something fails at service level
+     * @throws ServiceException - if something fails at service layer
      */
     @Transactional
     @Override
@@ -95,7 +95,7 @@ public class TeamServiceImpl extends GenericService<Team> implements TeamService
      * Deletes team
      *
      * @param id - id team for deleting
-     * @throws ServiceException If something fails at service level
+     * @throws ServiceException - if something fails at service layer
      */
     @Transactional
     @Override
@@ -110,7 +110,7 @@ public class TeamServiceImpl extends GenericService<Team> implements TeamService
      *
      * @param id - id team for checking
      * @return - result of checking
-     * @throws ServiceException If something fails at service level
+     * @throws ServiceException  - if something fails at service layer
      */
     @Override
     public boolean checkAppointingTeamToFlight(Long id) throws ServiceException {
@@ -131,7 +131,7 @@ public class TeamServiceImpl extends GenericService<Team> implements TeamService
      *
      * @param idFlight - id flight for appointing team
      * @param teamId - list with team id
-     * @throws ServiceException If something fails at service level
+     * @throws ServiceException - if something fails at service layer
      */
     @Transactional
     @Override

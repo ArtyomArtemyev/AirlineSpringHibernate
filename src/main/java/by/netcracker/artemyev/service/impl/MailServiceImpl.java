@@ -31,7 +31,7 @@ public class MailServiceImpl implements MailService {
      * Sends notification to user about successful registration in system
      *
      * @param userMail - mail for sending notification
-     * @throws ServiceException If something fails at service level
+     * @throws ServiceException - if something fails at service layer
      */
     @Override
     public void sendNotificationAboutRegistration(String userMail) throws ServiceException {
@@ -57,7 +57,7 @@ public class MailServiceImpl implements MailService {
      * @param surname - entered user surname
      * @param email - entered user email
      * @param navigationFlight - selected flight
-     * @throws ServiceException If something fails at service level
+     * @throws ServiceException - if something fails at service layer
      */
     @Override
     public void sendNotificationAboutFlight(String name, String surname, String email, String navigationFlight) throws ServiceException {

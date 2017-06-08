@@ -40,7 +40,7 @@ public class FlightServiceImpl extends GenericService<Flight> implements FlightS
      * Creates new flight
      *
      * @param navigation - flight navigation
-     * @throws ServiceException If something fails at service level
+     * @throws ServiceException - if something fails at service level
      */
     @Transactional
     @Override

@@ -44,7 +44,7 @@ public class OrderServiceImpl extends GenericService<Order> implements OrderServ
      * @param surname - entered user surname
      * @param phone - entered user phone
      * @param mail - entered user email
-     * @throws ServiceException If something fails at service level
+     * @throws ServiceException - if something fails at service layer
      */
     @Transactional
     @Override

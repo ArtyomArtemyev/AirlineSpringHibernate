@@ -13,6 +13,8 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 /**
+ * Class describes common service
+ *
  * @autor Artemyev Artoym
  */
 @Service
