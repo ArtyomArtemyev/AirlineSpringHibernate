@@ -71,6 +71,10 @@
                         <div id="contentDiv">
                             <form id="changeForm" method="GET">
                             <table class="table_dark" id="flightTable">
+                                <c:if test="${listFlights.size() eq 0}">
+                                    <tr>No flights to appoint and create team</tr>
+                                </c:if>
+                                <c:if test="${teams.size() gt 0}">
                                 <caption>Flights</caption>
                                 <tr>
                                     <th>Id</th>
@@ -89,6 +93,7 @@
                                     </c:if>
                                 </c:forEach>
                                 <tr><td> <input type="submit" style="width:300px" value="Create team" id="createTeamButton" class="myButtonStyle3"></td></tr>
+                                </c:if>
                             </table>
                             </form>
                         </div>
