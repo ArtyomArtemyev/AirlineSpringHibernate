@@ -84,7 +84,7 @@ public class UserServiceImpl extends GenericService<User> implements UserService
         logger.debug(LoggingName.SERVICE_FUNCTION_ADD_USER);
         Role role = getUserRole();
         User user = new User(userLogin, String.valueOf(userPassword.hashCode()), userMail, role);
-        this.add(user);
+        add(user);
         mailService.sendNotificationAboutRegistration(userMail);
     }
 

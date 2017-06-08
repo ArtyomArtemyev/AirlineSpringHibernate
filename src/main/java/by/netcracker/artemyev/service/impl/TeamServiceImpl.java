@@ -52,7 +52,7 @@ public class TeamServiceImpl extends GenericService<Team> implements TeamService
         logger.debug(LoggingName.SERVICE_FUNCTION_CREATE_TEAM);
         Team team = new Team(Converter.convertToLine(listId));
         try {
-            this.teamDao.add(team);
+            teamDao.add(team);
         } catch (DaoException e) {
             logger.error(e);
             throw new ServiceException(e.getMessage());
@@ -101,8 +101,8 @@ public class TeamServiceImpl extends GenericService<Team> implements TeamService
     @Override
     public void deleteTeam(Long id) throws ServiceException {
         logger.debug(LoggingName.SERVICE_FUNCTION_DELETE_TEAM);
-        Team team = this.getById(id);
-        this.remove(team);
+        Team team = getById(id);
+        remove(team);
     }
 
     /**

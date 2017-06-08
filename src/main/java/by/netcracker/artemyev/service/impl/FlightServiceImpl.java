@@ -47,7 +47,7 @@ public class FlightServiceImpl extends GenericService<Flight> implements FlightS
     public void createFlight(String navigation) throws ServiceException {
         logger.debug(LoggingName.SERVICE_FUNCTION_CREATE_FLIGHT);
         Flight flight = new Flight(navigation, null);
-        this.add(flight);
+        add(flight);
     }
 
     /**
@@ -83,7 +83,7 @@ public class FlightServiceImpl extends GenericService<Flight> implements FlightS
         Flight changeFlight = new Flight();
         changeFlight.setId(id);
         changeFlight.setNavigation(navigation);
-        this.update(changeFlight);
+        update(changeFlight);
     }
 
     /**
