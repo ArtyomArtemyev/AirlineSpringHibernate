@@ -10,6 +10,8 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 /**
+ * Class describes filter for admin pages
+ *
  * @autor Artemyev Artoym
  */
 public class AdminSecurityFilter implements Filter {

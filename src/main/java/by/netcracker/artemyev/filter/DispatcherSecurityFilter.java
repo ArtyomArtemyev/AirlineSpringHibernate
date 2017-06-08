@@ -1,6 +1,5 @@
 package by.netcracker.artemyev.filter;
 
-
 import by.netcracker.artemyev.entity.impl.User;
 import by.netcracker.artemyev.enumeration.RoleType;
 
@@ -9,6 +8,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
+/**
+ * Class describes filter for dispatcher pages
+ *
+ * @autor Artemyev Artoym
+ */
 public class DispatcherSecurityFilter implements Filter {
     private FilterConfig filterConfig;
     private final String REDIRECT_PAGE = "/WEB-INF/view/authorization.jsp";
@@ -38,4 +42,5 @@ public class DispatcherSecurityFilter implements Filter {
     @Override
     public void destroy() {
     }
+
 }

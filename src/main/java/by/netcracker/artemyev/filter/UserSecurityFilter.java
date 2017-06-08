@@ -9,6 +9,8 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 /**
+ * Class describes filter for user pages
+ *
  * @autor Artemyev Artoym
  */
 public class UserSecurityFilter implements Filter {

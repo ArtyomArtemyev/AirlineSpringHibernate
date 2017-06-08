@@ -1,7 +1,8 @@
 package by.netcracker.artemyev.exception;
 
 /**
- * Class describes a generic service exception
+ * Class describes service exception
+ *
  * @autor Artemyev Artoym
  */
 public class ServiceException extends Exception {

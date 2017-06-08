@@ -3,7 +3,8 @@ package by.netcracker.artemyev.exception;
 import org.hibernate.HibernateException;
 
 /**
- * Class describes common dao exception
+ * Class describes dao exception
+ *
  * @autor Artemyev Artoym
  */
 public class DaoException extends HibernateException {
