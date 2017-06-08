@@ -30,6 +30,12 @@ public abstract class GenericService<T> implements GeneralService<T> {
         this.dao = dao;
     }
 
+    /**
+     * Creates the given entity
+     *
+     * @param object - entity to be created
+     * @throws ServiceException - if something fails at service layer
+     */
     @Transactional
     @Override
     public void add(T object) throws ServiceException {
@@ -37,11 +43,17 @@ public abstract class GenericService<T> implements GeneralService<T> {
         try {
            dao.add(object);
         } catch (DaoException e) {
-            logger.debug(e);
+            logger.error(e);
             throw new ServiceException(e.getMessage());
         }
     }
 
+    /**
+     * Updates the given entity
+     *
+     * @param object - entity to be updated
+     * @throws ServiceException - if something fails at service layer
+     */
     @Transactional
     @Override
     public void update(T object) throws ServiceException {
@@ -49,11 +61,17 @@ public abstract class GenericService<T> implements GeneralService<T> {
         try {
             dao.update(object);
         } catch (DaoException e) {
-            logger.debug(e);
+            logger.error(e);
             throw new ServiceException(e.getMessage());
         }
     }
 
+    /**
+     * Deletes the given entity
+     *
+     * @param object - entity to be deleted
+     * @throws ServiceException - if something fails at service layer
+     */
     @Transactional
     @Override
     public void remove(T object) throws ServiceException {
@@ -61,11 +79,18 @@ public abstract class GenericService<T> implements GeneralService<T> {
         try {
             dao.remove(object);
         } catch (DaoException e) {
-            logger.debug(e);
+            logger.error(e);
             throw new ServiceException(e.getMessage());
         }
     }
 
+    /**
+     * Returns entity by id
+     *
+     * @param id - id of the entities to be returned
+     * @return - entity from the database
+     * @throws ServiceException - if something fails at service layer
+     */
     @Transactional(readOnly = true)
     @Override
     public T getById(Long id) throws ServiceException {
@@ -73,11 +98,17 @@ public abstract class GenericService<T> implements GeneralService<T> {
         try {
             return dao.getById(id);
         } catch (DaoException e) {
-            logger.debug(e);
+            logger.error(e);
             throw new ServiceException(e.getMessage());
         }
     }
 
+    /**
+     * Returns all entities
+     *
+     * @return - a list with all entities from the database
+     * @throws ServiceException - if something fails at service layer
+     */
     @Transactional(readOnly = true)
     @Override
     public List<T> getAll() throws ServiceException {
@@ -85,7 +116,7 @@ public abstract class GenericService<T> implements GeneralService<T> {
         try {
             return dao.getAll();
         } catch (DaoException e) {
-            logger.debug(e);
+            logger.error(e);
             throw new ServiceException(e.getMessage());
         }
     }
