@@ -6,6 +6,7 @@ import java.util.List;
 
 /**
  * Class describes team entity, which using for exchanges between components
+ *
  * @autor Artemyev Artoym
  */
 public class TeamDto {
