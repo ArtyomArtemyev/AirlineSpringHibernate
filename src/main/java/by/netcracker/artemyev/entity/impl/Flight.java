@@ -7,6 +7,7 @@ import java.util.List;
 
 /**
  * Class describes flight
+ *
  * @autor Artemyev Artoym
  */
 @Entity

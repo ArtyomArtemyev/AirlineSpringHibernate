@@ -8,6 +8,7 @@ import java.util.List;
 
 /**
  * Class describes gender
+ *
  * @autor Artemyev Artoym
  */
 @Entity

@@ -7,6 +7,7 @@ import java.util.List;
 
 /**
  * Class describes employee team for flight
+ *
  * @autor Artemyev Artoym
  */
 @Entity

@@ -1,6 +1,5 @@
 package by.netcracker.artemyev.entity.impl;
 
-
 import by.netcracker.artemyev.entity.BaseEntity;
 
 import javax.persistence.Column;
@@ -9,6 +8,11 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import java.util.List;
 
+/**
+ * Class describes airplane team
+ *
+ * @autor Artemyev Artoym
+ */
 @Entity
 @Table(name = "airplane_team")
 public class AirplaneTeam extends BaseEntity {

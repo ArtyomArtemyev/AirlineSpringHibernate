@@ -6,6 +6,7 @@ import javax.persistence.*;
 
 /**
  * Class describes employee
+ *
  * @autor Artemyev Artoym
  */
 @Entity

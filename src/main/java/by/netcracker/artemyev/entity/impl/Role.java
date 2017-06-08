@@ -8,6 +8,7 @@ import java.util.List;
 
 /**
  * Class describes role of users
+ *
  * @autor Artemyev Artoym
  */
 @Entity

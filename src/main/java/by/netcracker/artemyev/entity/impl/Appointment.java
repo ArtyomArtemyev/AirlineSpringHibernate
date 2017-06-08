@@ -8,6 +8,7 @@ import java.util.List;
 
 /**
  * Class describes appointment of employee
+ *
  * @autor Artemyev Artoym
  */
 @Entity

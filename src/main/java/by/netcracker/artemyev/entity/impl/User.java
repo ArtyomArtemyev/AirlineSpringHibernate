@@ -7,6 +7,7 @@ import java.util.List;
 
 /**
  * Class describes user
+ *
  * @autor Artemyev Artoym
  */
 @Entity

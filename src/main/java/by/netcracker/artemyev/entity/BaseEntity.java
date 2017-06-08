@@ -3,6 +3,11 @@ package by.netcracker.artemyev.entity;
 import javax.persistence.*;
 import java.io.Serializable;
 
+/**
+ * Class describes base entity
+ *
+ * @autor Artemyev Artoym
+ */
 @MappedSuperclass
 public abstract class BaseEntity implements Serializable, Cloneable {
     private Long id;

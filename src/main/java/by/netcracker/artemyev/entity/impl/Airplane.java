@@ -5,6 +5,11 @@ import by.netcracker.artemyev.entity.BaseEntity;
 import javax.persistence.*;
 import java.util.List;
 
+/**
+ * Class describes airplane
+ *
+ * @autor Artemyev Artoym
+ */
 @Entity
 @Table(name = "airplane")
 public class Airplane extends BaseEntity {

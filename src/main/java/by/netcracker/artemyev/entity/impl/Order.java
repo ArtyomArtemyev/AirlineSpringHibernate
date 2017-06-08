@@ -4,6 +4,11 @@ import by.netcracker.artemyev.entity.BaseEntity;
 
 import javax.persistence.*;
 
+/**
+ * Class describes order
+ *
+ * @autor Artemyev Artoym
+ */
 @Entity
 @Table(name = "user_order")
 public class Order extends BaseEntity {
