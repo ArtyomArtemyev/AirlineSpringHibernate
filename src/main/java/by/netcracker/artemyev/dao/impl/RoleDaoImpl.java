@@ -31,7 +31,7 @@ public class RoleDaoImpl extends GenericDao<Role> implements RoleDao {
      * Returns all roles from database
      *
      * @return list with roles from database
-     * @throws DaoException If something fails at database layer
+     * @throws DaoException - if something fails at database layer
      */
     @Override
     public List<Role> getAll() throws DaoException {

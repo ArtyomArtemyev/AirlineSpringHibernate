@@ -31,7 +31,7 @@ public class FlightDaoImpl extends GenericDao<Flight> implements FlightDao {
      * Returns all flights from database
      *
      * @return list with flights from database
-     * @throws DaoException If something fails at database layer
+     * @throws DaoException - if something fails at database layer
      */
     @Override
     public List<Flight> getAll() throws DaoException {

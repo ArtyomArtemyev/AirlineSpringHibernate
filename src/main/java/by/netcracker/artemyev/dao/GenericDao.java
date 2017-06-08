@@ -38,7 +38,7 @@ public abstract class GenericDao<T> implements GeneralDao<T> {
      * Creates the given entity in the database
      *
      * @param object - entity to be created
-     * @throws DaoException If something fails at database level
+     * @throws DaoException - if something fails at database level
      */
     @Override
     public void add(T object) throws DaoException {
@@ -55,7 +55,7 @@ public abstract class GenericDao<T> implements GeneralDao<T> {
      * Updates the given entity in the database
      *
      * @param object - entity to be updated
-     * @throws DaoException If something fails at database level
+     * @throws DaoException - if something fails at database level
      */
     @Override
     public void update(T object) throws DaoException {
@@ -72,7 +72,7 @@ public abstract class GenericDao<T> implements GeneralDao<T> {
      * Deletes the given entity in the database
      *
      * @param object - entity to be deleted
-     * @throws DaoException If something fails at database level
+     * @throws DaoException if - something fails at database level
      */
     @Override
     public void remove(T object) throws DaoException {
@@ -90,7 +90,7 @@ public abstract class GenericDao<T> implements GeneralDao<T> {
      *
      * @param id - id of the entities to be returned
      * @return - entity from the database
-     * @throws DaoException If something fails at database level
+     * @throws DaoException - if something fails at database level
      */
     @Override
     public T getById(Long id) throws DaoException {
@@ -107,7 +107,7 @@ public abstract class GenericDao<T> implements GeneralDao<T> {
      * Returns a list with all entities from the database
      *
      * @return - a list with all entities from the database
-     * @throws DaoException If something fails at database level
+     * @throws DaoException - if something fails at database level
      */
     public abstract List<T> getAll() throws DaoException;
 

@@ -36,7 +36,7 @@ public class UserDaoImpl extends GenericDao<User> implements UserDao {
      * Returns all users from database
      *
      * @return list with users from database
-     * @throws DaoException If something fails at database layer
+     * @throws DaoException - if something fails at database layer
      */
     @Override
     public List<User> getAll() throws DaoException {

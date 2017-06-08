@@ -62,6 +62,7 @@ public final class LoggingName {
     public static final String DAO_FUNCTION_GET_ALL_FLIGHTS = "FlightDaoImpl: getAll";
     public static final String DAO_FUNCTION_GET_ALL_EMPLOYEES = "EmployeeDaoImpl: getAll";
     public static final String DAO_FUNCTION_GET_ALL_APPOINTMENTS = "AppointmentDaoImpl: getAll";
+    public static final String DAO_FUNCTION_GET_ALL_AIRPLANES = "AirplaneDaoImpl: getAll";
     public static final String CONTROLLER_FUNCTION_CREATE_ORDER = "OrderController: createOrder";
     public static final String CONTROLLER_FUNCTION_APPOINTMENT_AIRPLANE = "AirplaneViewController: getAppointmentAirplanePage";
     public static final String CONTROLLER_UPDATE_FLIGHT = "AirplaneController: updateFlight";

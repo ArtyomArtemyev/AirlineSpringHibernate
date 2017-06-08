@@ -31,7 +31,7 @@ public class EmployeeDaoImpl extends GenericDao<Employee> implements EmployeeDao
      * Returns all employees from database
      *
      * @return list with employees from database
-     * @throws DaoException If something fails at database layer
+     * @throws DaoException - if something fails at database layer
      */
     @Override
     public List<Employee> getAll() throws DaoException {

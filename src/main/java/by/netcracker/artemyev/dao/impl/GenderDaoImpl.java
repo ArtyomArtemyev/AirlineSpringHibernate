@@ -31,7 +31,7 @@ public class GenderDaoImpl extends GenericDao<Gender> implements GenderDao {
      * Returns all genders from database
      *
      * @return list with genders from database
-     * @throws DaoException If something fails at database layer
+     * @throws DaoException - if something fails at database layer
      */
     @Override
     public List<Gender> getAll() throws DaoException {

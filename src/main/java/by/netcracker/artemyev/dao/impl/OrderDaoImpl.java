@@ -30,7 +30,7 @@ public class OrderDaoImpl extends GenericDao<Order> implements OrderDao {
      * Returns all orders from database
      *
      * @return list with orders from database
-     * @throws DaoException If something fails at database layer
+     * @throws DaoException - if something fails at database layer
      */
     @Override
     public List<Order> getAll() throws DaoException {

@@ -31,7 +31,7 @@ public class TeamDaoImpl extends GenericDao<Team> implements TeamDao {
      * Returns all teams from database
      *
      * @return list with teams from database
-     * @throws DaoException If something fails at database layer
+     * @throws DaoException - if something fails at database layer
      */
     @Override
     public List<Team> getAll() throws DaoException {

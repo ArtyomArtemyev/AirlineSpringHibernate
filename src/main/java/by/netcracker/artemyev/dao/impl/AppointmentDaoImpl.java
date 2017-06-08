@@ -31,7 +31,7 @@ public class AppointmentDaoImpl extends GenericDao<Appointment> implements Appoi
      * Returns all appointment from database
      *
      * @return list with appointments from database
-     * @throws DaoException If something fails at database layer
+     * @throws DaoException - if something fails at database layer
      */
     @Override
     public List<Appointment> getAll() throws DaoException {
@@ -40,7 +40,7 @@ public class AppointmentDaoImpl extends GenericDao<Appointment> implements Appoi
         try {
             appointmentList = getEntityManager().createQuery(Statement.GET_ALL_APPOINTMENTS).getResultList();
         } catch (HibernateException e) {
-            logger.debug(e);
+            logger.error(e);
             throw new DaoException(ErrorMessage.GET_ALL_ENTITY_FAIL, e);
         }
         return appointmentList;
