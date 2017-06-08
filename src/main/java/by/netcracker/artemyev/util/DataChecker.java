@@ -20,6 +20,14 @@ public final class DataChecker {
             "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
                     + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
 
+    /**
+     * Validates entered user data
+     *
+     * @param userLogin - entered login
+     * @param userPassword - entered password
+     * @param userMail - entered mail
+     * @return - if data is validate return true, else return false
+     */
     public static boolean validateUserData(String userLogin, String userPassword, String userMail) {
         logger.debug(LoggingName.FUNCTION_VALIDATE_USER_DATA);
         boolean isValidateData = false;
@@ -37,6 +45,13 @@ public final class DataChecker {
         return isValidateData;
     }
 
+    /**
+     * Validates entered user data
+     *
+     * @param userLogin - entered login
+     * @param userPassword - entered password
+     * @return - if data is validate return true, else return false
+     */
     public static boolean validateUserData(String userLogin, String userPassword) {
         logger.debug(LoggingName.FUNCTION_VALIDATE_USER_DATA);
         boolean isValidateData = false;
@@ -48,6 +63,12 @@ public final class DataChecker {
         return isValidateData;
     }
 
+    /**
+     * Checks entered user data
+     *
+     * @param userData - entered login
+     * @return - if data is validate return true, else return false
+     */
     public static boolean checkUserData(String userData) {
         logger.debug(LoggingName.FUNCTION_VALIDATE_USER_DATA);
         boolean isValidateData = false;

@@ -21,7 +21,7 @@ public final class Converter {
     private static Gson gson = new Gson();
 
     /**
-     * Convert json line with id to list with id
+     * Converts json line with id to list with id
      *
      * @param line - line with id
      * @return - list with id
@@ -36,7 +36,7 @@ public final class Converter {
     }
 
     /**
-     * Convert list with id to json line with id
+     * Converts list with id to json line with id
      *
      * @param list - list with id
      * @return - line with id
