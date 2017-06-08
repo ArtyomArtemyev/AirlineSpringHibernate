@@ -121,8 +121,6 @@ public class User extends BaseEntity {
     public String toString() {
         return "User{" + "id=" + this.getId() +
                 ", login='" + login + '\'' +
-                ", password='" + password + '\'' +
-                ", mail='" + mail + '\'' +
                 ", role=" + role +
                 '}';
     }
