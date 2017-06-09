@@ -42,7 +42,6 @@ public class OrderController {
         String returnText = ServerResponse.SUCCESSFUL_CHECK_IN;
         if(DataChecker.checkUserData(json)) {
             JSONObject jsonObject = new JSONObject(json);
-            logger.info(jsonObject.toString());
             try {
                 orderService.createOrder(
                         Long.valueOf(jsonObject.getString(FIELD_ID_FLIGHT)),
